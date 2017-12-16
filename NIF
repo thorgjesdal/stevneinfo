@@ -1,0 +1,2494 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SingleEntries>
+  <Product name="SportsAdmin" version="5.6" />
+  <Competition name="Treningsstevne" startDate="06.09.2017" startTime="1730" endDate="06.09.2017">
+    <EventId>311345</EventId>
+    <CompetitionVenue startingvenue="Norges idrettshøgskole (Oslo)" finishingvenue="" />
+  </Competition>
+  <SingleEntry createDate="2017-08-11">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blekeli</Family>
+          <Given order="1">Martine Fiskerstrand</Given>
+        </Name>
+        <BirthDate day="26" month="8" year="2004" />
+        <Identity value="207082886" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890633">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-11" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Skotheim</Family>
+          <Given order="1">Eirin Aae</Given>
+        </Name>
+        <BirthDate day="11" month="12" year="2004" />
+        <Identity value="207084982" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890633">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Schmidt-Cisternas</Family>
+          <Given order="1">Celia</Given>
+        </Name>
+        <BirthDate day="8" month="11" year="2004" />
+        <Identity value="207785995" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890633">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-20">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Bell</Family>
+          <Given order="1">Ebba Jakobine</Given>
+        </Name>
+        <BirthDate day="24" month="5" year="2005" />
+        <Identity value="207548822" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890634">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-20" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-31">
+    <Competitor startNumber="">
+      <Person clubName="Lambertseter IF" clubId="57292" sex="K">
+        <Name>
+          <Family>Støwer-Rohdin</Family>
+          <Given order="1">Signe</Given>
+        </Name>
+        <BirthDate day="8" month="8" year="2005" />
+        <Identity value="207557362" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890634">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-31" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Sande</Family>
+          <Given order="1">Anna</Given>
+        </Name>
+        <BirthDate day="4" month="1" year="2005" />
+        <Identity value="207557616" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890634">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Storås</Family>
+          <Given order="1">Kristin Emilie Holck</Given>
+        </Name>
+        <BirthDate day="31" month="10" year="2005" />
+        <Identity value="207552178" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890634">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Korperud</Family>
+          <Given order="1">Anna Hungnes</Given>
+        </Name>
+        <BirthDate day="19" month="2" year="2006" />
+        <Identity value="208197864" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890635">
+        <EntryClass id="303449" shortName="Jenter 11" classCode="J11" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-11">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blekeli</Family>
+          <Given order="1">Emma Johanne Fiskerstrand</Given>
+        </Name>
+        <BirthDate day="27" month="6" year="2007" />
+        <Identity value="207816862" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890636">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-11" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-20">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Bell</Family>
+          <Given order="1">Petra Helene</Given>
+        </Name>
+        <BirthDate day="20" month="11" year="2007" />
+        <Identity value="207548823" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890636">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-20" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-29">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Reksnes</Family>
+          <Given order="1">Kari</Given>
+        </Name>
+        <BirthDate day="14" month="7" year="2008" />
+        <Identity value="208281053" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890636">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-29" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blegen</Family>
+          <Given order="1">Ida Charlotte</Given>
+        </Name>
+        <BirthDate day="28" month="1" year="2007" />
+        <Identity value="207808081" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890636">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Sande</Family>
+          <Given order="1">Ella</Given>
+        </Name>
+        <BirthDate day="2" month="10" year="2007" />
+        <Identity value="207802446" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890636">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Jørgensen</Family>
+          <Given order="1">Amalie Strømdahl</Given>
+        </Name>
+        <BirthDate day="14" month="8" year="2007" />
+        <Identity value="208188733" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890636">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Solveig</Given>
+        </Name>
+        <BirthDate day="21" month="2" year="2009" />
+        <Identity value="208188063" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890636">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-31">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Støwer-Rohdin</Family>
+          <Given order="1">Andreas</Given>
+        </Name>
+        <BirthDate day="10" month="8" year="2002" />
+        <Identity value="207551705" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890637">
+        <EntryClass id="303441" shortName="Gutter 15" classCode="G15" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-31" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skotheim</Family>
+          <Given order="1">Sander Aae</Given>
+        </Name>
+        <BirthDate day="31" month="5" year="2002" />
+        <Identity value="205923995" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890637">
+        <EntryClass id="303441" shortName="Gutter 15" classCode="G15" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Husebø</Family>
+          <Given order="1">Josefine Kirkeby</Given>
+        </Name>
+        <BirthDate day="21" month="8" year="2004" />
+        <Identity value="207165717" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890651">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-11">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blekeli</Family>
+          <Given order="1">Martine Fiskerstrand</Given>
+        </Name>
+        <BirthDate day="26" month="8" year="2004" />
+        <Identity value="207082886" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890652">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-11" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Husebø</Family>
+          <Given order="1">Josefine Kirkeby</Given>
+        </Name>
+        <BirthDate day="21" month="8" year="2004" />
+        <Identity value="207165717" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890652">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Skotheim</Family>
+          <Given order="1">Eirin Aae</Given>
+        </Name>
+        <BirthDate day="11" month="12" year="2004" />
+        <Identity value="207084982" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890652">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Hamsund</Family>
+          <Given order="1">Ingrid</Given>
+        </Name>
+        <BirthDate day="22" month="2" year="2004" />
+        <Identity value="206614466" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890652">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-20">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Bell</Family>
+          <Given order="1">Ebba Jakobine</Given>
+        </Name>
+        <BirthDate day="24" month="5" year="2005" />
+        <Identity value="207548822" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890653">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-20" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Sande</Family>
+          <Given order="1">Anna</Given>
+        </Name>
+        <BirthDate day="4" month="1" year="2005" />
+        <Identity value="207557616" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890653">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-20">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Bell</Family>
+          <Given order="1">Ebba Jakobine</Given>
+        </Name>
+        <BirthDate day="24" month="5" year="2005" />
+        <Identity value="207548822" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890654">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-20" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-31">
+    <Competitor startNumber="">
+      <Person clubName="Lambertseter IF" clubId="57292" sex="K">
+        <Name>
+          <Family>Støwer-Rohdin</Family>
+          <Given order="1">Signe</Given>
+        </Name>
+        <BirthDate day="8" month="8" year="2005" />
+        <Identity value="207557362" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890654">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-31" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Sande</Family>
+          <Given order="1">Anna</Given>
+        </Name>
+        <BirthDate day="4" month="1" year="2005" />
+        <Identity value="207557616" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890654">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Korperud</Family>
+          <Given order="1">Anna Hungnes</Given>
+        </Name>
+        <BirthDate day="19" month="2" year="2006" />
+        <Identity value="208197864" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890655">
+        <EntryClass id="303449" shortName="Jenter 11" classCode="J11" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Korperud</Family>
+          <Given order="1">Anna Hungnes</Given>
+        </Name>
+        <BirthDate day="19" month="2" year="2006" />
+        <Identity value="208197864" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890656">
+        <EntryClass id="303449" shortName="Jenter 11" classCode="J11" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-11">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blekeli</Family>
+          <Given order="1">Emma Johanne Fiskerstrand</Given>
+        </Name>
+        <BirthDate day="27" month="6" year="2007" />
+        <Identity value="207816862" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890657">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-11" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-20">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Bell</Family>
+          <Given order="1">Petra Helene</Given>
+        </Name>
+        <BirthDate day="20" month="11" year="2007" />
+        <Identity value="207548823" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890657">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-20" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blegen</Family>
+          <Given order="1">Ida Charlotte</Given>
+        </Name>
+        <BirthDate day="28" month="1" year="2007" />
+        <Identity value="207808081" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890657">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Jørgensen</Family>
+          <Given order="1">Amalie Strømdahl</Given>
+        </Name>
+        <BirthDate day="14" month="8" year="2007" />
+        <Identity value="208188733" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890657">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Solveig</Given>
+        </Name>
+        <BirthDate day="21" month="2" year="2009" />
+        <Identity value="208188063" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890657">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-11">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blekeli</Family>
+          <Given order="1">Emma Johanne Fiskerstrand</Given>
+        </Name>
+        <BirthDate day="27" month="6" year="2007" />
+        <Identity value="207816862" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890658">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-11" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-20">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Bell</Family>
+          <Given order="1">Petra Helene</Given>
+        </Name>
+        <BirthDate day="20" month="11" year="2007" />
+        <Identity value="207548823" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890658">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-20" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-29">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Reksnes</Family>
+          <Given order="1">Kari</Given>
+        </Name>
+        <BirthDate day="14" month="7" year="2008" />
+        <Identity value="208281053" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890658">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-29" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blegen</Family>
+          <Given order="1">Ida Charlotte</Given>
+        </Name>
+        <BirthDate day="28" month="1" year="2007" />
+        <Identity value="207808081" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890658">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Sande</Family>
+          <Given order="1">Ella</Given>
+        </Name>
+        <BirthDate day="2" month="10" year="2007" />
+        <Identity value="207802446" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890658">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Jørgensen</Family>
+          <Given order="1">Amalie Strømdahl</Given>
+        </Name>
+        <BirthDate day="14" month="8" year="2007" />
+        <Identity value="208188733" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890658">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Solveig</Given>
+        </Name>
+        <BirthDate day="21" month="2" year="2009" />
+        <Identity value="208188063" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890658">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-29">
+    <Competitor startNumber="">
+      <Person clubName="Tjalve, IK" clubId="57317" sex="M">
+        <Name>
+          <Family>Winger</Family>
+          <Given order="1">Alexander Dahlstrøm</Given>
+        </Name>
+        <BirthDate day="7" month="5" year="1989" />
+        <Identity value="205244" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890666">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="563" name="100 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-29" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="Bækkelagets SK" clubId="57278" sex="M">
+        <Name>
+          <Family>Luong</Family>
+          <Given order="1">Khoa Henrik</Given>
+        </Name>
+        <BirthDate day="13" month="12" year="1993" />
+        <Identity value="207285017" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890666">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="563" name="100 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-02">
+    <Competitor startNumber="">
+      <Person clubName="BUL, IL i" clubId="57275" sex="M">
+        <Name>
+          <Family>Bach</Family>
+          <Given order="1">Adrian</Given>
+        </Name>
+        <BirthDate day="14" month="12" year="1993" />
+        <Identity value="208280762" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890666">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="563" name="100 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-02" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="Tjalve, IK" clubId="57317" sex="M">
+        <Name>
+          <Family>Liholt</Family>
+          <Given order="1">Rune Bråten</Given>
+        </Name>
+        <BirthDate day="13" month="11" year="1976" />
+        <Identity value="208208753" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890666">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="563" name="100 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="BUL, IL i" clubId="57275" sex="M">
+        <Name>
+          <Family>Russ</Family>
+          <Given order="1">Simen Arias</Given>
+        </Name>
+        <BirthDate day="9" month="5" year="1988" />
+        <Identity value="27174" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890666">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="563" name="100 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="BUL, IL i" clubId="57275" sex="M">
+        <Name>
+          <Family>Heitmann</Family>
+          <Given order="1">Rolv Kristian</Given>
+        </Name>
+        <BirthDate day="14" month="6" year="1985" />
+        <Identity value="1838340" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890666">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="563" name="100 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-31">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Støwer-Rohdin</Family>
+          <Given order="1">Andreas</Given>
+        </Name>
+        <BirthDate day="10" month="8" year="2002" />
+        <Identity value="207551705" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890668">
+        <EntryClass id="303441" shortName="Gutter 15" classCode="G15" />
+        <Exercise id="563" name="100 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-31" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skotheim</Family>
+          <Given order="1">Sander Aae</Given>
+        </Name>
+        <BirthDate day="31" month="5" year="2002" />
+        <Identity value="205923995" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890668">
+        <EntryClass id="303441" shortName="Gutter 15" classCode="G15" />
+        <Exercise id="563" name="100 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-13">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Møller</Family>
+          <Given order="1">Lars Wold</Given>
+        </Name>
+        <BirthDate day="30" month="6" year="2005" />
+        <Identity value="207785607" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890673">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-13" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-17">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Gjesdal</Family>
+          <Given order="1">Lucas Fernandes Thomaz</Given>
+        </Name>
+        <BirthDate day="24" month="6" year="2005" />
+        <Identity value="206798216" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890673">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-17" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Haga</Family>
+          <Given order="1">Andreas Wiesener</Given>
+        </Name>
+        <BirthDate day="20" month="2" year="2005" />
+        <Identity value="207117985" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890673">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="Tyrving IL" clubId="57235" sex="M">
+        <Name>
+          <Family>Halvorsen</Family>
+          <Given order="1">Andreas Fjeld</Given>
+        </Name>
+        <BirthDate day="14" month="9" year="2005" />
+        <Identity value="207825139" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890673">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-13">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Møller</Family>
+          <Given order="1">Lars Wold</Given>
+        </Name>
+        <BirthDate day="30" month="6" year="2005" />
+        <Identity value="207785607" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890674">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-13" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-17">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Gjesdal</Family>
+          <Given order="1">Lucas Fernandes Thomaz</Given>
+        </Name>
+        <BirthDate day="24" month="6" year="2005" />
+        <Identity value="206798216" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890674">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-17" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Fritsvold</Family>
+          <Given order="1">Simen</Given>
+        </Name>
+        <BirthDate day="12" month="5" year="2005" />
+        <Identity value="207557046" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890674">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Haga</Family>
+          <Given order="1">Andreas Wiesener</Given>
+        </Name>
+        <BirthDate day="20" month="2" year="2005" />
+        <Identity value="207117985" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890674">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="Tyrving IL" clubId="57235" sex="M">
+        <Name>
+          <Family>Halvorsen</Family>
+          <Given order="1">Andreas Fjeld</Given>
+        </Name>
+        <BirthDate day="14" month="9" year="2005" />
+        <Identity value="207825139" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890674">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Strand-Andersen</Family>
+          <Given order="1">Martin</Given>
+        </Name>
+        <BirthDate day="5" month="9" year="2006" />
+        <Identity value="207558817" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890675">
+        <EntryClass id="303437" shortName="Gutter 11" classCode="G11" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Lærum</Family>
+          <Given order="1">Steffen Idsøe</Given>
+        </Name>
+        <BirthDate day="29" month="12" year="2006" />
+        <Identity value="208281656" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890675">
+        <EntryClass id="303437" shortName="Gutter 11" classCode="G11" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Strand-Andersen</Family>
+          <Given order="1">Martin</Given>
+        </Name>
+        <BirthDate day="5" month="9" year="2006" />
+        <Identity value="207558817" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890676">
+        <EntryClass id="303437" shortName="Gutter 11" classCode="G11" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Lærum</Family>
+          <Given order="1">Steffen Idsøe</Given>
+        </Name>
+        <BirthDate day="29" month="12" year="2006" />
+        <Identity value="208281656" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890676">
+        <EntryClass id="303437" shortName="Gutter 11" classCode="G11" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-13">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Møller</Family>
+          <Given order="1">Axel Wold</Given>
+        </Name>
+        <BirthDate day="15" month="4" year="2008" />
+        <Identity value="207842606" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890677">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-13" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-21">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Bergene</Family>
+          <Given order="1">Jacob</Given>
+        </Name>
+        <BirthDate day="28" month="10" year="2007" />
+        <Identity value="207777846" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890677">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-21" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Husebø</Family>
+          <Given order="1">August Kirkeby</Given>
+        </Name>
+        <BirthDate day="27" month="7" year="2007" />
+        <Identity value="207799572" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890677">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Sverre</Given>
+        </Name>
+        <BirthDate day="30" month="3" year="2007" />
+        <Identity value="207824178" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890677">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-13">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Møller</Family>
+          <Given order="1">Axel Wold</Given>
+        </Name>
+        <BirthDate day="15" month="4" year="2008" />
+        <Identity value="207842606" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890678">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-13" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-21">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Bergene</Family>
+          <Given order="1">Jacob</Given>
+        </Name>
+        <BirthDate day="28" month="10" year="2007" />
+        <Identity value="207777846" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890678">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-21" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Husebø</Family>
+          <Given order="1">August Kirkeby</Given>
+        </Name>
+        <BirthDate day="27" month="7" year="2007" />
+        <Identity value="207799572" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890678">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Sverre</Given>
+        </Name>
+        <BirthDate day="30" month="3" year="2007" />
+        <Identity value="207824178" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890678">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Sigve</Given>
+        </Name>
+        <BirthDate day="29" month="11" year="2011" />
+        <Identity value="208276091" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890678">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-11">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blekeli</Family>
+          <Given order="1">Martine Fiskerstrand</Given>
+        </Name>
+        <BirthDate day="26" month="8" year="2004" />
+        <Identity value="207082886" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890679">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-11" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Husebø</Family>
+          <Given order="1">Josefine Kirkeby</Given>
+        </Name>
+        <BirthDate day="21" month="8" year="2004" />
+        <Identity value="207165717" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890679">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Skotheim</Family>
+          <Given order="1">Eirin Aae</Given>
+        </Name>
+        <BirthDate day="11" month="12" year="2004" />
+        <Identity value="207084982" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890679">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Hamsund</Family>
+          <Given order="1">Ingrid</Given>
+        </Name>
+        <BirthDate day="22" month="2" year="2004" />
+        <Identity value="206614466" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890679">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Schmidt-Cisternas</Family>
+          <Given order="1">Celia</Given>
+        </Name>
+        <BirthDate day="8" month="11" year="2004" />
+        <Identity value="207785995" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890679">
+        <EntryClass id="303451" shortName="Jenter 13" classCode="J13" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-20">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Bell</Family>
+          <Given order="1">Ebba Jakobine</Given>
+        </Name>
+        <BirthDate day="24" month="5" year="2005" />
+        <Identity value="207548822" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890680">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-20" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-31">
+    <Competitor startNumber="">
+      <Person clubName="Lambertseter IF" clubId="57292" sex="K">
+        <Name>
+          <Family>Støwer-Rohdin</Family>
+          <Given order="1">Signe</Given>
+        </Name>
+        <BirthDate day="8" month="8" year="2005" />
+        <Identity value="207557362" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890680">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-31" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Sande</Family>
+          <Given order="1">Anna</Given>
+        </Name>
+        <BirthDate day="4" month="1" year="2005" />
+        <Identity value="207557616" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890680">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Storås</Family>
+          <Given order="1">Kristin Emilie Holck</Given>
+        </Name>
+        <BirthDate day="31" month="10" year="2005" />
+        <Identity value="207552178" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890680">
+        <EntryClass id="303450" shortName="Jenter 12" classCode="J12" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Korperud</Family>
+          <Given order="1">Anna Hungnes</Given>
+        </Name>
+        <BirthDate day="19" month="2" year="2006" />
+        <Identity value="208197864" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890681">
+        <EntryClass id="303449" shortName="Jenter 11" classCode="J11" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-11">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blekeli</Family>
+          <Given order="1">Emma Johanne Fiskerstrand</Given>
+        </Name>
+        <BirthDate day="27" month="6" year="2007" />
+        <Identity value="207816862" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890682">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-11" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-20">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Bell</Family>
+          <Given order="1">Petra Helene</Given>
+        </Name>
+        <BirthDate day="20" month="11" year="2007" />
+        <Identity value="207548823" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890682">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-20" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-29">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Reksnes</Family>
+          <Given order="1">Kari</Given>
+        </Name>
+        <BirthDate day="14" month="7" year="2008" />
+        <Identity value="208281053" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890682">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-29" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Blegen</Family>
+          <Given order="1">Ida Charlotte</Given>
+        </Name>
+        <BirthDate day="28" month="1" year="2007" />
+        <Identity value="207808081" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890682">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Sande</Family>
+          <Given order="1">Ella</Given>
+        </Name>
+        <BirthDate day="2" month="10" year="2007" />
+        <Identity value="207802446" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890682">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Jørgensen</Family>
+          <Given order="1">Amalie Strømdahl</Given>
+        </Name>
+        <BirthDate day="14" month="8" year="2007" />
+        <Identity value="208188733" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890682">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="K">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Solveig</Given>
+        </Name>
+        <BirthDate day="21" month="2" year="2009" />
+        <Identity value="208188063" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890682">
+        <EntryClass id="303448" shortName="Jenter 10" classCode="J10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-13">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Møller</Family>
+          <Given order="1">Lars Wold</Given>
+        </Name>
+        <BirthDate day="30" month="6" year="2005" />
+        <Identity value="207785607" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890684">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-13" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-17">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Gjesdal</Family>
+          <Given order="1">Lucas Fernandes Thomaz</Given>
+        </Name>
+        <BirthDate day="24" month="6" year="2005" />
+        <Identity value="206798216" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890684">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-17" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Fritsvold</Family>
+          <Given order="1">Simen</Given>
+        </Name>
+        <BirthDate day="12" month="5" year="2005" />
+        <Identity value="207557046" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890684">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Haga</Family>
+          <Given order="1">Andreas Wiesener</Given>
+        </Name>
+        <BirthDate day="20" month="2" year="2005" />
+        <Identity value="207117985" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890684">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Strand-Andersen</Family>
+          <Given order="1">Martin</Given>
+        </Name>
+        <BirthDate day="5" month="9" year="2006" />
+        <Identity value="207558817" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890685">
+        <EntryClass id="303437" shortName="Gutter 11" classCode="G11" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Lærum</Family>
+          <Given order="1">Steffen Idsøe</Given>
+        </Name>
+        <BirthDate day="29" month="12" year="2006" />
+        <Identity value="208281656" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890685">
+        <EntryClass id="303437" shortName="Gutter 11" classCode="G11" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-13">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Møller</Family>
+          <Given order="1">Axel Wold</Given>
+        </Name>
+        <BirthDate day="15" month="4" year="2008" />
+        <Identity value="207842606" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890686">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-13" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-21">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Bergene</Family>
+          <Given order="1">Jacob</Given>
+        </Name>
+        <BirthDate day="28" month="10" year="2007" />
+        <Identity value="207777846" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890686">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-21" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Husebø</Family>
+          <Given order="1">August Kirkeby</Given>
+        </Name>
+        <BirthDate day="27" month="7" year="2007" />
+        <Identity value="207799572" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890686">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Sverre</Given>
+        </Name>
+        <BirthDate day="30" month="3" year="2007" />
+        <Identity value="207824178" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890686">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Sigve</Given>
+        </Name>
+        <BirthDate day="29" month="11" year="2011" />
+        <Identity value="208276091" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890686">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="621" name="Lengde satssone" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-13">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Møller</Family>
+          <Given order="1">Lars Wold</Given>
+        </Name>
+        <BirthDate day="30" month="6" year="2005" />
+        <Identity value="207785607" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890688">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-13" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-17">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Gjesdal</Family>
+          <Given order="1">Lucas Fernandes Thomaz</Given>
+        </Name>
+        <BirthDate day="24" month="6" year="2005" />
+        <Identity value="206798216" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890688">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-17" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Fritsvold</Family>
+          <Given order="1">Simen</Given>
+        </Name>
+        <BirthDate day="12" month="5" year="2005" />
+        <Identity value="207557046" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890688">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Haga</Family>
+          <Given order="1">Andreas Wiesener</Given>
+        </Name>
+        <BirthDate day="20" month="2" year="2005" />
+        <Identity value="207117985" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890688">
+        <EntryClass id="303438" shortName="Gutter 12" classCode="G12" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-30">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Strand-Andersen</Family>
+          <Given order="1">Martin</Given>
+        </Name>
+        <BirthDate day="5" month="9" year="2006" />
+        <Identity value="207558817" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890689">
+        <EntryClass id="303437" shortName="Gutter 11" classCode="G11" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-30" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-13">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Møller</Family>
+          <Given order="1">Axel Wold</Given>
+        </Name>
+        <BirthDate day="15" month="4" year="2008" />
+        <Identity value="207842606" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890690">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-13" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-03">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Husebø</Family>
+          <Given order="1">August Kirkeby</Given>
+        </Name>
+        <BirthDate day="27" month="7" year="2007" />
+        <Identity value="207799572" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890690">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-03" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skjærholt</Family>
+          <Given order="1">Sverre</Given>
+        </Name>
+        <BirthDate day="30" month="3" year="2007" />
+        <Identity value="207824178" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1890690">
+        <EntryClass id="303436" shortName="Gutter 10" classCode="G10" />
+        <Exercise id="645" name="Kule" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-08-29">
+    <Competitor startNumber="">
+      <Person clubName="Nesodden IF" clubId="57225" sex="M">
+        <Name>
+          <Family>Jørgensen</Family>
+          <Given order="1">Kasper Kjær</Given>
+        </Name>
+        <BirthDate day="20" month="5" year="2003" />
+        <Identity value="25208" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1897999">
+        <EntryClass id="303440" shortName="Gutter 14" classCode="G14" />
+        <Exercise id="711" name="600 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-08-29" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="IL Koll" clubId="57290" sex="M">
+        <Name>
+          <Family>Skotheim</Family>
+          <Given order="1">Sander Aae</Given>
+        </Name>
+        <BirthDate day="31" month="5" year="2002" />
+        <Identity value="205923995" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1898008">
+        <EntryClass id="303441" shortName="Gutter 15" classCode="G15" />
+        <Exercise id="620" name="Lengde" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-02">
+    <Competitor startNumber="">
+      <Person clubName="BUL, IL i" clubId="57275" sex="M">
+        <Name>
+          <Family>Bach</Family>
+          <Given order="1">Adrian</Given>
+        </Name>
+        <BirthDate day="14" month="12" year="1993" />
+        <Identity value="208280762" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1900140">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-02" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-04">
+    <Competitor startNumber="">
+      <Person clubName="Tjalve, IK" clubId="57317" sex="M">
+        <Name>
+          <Family>Liholt</Family>
+          <Given order="1">Rune Bråten</Given>
+        </Name>
+        <BirthDate day="13" month="11" year="1976" />
+        <Identity value="208208753" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1900140">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-04" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="Tjalve, IK" clubId="57317" sex="M">
+        <Name>
+          <Family>Winger</Family>
+          <Given order="1">Alexander Dahlstrøm</Given>
+        </Name>
+        <BirthDate day="7" month="5" year="1989" />
+        <Identity value="205244" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1900140">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+  <SingleEntry createDate="2017-09-05">
+    <Competitor startNumber="">
+      <Person clubName="BUL, IL i" clubId="57275" sex="M">
+        <Name>
+          <Family>Heitmann</Family>
+          <Given order="1">Rolv Kristian</Given>
+        </Name>
+        <BirthDate day="14" month="6" year="1985" />
+        <Identity value="1838340" />
+      </Person>
+      <License value="N" type="" />
+      <Entry day="2017-09-06" time="17:30:00" id="1900140">
+        <EntryClass id="303369" shortName="Menn senior" classCode="MS" />
+        <Exercise id="561" name="60 meter" />
+        <CCard type="" name="" />
+      </Entry>
+      <Times>
+        <Start time="" />
+      </Times>
+      <Payment status="0" Fee="0" Date="2017-09-05" transactionId="-1" />
+    </Competitor>
+  </SingleEntry>
+</SingleEntries>
