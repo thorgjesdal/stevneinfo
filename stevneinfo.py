@@ -1,4 +1,4 @@
-#!/usr/bin/python
+﻿#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from xml.etree import ElementTree as ET
 from openpyxl import Workbook
@@ -12,12 +12,6 @@ with open('NIF', 'rt') as f:
 #for node in tree.iter():
 #    print node.tag, node.attrib
 
-def etree_to_dict(t):
-    d = {t.tag : map(etree_to_dict, t.getchildren())}
-    d.update(('@' + k, v) for k, v in t.attrib.iteritems())
-    d['text'] = t.text
-    return d
-
 s = tree.find('.//Competition')
 mn = s.attrib['name']
 md = s.attrib['startDate']
@@ -26,6 +20,9 @@ v = s.find('CompetitionVenue')
 mv = v.attrib['startingvenue']
 sn =  mn + ' ' + mv + ' ' + md
 fname = sn.replace(' ','_')
+
+# save a copy of the element tree
+tree.write(fname+'.xml', encoding="utf-8")
 
 events_by_athlete = {}
 events_by_athlete_by_club = {}
@@ -70,6 +67,27 @@ for c in tree.findall('.//Competitor'):
       athlete_by_class_by_event[event][klasse]=[]
    athlete_by_class_by_event[event][klasse].append({'name': name, 'dob': dob, 'club' : club }) 
 
+of = open (fname+"_deltagere_pr_ovelse.html".encode('utf-8'), 'w')
+of.write(""" <!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<body>
+<title> %(mn)s </title>
+<h1> %(mn)s </h1>
+""" % vars() )
+of.write("%s, %s" % ( md, mv.encode('utf-8') ) )
+for event_key in sorted( athlete_by_class_by_event.keys() ):
+   for class_key in  sorted( athlete_by_class_by_event[event_key].keys() ):
+       of.write( "<h2>%s %s </h2>\n<ul style=\"list-style-type:none\">\n"% (event_key, class_key) )
+       for athlete in athlete_by_class_by_event[event_key][class_key]:
+           of.write("<li>" +athlete['name'].encode('utf-8') + ' (' + athlete['dob'] +'), ' + athlete['club'].encode('utf-8') +  "</li>\n" )
+       of.write("</ul>\n")
+
+#  print athlete_by_class_byevent[event_key]['name'], '('+events_by_athlete[athlete_key]['dob']+')', events_by_athlete[athlete_key]['club']
+#  for e in events_by_athlete[athlete_key]['events']:
+#     print '   ', e
+
+
    if klasse not in athlete_by_event_by_class.keys():
       athlete_by_event_by_class[klasse] = {}
    if event not in athlete_by_event_by_class[klasse].keys():
@@ -89,6 +107,9 @@ for c in tree.findall('.//Competitor'):
       for e in events_by_athlete_by_club[club][athlete_key]['events']:
           print '      ', e
 """
+of.write("""</body>
+</html>""")
+of.close()
 #... write template for Results to xlsx workbook
 wb = Workbook()
 ws = wb.active
