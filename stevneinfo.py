@@ -4,6 +4,7 @@ from xml.etree import ElementTree as ET
 from openpyxl import Workbook
 from openpyxl.styles import colors
 from openpyxl.styles import Font, Color
+from tabulate import tabulate
 
 def read_xml_into_tree(infile):
    with open(infile, 'rt') as f:
@@ -264,7 +265,11 @@ def write_xlsx_results_template(tree):
     wb.save(xlname)
 
 # ...
-infile = 'NIF'
+if len(sys.argv) < 2:
+   sys.exit("Usage: %s <casename>" % sys.argv[0])
+   
+infile = sys.argv[1]
+#infile = 'NIF'
 tree = read_xml_into_tree(infile)
 save_xml_copy(tree)
 
