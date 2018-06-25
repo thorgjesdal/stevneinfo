@@ -1,5 +1,6 @@
 ﻿#!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
 from xml.etree import ElementTree as ET
 from openpyxl import Workbook
 from openpyxl.styles import colors
