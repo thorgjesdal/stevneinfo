@@ -267,7 +267,7 @@ def write_xlsx_results_template(tree):
 
 # ...
 if len(sys.argv) < 2:
-   sys.exit("Usage: %s <casename>" % sys.argv[0])
+   sys.exit("Usage: %s <infile>" % sys.argv[0])
    
 infile = sys.argv[1]
 #infile = 'NIF'
