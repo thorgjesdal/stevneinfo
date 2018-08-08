@@ -39,6 +39,24 @@ def save_xml_copy(tree):
    # save a copy of the element tree
    tree.write(fname+'.xml', encoding="utf-8")
 
+def istrack(event):
+    return 'meter' in event
+
+def ishurdles(event):
+    return istrack(event) and 'hekk' in event
+
+def isfield(event):
+    return 'meter' not in event
+
+def isvjump(event):
+    return isfield(event) and event in ['Høyde', 'Stav', 'Høyde uten tilløp']
+
+def ishjump(event):
+    return isfield(event) and event in ['Lengde', 'Lengde satssone', 'Tresteg', 'Lengde uten tilløp', 'Tresteg uten tilløp']
+
+def isthrow(event):
+    return isfield(event) and event in ['Kule', 'Diskos', 'Slegge', 'Spyd', 'Vektkast']
+
 def sort_athletes_by_class_by_event(tree):
 #   events_by_athlete = {}
 #   events_by_athlete_by_club = {}
@@ -251,13 +269,14 @@ def write_xlsx_results_template(tree):
               ws["D%(row_counter)d"%vars()] = athlete['dob']
               ws["E%(row_counter)d"%vars()] = athlete['club']
               ws["F%(row_counter)d"%vars()] = "<resultat>"
-              ws["G%(row_counter)d"%vars()] = "<vind>";  grc = ws["C%(row_counter)d"%vars()]; grc.font=greenfont
-              ws["H%(row_counter)d"%vars()] = "<resultat>";  hrc = ws["C%(row_counter)d"%vars()]; hrc.font=greenfont
-              ws["I%(row_counter)d"%vars()] = "<vind>";  irc = ws["C%(row_counter)d"%vars()]; irc.font=greenfont
+              ws["G%(row_counter)d"%vars()] = "<vind>";  grc = ws["G%(row_counter)d"%vars()]; grc.font=greenfont
+              ws["H%(row_counter)d"%vars()] = "<resultat>";  hrc = ws["H%(row_counter)d"%vars()]; hrc.font=greenfont
+              ws["I%(row_counter)d"%vars()] = "<vind>";  irc = ws["I%(row_counter)d"%vars()]; irc.font=greenfont
               if 'meter' not in event: # is a field event
                  row_counter +=1 # add blank line for series
                  ws["A%(row_counter)d"%vars()] = "<hopp-/kastserie>";  arc = ws["A%(row_counter)d"%vars()]; arc.font=greenfont
     
+              row_counter +=1
            row_counter +=1
            
     
