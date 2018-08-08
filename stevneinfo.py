@@ -11,9 +11,6 @@ def read_xml_into_tree(infile):
    with open(infile, 'rt') as f:
       tree = ET.parse(f)
    return tree
-#print type(tree)
-#for node in tree.iter():
-#    print node.tag, node.attrib
 
 def extract_competition_data(tree):
    s = tree.find('.//Competition')
@@ -58,10 +55,7 @@ def isthrow(event):
     return isfield(event) and event in ['Kule', 'Diskos', 'Slegge', 'Spyd', 'Vektkast']
 
 def sort_athletes_by_class_by_event(tree):
-#   events_by_athlete = {}
-#   events_by_athlete_by_club = {}
     athlete_by_class_by_event = {}
-#   athlete_by_event_by_class = {}
     for c in tree.findall('.//Competitor'):
        p = c.find('Person')
        club = p.attrib['clubName']
@@ -83,17 +77,6 @@ def sort_athletes_by_class_by_event(tree):
        ec = c.find('./Entry/Exercise')
        event = ec.attrib['name'] 
        athlete_key = name + dob + club
-#      if athlete_key not in events_by_athlete.keys():
-#         events_by_athlete[athlete_key] = {}
-#         events_by_athlete[athlete_key]['name'] = name
-#         events_by_athlete[athlete_key]['dob'] = dob
-#         events_by_athlete[athlete_key]['club'] = club
-#         events_by_athlete[athlete_key]['events'] = []
-#      events_by_athlete[athlete_key]['events'].append(event + ' ' + klasse)
-#      if club not in events_by_athlete_by_club:
-#         events_by_athlete_by_club[club] = {}
-#      events_by_athlete_by_club[club][athlete_key] = {'name': name, 'dob': dob, 'events' : [] }
-#      events_by_athlete_by_club[club][athlete_key]['events'].append(event + ' ' + klasse)
       
        if event not in athlete_by_class_by_event.keys():
           athlete_by_class_by_event[event]={}
@@ -101,19 +84,9 @@ def sort_athletes_by_class_by_event(tree):
           athlete_by_class_by_event[event][klasse]=[]
        athlete_by_class_by_event[event][klasse].append({'name': name, 'dob': dob, 'club' : club }) 
 
-#   if klasse not in athlete_by_event_by_class.keys():
-#       athlete_by_event_by_class[klasse] = {}
-#   if event not in athlete_by_event_by_class[klasse].keys():
-#       athlete_by_event_by_class[klasse][event] = [] 
-#   athlete_by_event_by_class[klasse][event].append({'name': name, 'dob': dob, 'club' : club }) 
-
-
     return athlete_by_class_by_event
 
 def sort_athletes_by_event_by_class(tree):
-#   events_by_athlete = {}
-#   events_by_athlete_by_club = {}
-#   athlete_by_class_by_event = {}
     athlete_by_event_by_class = {}
     for c in tree.findall('.//Competitor'):
        p = c.find('Person')
@@ -136,23 +109,6 @@ def sort_athletes_by_event_by_class(tree):
        ec = c.find('./Entry/Exercise')
        event = ec.attrib['name'] 
        athlete_key = name + dob + club
-#      if athlete_key not in events_by_athlete.keys():
-#         events_by_athlete[athlete_key] = {}
-#         events_by_athlete[athlete_key]['name'] = name
-#         events_by_athlete[athlete_key]['dob'] = dob
-#         events_by_athlete[athlete_key]['club'] = club
-#         events_by_athlete[athlete_key]['events'] = []
-#      events_by_athlete[athlete_key]['events'].append(event + ' ' + klasse)
-#      if club not in events_by_athlete_by_club:
-#         events_by_athlete_by_club[club] = {}
-#      events_by_athlete_by_club[club][athlete_key] = {'name': name, 'dob': dob, 'events' : [] }
-#      events_by_athlete_by_club[club][athlete_key]['events'].append(event + ' ' + klasse)
-      
-#      if event not in athlete_by_class_by_event.keys():
-#         athlete_by_class_by_event[event]={}
-#      if klasse not in athlete_by_class_by_event[event].keys():
-#         athlete_by_class_by_event[event][klasse]=[]
-#      athlete_by_class_by_event[event][klasse].append({'name': name, 'dob': dob, 'club' : club }) 
 
        if klasse not in athlete_by_event_by_class.keys():
            athlete_by_event_by_class[klasse] = {}
@@ -192,24 +148,6 @@ def write_start_lists_as_html(tree):
                 of.write("<li>" +athlete['name'].encode('utf-8') + ' (' + athlete['dob'] +'), ' + athlete['club'].encode('utf-8') +  "</li>\n" )
            of.write("</ul>\n")
     
-    #  print athlete_by_class_byevent[event_key]['name'], '('+events_by_athlete[athlete_key]['dob']+')', events_by_athlete[athlete_key]['club']
-    #  for e in events_by_athlete[athlete_key]['events']:
-    #     print '   ', e
-    
-    
-       
-    """for athlete_key in events_by_athlete.keys().sort():
-       print events_by_athlete[athlete_key]['name'], '('+events_by_athlete[athlete_key]['dob']+')', events_by_athlete[athlete_key]['club']
-       for e in events_by_athlete[athlete_key]['events']:
-          print '   ', e
-    """
-    """for club in events_by_athlete_by_club.keys():
-       print club
-       for athlete_key in events_by_athlete_by_club[club].keys():
-          print '   '+events_by_athlete_by_club[club][athlete_key]['name'], '('+events_by_athlete_by_club[club][athlete_key]['dob']+')'
-          for e in events_by_athlete_by_club[club][athlete_key]['events']:
-              print '      ', e
-    """
     of.write("""</body>
     </html>""")
     of.close()
@@ -222,7 +160,6 @@ def write_xlsx_results_template(tree):
     mv = competition_data['venue']
 
     athlete_by_event_by_class = sort_athletes_by_event_by_class(tree)
-#   athlete_by_class_by_event = sort_athletes_by_class_by_event(tree)
 
     #... write template for Results to xlsx workbook
     wb = Workbook()
@@ -289,7 +226,6 @@ if len(sys.argv) < 2:
    sys.exit("Usage: %s <infile>" % sys.argv[0])
    
 infile = sys.argv[1]
-#infile = 'NIF'
 tree = read_xml_into_tree(infile)
 save_xml_copy(tree)
 
