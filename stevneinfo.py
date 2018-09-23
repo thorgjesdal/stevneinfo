@@ -3,9 +3,14 @@
 import sys
 from xml.etree import ElementTree as ET
 from openpyxl import Workbook
-from openpyxl.styles import colors
+from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
-from tabulate import tabulate
+#from tabulate import tabulate
+from reportlab.lib import colors as rlcolors
+from reportlab.lib.pagesizes import A4, landscape, cm
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+
 
 def read_xml_into_tree(infile):
    with open(infile, 'rt') as f:
@@ -41,6 +46,9 @@ def istrack(event):
 
 def ishurdles(event):
     return istrack(event) and 'hekk' in event
+
+def issteeple(event):
+    return istrack(event) and 'hinder' in event
 
 def isfield(event):
     return 'meter' not in event
@@ -165,7 +173,7 @@ def write_xlsx_results_template(tree):
     wb = Workbook()
     ws = wb.active
     
-    greenfont = Font(name='Calibri', color=colors.GREEN)
+    greenfont = Font(name='Calibri', color=xlcolors.GREEN)
     boldfont = Font(name='Calibri', bold=True, underline="single")
     
     ws.title = "Resultatliste"
@@ -221,6 +229,59 @@ def write_xlsx_results_template(tree):
     xlname = fname+'.xlsx'
     wb.save(xlname)
 
+def make_horizontal_protocol(tree, event, classes):
+   """make the event protocol sheet for a horizontal jump or throw event
+   writes the protocol sheet to a pdf
+   Input:
+   	tree: ElementTree
+   	event: the event (fails if event is not a hjump or throw)
+	classes: list of classes """
+   if not ishjump(event) and not isthrow(event):
+      sys.exit('make_horizontal_protocol: event is not hjump or throw')
+   athlete_by_event_by_class = sort_athletes_by_event_by_class(tree)
+   athlete_by_class_by_event = sort_athletes_by_class_by_event(tree)
+
+   eventclass = event + ' ' + '+'.join(classes)
+
+   fname = output_file_name(tree) + '_' + event + '-' + '+'.join(classes) +'.pdf'
+   fname = fname.replace(' ', '_')
+   print fname
+   doc = SimpleDocTemplate(fname, pagesize=A4)
+   doc.pagesize = landscape(A4)
+
+   rows_on_page = 11
+   rows_in_table = 22 
+   # container for the 'Flowable' objects
+   elements = []
+   
+   styles = getSampleStyleSheet()
+   elements.append(Paragraph(eventclass, styles['Heading1']))
+
+   data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat', 'Vind' ] ]
+   rows = 0
+   for c in classes:
+      for athlete in athlete_by_class_by_event[event][c]:
+         data.append( [ c, athlete['name'], athlete['dob'], athlete['club'] ] )
+         rows +=1
+   if rows < rows_in_table:
+      for i in range(rows_in_table-rows-1):
+         data.append([ ' ' ])
+
+   print len(data)
+
+
+   t=Table(data, [1.9*cm, 6.0*cm, 2.1*cm, 2.6*cm , 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm], rows_in_table*[1.4*cm], repeatRows=1)
+
+   t.setStyle(TableStyle([('ALIGN',(0,1),(0,-1),'CENTER'),
+                          ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
+                          ('ALIGN',(1,1),(1,-1),'LEFT'),
+                          ('INNERGRID', (0,0), (-1,-1), 0.25, rlcolors.black),
+                          ('BOX', (0,0), (-1,-1), 0.25, rlcolors.black),
+                          ]))
+   elements.append(t)
+   # write the document to disk
+   doc.build(elements)
+
 # ...
 if len(sys.argv) < 2:
    sys.exit("Usage: %s <infile>" % sys.argv[0])
@@ -231,3 +292,15 @@ save_xml_copy(tree)
 
 write_xlsx_results_template(tree)
 write_start_lists_as_html(tree)
+event = 'Lengde satssone'
+classes = [ 'G10', 'G11', 'G12' ]
+make_horizontal_protocol(tree, event, classes)
+classes = [ 'G13' ]
+make_horizontal_protocol(tree, event, classes)
+classes = [ '' ]
+make_horizontal_protocol(tree, event, classes)
+event = 'Kule'
+classes = [ 'G10', 'G11', 'G12' ]
+make_horizontal_protocol(tree, event, classes)
+classes = [ 'G13' ]
+make_horizontal_protocol(tree, event, classes)
