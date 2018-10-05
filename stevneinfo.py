@@ -10,6 +10,7 @@ from reportlab.lib import colors as rlcolors
 from reportlab.lib.pagesizes import A4, landscape, cm
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.pdfgen import canvas
 
 
 def read_xml_into_tree(infile):
@@ -204,7 +205,7 @@ def write_xlsx_results_template(tree):
            ws["C%(row_counter)d"%vars()] = "<spesiell konkurransestatus>";  crc = ws["C%(row_counter)d"%vars()]; crc.font=greenfont
            row_counter +=1
 
-           if 'meter' in event: # is a track event
+           if istrack(event):
                ws["A%(row_counter)d"%vars()] = "<Heat | Finale:>";  arc = ws["A%(row_counter)d"%vars()]; arc.font=greenfont
                ws["C%(row_counter)d"%vars()] = "Vind:";  crc = ws["C%(row_counter)d"%vars()]; crc.font=greenfont
                row_counter +=1
@@ -214,10 +215,11 @@ def write_xlsx_results_template(tree):
               ws["D%(row_counter)d"%vars()] = athlete['dob']
               ws["E%(row_counter)d"%vars()] = athlete['club']
               ws["F%(row_counter)d"%vars()] = "<resultat>"
-              ws["G%(row_counter)d"%vars()] = "<vind>";  grc = ws["G%(row_counter)d"%vars()]; grc.font=greenfont
-              ws["H%(row_counter)d"%vars()] = "<resultat>";  hrc = ws["H%(row_counter)d"%vars()]; hrc.font=greenfont
-              ws["I%(row_counter)d"%vars()] = "<vind>";  irc = ws["I%(row_counter)d"%vars()]; irc.font=greenfont
-              if 'meter' not in event: # is a field event
+              if ishjump(event):
+                 ws["G%(row_counter)d"%vars()] = "<vind>";  grc = ws["G%(row_counter)d"%vars()]; grc.font=greenfont
+                 ws["H%(row_counter)d"%vars()] = "<resultat>";  hrc = ws["H%(row_counter)d"%vars()]; hrc.font=greenfont
+                 ws["I%(row_counter)d"%vars()] = "<vind>";  irc = ws["I%(row_counter)d"%vars()]; irc.font=greenfont
+              if isfield(event):
                  row_counter +=1 # add blank line for series
                  ws["A%(row_counter)d"%vars()] = "<hopp-/kastserie>";  arc = ws["A%(row_counter)d"%vars()]; arc.font=greenfont
     
@@ -254,13 +256,10 @@ def make_horizontal_protocol(tree, event, classes):
    elements = []
    
    styles = getSampleStyleSheet()
-   elements.append(Paragraph(eventclass, styles['Heading1']))
 
-#  data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat', 'Vind' ] ]
    data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat'] ]
    if ishjump(event):
       data[0].append('Vind')
-   print event, data
 
    rows = 0
    for c in classes:
