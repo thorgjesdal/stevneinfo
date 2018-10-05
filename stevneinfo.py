@@ -249,25 +249,36 @@ def make_horizontal_protocol(tree, event, classes):
    doc = SimpleDocTemplate(fname, pagesize=A4)
    doc.pagesize = landscape(A4)
 
-   rows_on_page = 11
-   rows_in_table = 22 
+   rows_on_page = 10
    # container for the 'Flowable' objects
    elements = []
    
    styles = getSampleStyleSheet()
    elements.append(Paragraph(eventclass, styles['Heading1']))
 
-   data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat', 'Vind' ] ]
+#  data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat', 'Vind' ] ]
+   data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat'] ]
+   if ishjump(event):
+      data[0].append('Vind')
+   print event, data
+
    rows = 0
    for c in classes:
-      for athlete in athlete_by_class_by_event[event][c]:
-         data.append( [ c, athlete['name'], athlete['dob'], athlete['club'] ] )
-         rows +=1
+      if c in athlete_by_class_by_event[event].keys():
+         for athlete in athlete_by_class_by_event[event][c]:
+            data.append( [ c, athlete['name'], athlete['dob'], athlete['club'] ] )
+            rows +=1
+   pages = int(rows/(rows_on_page-1)) + 1
+   print pages
+
+   if rows%rows_on_page > 3:
+      pages +=1
+   rows_in_table = pages*rows_on_page 
+
    if rows < rows_in_table:
       for i in range(rows_in_table-rows-1):
          data.append([ ' ' ])
 
-   print len(data)
 
 
    t=Table(data, [1.9*cm, 6.0*cm, 2.1*cm, 2.6*cm , 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm], rows_in_table*[1.4*cm], repeatRows=1)
@@ -293,14 +304,15 @@ save_xml_copy(tree)
 write_xlsx_results_template(tree)
 write_start_lists_as_html(tree)
 event = 'Lengde satssone'
-classes = [ 'G10', 'G11', 'G12' ]
+classes = [ 'J10', 'J11', 'J12' ]
 make_horizontal_protocol(tree, event, classes)
-classes = [ 'G13' ]
+classes = [ 'J13' ]
 make_horizontal_protocol(tree, event, classes)
-classes = [ '' ]
+event = 'Lengde'
+classes = [ 'J14', 'J15' ]
 make_horizontal_protocol(tree, event, classes)
 event = 'Kule'
-classes = [ 'G10', 'G11', 'G12' ]
+classes = [ 'J10', 'J11', 'J12' ]
 make_horizontal_protocol(tree, event, classes)
-classes = [ 'G13' ]
+classes = [ 'J13', 'J14', 'J15' ]
 make_horizontal_protocol(tree, event, classes)
