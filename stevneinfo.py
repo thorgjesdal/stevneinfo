@@ -7,7 +7,8 @@ from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
 #from tabulate import tabulate
 from reportlab.lib import colors as rlcolors
-from reportlab.lib.pagesizes import A4, landscape, cm
+from reportlab.lib.pagesizes import A4, landscape
+from reportlab.lib.units import cm
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfgen import canvas
@@ -55,13 +56,13 @@ def isfield(event):
     return 'meter' not in event
 
 def isvjump(event):
-    return isfield(event) and event in ['Høyde', 'Stav', 'Høyde uten tilløp']
+    return isfield(event.encode('utf-8')) and event in [u'Høyde', u'Stav', u'Høyde uten tilløp']
 
 def ishjump(event):
-    return isfield(event) and event in ['Lengde', 'Lengde satssone', 'Tresteg', 'Lengde uten tilløp', 'Tresteg uten tilløp']
+    return isfield(event.encode('utf-8')) and event in [u'Lengde', u'Lengde satssone', u'Tresteg', u'Lengde uten tilløp', u'Tresteg uten tilløp']
 
 def isthrow(event):
-    return isfield(event) and event in ['Kule', 'Diskos', 'Slegge', 'Spyd', 'Vektkast']
+    return isfield(event.encode('utf-8')) and event in [u'Kule', u'Diskos', u'Slegge', u'Spyd', u'Vektkast', u'Liten ball']
 
 def sort_athletes_by_class_by_event(tree):
     athlete_by_class_by_event = {}
@@ -232,66 +233,66 @@ def write_xlsx_results_template(tree):
     wb.save(xlname)
 
 def make_horizontal_protocol(tree, event, classes):
-   """make the event protocol sheet for a horizontal jump or throw event
-   writes the protocol sheet to a pdf
-   Input:
-   	tree: ElementTree
-   	event: the event (fails if event is not a hjump or throw)
-	classes: list of classes """
-   if not ishjump(event) and not isthrow(event):
-      sys.exit('make_horizontal_protocol: event is not hjump or throw')
-   athlete_by_event_by_class = sort_athletes_by_event_by_class(tree)
-   athlete_by_class_by_event = sort_athletes_by_class_by_event(tree)
-
-   eventclass = event + ' ' + '+'.join(classes)
-
-   fname = output_file_name(tree) + '_' + event + '-' + '+'.join(classes) +'.pdf'
-   fname = fname.replace(' ', '_')
-   print fname
-   doc = SimpleDocTemplate(fname, pagesize=A4)
-   doc.pagesize = landscape(A4)
-
-   rows_on_page = 10
-   # container for the 'Flowable' objects
-   elements = []
-   
-   styles = getSampleStyleSheet()
-
-   data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat'] ]
-   if ishjump(event):
-      data[0].append('Vind')
-
-   rows = 0
-   for c in classes:
-      if c in athlete_by_class_by_event[event].keys():
-         for athlete in athlete_by_class_by_event[event][c]:
-            data.append( [ c, athlete['name'], athlete['dob'], athlete['club'] ] )
-            rows +=1
-   pages = int(rows/(rows_on_page-1)) + 1
-   print pages
-
-   if rows%rows_on_page > 3:
-      pages +=1
-   rows_in_table = pages*rows_on_page 
-
-   if rows < rows_in_table:
-      for i in range(rows_in_table-rows-1):
-         data.append([ ' ' ])
-
-
-
-   t=Table(data, [1.9*cm, 6.0*cm, 2.1*cm, 2.6*cm , 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm], rows_in_table*[1.4*cm], repeatRows=1)
-
-   t.setStyle(TableStyle([('ALIGN',(0,1),(0,-1),'CENTER'),
-                          ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
-                          ('ALIGN',(1,1),(1,-1),'LEFT'),
-                          ('INNERGRID', (0,0), (-1,-1), 0.25, rlcolors.black),
-                          ('BOX', (0,0), (-1,-1), 0.25, rlcolors.black),
-                          ]))
-   elements.append(t)
-   # write the document to disk
-   doc.build(elements)
-
+    """make the event protocol sheet for a horizontal jump or throw event
+    writes the protocol sheet to a pdf
+    Input:
+    	tree: ElementTree
+    	event: the event (fails if event is not a hjump or throw)
+ 	classes: list of classes """
+    if not ishjump(event) and not isthrow(event):
+       sys.exit('make_horizontal_protocol: event is not hjump or throw')
+    athlete_by_event_by_class = sort_athletes_by_event_by_class(tree)
+    athlete_by_class_by_event = sort_athletes_by_class_by_event(tree)
+ 
+    eventclass = event + ' ' + '+'.join(classes)
+ 
+    fname = output_file_name(tree) + '_' + event + '-' + '+'.join(classes) +'.pdf'
+    fname = fname.replace(' ', '_')
+    fname = fname.replace('/', '-')
+    print fname
+    doc = SimpleDocTemplate(fname, pagesize=A4)
+    doc.pagesize = landscape(A4)
+ 
+    rows_on_page = 10
+    # container for the 'Flowable' objects
+    elements = []
+    
+    styles = getSampleStyleSheet()
+ 
+    data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat'] ]
+    if ishjump(event):
+       data[0].append('Vind')
+ 
+    rows = 0
+    for c in classes:
+       if c in athlete_by_class_by_event[event].keys():
+          for athlete in athlete_by_class_by_event[event][c]:
+             data.append( [ c, athlete['name'], athlete['dob'], athlete['club'] ] )
+             rows +=1
+    pages = int(rows/(rows_on_page-1)) + 1
+    print pages
+ 
+    if rows%rows_on_page > 3:
+       pages +=1
+    rows_in_table = pages*rows_on_page 
+ 
+    if rows < rows_in_table:
+       for i in range(rows_in_table-rows-1):
+          data.append([ ' ' ])
+ 
+ 
+ 
+    t=Table(data, [1.9*cm, 6.0*cm, 2.1*cm, 2.6*cm , 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm], rows_in_table*[1.4*cm], repeatRows=1)
+ 
+    t.setStyle(TableStyle([('ALIGN',(0,1),(0,-1),'CENTER'),
+                           ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
+                           ('ALIGN',(1,1),(1,-1),'LEFT'),
+                           ('INNERGRID', (0,0), (-1,-1), 0.25, rlcolors.black),
+                           ('BOX', (0,0), (-1,-1), 0.25, rlcolors.black),
+                           ]))
+    elements.append(t)
+    # write the document to disk
+    doc.build(elements)
 # ...
 if len(sys.argv) < 2:
    sys.exit("Usage: %s <infile>" % sys.argv[0])
@@ -303,15 +304,29 @@ save_xml_copy(tree)
 write_xlsx_results_template(tree)
 write_start_lists_as_html(tree)
 event = 'Lengde satssone'
-classes = [ 'J10', 'J11', 'J12' ]
+classes = [ 'J11', 'J12', 'J13' ]
 make_horizontal_protocol(tree, event, classes)
-classes = [ 'J13' ]
+classes = [ 'G11', 'G12', 'G13' ]
+make_horizontal_protocol(tree, event, classes)
+classes = [ 'G 9', 'G10', 'J 9', 'J10' ]
+make_horizontal_protocol(tree, event, classes)
+classes = [ 'B6-8' ]
 make_horizontal_protocol(tree, event, classes)
 event = 'Lengde'
-classes = [ 'J14', 'J15' ]
+classes = [ 'J15', 'J16', 'J17', 'J18/19', 'MS' ]
+make_horizontal_protocol(tree, event, classes)
+classes = [ 'G14' ]
+make_horizontal_protocol(tree, event, classes)
+event = 'Lengde'
+classes = [ 'J14' ]
 make_horizontal_protocol(tree, event, classes)
 event = 'Kule'
-classes = [ 'J10', 'J11', 'J12' ]
+classes = [ 'J11', 'J12', 'J13', 'G11' ]
 make_horizontal_protocol(tree, event, classes)
-classes = [ 'J13', 'J14', 'J15' ]
+classes = [ 'G13', 'J14' ]
+make_horizontal_protocol(tree, event, classes)
+classes = [ 'G14' ]
+make_horizontal_protocol(tree, event, classes)
+event = 'Liten ball'
+classes = [ 'J 9', 'J10', 'G 9', 'G10' ]
 make_horizontal_protocol(tree, event, classes)
