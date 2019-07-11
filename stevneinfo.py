@@ -129,6 +129,38 @@ def sort_athletes_by_event_by_class(tree):
 
     return athlete_by_event_by_class
 
+def sort_events_by_athlete(tree):
+    events_by_athlete= {}
+    for c in tree.findall('.//Competitor'):
+       p = c.find('Person')
+       club = p.attrib['clubName']
+       cs = club.split(',')
+       if len(cs) > 1:
+          club = cs[1].strip() + ' ' + cs[0].strip()
+       n = p.find('./Name')
+       name = "Name"
+       fn = n.find('Given')
+       en = n.find('Family')
+       bd = p.find('BirthDate')
+       name = fn.text + ' ' + en.text
+       dd = int(bd.attrib['day'])
+       mm = int(bd.attrib['month'])
+       yyyy = int(bd.attrib['year'])
+       dob = "%(dd)02d.%(mm)02d.%(yyyy)04d" % vars()
+       ec = c.find('./Entry/EntryClass')
+       klasse = ec.attrib['classCode']
+       ec = c.find('./Entry/Exercise')
+       event = klasse + ' ' +ec.attrib['name'] 
+       athlete_key = name + dob + club
+
+       if athlete_key not in events_by_athlete.keys():
+           events_by_athlete[athlete_key] = []
+       if event not in events_by_athlete[athlete_key]:
+           events_by_athlete[athlete_key].append(event)
+
+
+    return events_by_athlete
+
 def write_start_lists_as_html(tree):
     competition_data = extract_competition_data(tree)
     mn = competition_data['meet_name']
@@ -293,6 +325,36 @@ def make_horizontal_protocol(tree, event, classes):
     elements.append(t)
     # write the document to disk
     doc.build(elements)
+
+def list_events(tree):
+    event_list = []
+    for c in tree.findall('.//Competitor'):
+       ec = c.find('./Entry/EntryClass')
+       kl= ec.attrib['classCode']
+       ec = c.find('./Entry/Exercise')
+       ev= ec.attrib['name'] 
+#      event = ev+' '+kl
+       event = kl+' '+ev
+       if event not in event_list:
+           event_list.append(event)
+       event_list.sort()
+    return event_list
+
+def make_crosstable(tree):
+    events_by_athlete = sort_events_by_athlete(tree)
+    crosstable = {}
+
+    for a in events_by_athlete.keys():
+        print events_by_athlete[a]
+        for e1 in events_by_athlete[a]:
+            if e1 not in crosstable.keys():
+                crosstable[e1] = {}
+                for e2 in events_by_athlete[a]:
+                    if e2 not in crosstable[e1].keys():
+                        crosstable[e1][e2] = 0
+                    crosstable[e1][e2] +=1
+    return crosstable
+ 
 # ...
 if len(sys.argv) < 2:
    sys.exit("Usage: %s <infile>" % sys.argv[0])
@@ -301,6 +363,18 @@ infile = sys.argv[1]
 tree = read_xml_into_tree(infile)
 save_xml_copy(tree)
 
+
+events_crosstable = make_crosstable(tree)
+for e1 in events_crosstable.keys():
+    for e2 in events_crosstable[e1].keys():
+        print e1 +'|'+ e2, events_crosstable[e1][e2]
+#events_by_athlete = sort_events_by_athlete(tree)
+#for athlete in events_by_athlete.keys():
+#    print athlete, events_by_athlete[athlete]
+#event_list = list_events(tree)
+#print event_list
+
+"""
 write_xlsx_results_template(tree)
 write_start_lists_as_html(tree)
 event = 'Lengde satssone'
@@ -330,3 +404,4 @@ make_horizontal_protocol(tree, event, classes)
 event = 'Liten ball'
 classes = [ 'J 9', 'J10', 'G 9', 'G10' ]
 make_horizontal_protocol(tree, event, classes)
+"""
