@@ -345,14 +345,13 @@ def make_crosstable(tree):
     crosstable = {}
 
     for a in events_by_athlete.keys():
-        print events_by_athlete[a]
         for e1 in events_by_athlete[a]:
             if e1 not in crosstable.keys():
                 crosstable[e1] = {}
-                for e2 in events_by_athlete[a]:
-                    if e2 not in crosstable[e1].keys():
-                        crosstable[e1][e2] = 0
-                    crosstable[e1][e2] +=1
+            for e2 in events_by_athlete[a]:
+                if e2 not in crosstable[e1].keys():
+                    crosstable[e1][e2] = 0
+                crosstable[e1][e2] +=1
     return crosstable
  
 # ...
