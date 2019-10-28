@@ -12,6 +12,9 @@ from reportlab.lib.units import cm
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfgen import canvas
+from unidecode import unidecode
+#import requests
+#from bs4 import BeautifulSoup
 
 
 def read_xml_into_tree(infile):
@@ -34,13 +37,16 @@ def output_file_name(tree):
    md = cdata['meet_date']
    mv = cdata['venue']
 
-   sn =  mn.encode('utf-8') + ' ' + mv.encode('utf-8') + ' ' + md.encode('utf-8')
-   fname = sn.replace(' ','_')
+   sn =  mn + ' ' + mv + ' ' + md
+   sn = sn.replace(' ','_')
+   sn = sn.replace('/','-')
+   fname = unidecode( sn.replace(' ','_') )
    return fname
 
 def save_xml_copy(tree):
    fname = output_file_name(tree)
    # save a copy of the element tree
+   print(fname)
    tree.write(fname+'.xml', encoding="utf-8")
 
 def istrack(event):
@@ -95,6 +101,34 @@ def sort_athletes_by_class_by_event(tree):
        athlete_by_class_by_event[event][klasse].append({'name': name, 'dob': dob, 'club' : club }) 
 
     return athlete_by_class_by_event
+
+
+def list_entries(tree):
+    entries_list = []
+    for c in tree.findall('.//Competitor'):
+       p = c.find('Person')
+       club = p.attrib['clubName']
+       cs = club.split(',')
+       if len(cs) > 1:
+          club = cs[1].strip() + ' ' + cs[0].strip()
+       n = p.find('./Name')
+       name = "Name"
+       fn = n.find('Given')
+       en = n.find('Family')
+       bd = p.find('BirthDate')
+       dd = int(bd.attrib['day'])
+       mm = int(bd.attrib['month'])
+       yyyy = int(bd.attrib['year'])
+       dob = "%(dd)02d.%(mm)02d.%(yyyy)04d" % vars()
+       ec = c.find('./Entry/EntryClass')
+       klasse = ec.attrib['classCode']
+       ec = c.find('./Entry/Exercise')
+       event = ec.attrib['name'] 
+       entry = {'first_name': fn.text, 'last_name' : en.text, 'birth_date' : dob, 'club' : club, 'event' : event}
+
+       entries_list.append( entry )
+    
+    return entries_list
 
 def sort_athletes_by_event_by_class(tree):
     athlete_by_event_by_class = {}
@@ -187,13 +221,87 @@ def write_start_lists_as_html(tree):
         for class_key in  class_keys:
            of.write( "<h2>%s %s </h2>\n<ul style=\"list-style-type:none\">\n"% (event_key.encode('utf-8'), class_key) )
            for athlete in athlete_by_class_by_event[event_key][class_key]:
-                of.write("<li>" +athlete['name'].encode('utf-8') + ' (' + athlete['dob'] +'), ' + athlete['club'].encode('utf-8') +  "</li>\n" )
+               of.write("<li>" +athlete['name'].encode('utf-8') + ' (' + athlete['dob'][-4:] +'), ' + athlete['club'].encode('utf-8') +  "</li>\n" )
            of.write("</ul>\n")
     
     of.write("""</body>
     </html>""")
     of.close()
 
+
+def write_opentrack_import(tree):
+    competition_data = extract_competition_data(tree)
+    mn = competition_data['meet_name']
+    md = competition_data['meet_date']
+    mv = competition_data['venue']
+
+    athlete_by_event_by_class = sort_athletes_by_event_by_class(tree)
+
+    #... write template for Results to xlsx workbook
+    wb = Workbook()
+    ws = wb.active
+    
+#   greenfont = Font(name='Calibri', color=xlcolors.GREEN)
+#   boldfont = Font(name='Calibri', bold=True, underline="single")
+#   
+#   ws.title = "Resultatliste"
+#   
+#   ws['a1'] = 'Stevne:';         ws['b1'] = mn
+#   ws['a2'] = 'Stevnested:';     ws['b2'] = mv
+#   ws['a3'] = 'Stevnedato:';     ws['b3'] = md          ; ws['c3'] = '<til dato>'; c3=ws['c3']; c3.font=greenfont
+#   ws['a4'] = 'Arrangør:';       ws['b4'] = '<arrangør>'; b4=ws['b4']; b4.font=greenfont
+#   ws['a5'] = 'Kontaktperson:';  ws['b5'] = '<navn>'    ; b5=ws['b5']; b5.font=greenfont
+#   ws['a6'] = 'Erklæring*: ';    ws['b6'] = '<J/N>'     ; b6=ws['b6']; b6.font=greenfont
+#   ws['a7'] = 'Telefon:';        ws['b7'] = '<tlf>'     ; b7=ws['b7']; b7.font=greenfont
+#   ws['a8'] = 'Epost:';          ws['b8'] = '<e-post>'  ; b8=ws['b8']; b8.font=greenfont
+#   ws['a9'] = 'Utendørs:';       ws['b9'] = '<J/N>'     ; b9=ws['b9']; b9.font=greenfont
+#   ws['a10'] = 'Kommentar:'
+#   
+#   ws['a12'] = 'Resultater';     ws['b12'] = md
+    
+    row_counter = 1
+    ws["A1"] = 'Competitor Id'
+    ws["B1"] = 'National Id'
+    ws["C1"] = 'First name'
+    ws["D1"] = 'First name'
+    ws["E1"] = 'Gender'
+    ws["F1"] = 'Date of birth'
+    ws["G1"] = 'Team ID'
+    ws["H1"] = 'Nationality'
+    ws["I1"] = 'Event'
+    ws["J1"] = 'Pb'
+    ws["K1"] = 'Sb'
+    ws["K1"] = 'Id'
+    row_counter = 2
+    class_keys = athlete_by_event_by_class.keys()
+    class_keys.sort()
+    for klasse in class_keys:
+       event_keys = athlete_by_event_by_class[klasse].keys()
+       event_keys.sort()
+       for event in event_keys:
+           ws["A%(row_counter)d"%vars()] = ''
+           ws["B%(row_counter)d"%vars()] = ''
+
+           for athlete in athlete_by_event_by_class[klasse][event]:
+              ws["C%(row_counter)d"%vars()] = athlete['name']
+              ws["D%(row_counter)d"%vars()] = athlete['dob'][-4:]
+              ws["E%(row_counter)d"%vars()] = athlete['club']
+              ws["F%(row_counter)d"%vars()] = "<resultat>"
+              if ishjump(event):
+                 ws["G%(row_counter)d"%vars()] = "<vind>";  grc = ws["G%(row_counter)d"%vars()]; grc.font=greenfont
+                 ws["H%(row_counter)d"%vars()] = "<resultat>";  hrc = ws["H%(row_counter)d"%vars()]; hrc.font=greenfont
+                 ws["I%(row_counter)d"%vars()] = "<vind>";  irc = ws["I%(row_counter)d"%vars()]; irc.font=greenfont
+              if isfield(event):
+                 row_counter +=1 # add blank line for series
+                 ws["A%(row_counter)d"%vars()] = "<hopp-/kastserie>";  arc = ws["A%(row_counter)d"%vars()]; arc.font=greenfont
+    
+              row_counter +=1
+           row_counter +=1
+           
+    
+    fname = output_file_name(tree)
+    xlname = fname+'.xlsx'
+    wb.save(xlname)
 
 def write_xlsx_results_template(tree):
     competition_data = extract_competition_data(tree)
@@ -233,8 +341,9 @@ def write_xlsx_results_template(tree):
        event_keys.sort()
        for event in event_keys:
            
+           e = event_spec(event,klasse)
            ws["A%(row_counter)d"%vars()] = klasse; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
-           ws["B%(row_counter)d"%vars()] = event ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
+           ws["B%(row_counter)d"%vars()] = e     ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
            ws["C%(row_counter)d"%vars()] = "<spesiell konkurransestatus>";  crc = ws["C%(row_counter)d"%vars()]; crc.font=greenfont
            row_counter +=1
 
@@ -245,7 +354,7 @@ def write_xlsx_results_template(tree):
           
            for athlete in athlete_by_event_by_class[klasse][event]:
               ws["C%(row_counter)d"%vars()] = athlete['name']
-              ws["D%(row_counter)d"%vars()] = athlete['dob']
+              ws["D%(row_counter)d"%vars()] = athlete['dob'][-4:]
               ws["E%(row_counter)d"%vars()] = athlete['club']
               ws["F%(row_counter)d"%vars()] = "<resultat>"
               if ishjump(event):
@@ -285,38 +394,104 @@ def make_horizontal_protocol(tree, event, classes):
     doc = SimpleDocTemplate(fname, pagesize=A4)
     doc.pagesize = landscape(A4)
  
-    rows_on_page = 10
+    rows_on_page = 12
     # container for the 'Flowable' objects
     elements = []
     
     styles = getSampleStyleSheet()
  
-    data= [ ['Klasse', 'Navn', 'F.dato', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat'] ]
+    data= [ [event + ': ' + ', '.join(classes)],
+            ['Klasse', 'Navn', 'F.år', 'Klubb', 'Forsøk 1', 'Forsøk 2', 'Forsøk 3', 'Forsøk 4', 'Forsøk 5', 'Forsøk 6', 'Resultat'] ]
     if ishjump(event):
-       data[0].append('Vind')
+       data[1].append('Vind')
  
     rows = 0
     for c in classes:
        if c in athlete_by_class_by_event[event].keys():
           for athlete in athlete_by_class_by_event[event][c]:
-             data.append( [ c, athlete['name'], athlete['dob'], athlete['club'] ] )
+             data.append( [ c, athlete['name'], athlete['dob'][-4:], athlete['club'] ] )
              rows +=1
     pages = int(rows/(rows_on_page-1)) + 1
     print pages
  
-    if rows%rows_on_page > 3:
+    if rows%rows_on_page > 5:
        pages +=1
     rows_in_table = pages*rows_on_page 
  
     if rows < rows_in_table:
-       for i in range(rows_in_table-rows-1):
+       for i in range(rows_in_table-rows-2):
           data.append([ ' ' ])
  
  
  
-    t=Table(data, [1.9*cm, 6.0*cm, 2.1*cm, 2.6*cm , 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm], rows_in_table*[1.4*cm], repeatRows=1)
+    t=Table(data, [1.9*cm, 6.0*cm, 2.1*cm, 2.6*cm , 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.8*cm], rows_in_table*[1.4*cm], repeatRows=2)
  
-    t.setStyle(TableStyle([('ALIGN',(0,1),(0,-1),'CENTER'),
+    t.setStyle(TableStyle([
+                           ('SPAN',(0,0),(-1,0)),
+                           ('ALIGN',(0,1),(0,-1),'CENTER'),
+                           ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
+                           ('ALIGN',(1,1),(1,-1),'LEFT'),
+                           ('INNERGRID', (0,0), (-1,-1), 0.25, rlcolors.black),
+                           ('BOX', (0,0), (-1,-1), 0.25, rlcolors.black),
+                           ]))
+    elements.append(t)
+    # write the document to disk
+    doc.build(elements)
+
+def make_vertical_protocol(tree, event, classes):
+    """make the event protocol sheet for a horizontal jump or throw event
+    writes the protocol sheet to a pdf
+    Input:
+    	tree: ElementTree
+    	event: the event (fails if event is not a vjump )
+ 	classes: list of classes """
+    if not isvjump(event):
+       sys.exit('make_vertical_protocol: event is not vjump')
+    athlete_by_event_by_class = sort_athletes_by_event_by_class(tree)
+    athlete_by_class_by_event = sort_athletes_by_class_by_event(tree)
+ 
+    eventclass = event + ' ' + '+'.join(classes)
+ 
+    fname = output_file_name(tree) + '_' + event + '-' + '+'.join(classes) +'.pdf'
+    fname = fname.replace(' ', '_')
+    fname = fname.replace('/', '-')
+    print fname
+    doc = SimpleDocTemplate(fname, pagesize=A4)
+    doc.pagesize = landscape(A4)
+ 
+    rows_on_page = 22
+    # container for the 'Flowable' objects
+    elements = []
+    
+    styles = getSampleStyleSheet()
+ 
+    data= [ [event + ': ' + ', '.join(classes) ],
+            ['Klasse', 'Navn', 'F.år', 'Klubb', '', '', '', '', '', '','','','','','','', 'Res', 'Pl' ] ]
+ 
+    rows = 0
+    for c in classes:
+       if c in athlete_by_class_by_event[event].keys():
+          for athlete in athlete_by_class_by_event[event][c]:
+             data.append( [ c, athlete['name'], athlete['dob'][-4:], athlete['club'][0:11] ] )
+             rows +=1
+    pages = int(rows/(rows_on_page-1)) + 1
+    print pages
+ 
+    if rows%rows_on_page > 15:
+       pages +=1
+    rows_in_table = pages*rows_on_page 
+ 
+    if rows < rows_in_table:
+       for i in range(rows_in_table-rows-2):
+          data.append([ ' ' ])
+ 
+ 
+ 
+    t=Table(data, [1.9*cm, 6.0*cm, 2.1*cm, 2.6*cm , 0.8*cm, 0.8*cm, 0.8*cm, 0.8*cm, 0.8*cm, 0.8*cm, 0.8*cm,0.8*cm,0.8*cm,0.8*cm,0.8*cm, 0.8*cm, 1.6*cm, 0.8*cm], rows_in_table*[0.7*cm], repeatRows=2)
+ 
+    t.setStyle(TableStyle([
+                           ('SPAN',(0,0),(-1,0)),
+                           ('ALIGN',(0,1),(0,-1),'CENTER'),
                            ('VALIGN',(0,0),(-1,-1),'MIDDLE'),
                            ('ALIGN',(1,1),(1,-1),'LEFT'),
                            ('INNERGRID', (0,0), (-1,-1), 0.25, rlcolors.black),
@@ -333,8 +508,7 @@ def list_events(tree):
        kl= ec.attrib['classCode']
        ec = c.find('./Entry/Exercise')
        ev= ec.attrib['name'] 
-#      event = ev+' '+kl
-       event = kl+' '+ev
+       event = (kl,ev)
        if event not in event_list:
            event_list.append(event)
        event_list.sort()
@@ -353,6 +527,145 @@ def make_crosstable(tree):
                     crosstable[e1][e2] = 0
                 crosstable[e1][e2] +=1
     return crosstable
+
+def event_code(event):
+    event_codes = {
+            '60 meter'          : '60', 
+            '80 meter'          : '80', 
+            '100 meter'         : '100', 
+            '150 meter'         : '150', 
+            '200 meter'         : '200', 
+            '300 meter'         : '300', 
+            '400 meter'         : '400', 
+            '600 meter'         : '600', 
+            '800 meter'         : '800', 
+            '1000 meter'        : '1000', 
+            '1500 meter'        : '1500', 
+            '3000 meter'        : '3000', 
+            '5000 meter'        : '5000', 
+            '10000 meter'       : '10000', 
+            '60 meter hekk'     : '60H', 
+            '80 meter hekk'     : '80H', 
+            '100 meter hekk'    : '100H', 
+            '110 meter hekk'    : '110H', 
+            '200 meter hekk'    : '200H', 
+            '300 meter hekk'    : '300H', 
+            '400 meter hekk'    : '400H', 
+            '3000 meter hinder' : '3000SC', 
+            'Høyde'             : 'HJ', 
+            'Stav'              : 'PV', 
+            'Lengde'            : 'LJ', 
+            'Tresteg'           : 'TJ', 
+            'Kule'              : 'SP', 
+            'Diskos'            : 'DT', 
+            'Slegge'            : 'HT', 
+            'Spyd'              : 'JT', 
+            'Tikamp'            : 'DEC', 
+            'Sjukamp'           : 'HEP' 
+            }
+    return event_codes[event]
+ 
+def event_name(code):
+    event_names = {
+            '60'     : '60 meter'          , 
+            '80'     : '80 meter'          , 
+            '100'    : '100 meter'         , 
+            '150'    : '150 meter'         , 
+            '200'    : '200 meter'         , 
+            '300'    : '300 meter'         , 
+            '400'    : '400 meter'         , 
+            '600'    : '600 meter'         , 
+            '800'    : '800 meter'         , 
+            '1000'   : '1000 meter'        , 
+            '1500'   : '1500 meter'        , 
+            '3000'   : '3000 meter'        , 
+            '5000'   : '5000 meter'        , 
+            '10000'  : '10000 meter'       , 
+            '60H'    : '60 meter hekk'     , 
+            '80H'    : '80 meter hekk'     , 
+            '100H'   : '100 meter hekk'    , 
+            '110H'   : '110 meter hekk'    , 
+            '200H'   : '200 meter hekk'    ,
+            '300H'   : '300 meter hekk'    , 
+            '400H'   : '400 meter hekk'    , 
+            '3000SC' : '3000 meter hinder' , 
+            'HJ'     : 'Høyde'             , 
+            'PV'     : 'Stav'              , 
+            'LJ'     : 'Lengde'            , 
+            'TJ'     : 'Tresteg'           , 
+            'SP'     : 'Kule'              , 
+            'DT'     : 'Diskos'            , 
+            'HT'     : 'Slegge'            , 
+            'JT'     : 'Spyd'              , 
+            'DEC'    : 'Tikamp'            , 
+            'HEP'    : 'Sjukamp'           
+            }
+    return event_names[code]
+
+def event_spec(event, klasse):
+    throws = {}
+    throws['Kule'] = { 'J10' : '2,0kg', 'J11' : '2,0kg', 'J12' : '2,0kg', 'J13' : '2,0kg', 
+                       'J14' : '3,0kg', 'J15' : '3,0kg', 'J16' : '3,0kg', 'J17' : '3,0kg',
+                       'J18/19' : '4,0kg', 'KU20' : '4,0kg', 'KU23' : '4,0kg', 'KS' : '4,0kg', 
+                       'G10' : '2,0kg', 'G11' : '2,0kg', 'G12' : '3,0kg', 'G13' : '3,0kg', 
+                       'G14' : '4,0kg', 'G15' : '4,0kg', 'G16' : '5,0kg', 'G17' : '5,0kg',
+                       'G18/19' : '6,0kg', 'MU20' : '6,0kg', 'MU23' : '7,26kg', 'MS' : '7,26kg'} 
+    throws['Diskos'] = { 'J10' : '0,6kg', 'J11' : '0,6kg', 'J12' : '0,6kg', 'J13' : '0,6kg', 
+                       'J14' : '0,75kg', 'J15' : '0,75kg', 'J16' : '0,75kg', 'J17' : '0,75kg',
+                       'J18/19' : '1,0kg', 'KU20' : '1,0kg', 'KU23' : '1,0kg', 'KS' : '1,0kg', 
+                       'G10' : '0,6kg', 'G11' : '0,6kg', 'G12' : '0,75kg', 'G13' : '0,75kg', 
+                       'G14' : '1,0kg', 'G15' : '1,0kg', 'G16' : '1,5kg', 'G17' : '1,5kg',
+                       'G18/19' : '1,75kg', 'MU20' : '1,75kg', 'MU23' : '2,0kg', 'MS' : '2,0kg'} 
+    throws['Slegge'] = { 'J10' : '2,0kg', 'J11' : '2,0kg', 'J12' : '2,0kg', 'J13' : '2,0kg', 
+                       'J14' : '3,0kg', 'J15' : '3,0kg', 'J16' : '3,0kg', 'J17' : '3,0kg',
+                       'J18/19' : '4,0kg', 'KU20' : '4,0kg', 'KU23' : '4,0kg', 'KS' : '4,0kg', 
+                       'G10' : '2,0kg', 'G11' : '2,0kg', 'G12' : '3,0kg', 'G13' : '3,0kg', 
+                       'G14' : '4,0kg', 'G15' : '4,0kg', 'G16' : '5,0kg', 'G17' : '5,0kg',
+                       'G18/19' : '6,0kg', 'MU20' : '6,0kg', 'MU23' : '7,26kg', 'MS' : '7,26kg'} 
+    throws['Spyd'] = { 'J10' : '400g', 'J11' : '400g', 'J12' : '400g', 'J13' : '400g', 
+                       'J14' : '400g', 'J15' : '500g', 'J16' : '500g', 'J17' : '500g',
+                       'J18/19' : '600g', 'KU20' : '600g', 'KU23' : '600g', 'KS' : '600g', 
+                       'G10' : '400g', 'G11' : '400g', 'G12' : '400g', 'G13' : '400g', 
+                       'G14' : '600g', 'G15' : '600g', 'G16' : '700g', 'G17' : '700g',
+                       'G18/19' : '800g', 'MU20' : '800g', 'MU23' : '800g', 'MS' : '800g'} 
+    throws['Liten Ball'] = { 'J10' : '150g', 'J11' : '150g', 'J12' : '150g', 'J13' : '150g', 'J14' : '150g', 
+                             'G10' : '150g', 'G11' : '150g', 'G12' : '150g', 'G13' : '150g', 'G14' : '150g' }
+    hurdles = {}
+    hurdles['60 meter hekk'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '76,2cm', 'J13' : '76,2cm', 'J14' : '76,2cm',
+                                 'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
+                                 'J18/19' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
+                                 'G10' : '68,0cm', 'G11' : '68,0cm', 'G12' : '76,2cm', 'G13' : '76,2cm', 'G14' : '84,0cm',
+                                 'G15' : '84,0cm', 'G16' : '91,4cm', 'G17' : '91,4cm',
+                                 'G18/19' : '100cm','MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm' }
+    hurdles['80 meter hekk'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'G14' : '84,0cm' } 
+    hurdles['100 meter hekk'] = { 'J16' : '76,2cm', 'J17' : '76,2cm', 'J18/19' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
+                                 'G15' : '84,0cm', 'G16' : '91,4cm'}
+    hurdles['110 meter hekk'] = { 'G17' : '91,4cm', 'G18/19' : '100cm','MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm' }
+    hurdles['200 meter hekk'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '68,0cm', 'J13' : '68,0cm', 'J14' : '76,2cm',
+                                 'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
+                                 'J18/19' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
+                                 'G10' : '68,0cm', 'G11' : '68,0cm', 'G12' : '68,0cm', 'G13' : '68,0cm', 'G14' : '76,2cm',
+                                 'G15' : '76,2cm', 'G16' : '76,2cm', 'G17' : '76,2cm',
+                                 'G18/19' : '76,2cm','MU20' : '76,2cm', 'MU23' : '76,2cm', 'MS' : '76,2cm' }
+    hurdles['300 meter hekk'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
+                                 'J18/19' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
+                                 'G15' : '76,2cm', 'G16' : '84,0cm', 'G17' : '84,0cm',
+                                 'G18/19' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
+    hurdles['400 meter hekk'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
+                                 'J18/19' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
+                                 'G15' : '76,2cm', 'G16' : '84,0cm', 'G17' : '84,0cm',
+                                 'G18/19' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
+
+    if isthrow(event):
+       e = event + ' ' + throws[event][klasse]
+    elif ishurdles(event):
+       e = event + ' ' + hurdles[event][klasse]
+    else:
+       e = event
+
+    return e
+
+
  
 # ...
 if len(sys.argv) < 2:
@@ -364,32 +677,45 @@ save_xml_copy(tree)
 
 
 events_crosstable = make_crosstable(tree)
-for e1 in events_crosstable.keys():
-    for e2 in events_crosstable[e1].keys():
+for e1 in sorted( events_crosstable.keys() ):
+    for e2 in sorted( events_crosstable[e1].keys() ):
         print e1 +'|'+ e2, events_crosstable[e1][e2]
-#events_by_athlete = sort_events_by_athlete(tree)
-#for athlete in events_by_athlete.keys():
-#    print athlete, events_by_athlete[athlete]
-#event_list = list_events(tree)
-#print event_list
 
-"""
 write_xlsx_results_template(tree)
 write_start_lists_as_html(tree)
+
+#list_entries(tree)
+l = list_events(tree)
+print(l)
+
 event = 'Lengde satssone'
-classes = [ 'J11', 'J12', 'J13' ]
+classes = [ 'F6', 'F7', 'G8', 'J8', 'J9' ]
 make_horizontal_protocol(tree, event, classes)
-classes = [ 'G11', 'G12', 'G13' ]
+classes = [ 'G10', 'G11', 'J10', 'J11' ]
 make_horizontal_protocol(tree, event, classes)
-classes = [ 'G 9', 'G10', 'J 9', 'J10' ]
-make_horizontal_protocol(tree, event, classes)
-classes = [ 'B6-8' ]
+classes = [ 'G 12', 'G13', 'J12', 'J13' ]
 make_horizontal_protocol(tree, event, classes)
 event = 'Lengde'
-classes = [ 'J15', 'J16', 'J17', 'J18/19', 'MS' ]
+classes = [ 'G14', 'J14', 'J15']
 make_horizontal_protocol(tree, event, classes)
-classes = [ 'G14' ]
+
+event = 'Kule'
+classes = [ 'G10', 'G11', 'J10', 'J11' ]
 make_horizontal_protocol(tree, event, classes)
+classes = [ 'G14', 'G17', 'J14', 'J15' ]
+make_horizontal_protocol(tree, event, classes)
+classes = [ 'J12', 'J13']
+make_horizontal_protocol(tree, event, classes)
+
+
+event = u'Høyde'
+classes = [ 'J13', 'G14', 'J15']
+make_vertical_protocol(tree, event, classes)
+classes = [ 'J10', 'J11', 'J12']
+make_vertical_protocol(tree, event, classes)
+classes = [ 'G10', 'G11', 'G12']
+make_vertical_protocol(tree, event, classes)
+"""
 event = 'Lengde'
 classes = [ 'J14' ]
 make_horizontal_protocol(tree, event, classes)
