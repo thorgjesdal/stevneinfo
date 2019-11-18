@@ -235,29 +235,12 @@ def write_opentrack_import(tree):
     md = competition_data['meet_date']
     mv = competition_data['venue']
 
+    events = list_events(tree)
     athlete_by_event_by_class = sort_athletes_by_event_by_class(tree)
 
     #... write template for Results to xlsx workbook
     wb = Workbook()
     ws = wb.active
-    
-#   greenfont = Font(name='Calibri', color=xlcolors.GREEN)
-#   boldfont = Font(name='Calibri', bold=True, underline="single")
-#   
-#   ws.title = "Resultatliste"
-#   
-#   ws['a1'] = 'Stevne:';         ws['b1'] = mn
-#   ws['a2'] = 'Stevnested:';     ws['b2'] = mv
-#   ws['a3'] = 'Stevnedato:';     ws['b3'] = md          ; ws['c3'] = '<til dato>'; c3=ws['c3']; c3.font=greenfont
-#   ws['a4'] = 'Arrangør:';       ws['b4'] = '<arrangør>'; b4=ws['b4']; b4.font=greenfont
-#   ws['a5'] = 'Kontaktperson:';  ws['b5'] = '<navn>'    ; b5=ws['b5']; b5.font=greenfont
-#   ws['a6'] = 'Erklæring*: ';    ws['b6'] = '<J/N>'     ; b6=ws['b6']; b6.font=greenfont
-#   ws['a7'] = 'Telefon:';        ws['b7'] = '<tlf>'     ; b7=ws['b7']; b7.font=greenfont
-#   ws['a8'] = 'Epost:';          ws['b8'] = '<e-post>'  ; b8=ws['b8']; b8.font=greenfont
-#   ws['a9'] = 'Utendørs:';       ws['b9'] = '<J/N>'     ; b9=ws['b9']; b9.font=greenfont
-#   ws['a10'] = 'Kommentar:'
-#   
-#   ws['a12'] = 'Resultater';     ws['b12'] = md
     
     row_counter = 1
     ws["A1"] = 'Competitor Id'
@@ -271,36 +254,38 @@ def write_opentrack_import(tree):
     ws["I1"] = 'Event'
     ws["J1"] = 'Pb'
     ws["K1"] = 'Sb'
-    ws["K1"] = 'Id'
+    ws["M1"] = 'Event selection'
     row_counter = 2
-    class_keys = athlete_by_event_by_class.keys()
-    class_keys.sort()
-    for klasse in class_keys:
-       event_keys = athlete_by_event_by_class[klasse].keys()
-       event_keys.sort()
-       for event in event_keys:
-           ws["A%(row_counter)d"%vars()] = ''
-           ws["B%(row_counter)d"%vars()] = ''
 
-           for athlete in athlete_by_event_by_class[klasse][event]:
-              ws["C%(row_counter)d"%vars()] = athlete['name']
-              ws["D%(row_counter)d"%vars()] = athlete['dob'][-4:]
-              ws["E%(row_counter)d"%vars()] = athlete['club']
-              ws["F%(row_counter)d"%vars()] = "<resultat>"
-              if ishjump(event):
-                 ws["G%(row_counter)d"%vars()] = "<vind>";  grc = ws["G%(row_counter)d"%vars()]; grc.font=greenfont
-                 ws["H%(row_counter)d"%vars()] = "<resultat>";  hrc = ws["H%(row_counter)d"%vars()]; hrc.font=greenfont
-                 ws["I%(row_counter)d"%vars()] = "<vind>";  irc = ws["I%(row_counter)d"%vars()]; irc.font=greenfont
-              if isfield(event):
-                 row_counter +=1 # add blank line for series
-                 ws["A%(row_counter)d"%vars()] = "<hopp-/kastserie>";  arc = ws["A%(row_counter)d"%vars()]; arc.font=greenfont
-    
-              row_counter +=1
-           row_counter +=1
-           
-    
+    jf = 0
+    jt = 0
+    for e in events:
+        print e
+        if isfield(e[1]):
+            jf +=1
+            event_ref = "F%02d"%jf
+        else:
+            jt +=1
+            event_ref = "T%02d"%jt
+
+        ws["M%d"%row_counter] = event_ref + ' - ' + ' '.join([e[0], event_spec(e[1], class_code(e[0]))])
+        ws["N%d"%row_counter] = event_ref
+        ws["O%d"%row_counter] = event_code(e[1])
+        ws["P%d"%row_counter] = 'ALL'
+        if 'Gutter' in e[0] or 'Menn' in e[0]:
+            g = 'M'
+        elif 'Jenter' in e[0] or 'Kvinner' in e[0]:
+            g = 'F'
+        else:
+            g = 'X'
+        ws["Q%d"%row_counter] = g
+        
+        row_counter +=1
+
+    row_counter = 2    
+
     fname = output_file_name(tree)
-    xlname = fname+'.xlsx'
+    xlname = fname+'_opentrack.xlsx'
     wb.save(xlname)
 
 def write_xlsx_results_template(tree):
@@ -505,13 +490,13 @@ def list_events(tree):
     event_list = []
     for c in tree.findall('.//Competitor'):
        ec = c.find('./Entry/EntryClass')
-       kl= ec.attrib['classCode']
+       kl= ec.attrib['shortName']
        ec = c.find('./Entry/Exercise')
        ev= ec.attrib['name'] 
        event = (kl,ev)
        if event not in event_list:
            event_list.append(event)
-       event_list.sort()
+    event_list.sort()
     return event_list
 
 def make_crosstable(tree):
@@ -530,38 +515,40 @@ def make_crosstable(tree):
 
 def event_code(event):
     event_codes = {
-            '60 meter'          : '60', 
-            '80 meter'          : '80', 
-            '100 meter'         : '100', 
-            '150 meter'         : '150', 
-            '200 meter'         : '200', 
-            '300 meter'         : '300', 
-            '400 meter'         : '400', 
-            '600 meter'         : '600', 
-            '800 meter'         : '800', 
-            '1000 meter'        : '1000', 
-            '1500 meter'        : '1500', 
-            '3000 meter'        : '3000', 
-            '5000 meter'        : '5000', 
-            '10000 meter'       : '10000', 
-            '60 meter hekk'     : '60H', 
-            '80 meter hekk'     : '80H', 
-            '100 meter hekk'    : '100H', 
-            '110 meter hekk'    : '110H', 
-            '200 meter hekk'    : '200H', 
-            '300 meter hekk'    : '300H', 
-            '400 meter hekk'    : '400H', 
-            '3000 meter hinder' : '3000SC', 
-            'Høyde'             : 'HJ', 
-            'Stav'              : 'PV', 
-            'Lengde'            : 'LJ', 
-            'Tresteg'           : 'TJ', 
-            'Kule'              : 'SP', 
-            'Diskos'            : 'DT', 
-            'Slegge'            : 'HT', 
-            'Spyd'              : 'JT', 
-            'Tikamp'            : 'DEC', 
-            'Sjukamp'           : 'HEP' 
+            u'60 meter'          : '60', 
+            u'80 meter'          : '80', 
+            u'100 meter'         : '100', 
+            u'150 meter'         : '150', 
+            u'200 meter'         : '200', 
+            u'300 meter'         : '300', 
+            u'400 meter'         : '400', 
+            u'600 meter'         : '600', 
+            u'800 meter'         : '800', 
+            u'1000 meter'        : '1000', 
+            u'1500 meter'        : '1500', 
+            u'3000 meter'        : '3000', 
+            u'5000 meter'        : '5000', 
+            u'10000 meter'       : '10000', 
+            u'60 meter hekk'     : '60H', 
+            u'80 meter hekk'     : '80H', 
+            u'100 meter hekk'    : '100H', 
+            u'110 meter hekk'    : '110H', 
+            u'200 meter hekk'    : '200H', 
+            u'300 meter hekk'    : '300H', 
+            u'400 meter hekk'    : '400H', 
+            u'3000 meter hinder' : '3000SC', 
+            u'Høyde'             : 'HJ', 
+            u'Stav'              : 'PV', 
+            u'Lengde'            : 'LJ', 
+            u'Lengde satssone'   : 'LJ', 
+            u'Tresteg'           : 'TJ', 
+            u'Tresteg satssone'  : 'TJ', 
+            u'Kule'              : 'SP', 
+            u'Diskos'            : 'DT', 
+            u'Slegge'            : 'HT', 
+            u'Spyd'              : 'JT', 
+            u'Tikamp'            : 'DEC', 
+            u'Sjukamp'           : 'HEP' 
             }
     return event_codes[event]
  
@@ -601,6 +588,45 @@ def event_name(code):
             'HEP'    : 'Sjukamp'           
             }
     return event_names[code]
+
+def class_code(name):
+    class_codes = {
+            u'6 år Fellesklasse' : 'F 6' ,
+            u'7 år Fellesklasse' : 'F 7' ,
+            'Gutter 8'     : 'G 8'          , 
+            'Gutter 9'     : 'G 9'          , 
+            'Gutter 10'    : 'G10'          , 
+            'Gutter 11'    : 'G11'          , 
+            'Gutter 12'    : 'G12'          , 
+            'Gutter 13'    : 'G13'          , 
+            'Gutter 14'    : 'G14'          , 
+            'Gutter 15'    : 'G15'          , 
+            'Gutter 16'    : 'G16'          , 
+            'Gutter 17'    : 'G17'          , 
+            'Gutter 18/19' : 'G18/19'       , 
+            'Menn junior'  : 'MJ'       , 
+            'Menn U20'     : 'MU20'       , 
+            'Menn U23'     : 'MU23'       , 
+            'Menn senior'  : 'MS'       , 
+            'Menn veteraner' : 'MV'       , 
+            'Jenter 8'     : 'J 8'          , 
+            'Jenter 9'     : 'J 9'          , 
+            'Jenter 10'    : 'J10'          , 
+            'Jenter 11'    : 'J11'          , 
+            'Jenter 12'    : 'J12'          , 
+            'Jenter 13'    : 'J13'          , 
+            'Jenter 14'    : 'J14'          , 
+            'Jenter 15'    : 'J15'          , 
+            'Jenter 16'    : 'J16'          , 
+            'Jenter 17'    : 'J17'          , 
+            'Jenter 18/19' : 'J18/19'       , 
+            'Kvinner junior'  : 'KJ'       , 
+            'Kvinner U20'     : 'KU20'       , 
+            'Kvinner U23'     : 'KU23'       , 
+            'Kvinner senior'  : 'KS'       , 
+            'Kvinner veteraner' : 'KV'        
+            }
+    return class_codes[name.strip()]
 
 def event_spec(event, klasse):
     throws = {}
@@ -684,10 +710,14 @@ for e1 in sorted( events_crosstable.keys() ):
 write_xlsx_results_template(tree)
 write_start_lists_as_html(tree)
 
-#list_entries(tree)
+"""
 l = list_events(tree)
 print(l)
+"""
 
+write_opentrack_import(tree)
+
+"""
 event = 'Lengde satssone'
 classes = [ 'F6', 'F7', 'G8', 'J8', 'J9' ]
 make_horizontal_protocol(tree, event, classes)
@@ -715,7 +745,6 @@ classes = [ 'J10', 'J11', 'J12']
 make_vertical_protocol(tree, event, classes)
 classes = [ 'G10', 'G11', 'G12']
 make_vertical_protocol(tree, event, classes)
-"""
 event = 'Lengde'
 classes = [ 'J14' ]
 make_horizontal_protocol(tree, event, classes)
