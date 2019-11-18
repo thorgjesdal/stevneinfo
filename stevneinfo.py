@@ -185,7 +185,7 @@ def sort_events_by_athlete(tree):
        klasse = ec.attrib['classCode']
        ec = c.find('./Entry/Exercise')
        event = klasse + ' ' +ec.attrib['name'] 
-       athlete_key = name + dob + club
+       athlete_key = '+'.join((fn.text, en.text, dob, club))
 
        if athlete_key not in events_by_athlete.keys():
            events_by_athlete[athlete_key] = []
@@ -236,7 +236,8 @@ def write_opentrack_import(tree):
     mv = competition_data['venue']
 
     events = list_events(tree)
-    athlete_by_event_by_class = sort_athletes_by_event_by_class(tree)
+    events_by_athlete = sort_events_by_athlete(tree)
+    print events_by_athlete
 
     #... write template for Results to xlsx workbook
     wb = Workbook()
@@ -260,7 +261,6 @@ def write_opentrack_import(tree):
     jf = 0
     jt = 0
     for e in events:
-        print e
         if isfield(e[1]):
             jf +=1
             event_ref = "F%02d"%jf
@@ -283,6 +283,20 @@ def write_opentrack_import(tree):
         row_counter +=1
 
     row_counter = 2    
+    for key in events_by_athlete.keys():
+        k = key.split('+')
+        fn = k[0]
+        en = k[1]
+        dob = '-'.join(( k[2][6:10], k[2][3:5], k[2][0:2] ))
+        club = k[3]
+        print fn, en, dob, club
+
+        ws["C%d"%row_counter] = fn
+        ws["D%d"%row_counter] = en
+        ws["F%d"%row_counter] = dob
+        ws["G%d"%row_counter] = club
+
+        row_counter +=1
 
     fname = output_file_name(tree)
     xlname = fname+'_opentrack.xlsx'
@@ -710,10 +724,6 @@ for e1 in sorted( events_crosstable.keys() ):
 write_xlsx_results_template(tree)
 write_start_lists_as_html(tree)
 
-"""
-l = list_events(tree)
-print(l)
-"""
 
 write_opentrack_import(tree)
 
