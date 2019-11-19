@@ -46,7 +46,6 @@ def output_file_name(tree):
 def save_xml_copy(tree):
    fname = output_file_name(tree)
    # save a copy of the element tree
-   print(fname)
    tree.write(fname+'.xml', encoding="utf-8")
 
 def istrack(event):
@@ -237,7 +236,6 @@ def write_opentrack_import(tree):
 
     events = list_events(tree)
     events_by_athlete = sort_events_by_athlete(tree)
-    print events_by_athlete
 
     #... write template for Results to xlsx workbook
     wb = Workbook()
@@ -247,7 +245,7 @@ def write_opentrack_import(tree):
     ws["A1"] = 'Competitor Id'
     ws["B1"] = 'National Id'
     ws["C1"] = 'First name'
-    ws["D1"] = 'First name'
+    ws["D1"] = 'Last name'
     ws["E1"] = 'Gender'
     ws["F1"] = 'Date of birth'
     ws["G1"] = 'Team ID'
@@ -272,13 +270,13 @@ def write_opentrack_import(tree):
         ws["N%d"%row_counter] = event_ref
         ws["O%d"%row_counter] = event_code(e[1])
         ws["P%d"%row_counter] = 'ALL'
-        if 'Gutter' in e[0] or 'Menn' in e[0]:
-            g = 'M'
-        elif 'Jenter' in e[0] or 'Kvinner' in e[0]:
-            g = 'F'
-        else:
-            g = 'X'
-        ws["Q%d"%row_counter] = g
+        ws["Q%d"%row_counter] = gender(class_code(e[0]))
+        ws["S%d"%row_counter] = age_group(class_code(e[0]))
+
+        ws["U%d"%row_counter] = ' '.join([e[0], event_spec(e[1], class_code(e[0]))])
+        ws["V%d"%row_counter] = '1'
+        ws["W%d"%row_counter] = '1'
+        ws["X%d"%row_counter] = '12:00'
         
         row_counter +=1
 
@@ -289,7 +287,6 @@ def write_opentrack_import(tree):
         en = k[1]
         dob = '-'.join(( k[2][6:10], k[2][3:5], k[2][0:2] ))
         club = k[3]
-        print fn, en, dob, club
 
         ws["C%d"%row_counter] = fn
         ws["D%d"%row_counter] = en
@@ -641,6 +638,52 @@ def class_code(name):
             'Kvinner veteraner' : 'KV'        
             }
     return class_codes[name.strip()]
+
+def age_group(class_code):
+    age_groups = {
+            'F 6'    : 'U7X',
+            'F 7'    : 'U8X',
+            'G 8'    : 'U9B',
+            'G 9'    : 'U10B',
+            'G10'    : 'U11B',
+            'G11'    : 'U12B',
+            'G12'    : 'U13B',
+            'G13'    : 'U14B',
+            'G14'    : 'U15B',
+            'G15'    : 'U16B',
+            'G16'    : 'U17B',
+            'G17'    : 'U18B',
+            'G18/19' : 'U20M',
+            'MJ'     : 'U20M' ,
+            'MS'     : 'SM' ,
+            'MV'     : 'V35M' ,
+            'MV35'   : 'V35M' ,
+            'J 8'    : 'U9G',
+            'J 9'    : 'U10G',
+            'J10'    : 'U11G',
+            'J11'    : 'U12G',
+            'J12'    : 'U13G',
+            'J13'    : 'U14G',
+            'J14'    : 'U15G',
+            'J15'    : 'U16G',
+            'J16'    : 'U17G',
+            'J17'    : 'U18G',
+            'J18/19' : 'U20W',
+            'KJ'     : 'U20W' ,
+            'KS'     : 'SW' 
+            }
+
+    return age_groups[class_code]
+
+def gender(class_code):
+    if class_code[0] in ('G', 'M'):
+        g = 'M'
+    elif class_code[0] in ('J', 'K'):
+        g = 'F'
+    else:
+        g = 'X'
+
+    return g
 
 def event_spec(event, klasse):
     throws = {}
