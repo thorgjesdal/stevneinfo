@@ -167,6 +167,7 @@ def sort_events_by_athlete(tree):
     for c in tree.findall('.//Competitor'):
        p = c.find('Person')
        club = p.attrib['clubName']
+       g = p.attrib['sex']
        cs = club.split(',')
        if len(cs) > 1:
           club = cs[1].strip() + ' ' + cs[0].strip()
@@ -183,14 +184,14 @@ def sort_events_by_athlete(tree):
        ec = c.find('./Entry/EntryClass')
        klasse = ec.attrib['classCode']
        ec = c.find('./Entry/Exercise')
-       event = klasse + ' ' +ec.attrib['name'] 
-       athlete_key = '+'.join((fn.text, en.text, dob, club))
+       #event = klasse + ' ' +ec.attrib['name'] 
+       event = ( klasse, ec.attrib['name'] )
+       athlete_key = '+'.join((fn.text, en.text, dob, g, club))
 
        if athlete_key not in events_by_athlete.keys():
            events_by_athlete[athlete_key] = []
        if event not in events_by_athlete[athlete_key]:
            events_by_athlete[athlete_key].append(event)
-
 
     return events_by_athlete
 
@@ -250,14 +251,15 @@ def write_opentrack_import(tree):
     ws["F1"] = 'Date of birth'
     ws["G1"] = 'Team ID'
     ws["H1"] = 'Nationality'
-    ws["I1"] = 'Event'
-    ws["J1"] = 'Pb'
-    ws["K1"] = 'Sb'
+    ws["J1"] = 'Event'
+    ws["K1"] = 'Pb'
+    ws["L1"] = 'Sb'
     ws["M1"] = 'Event selection'
     row_counter = 2
 
     jf = 0
     jt = 0
+    full_events = {}
     for e in events:
         if isfield(e[1]):
             jf +=1
@@ -266,34 +268,43 @@ def write_opentrack_import(tree):
             jt +=1
             event_ref = "T%02d"%jt
 
-        ws["M%d"%row_counter] = event_ref + ' - ' + ' '.join([e[0], event_spec(e[1], class_code(e[0]))])
-        ws["N%d"%row_counter] = event_ref
-        ws["O%d"%row_counter] = event_code(e[1])
-        ws["P%d"%row_counter] = 'ALL'
-        ws["Q%d"%row_counter] = gender(class_code(e[0]))
-        ws["S%d"%row_counter] = age_group(class_code(e[0]))
+        full_events[ ( class_code(e[0]) , e[1] ) ]  = event_ref + ' - ' + ' '.join(( class_code(e[0]), event_spec(e[1], class_code(e[0])) ))
+        ws["M%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], event_spec(e[1], class_code(e[0]))])
+        ws["O%d"%row_counter] = event_ref
+        ws["P%d"%row_counter] = event_code(e[1])
+        ws["Q%d"%row_counter] = age_group(class_code(e[0]))
+        ws["R%d"%row_counter] = gender(class_code(e[0]))
+        ws["S%d"%row_counter] = class_code(e[0])
+#       ws["S%d"%row_counter] = age_group(class_code(e[0]))
 
-        ws["U%d"%row_counter] = ' '.join([e[0], event_spec(e[1], class_code(e[0]))])
+        ws["U%d"%row_counter] = ' '.join(( class_code(e[0]), event_spec(e[1], class_code(e[0])) ))
         ws["V%d"%row_counter] = '1'
         ws["W%d"%row_counter] = '1'
         ws["X%d"%row_counter] = '12:00'
         
         row_counter +=1
+    ws.insert_cols(13)
 
     row_counter = 2    
+    bib = 0
     for key in events_by_athlete.keys():
+        bib +=1
         k = key.split('+')
         fn = k[0]
         en = k[1]
         dob = '-'.join(( k[2][6:10], k[2][3:5], k[2][0:2] ))
-        club = k[3]
+        g = k[3]
+        club = k[4]
 
-        ws["C%d"%row_counter] = fn
-        ws["D%d"%row_counter] = en
-        ws["F%d"%row_counter] = dob
-        ws["G%d"%row_counter] = club
-
-        row_counter +=1
+        for e in events_by_athlete[key]:
+            ws["A%d"%row_counter] = bib
+            ws["C%d"%row_counter] = fn
+            ws["D%d"%row_counter] = en
+            ws["E%d"%row_counter] = gender(g)
+            ws["F%d"%row_counter] = dob
+            ws["G%d"%row_counter] = club_code(club)
+            ws["J%d"%row_counter] = full_events[e]
+            row_counter +=1
 
     fname = output_file_name(tree)
     xlname = fname+'_opentrack.xlsx'
@@ -602,8 +613,8 @@ def event_name(code):
 
 def class_code(name):
     class_codes = {
-            u'6 år Fellesklasse' : 'F 6' ,
-            u'7 år Fellesklasse' : 'F 7' ,
+            u'6 år Fellesklasse' : 'F6' ,
+            u'7 år Fellesklasse' : 'F7' ,
             'Gutter 8'     : 'G 8'          , 
             'Gutter 9'     : 'G 9'          , 
             'Gutter 10'    : 'G10'          , 
@@ -641,8 +652,41 @@ def class_code(name):
 
 def age_group(class_code):
     age_groups = {
-            'F 6'    : 'U7X',
-            'F 7'    : 'U8X',
+            'F6'    : 'U7',
+            'F7'    : 'U8',
+            'G 8'    : 'U9',
+            'G 9'    : 'U10',
+            'G10'    : 'U11',
+            'G11'    : 'U12',
+            'G12'    : 'U13',
+            'G13'    : 'U14',
+            'G14'    : 'U15',
+            'G15'    : 'U16',
+            'G16'    : 'U17',
+            'G17'    : 'U18',
+            'G18/19' : 'U20',
+            'MJ'     : 'U20' ,
+            'MS'     : 'S' ,
+            'MV'     : 'V35' ,
+            'MV35'   : 'V35' ,
+            'J 8'    : 'U9',
+            'J 9'    : 'U10',
+            'J10'    : 'U11',
+            'J11'    : 'U12',
+            'J12'    : 'U13',
+            'J13'    : 'U14',
+            'J14'    : 'U15',
+            'J15'    : 'U16',
+            'J16'    : 'U17',
+            'J17'    : 'U18',
+            'J18/19' : 'U20',
+            'KJ'     : 'U20' ,
+            'KS'     : 'S' 
+            }
+    """
+    age_groups = {
+            'F6'    : 'U7MF',
+            'F7'    : 'U8MF',
             'G 8'    : 'U9B',
             'G 9'    : 'U10B',
             'G10'    : 'U11B',
@@ -672,6 +716,7 @@ def age_group(class_code):
             'KJ'     : 'U20W' ,
             'KS'     : 'SW' 
             }
+    """
 
     return age_groups[class_code]
 
@@ -681,7 +726,7 @@ def gender(class_code):
     elif class_code[0] in ('J', 'K'):
         g = 'F'
     else:
-        g = 'X'
+        g = 'MF'
 
     return g
 
@@ -749,6 +794,26 @@ def event_spec(event, klasse):
     return e
 
 
+def club_code(club_name):
+    if club_name in ('IL Koll', 'Idrettslaget Koll', 'Koll, IL', 'Koll, Idrettslaget'):
+        club_code = 'KOLL'
+    elif club_name in ('IL i BUL', 'Idrottslaget i BUL', 'BUL, IL i', 'BUL, Idrottslaget i'):
+        club_code = 'ILBUL'
+    elif club_name in ( 'IK Tjalve', 'Idrettsklubben Tjalve', 'Tjalve, IK', 'Tjalve, Idrettsklubben', 'Tjalve Idrettsklubben' ):
+        club_code = 'TJALV'
+    elif club_name in ( 'Tyrving IL', 'Tyrving Idrettslag' ):
+        club_code = 'TYR'
+    elif club_name in ( 'Romerike Friidrett' ):
+        club_code = 'ROMFR'
+    elif club_name in ( 'Bækkelagets SK' ): 
+        club_code = 'BSK'
+    elif club_name in ( 'Nesodden IF' ): 
+        club_code = 'NESO'
+    else:
+        club_code = ''
+
+    return club_code
+ 
  
 # ...
 if len(sys.argv) < 2:
@@ -759,10 +824,12 @@ tree = read_xml_into_tree(infile)
 save_xml_copy(tree)
 
 
+"""
 events_crosstable = make_crosstable(tree)
 for e1 in sorted( events_crosstable.keys() ):
     for e2 in sorted( events_crosstable[e1].keys() ):
         print e1 +'|'+ e2, events_crosstable[e1][e2]
+"""
 
 write_xlsx_results_template(tree)
 write_start_lists_as_html(tree)
