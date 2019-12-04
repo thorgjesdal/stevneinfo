@@ -251,9 +251,9 @@ def write_opentrack_import(tree):
     ws["F1"] = 'Date of birth'
     ws["G1"] = 'Team ID'
     ws["H1"] = 'Nationality'
-    ws["J1"] = 'Event'
-    ws["K1"] = 'Pb'
-    ws["L1"] = 'Sb'
+    ws["I1"] = 'Event'
+    ws["J1"] = 'Pb'
+    ws["K1"] = 'Sb'
     ws["M1"] = 'Event selection'
     row_counter = 2
 
@@ -303,7 +303,7 @@ def write_opentrack_import(tree):
             ws["E%d"%row_counter] = gender(g)
             ws["F%d"%row_counter] = dob
             ws["G%d"%row_counter] = club_code(club)
-            ws["J%d"%row_counter] = full_events[e]
+            ws["I%d"%row_counter] = full_events[e]
             row_counter +=1
 
     fname = output_file_name(tree)
@@ -800,7 +800,7 @@ def club_code(club_name):
     elif club_name in ('IL i BUL', 'Idrottslaget i BUL', 'BUL, IL i', 'BUL, Idrottslaget i'):
         club_code = 'ILBUL'
     elif club_name in ( 'IK Tjalve', 'Idrettsklubben Tjalve', 'Tjalve, IK', 'Tjalve, Idrettsklubben', 'Tjalve Idrettsklubben' ):
-        club_code = 'TJALV'
+        club_code = 'TJAL'
     elif club_name in ( 'Tyrving IL', 'Tyrving Idrettslag' ):
         club_code = 'TYR'
     elif club_name in ( 'Romerike Friidrett' ):
