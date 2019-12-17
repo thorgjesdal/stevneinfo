@@ -197,9 +197,12 @@ def sort_events_by_athlete(tree):
 
 def write_start_lists_as_html(tree):
     competition_data = extract_competition_data(tree)
-    mn = competition_data['meet_name']
-    md = competition_data['meet_date']
-    mv = competition_data['venue']
+    #mn = competition_data['meet_name']
+    #md = competition_data['meet_date']
+    #mv = competition_data['venue']
+    mn = competition_data['meet_name'].encode('utf-8')
+    md = competition_data['meet_date'].encode('utf-8')
+    mv = competition_data['venue'].encode('utf-8')
 
     athlete_by_class_by_event = sort_athletes_by_class_by_event(tree)
 
@@ -212,7 +215,8 @@ def write_start_lists_as_html(tree):
     <title> %(mn)s </title>
     <h1> %(mn)s </h1>
     """ % vars() )
-    of.write("%s, %s" % ( md, mv.encode('utf-8') ) )
+    #of.write("%s, %s" % ( md, mv.encode('utf-8') ) )
+    of.write("%s, %s" % ( md, mv ) )
     event_keys = athlete_by_class_by_event.keys() 
     event_keys.sort()
     for event_key in event_keys:
@@ -626,11 +630,11 @@ def class_code(name):
             'Gutter 16'    : 'G16'          , 
             'Gutter 17'    : 'G17'          , 
             'Gutter 18/19' : 'G18/19'       , 
-            'Menn junior'  : 'MJ'       , 
-            'Menn U20'     : 'MU20'       , 
-            'Menn U23'     : 'MU23'       , 
-            'Menn senior'  : 'MS'       , 
-            'Menn veteraner' : 'MV'       , 
+            'Menn junior'  : 'MJ'           , 
+            'Menn U20'     : 'MU20'         , 
+            'Menn U23'     : 'MU23'         , 
+            'Menn senior'  : 'MS'           , 
+            'Menn veteraner' : 'MV'         , 
             'Jenter 8'     : 'J 8'          , 
             'Jenter 9'     : 'J 9'          , 
             'Jenter 10'    : 'J10'          , 
@@ -642,11 +646,12 @@ def class_code(name):
             'Jenter 16'    : 'J16'          , 
             'Jenter 17'    : 'J17'          , 
             'Jenter 18/19' : 'J18/19'       , 
-            'Kvinner junior'  : 'KJ'       , 
-            'Kvinner U20'     : 'KU20'       , 
-            'Kvinner U23'     : 'KU23'       , 
-            'Kvinner senior'  : 'KS'       , 
-            'Kvinner veteraner' : 'KV'        
+            'Kvinner junior'  : 'KJ'        , 
+            'Kvinner U20'     : 'KU20'      , 
+            'Kvinner U23'     : 'KU23'      , 
+            'Kvinner senior'  : 'KS'        , 
+            'Kvinner veteraner' : 'KV'      ,
+            'Ikke valgt klasse' : 'IVK'
             }
     return class_codes[name.strip()]
 
@@ -681,7 +686,8 @@ def age_group(class_code):
             'J17'    : 'U18',
             'J18/19' : 'U20',
             'KJ'     : 'U20' ,
-            'KS'     : 'S' 
+            'KS'     : 'S'  ,
+            'IVK'   : 'ALL'  
             }
     """
     age_groups = {
@@ -805,14 +811,60 @@ def club_code(club_name):
         club_code = 'TYR'
     elif club_name in ( 'Romerike Friidrett' ):
         club_code = 'ROMFR'
-    elif club_name in ( 'Bækkelagets SK' ): 
+    elif club_name in ( u'Bækkelagets SK' ): 
         club_code = 'BSK'
     elif club_name in ( 'Nesodden IF' ): 
         club_code = 'NESO'
+    elif club_name in ( 'Groruddalen Friidrettsklubb' ): 
+        club_code = 'GRO'
+    elif club_name in ( 'Idrettslaget Sandvin', 'IL Sandvin' ): 
+        club_code = 'SANDV'
+    elif club_name in ( 'Eidanger Idrettslag' ): 
+        club_code = 'EIDA'
+    elif club_name in ( 'Ski IL Friidrett' ): 
+        club_code = 'SKI'
+    elif club_name in ( 'Gui Sportsklubb' ): 
+        club_code = 'GUI'
+    elif club_name in ( 'Sturla IF', 'Idrettsforeningen Sturla'): 
+        club_code = 'STUR'
     else:
-        club_code = ''
+        club_code = club_name
 
     return club_code
+
+def club_name(club_code):
+    if club_code == 'KOLL':
+        club_name = 'IL Koll'
+    elif club_code in ( 'ILBUL', 'ILIBUL'):
+        club_name = 'IL i BUL'
+    elif club_code ==  'TJAL':
+        club_name = 'IK Tjalve'
+    elif club_code ==  'TYR':
+        club_name = 'Tyrving IL'
+    elif club_code ==  'ROMFR':
+        club_name = 'Romerike Friidrett'
+    elif club_code ==  'BSK':
+        club_name = u'Bækkelagets SK'
+    elif club_code ==  'NESO':
+        club_name = 'Nesodden IF'
+    elif club_code ==  'GRO':
+        club_name = 'Groruddalen FIK'
+    elif club_code ==  'SANDV':
+        club_name = 'IL Sandvin'
+    elif club_code ==  'EIDA':
+        club_name = 'Eidanger Idrettslag'
+    elif club_code ==  'SKI':
+        club_name = 'Ski IL Friidrett'
+    elif club_code ==  'GUI':
+        club_name = 'Gui Sportsklubb'
+    elif club_code ==  'STUR':
+        club_name = 'IF Sturla'
+    else:
+        club_name=club_code
+
+    return club_name
+   
+
  
  
 # ...
