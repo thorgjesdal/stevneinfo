@@ -1,0 +1,2204 @@
+{
+  "competitors": [
+    {
+      "ageGroup": "U16", 
+      "category": "U16G", 
+      "checkedIn": false, 
+      "competitorId": "101", 
+      "dateOfBirth": "2005-11-29", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Linnea-Kristine Austad", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/MOD.png", 
+      "gender": "F", 
+      "lastName": "Nilsen", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "100ad968-0be5-46d7-8812-5b3954733b0c", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00101", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "MOD"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16G", 
+      "checkedIn": false, 
+      "competitorId": "102", 
+      "dateOfBirth": "2004-02-14", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Kassandra", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/EIDA.png", 
+      "gender": "F", 
+      "lastName": "Sch\u00f8nberg", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "a7a72782-8201-4708-9b2a-ac5ffd13b9b5", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00102", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "EIDA"
+    }, 
+    {
+      "ageGroup": "U18", 
+      "category": "U18G", 
+      "checkedIn": false, 
+      "competitorId": "103", 
+      "dateOfBirth": "2002-08-16", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Maren", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TYR.png", 
+      "gender": "F", 
+      "lastName": "R\u00f8nnevig", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "8c997042-e34d-4159-8840-1c96a07ccdbe", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00103", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "TYR"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14G", 
+      "checkedIn": false, 
+      "competitorId": "104", 
+      "dateOfBirth": "2006-03-24", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Nora", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/URFRI.png", 
+      "gender": "F", 
+      "lastName": "Eikeng", 
+      "nationality": "NOR", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "f25a8648-7d27-4c24-b879-e296dd359ddd", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00104", 
+      "sortEventCode": "3_00001_PV", 
+      "summaryText": "Eikeng, Nora U14 F (URFRI), NOR", 
+      "teamId": "URFRI"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16G", 
+      "checkedIn": false, 
+      "competitorId": "105", 
+      "dateOfBirth": "2005-12-30", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Helle", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/HAL.png", 
+      "gender": "F", 
+      "lastName": "Kvalheim", 
+      "nationality": "NOR", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "1ab24fe4-82be-4b08-bca5-8e4c881f847d", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00105", 
+      "sortEventCode": "3_00001_PV", 
+      "summaryText": "Kvalheim, Helle U16 F (HAL), NOR", 
+      "teamId": "HAL"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14B", 
+      "checkedIn": false, 
+      "competitorId": "201", 
+      "dateOfBirth": "2007-04-29", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Elias", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/SKI.png", 
+      "gender": "M", 
+      "lastName": "Rian", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "21f4f578-9f6a-4083-856b-0d66576f0e2d", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00201", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "SKI"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14B", 
+      "checkedIn": false, 
+      "competitorId": "202", 
+      "dateOfBirth": "2006-08-24", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Rolf Magnus Marstein", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/GUI.png", 
+      "gender": "M", 
+      "lastName": "Kristiansen", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "31489561-566a-4ef8-990d-fafed92c2dae", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00202", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "GUI"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14B", 
+      "checkedIn": false, 
+      "competitorId": "203", 
+      "dateOfBirth": "2006-05-23", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Martin Beitnes", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/MOD.png", 
+      "gender": "M", 
+      "lastName": "Kreken", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "869be083-3cfb-4c1e-a343-72cd489de5b5", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00203", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "MOD"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16B", 
+      "checkedIn": false, 
+      "competitorId": "204", 
+      "dateOfBirth": "2005-10-24", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Simen Johan", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/SANDV.png", 
+      "gender": "M", 
+      "lastName": "Teigstad", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "410f09b9-ee47-4416-95b6-bae31c34edc7", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00204", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "SANDV"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16B", 
+      "checkedIn": false, 
+      "competitorId": "205", 
+      "dateOfBirth": "2005-06-24", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Lucas Fernandes Thomaz", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "M", 
+      "lastName": "Gjesdal", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "8fc7bf0f-7d3c-4bce-a40f-93ee9f779a60", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00205", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "KOLL"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16B", 
+      "checkedIn": false, 
+      "competitorId": "206", 
+      "dateOfBirth": "2005-04-12", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Tobias", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/SKI.png", 
+      "gender": "M", 
+      "lastName": "Rian", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "0b8b4ae6-4535-4611-8836-f5843b1b910f", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00206", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "SKI"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16B", 
+      "checkedIn": false, 
+      "competitorId": "207", 
+      "dateOfBirth": "2005-02-20", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Andreas Wiesener", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "M", 
+      "lastName": "Haga", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "d9572368-ce38-4f40-9667-5cf8f4b84e8c", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00207", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "KOLL"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16B", 
+      "checkedIn": false, 
+      "competitorId": "208", 
+      "dateOfBirth": "2004-12-18", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Andr\u00e9 Cruz", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/GRO.png", 
+      "gender": "M", 
+      "lastName": "Da Silva", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "9ebdce1f-813d-4006-b06e-f429451802db", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00208", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "GRO"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16B", 
+      "checkedIn": false, 
+      "competitorId": "209", 
+      "dateOfBirth": "2004-12-17", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Sander", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/STUR.png", 
+      "gender": "M", 
+      "lastName": "Oppen", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "17963b6d-eaa8-4ff4-b814-52f64b2ced65", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00209", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "STUR"
+    }, 
+    {
+      "ageGroup": "U18", 
+      "category": "U18B", 
+      "checkedIn": false, 
+      "competitorId": "210", 
+      "dateOfBirth": "2002-05-31", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Sander Aae", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "M", 
+      "lastName": "Skotheim", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "ea21086e-ac3c-42ab-b0dd-8779a9bfcecf", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00210", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "KOLL"
+    }, 
+    {
+      "ageGroup": "U20", 
+      "category": "U20M", 
+      "checkedIn": false, 
+      "competitorId": "211", 
+      "dateOfBirth": "2001-12-22", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Markus", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TJAL.png", 
+      "gender": "M", 
+      "lastName": "Rooth", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "c3949f18-c5ad-4343-8fb1-d301830ce637", 
+      "sortAgeGroup": "0-U20", 
+      "sortBib": "00211", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "TJAL"
+    }, 
+    {
+      "ageGroup": "?", 
+      "checkedIn": false, 
+      "competitorId": "212", 
+      "eventsEntered": [], 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "sortAgeGroup": "3-?", 
+      "sortBib": "00212"
+    }, 
+    {
+      "ageGroup": "SEN", 
+      "category": "SM", 
+      "checkedIn": false, 
+      "competitorId": "213", 
+      "dateOfBirth": "1995-11-22", 
+      "event": "F01 - IVK Stav", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Andreas Fernandes Thomaz", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TJAL.png", 
+      "gender": "M", 
+      "lastName": "Gjesdal", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "91863167-6259-4ae9-b653-cfafcad50063", 
+      "sortAgeGroup": "1-SEN", 
+      "sortBib": "00213", 
+      "sortEventCode": "3_00001_PV", 
+      "teamId": "TJAL"
+    }, 
+    {
+      "ageGroup": "U20", 
+      "category": "U20M", 
+      "checkedIn": false, 
+      "competitorId": "214", 
+      "dateOfBirth": "2000-12-10", 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Sebastian", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/BSK.png", 
+      "gender": "M", 
+      "lastName": "Marrot", 
+      "nationality": "NOR", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "c242bf7f-9a87-45bc-a1bb-468f7d32c597", 
+      "sortAgeGroup": "0-U20", 
+      "sortBib": "00214", 
+      "sortEventCode": "3_00001_PV", 
+      "summaryText": "Marrot, Sebastian U20 M (BSK), NOR", 
+      "teamId": "BSK"
+    }
+  ], 
+  "contactDetails": "friidrett@koll.no", 
+  "country": "NOR", 
+  "date": "2019-12-21", 
+  "events": [
+    {
+      "ageGroups": [
+        "ALL"
+      ], 
+      "category": "IVK", 
+      "cutAfterRound": 0, 
+      "cutSurvivors": 0, 
+      "day": 1, 
+      "eventCode": "PV", 
+      "eventId": "F01", 
+      "genders": "MF", 
+      "lanes": 8, 
+      "name": "IVK Stav", 
+      "r1Time": "14:00", 
+      "r2Day": 1, 
+      "r3Day": 1, 
+      "rounds": "3", 
+      "seedingMethod": "fastest_last", 
+      "status": "complete", 
+      "teamTypes": "INHERIT", 
+      "units": [
+        {
+          "eventId": "F01", 
+          "eventName": "IVK Stav", 
+          "heat": 1, 
+          "heights": [
+            "1.60", 
+            "1.70", 
+            "1.80", 
+            "1.90", 
+            "2.00", 
+            "2.10", 
+            "2.20", 
+            "2.30", 
+            "2.40", 
+            "2.50", 
+            "2.60", 
+            "2.70", 
+            "2.80", 
+            "2.90", 
+            "3.00", 
+            "3.05", 
+            "3.10", 
+            "3.20", 
+            "3.30", 
+            "3.40"
+          ], 
+          "initialHeight": "1.60", 
+          "results": [
+            {
+              "bib": "101", 
+              "catpos": 2, 
+              "performance": "2.40", 
+              "place": 10, 
+              "points": 0
+            }, 
+            {
+              "bib": "102", 
+              "catpos": 1, 
+              "performance": "3.00", 
+              "place": 3, 
+              "points": 0
+            }, 
+            {
+              "bib": "103", 
+              "catpos": 1, 
+              "performance": "2.90", 
+              "place": 4, 
+              "points": 0
+            }, 
+            {
+              "bib": "104", 
+              "catpos": 1, 
+              "performance": "2.90", 
+              "place": 5, 
+              "points": 0
+            }, 
+            {
+              "bib": "105", 
+              "catpos": 3, 
+              "performance": "2.30", 
+              "place": 11, 
+              "points": 0
+            }, 
+            {
+              "bib": "201", 
+              "catpos": 3, 
+              "performance": "2.00", 
+              "place": 13, 
+              "points": 0
+            }, 
+            {
+              "bib": "202", 
+              "catpos": 1, 
+              "performance": "2.60", 
+              "place": 7, 
+              "points": 0
+            }, 
+            {
+              "bib": "203", 
+              "catpos": 2, 
+              "performance": "2.60", 
+              "place": 8, 
+              "points": 0
+            }, 
+            {
+              "bib": "204", 
+              "catpos": 2, 
+              "performance": "3.20", 
+              "place": 2, 
+              "points": 0
+            }, 
+            {
+              "bib": "205", 
+              "catpos": 3, 
+              "performance": "2.80", 
+              "place": 6, 
+              "points": 0
+            }, 
+            {
+              "bib": "206", 
+              "catpos": 1, 
+              "performance": "3.30", 
+              "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "207", 
+              "catpos": 5, 
+              "performance": "2.20", 
+              "place": 12, 
+              "points": 0
+            }, 
+            {
+              "bib": "208", 
+              "catpos": 4, 
+              "performance": "2.60", 
+              "place": 9, 
+              "points": 0
+            }
+          ], 
+          "resultsStatus": "official", 
+          "round": 1, 
+          "scheduledStartTime": "14:00", 
+          "showAgeGrade": false, 
+          "showAthleteDetails": true, 
+          "showAthlonPoints": false, 
+          "showPartials": true, 
+          "showPoints": false, 
+          "status": "finished", 
+          "trials": [
+            {
+              "bib": "101", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "102", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "201", 
+              "height": "1.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "202", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "203", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "207", 
+              "height": "1.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "101", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "102", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "201", 
+              "height": "1.70", 
+              "result": "o"
+            }, 
+            {
+              "bib": "202", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "203", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "207", 
+              "height": "1.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "101", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "102", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "201", 
+              "height": "1.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "202", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "203", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "207", 
+              "height": "1.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "101", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "102", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "201", 
+              "height": "1.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "202", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "203", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "1.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "207", 
+              "height": "1.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "201", 
+              "height": "2.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "207", 
+              "height": "2.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.10", 
+              "result": "o"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.10", 
+              "result": "o"
+            }, 
+            {
+              "bib": "201", 
+              "height": "2.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "207", 
+              "height": "2.10", 
+              "result": "o"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.10", 
+              "result": "o"
+            }, 
+            {
+              "bib": "201", 
+              "height": "2.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "201", 
+              "height": "2.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.20", 
+              "result": "o"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.20", 
+              "result": "x"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.20", 
+              "result": "o"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "207", 
+              "height": "2.20", 
+              "result": "o"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.20", 
+              "result": "o"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.20", 
+              "result": "x"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.20", 
+              "result": "o"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.30", 
+              "result": "o"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.30", 
+              "result": "o"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "207", 
+              "height": "2.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.30", 
+              "result": "o"
+            }, 
+            {
+              "bib": "207", 
+              "height": "2.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "207", 
+              "height": "2.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.30", 
+              "result": "o"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.40", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.40", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.40", 
+              "result": "-"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.40", 
+              "result": "o"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.40", 
+              "result": "o"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.40", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.40", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.40", 
+              "result": "-"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.40", 
+              "result": "o"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.40", 
+              "result": "o"
+            }, 
+            {
+              "bib": "105", 
+              "height": "2.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.50", 
+              "result": "o"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.50", 
+              "result": "o"
+            }, 
+            {
+              "bib": "101", 
+              "height": "2.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.50", 
+              "result": "o"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.60", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.60", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.70", 
+              "result": "o"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.70", 
+              "result": "o"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.70", 
+              "result": "o"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.70", 
+              "result": "o"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "202", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "203", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "208", 
+              "height": "2.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.80", 
+              "result": "x"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.80", 
+              "result": "x"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.80", 
+              "result": "x"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.80", 
+              "result": "x"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.80", 
+              "result": "x"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "102", 
+              "height": "2.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "103", 
+              "height": "2.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.90", 
+              "result": "x"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.90", 
+              "result": "x"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.90", 
+              "result": "x"
+            }, 
+            {
+              "bib": "206", 
+              "height": "2.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "104", 
+              "height": "2.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "204", 
+              "height": "2.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.90", 
+              "result": "x"
+            }, 
+            {
+              "bib": "205", 
+              "height": "2.90", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "3.00", 
+              "result": "x"
+            }, 
+            {
+              "bib": "103", 
+              "height": "3.00", 
+              "result": "x"
+            }, 
+            {
+              "bib": "104", 
+              "height": "3.00", 
+              "result": "-"
+            }, 
+            {
+              "bib": "204", 
+              "height": "3.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "102", 
+              "height": "3.00", 
+              "result": "x"
+            }, 
+            {
+              "bib": "103", 
+              "height": "3.00", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "3.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "103", 
+              "height": "3.00", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "3.05", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "3.05", 
+              "result": "x"
+            }, 
+            {
+              "bib": "204", 
+              "height": "3.05", 
+              "result": "-"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.05", 
+              "result": "-"
+            }, 
+            {
+              "bib": "104", 
+              "height": "3.05", 
+              "result": "x"
+            }, 
+            {
+              "bib": "104", 
+              "height": "3.05", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "3.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "204", 
+              "height": "3.10", 
+              "result": "o"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "102", 
+              "height": "3.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.10", 
+              "result": "o"
+            }, 
+            {
+              "bib": "102", 
+              "height": "3.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "204", 
+              "height": "3.20", 
+              "result": "o"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.20", 
+              "result": "o"
+            }, 
+            {
+              "bib": "204", 
+              "height": "3.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.30", 
+              "result": "o"
+            }, 
+            {
+              "bib": "204", 
+              "height": "3.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "204", 
+              "height": "3.30", 
+              "result": "x"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "206", 
+              "height": "3.40", 
+              "result": "x"
+            }
+          ]
+        }, 
+        {
+          "eventId": "F01", 
+          "eventName": "IVK Stav", 
+          "heat": 2, 
+          "heights": [
+            "3.20", 
+            "3.30", 
+            "3.35", 
+            "3.40", 
+            "3.50", 
+            "3.60", 
+            "3.70", 
+            "3.80", 
+            "3.85", 
+            "3.90", 
+            "4.10", 
+            "4.30", 
+            "4.40", 
+            "4.50", 
+            "4.60", 
+            "4.75"
+          ], 
+          "initialHeight": "3.20", 
+          "results": [
+            {
+              "bib": "209", 
+              "catpos": 1, 
+              "performance": "3.60", 
+              "place": 4, 
+              "points": 0
+            }, 
+            {
+              "bib": "210", 
+              "catpos": 1, 
+              "performance": "4.40", 
+              "place": 2, 
+              "points": 0
+            }, 
+            {
+              "bib": "211", 
+              "catpos": 1, 
+              "performance": "4.60", 
+              "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "212", 
+              "catpos": 1, 
+              "performance": "NH", 
+              "place": 5, 
+              "points": 0
+            }, 
+            {
+              "bib": "214", 
+              "catpos": 2, 
+              "performance": "3.60", 
+              "place": 3, 
+              "points": 0
+            }
+          ], 
+          "resultsStatus": "official", 
+          "round": 1, 
+          "scheduledStartTime": "14:00", 
+          "showAgeGrade": false, 
+          "showAthleteDetails": true, 
+          "showAthlonPoints": false, 
+          "showPartials": true, 
+          "showPoints": false, 
+          "status": "finished", 
+          "trials": [
+            {
+              "bib": "209", 
+              "height": "3.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.20", 
+              "result": "-"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.20", 
+              "result": "o"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.30", 
+              "result": "o"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.35", 
+              "result": "-"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.35", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.35", 
+              "result": "-"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.35", 
+              "result": "-"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.40", 
+              "result": "o"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.40", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.40", 
+              "result": "-"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.40", 
+              "result": "o"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.50", 
+              "result": "o"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.60", 
+              "result": "x"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.60", 
+              "result": "-"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.70", 
+              "result": "-"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "209", 
+              "height": "3.70", 
+              "result": "x"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.80", 
+              "result": "-"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.80", 
+              "result": "x"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.80", 
+              "result": "x"
+            }, 
+            {
+              "bib": "214", 
+              "height": "3.80", 
+              "result": "x"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.85", 
+              "result": "-"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.85", 
+              "result": "-"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.90", 
+              "result": "x"
+            }, 
+            {
+              "bib": "211", 
+              "height": "3.90", 
+              "result": "-"
+            }, 
+            {
+              "bib": "210", 
+              "height": "3.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "210", 
+              "height": "4.10", 
+              "result": "o"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.10", 
+              "result": "-"
+            }, 
+            {
+              "bib": "210", 
+              "height": "4.30", 
+              "result": "o"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.30", 
+              "result": "-"
+            }, 
+            {
+              "bib": "210", 
+              "height": "4.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.40", 
+              "result": "o"
+            }, 
+            {
+              "bib": "210", 
+              "height": "4.40", 
+              "result": "x"
+            }, 
+            {
+              "bib": "210", 
+              "height": "4.40", 
+              "result": "o"
+            }, 
+            {
+              "bib": "210", 
+              "height": "4.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.50", 
+              "result": "-"
+            }, 
+            {
+              "bib": "210", 
+              "height": "4.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "210", 
+              "height": "4.50", 
+              "result": "x"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.60", 
+              "result": "x"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.75", 
+              "result": "x"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.75", 
+              "result": "x"
+            }, 
+            {
+              "bib": "211", 
+              "height": "4.75", 
+              "result": "x"
+            }
+          ]
+        }, 
+        {
+          "eventId": "F01", 
+          "eventName": "IVK Stav", 
+          "heat": 3, 
+          "heights": [
+            "4.80", 
+            "4.90", 
+            "5.00", 
+            "5.10"
+          ], 
+          "initialHeight": "4.80", 
+          "results": [
+            {
+              "bib": "213", 
+              "catpos": 1, 
+              "performance": "5.00", 
+              "place": 1, 
+              "points": 0
+            }
+          ], 
+          "resultsStatus": "official", 
+          "round": 1, 
+          "scheduledStartTime": "12:30", 
+          "showAgeGrade": false, 
+          "showAthleteDetails": true, 
+          "showAthlonPoints": false, 
+          "showPartials": true, 
+          "showPoints": false, 
+          "status": "finished", 
+          "trials": [
+            {
+              "bib": "213", 
+              "height": "4.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "213", 
+              "height": "4.90", 
+              "result": "x"
+            }, 
+            {
+              "bib": "213", 
+              "height": "4.90", 
+              "result": "x"
+            }, 
+            {
+              "bib": "213", 
+              "height": "4.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "213", 
+              "height": "5.00", 
+              "result": "x"
+            }, 
+            {
+              "bib": "213", 
+              "height": "5.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "213", 
+              "height": "5.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "213", 
+              "height": "5.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "213", 
+              "height": "5.10", 
+              "result": "x"
+            }
+          ]
+        }
+      ]
+    }
+  ], 
+  "finishDate": "2019-12-21", 
+  "fullName": "F\u00f8rjulsspretten", 
+  "id": "9d10f0fc-2bf2-47f9-a3da-7e5efa6ad5a0", 
+  "relayTeams": [], 
+  "slug": "forjulsspretten", 
+  "teamTypes": "ORG", 
+  "teams": [], 
+  "venue": {
+    "altitude": null, 
+    "certification": "", 
+    "country": "NOR", 
+    "englishName": "", 
+    "floodlit": false, 
+    "formalName": "B\u00e6rum idrettspark", 
+    "id": "f781ac7d-bf54-43ae-ba4e-745c18dba34a", 
+    "indoor": true, 
+    "isDirty": true, 
+    "latitude": 59.90923533, 
+    "length": 200, 
+    "localName": "", 
+    "locationText": "", 
+    "longitude": 10.4987597457, 
+    "ngbCode": "BIP", 
+    "nickname": "B\u00e6rum idrettspark", 
+    "numLanesCurve": 6, 
+    "numLanesStraight": 8, 
+    "osmWayId": null, 
+    "region1": "Akershus", 
+    "region2": "B\u00e6rum", 
+    "region3": "Rud", 
+    "region4": "", 
+    "slug": "", 
+    "straightOnly": false, 
+    "street": "Hauger Skolevei", 
+    "venueType": "TRACK", 
+    "verified": true, 
+    "waterJump": ""
+  }, 
+  "year": 2019
+}
