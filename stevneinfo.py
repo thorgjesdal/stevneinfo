@@ -671,7 +671,7 @@ def age_group(class_code):
             'G17'    : 'U18',
             'G18/19' : 'U20',
             'MJ'     : 'U20' ,
-            'MS'     : 'S' ,
+            'MS'     : 'SEN' ,
             'MV'     : 'V35' ,
             'MV35'   : 'V35' ,
             'J 8'    : 'U9',
@@ -686,7 +686,7 @@ def age_group(class_code):
             'J17'    : 'U18',
             'J18/19' : 'U20',
             'KJ'     : 'U20' ,
-            'KS'     : 'S'  ,
+            'KS'     : 'SEN'  ,
             'IVK'   : 'ALL'  
             }
     """
@@ -827,6 +827,18 @@ def club_code(club_name):
         club_code = 'GUI'
     elif club_name in ( 'Sturla IF', 'Idrettsforeningen Sturla'): 
         club_code = 'STUR'
+    elif club_name in ( 'Modum Friidrettsklubb'):
+        club_code = 'MOD'
+    elif club_name in ( u'Krødsherad Idrettslag', u'Krødsherad IL'):
+        club_code = 'KRHER'
+    elif club_name in ( u'Moss IL' ):
+        club_code = 'MOSS'
+    elif club_name in ( u'Norna-Salhus IL' ):
+        club_code = 'NORSA'
+    elif club_name in ( u'Sandnes IL' ):
+        club_code = 'SAND'
+    elif club_name in ( u'Askim IF' ):
+        club_code = 'ASKIM'
     else:
         club_code = club_name
 
@@ -859,6 +871,18 @@ def club_name(club_code):
         club_name = 'Gui Sportsklubb'
     elif club_code ==  'STUR':
         club_name = 'IF Sturla'
+    elif club_code in ( 'MOD' ):
+        club_name = 'Modum Friidrettsklubb'
+    elif club_code in ( 'KRHER' ):
+        club_name = u'Krødsherad Idrettslag'
+    elif club_code in ( 'MOSS' ):
+        club_name = 'Moss IL'
+    elif club_code in ( 'NORSA'  ):
+        club_name = 'Norna-Salhus IL'
+    elif club_code in ( 'SAND'  ):
+        club_name = 'Sandnes IL'
+    elif club_code in ( 'ASKIM' ):
+        club_name = 'Askim IF'
     else:
         club_name=club_code
 

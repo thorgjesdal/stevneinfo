@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+import re
+import math
 import requests
 from bs4 import BeautifulSoup
+from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
 
 def lookup_seed_results(names, event, cclass, season):
     eventcodes = {'100m':'4'}
@@ -23,8 +27,18 @@ def lookup_seed_results(names, event, cclass, season):
         for row in tables[0]:
             if not row == [] and not row[0] == '-----':
                nme, club  =  row[1].split(',')
+               r = fuzz.ratio(name, nme)
+               p = fuzz.partial_ratio(name, nme)
+               print( name , ', ' , nme , ', ' , r , ', ' , p )
                if (name == nme):
-                   seed.append( (row[0], nme, club) )
+                   pattern = "(\d\d,\d\d)[(]([+-]\d,\d)[)]"
+                   match = re.match(pattern, row[0])
+                   if match:
+                       time = float(match.group(1).replace(',','.'))
+                       wind = float(match.group(2).replace(',','.'))
+                       #corrtime = round( time + 0.071*wind - 0.0042*wind*wind, 2 )
+                       corrtime = 0.01*math.ceil(100*( time + 0.071*wind - 0.0042*wind*wind ))
+                   seed.append( (corrtime, nme, club) )
                    break
     print (seed)
 
@@ -33,6 +47,6 @@ def lookup_seed_results(names, event, cclass, season):
 # ...
 event = '100m'
 competition_class = 'KS'
-names = ['Ezinne Okparaebo', 'Helene Rønningen']
+names = ['Helene Rønningen', 'Anna Linnea Malmquist Gateman', 'Angelica Okparaebo', 'Helene Kjær', 'Tora Bøgeberg Lilleaas' ]
 season = '2019'
 seed = lookup_seed_results(names, event, competition_class, season)
