@@ -24,9 +24,8 @@ print(get_category('24.06.2001','F'))
 
 
 
-f= open('downloads.json', 'r')
-
-j = json.load(f)
+with open('downloads.json', 'r') as f: 
+    j = json.load(f)
 
 print(type(j))
 print(j.keys())
@@ -39,7 +38,7 @@ venue = j['venue']['formalName']
 print(venue)
 
 competitors = {}
-print(j['competitors'][0])
+#print(j['competitors'][0])
 for c in j['competitors']:
     fn = ''; ln = ''; dob= ''; t=''
     bib  = c['competitorId']
@@ -54,11 +53,13 @@ for c in j['competitors']:
         t    = c['teamId']
     print( bib, (fn, ln, dob, t) )
     competitors[bib] = (fn, ln, dob, t)
-print(competitors)
+#print(competitors)
 
 
 
+"""
 print(type(j['events']))
 print(type(j['events'][0]))
 print(j['events'][0].keys())
 print(j['events'][0]['units'][0])
+"""
