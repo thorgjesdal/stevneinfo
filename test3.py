@@ -34,6 +34,8 @@ d = j['date']
 date = '.'.join(( d[8:10], d[5:7], d[0:4] ))
 print(date)
 
+
+
 venue = j['venue']['formalName']
 print(venue)
 
@@ -51,15 +53,41 @@ for c in j['competitors']:
         dob  = '.'.join(( d[8:10], d[5:7], d[0:4] ))
     if 'teamId' in c.keys():
         t    = c['teamId']
+ 
     print( bib, (fn, ln, dob, t) )
     competitors[bib] = (fn, ln, dob, t)
 #print(competitors)
 
 
 
-"""
-print(type(j['events']))
-print(type(j['events'][0]))
-print(j['events'][0].keys())
-print(j['events'][0]['units'][0])
-"""
+
+poolnr = 0
+results ={}
+for e in j["events"]:
+    event_code = e["eventCode"]
+    if event_code not in e.keys():
+        results["event_code"] = {}
+        for u in e["units"]:
+            
+            for r in u["results"]:
+                if "bib" in r.keys():
+                    bib = r["bib"]
+                
+                if "performance" in r.keys():
+                    res = r["performance"]
+
+                if "place" in r.keys():
+                    pl = r["place"]
+                    
+                print (bib, res, pl, poolnr)
+            poolnr = poolnr + 1
+
+
+print("done")
+
+#"""
+#print(type(j['events']))
+#print(type(j['events'][0]))
+#print(j['events'][0].keys())
+#print(j['events'][0]['units'][0])
+#"""
