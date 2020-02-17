@@ -401,7 +401,7 @@ def make_horizontal_protocol(tree, event, classes):
     fname = output_file_name(tree) + '_' + event + '-' + '+'.join(classes) +'.pdf'
     fname = fname.replace(' ', '_')
     fname = fname.replace('/', '-')
-    print fname
+    print(fname)
     doc = SimpleDocTemplate(fname, pagesize=A4)
     doc.pagesize = landscape(A4)
  
@@ -423,7 +423,7 @@ def make_horizontal_protocol(tree, event, classes):
              data.append( [ c, athlete['name'], athlete['dob'][-4:], athlete['club'] ] )
              rows +=1
     pages = int(rows/(rows_on_page-1)) + 1
-    print pages
+    print(pages)
  
     if rows%rows_on_page > 5:
        pages +=1
@@ -466,7 +466,7 @@ def make_vertical_protocol(tree, event, classes):
     fname = output_file_name(tree) + '_' + event + '-' + '+'.join(classes) +'.pdf'
     fname = fname.replace(' ', '_')
     fname = fname.replace('/', '-')
-    print fname
+    print(fname)
     doc = SimpleDocTemplate(fname, pagesize=A4)
     doc.pagesize = landscape(A4)
  
@@ -486,7 +486,7 @@ def make_vertical_protocol(tree, event, classes):
              data.append( [ c, athlete['name'], athlete['dob'][-4:], athlete['club'][0:11] ] )
              rows +=1
     pages = int(rows/(rows_on_page-1)) + 1
-    print pages
+    print(pages)
  
     if rows%rows_on_page > 15:
        pages +=1
@@ -872,6 +872,7 @@ if len(sys.argv) < 2:
    sys.exit("Usage: %s <infile>" % sys.argv[0])
    
 infile = sys.argv[1]
+print(infile)
 tree = read_xml_into_tree(infile)
 save_xml_copy(tree)
 
