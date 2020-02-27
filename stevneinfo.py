@@ -566,6 +566,7 @@ def event_code(event):
             u'Kappgang 3000 meter' : '3000W', 
             u'Kappgang 5000 meter' : '5000W', 
             u'Kappgang 5 km'     : '5000W', 
+            u'Kappgang'          : '1500W', 
             u'Høyde'             : 'HJ', 
             u'Høyde uten tilløp' : 'SHJ', 
             u'Stav'              : 'PV', 
@@ -800,7 +801,8 @@ def event_spec(event, klasse):
                                  'G18/19' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
 
     if isthrow(event):
-       e = event + ' ' + throws[event][klasse]
+       #e = event + ' ' + throws[event][klasse]
+       e = event + ' ' + throws[event].get(klasse,'')
     elif ishurdles(event):
        e = event + ' ' + hurdles[event][klasse]
     else:
@@ -1322,7 +1324,7 @@ def club_code(club_name):
        club_code=u'KLIL'
     elif club_name in (u'Kolbukameratene I L'):
        club_code=u'KLBK'
-    elif club_name in (u'Koll Idrettslaget'):
+    elif club_name in (u'Koll Idrettslaget', 'IL Koll'):
        club_code=u'KOLL'
     elif club_name in (u'Kolvereid Idrettslag'):
        club_code=u'KLVIL'
@@ -1466,7 +1468,7 @@ def club_code(club_name):
        club_code=u'NESB'
     elif club_name in (u'Nesodden IF'):
        club_code=u'NESO'
-    elif club_name in (u'Nesøya Idrettslag'):
+    elif club_name in (u'Nesøya Idrettslag', u'Nesøya IL'):
        club_code=u'NES'
     elif club_name in (u'Nidelv Idrettslag'):
        club_code=u'NID'
@@ -1554,7 +1556,7 @@ def club_code(club_name):
        club_code=u'RAN'
     elif club_name in (u'Raufoss IL Friidrett', 'Raufoss Friidrett'):
        club_code=u'RAU'
-    elif club_name in (u'Raumnes & Årnes Idrettslag'):
+    elif club_name in (u'Raumnes & Årnes Idrettslag', u'Raumnes & Årnes IL'):
        club_code=u'RAUM'
     elif club_name in (u'Re Friidrettsklubb'):
        club_code=u'RE'
