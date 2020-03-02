@@ -113,6 +113,7 @@ for e in j["events"]:
     if event_code not in e.keys():
         results[event_code] = {}
 #       for u in e["units"]:
+        trials = {}
         for pool, u in zip(range(len(e["units"])),e["units"]):
             #results[event_code] ={}
             for r in u["results"]:
@@ -140,7 +141,6 @@ for e in j["events"]:
 #           poolnr = poolnr + 1
 #           print (type(u['trials']))
 #           print (u['trials'])
-            trials = {}
             for t in u['trials']:
                 bib = t['bib']
                 if trials.get(bib)==None:
@@ -161,7 +161,9 @@ for e in j["events"]:
                 ij = min(i,j)
                 #print(s.index('x'), s.index('o') )
                 print(s[ij-5:])
-
+                trials[bib]['series'] = s[ij-5:]
+            #print(trials)
+        #print('T', trials)
 #... write template for Results to xlsx workbook
 wb = Workbook()
 ws = wb.active
@@ -215,6 +217,8 @@ for event in sorted(results.keys()):
                 ws["D%(row_counter)d"%vars()] = dob.strftime('%Y')
                 ws["E%(row_counter)d"%vars()] = club
                 ws["F%(row_counter)d"%vars()] = perf
+                row_counter +=1
+                ws["A%(row_counter)d"%vars()] = trials[bib]['series']
                 row_counter +=1
         row_counter +=1
         
