@@ -563,18 +563,25 @@ def event_code(event):
             u'300 meter hekk'    : '300H', 
             u'400 meter hekk'    : '400H', 
             u'3000 meter hinder' : '3000SC', 
+            u'Kappgang 3000 meter' : '3000W', 
+            u'Kappgang 5000 meter' : '5000W', 
+            u'Kappgang 5 km'     : '5000W', 
             u'Høyde'             : 'HJ', 
+            u'Høyde uten tilløp' : 'SHJ', 
             u'Stav'              : 'PV', 
             u'Lengde'            : 'LJ', 
             u'Lengde satssone'   : 'LJ', 
+            u'Lengde uten tilløp': 'SLJ', 
             u'Tresteg'           : 'TJ', 
             u'Tresteg satssone'  : 'TJ', 
+            u'Tresteg uten tilløp'  : 'STJ', 
             u'Kule'              : 'SP', 
             u'Diskos'            : 'DT', 
             u'Slegge'            : 'HT', 
             u'Spyd'              : 'JT', 
             u'Tikamp'            : 'DEC', 
-            u'Sjukamp'           : 'HEP' 
+            u'Sjukamp'           : 'HEP' ,
+            u'4x200 meter stafett' : '4x200' 
             }
     return event_codes[event]
  
@@ -651,6 +658,7 @@ def class_code(name):
             'Kvinner U23'     : 'KU23'      , 
             'Kvinner senior'  : 'KS'        , 
             'Kvinner veteraner' : 'KV'      ,
+            'Funksjonshemmede' : 'FH'      ,
             'Ikke valgt klasse' : 'IVK'
             }
     return class_codes[name.strip()]
@@ -671,7 +679,7 @@ def age_group(class_code):
             'G17'    : 'U18',
             'G18/19' : 'U20',
             'MJ'     : 'U20' ,
-            'MS'     : 'S' ,
+            'MS'     : 'SEN' ,
             'MV'     : 'V35' ,
             'MV35'   : 'V35' ,
             'J 8'    : 'U9',
@@ -685,9 +693,10 @@ def age_group(class_code):
             'J16'    : 'U17',
             'J17'    : 'U18',
             'J18/19' : 'U20',
-            'KJ'     : 'U20' ,
-            'KS'     : 'S'  ,
-            'IVK'   : 'ALL'  
+            'KJ'     : 'U20',
+            'KS'     : 'SEN' ,
+            'FH'   : 'ALL' ,
+            'IVK'    : 'ALL'  
             }
     """
     age_groups = {
@@ -801,6 +810,1111 @@ def event_spec(event, klasse):
 
 
 def club_code(club_name):
+    if club_name in (u'ÅLEN IDRETTSLAG'):
+       club_code=u'AALEN'
+    elif club_name in (u'Ålesund Friidrettsklubb', u'Ålesund FIK'):
+       club_code=u'AASUN'
+    elif club_name in (u'Allianseidrettslaget Ik Våg'):
+       club_code=u'IKV'
+    elif club_name in (u'Almenning Il'):
+       club_code=u'ALM'
+    elif club_name in (u'Alsvåg Idrettslag'):
+       club_code=u'ALSV'
+    elif club_name in (u'Alta Idrettsforening'):
+       club_code=u'ALTA'
+    elif club_name in (u'Åndalsnes Idrettsforening'):
+       club_code=u'ANDAL'
+    elif club_name in (u'Andebu Idrettslag'):
+       club_code=u'ANDE'
+    elif club_name in (u'Andørja Sportsklubb'):
+       club_code=u'ANDSK'
+    elif club_name in (u'Aremark Idrettsforening', u'Aremark IF'):
+       club_code=u'ARE'
+    elif club_name in (u'Arna Turn & Idrettslag'):
+       club_code=u'ARNA'
+    elif club_name in (u'Ås Idrettslag', u'Ås IL'):
+       club_code=u'ASIL'
+    elif club_name in (u'Åsen Idrettslag'):
+       club_code=u'AASEN'
+    elif club_name in (u'Åseral idrettslag'):
+       club_code=u'AASER'
+    elif club_name in (u'Ask Friidrett'):
+       club_code=u'ASK'
+    elif club_name in (u'Asker Fleridrettslag'):
+       club_code=u'ASKFL'
+    elif club_name in (u'Asker Skiklubb', u'Asker Sk. Friidrett'):
+       club_code=u'ASKSK'
+    elif club_name in (u'Askim Idrettsforening', u'Askim IF'):
+       club_code=u'ASKIM'
+    elif club_name in (u'Atna Idrettslag'):
+       club_code=u'ATNA'
+    elif club_name in (u'Aure Idrettslag'):
+       club_code=u'AURE'
+    elif club_name in (u'Aurland Idrettslag'):
+       club_code=u'AURL'
+    elif club_name in (u'Aurskog-Høland Friidrettslag'):
+       club_code=u'AURS'
+    elif club_name in (u'Austefjord Idrettslag'):
+       club_code=u'AUFJ'
+    elif club_name in (u'Austevoll Idrettsklubb'):
+       club_code=u'AUST'
+    elif club_name in (u'Austrheim Idrettslag'):
+       club_code=u'AUSTR'
+    elif club_name in (u'Bagn Idrettslag'):
+       club_code=u'BAGN'
+    elif club_name in (u'Bakke IF'):
+       club_code=u'BAKKE'
+    elif club_name in (u'Balestrand Idrettslag'):
+       club_code=u'BALE'
+    elif club_name in (u'Bardu Idrettslag'):
+       club_code=u'BARD'
+    elif club_name in (u'Båtsfjord Sportsklubb'):
+       club_code=u'BTSFJ'
+    elif club_name in (u'Begnadalen Idrettslag'):
+       club_code=u'BGND'
+    elif club_name in (u'Beitstad Idrettslag'):
+       club_code=u'BEIT'
+    elif club_name in (u'Bergen Cykleklubb'):
+       club_code=u'BCK'
+    elif club_name in (u'Bergen Triathlon Club'):
+       club_code=u'BTC'
+    elif club_name in (u'Bergens Turnforening', u'Bergens TF'):
+       club_code=u'BTU'
+    elif club_name in (u'Berger Idrettslag'):
+       club_code=u'BERGE'
+    elif club_name in (u'BFG Bergen Løpeklubb'):
+       club_code=u'BFGL'
+    elif club_name in (u'Bjerkreim Idrettslag'):
+       club_code=u'BJERR'
+    elif club_name in (u'Bjerkvik Idrettsforening'):
+       club_code=u'BJERV'
+    elif club_name in (u'Blaker IL'):
+       club_code=u'BLA'
+    elif club_name in (u'Blefjell Idrettslag'):
+       club_code=u'BLEFJ'
+    elif club_name in (u'Bodø & Omegn IF Friidrett'):
+       club_code=u'BODO'
+    elif club_name in (u'Bodø Bauta Løpeklubb'):
+       club_code=u'BODL'
+    elif club_name in (u'Bodø Friidrettsklubb'):
+       club_code=u'BODF'
+    elif club_name in (u'Bokn Idrettslag'):
+       club_code=u'BOKN'
+    elif club_name in (u'Bossekop Ungdomslag'):
+       club_code=u'BOS'
+    elif club_name in (u'Botnan Idrettslag'):
+       club_code=u'BOTNA'
+    elif club_name in (u'Botne Skiklubb'):
+       club_code=u'BOT'
+    elif club_name in (u'Brandbu Idretsforening', u'Brandbu IF'):
+       club_code=u'BRNDB'
+    elif club_name in (u'Bratsberg Idrettslag'):
+       club_code=u'BRATS'
+    elif club_name in (u'Brattvåg Idrettslag'):
+       club_code=u'BRATTV'
+    elif club_name in (u'Breimsbygda IL'):
+       club_code=u'BREIM'
+    elif club_name in (u'Brekke Idrettslag'):
+       club_code=u'BREKK'
+    elif club_name in (u'Bremanger Idrettslag'):
+       club_code=u'BREMA'
+    elif club_name in (u'Bremnes Idrettslag'):
+       club_code=u'BREM'
+    elif club_name in (u'Brevik Idrettslag'):
+       club_code=u'BRE'
+    elif club_name in (u'Bromma Idrettslag'):
+       club_code=u'BROMM'
+    elif club_name in (u'Bryne Friidrettsklubb'):
+       club_code=u'BRYF'
+    elif club_name in (u'BRYNE TRIATLONKLUBB'):
+       club_code=u'BRYT'
+    elif club_name in (u'Bud Idrettslag'):
+       club_code=u'BUD'
+    elif club_name in (u'Byaasen Skiklub'):
+       club_code=u'BYS'
+    elif club_name in (u'Byåsen Idrettslag'):
+       club_code=u'BYI'
+    elif club_name in (u'Byneset IL Hovedlaget'):
+       club_code=u'BYN'
+    elif club_name in (u'Bækkelagets SK'):
+       club_code=u'BSK'
+    elif club_name in (u'Bærums Verk Hauger Idrettsforening'):
+       club_code=u'BRVHA'
+    elif club_name in (u'Bæverfjord Idrettslag'):
+       club_code=u'BVRFJ'
+    elif club_name in (u'Bøler Idrettsforening'):
+       club_code=u'BIF'
+    elif club_name in (u'Bømlo Idrettslag'):
+       club_code=u'BMLO'
+    elif club_name in (u'Børsa Idrettslag', u'Børsa IL'):
+       club_code=u'BRSA'
+    elif club_name in (u'Dale Idrettslag'):
+       club_code=u'DALE'
+    elif club_name in (u'Dalen Idrettslag'):
+       club_code=u'DLN'
+    elif club_name in (u'Dimna IL'):
+       club_code=u'DIM'
+    elif club_name in (u'Dombås Idrettslag'):
+       club_code=u'DMB'
+    elif club_name in (u'Driv Idrettslag'):
+       club_code=u'DRIV'
+    elif club_name in (u'Driva IL'):
+       club_code=u'DRIVA'
+    elif club_name in (u'Drøbak-Frogn Idrettslag'):
+       club_code=u'DRFR'
+    elif club_name in (u'Dypvåg Idrettsforening'):
+       club_code=u'DPVG'
+    elif club_name in (u'Egersunds Idrettsklubb'):
+       club_code=u'EGRSU'
+    elif club_name in (u'Eid Idrettslag'):
+       club_code=u'EIDIL'
+    elif club_name in (u'Eidanger Idrettslag'):
+       club_code=u'EIDA'
+    elif club_name in (u'Eidfjord Idrettslag'):
+       club_code=u'EIDF'
+    elif club_name in (u'Eidsberg Idrettslag'):
+       club_code=u'EIDSB'
+    elif club_name in (u'Eidsvåg Idrettslag'):
+       club_code=u'EIDS'
+    elif club_name in (u'Eidsvold Turnforening Friidrett'):
+       club_code=u'EIDTU'
+    elif club_name in (u'Eikanger Idrettslag'):
+       club_code=u'EIK'
+    elif club_name in (u'Ekeberg Sports Klubb'):
+       club_code=u'ESK'
+    elif club_name in (u'Espa Idrettslag'):
+       club_code=u'ESPA'
+    elif club_name in (u'Etne Idrettslag'):
+       club_code=u'ETNE'
+    elif club_name in (u'Fagernes Idrettslag N'):
+       club_code=u'FAGIL'
+    elif club_name in (u'Fagernes Idrettslag O', u'Fagernes IL'):
+       club_code=u'FAG'
+    elif club_name in (u'Falkeid idrettslag'):
+       club_code=u'FALK'
+    elif club_name in (u'Fana Idrettslag', u'Fana IL'):
+       club_code=u'FANA'
+    elif club_name in (u'Feiring Idrettslag'):
+       club_code=u'FEIR'
+    elif club_name in (u'Fet Friidrettsklubb'):
+       club_code=u'FET'
+    elif club_name in (u'FIL AKS-77'):
+       club_code=u'FA77'
+    elif club_name in (u'Finnøy Idrettslag'):
+       club_code=u'FINNY'
+    elif club_name in (u'Fiskå Idrettsforening'):
+       club_code=u'FISIF'
+    elif club_name in (u'Fiskå Idrettslag', u'Fiskå IL'):
+       club_code=u'FISIL'
+    elif club_name in (u'Fitjar Idrettslag'):
+       club_code=u'FITJ'
+    elif club_name in (u'Fjellhug/Vereide IL'):
+       club_code=u'FJVE'
+    elif club_name in (u'Flatås Idrettslag'):
+       club_code=u'FLATS'
+    elif club_name in (u'Florø Turn og Idrettsforening', u'Florø Tog IF'):
+       club_code=u'FLOR'
+    elif club_name in (u'Follafoss Idrettslag'):
+       club_code=u'FOLFO'
+    elif club_name in (u'Folldal Idrettsforening'):
+       club_code=u'FOL'
+    elif club_name in (u'Follo Løpeklubb'):
+       club_code=u'FOLLO'
+    elif club_name in (u'Forra Idrettslag'):
+       club_code=u'FORRA'
+    elif club_name in (u'Fossum Idrettsforening'):
+       club_code=u'FOSSU'
+    elif club_name in (u'Fredrikstad Idrettsforening', u'Fredrikstad IF'):
+       club_code=u'FRED'
+    elif club_name in (u'Freidig Sportsklubben'):
+       club_code=u'FREI'
+    elif club_name in (u'Friidretsklubben Orion', u'FIK Orion'):
+       club_code=u'ORION'
+    elif club_name in (u'Friidrettsklubben Ren-Eng'):
+       club_code=u'REN'
+    elif club_name in (u'Friidrettslaget Bamse'):
+       club_code=u'BAMSE'
+    elif club_name in (u'Friidrettslaget Borg'):
+       club_code=u'BORG'
+    elif club_name in (u'Friidrettslaget Frisk'):
+       club_code=u'FRISK'
+    elif club_name in (u'Frognerparken Idrettslag'):
+       club_code=u'FRO'
+    elif club_name in (u'Frol Idrettslag'):
+       club_code=u'FROL'
+    elif club_name in (u'Frosta Idrettslag'):
+       club_code=u'FROSTA'
+    elif club_name in (u'Frøyland Idrettslag'):
+       club_code=u'FRLND'
+    elif club_name in (u'Furuset Allidrett IF'):
+       club_code=u'FUR'
+    elif club_name in (u'Fyllingen Idrettslag'):
+       club_code=u'FYLL'
+    elif club_name in (u'Førde Idrettslag'):
+       club_code=u'FRDE'
+    elif club_name in (u'Gausdal Friidrettsklubb'):
+       club_code=u'GAU'
+    elif club_name in (u'Geilo Idrettslag'):
+       club_code=u'GEI'
+    elif club_name in (u'Geiranger Idrettslag'):
+       club_code=u'GEIR'
+    elif club_name in (u'Gjerpen Idrettsforening'):
+       club_code=u'GJER'
+    elif club_name in (u'Gjerstad Idrettslag'):
+       club_code=u'GJERS'
+    elif club_name in (u'Gjesdal Idrettslag'):
+       club_code=u'GJDAL'
+    elif club_name in (u'Gjøvik Friidrettsklubb'):
+       club_code=u'GJFK'
+    elif club_name in (u'Gjøvik Friidrettsklubb 2'):
+       club_code=u'GJVIK'
+    elif club_name in (u'Gloppen Friidrettslag'):
+       club_code=u'GLO'
+    elif club_name in (u'Gol Idrettslag'):
+       club_code=u'GOL'
+    elif club_name in (u'Grong Idrettslag'):
+       club_code=u'GRON'
+    elif club_name in (u'Groruddalen Friidrettsklubb'):
+       club_code=u'GRO'
+    elif club_name in (u'Grue Idrettslag'):
+       club_code=u'GRUE'
+    elif club_name in (u'GTI Friidrettsklubb'):
+       club_code=u'GTI'
+    elif club_name in (u'Gui Sportsklubb - Friidrett'):
+       club_code=u'GUI'
+    elif club_name in (u'Gulset Idrettsforening'):
+       club_code=u'GUL'
+    elif club_name in (u'HAB IL'):
+       club_code=u'HAB'
+    elif club_name in (u'Hadeland Friidrettsklubb'):
+       club_code=u'HADE'
+    elif club_name in (u'Haga Idrettsforening '):
+       club_code=u'HAGA'
+    elif club_name in (u'Halden Idrettslag', u'Halden IL'):
+       club_code=u'HAL'
+    elif club_name in (u'Halmsås & Omegn Skilag'):
+       club_code=u'HALMO'
+    elif club_name in (u'Halsa Idrettslag'):
+       club_code=u'HALSA'
+    elif club_name in (u'Hamar Idrettslag Hovedlaget', u'Hamar IL'):
+       club_code=u'HIL'
+    elif club_name in (u'Hannevikas Idrettslag'):
+       club_code=u'HANNEV'
+    elif club_name in (u'Hardbagg Idrettslag'):
+       club_code=u'HARDB'
+    elif club_name in (u'Hareid Idrettslag'):
+       club_code=u'HAREI'
+    elif club_name in (u'Harestua Idrettslag'):
+       club_code=u'HARE'
+    elif club_name in (u'Hattfjelldal Idrettslag', u'Hattfjelldal IL'):
+       club_code=u'HATT'
+    elif club_name in (u'Haugen Idrettslag'):
+       club_code=u'HAUGN'
+    elif club_name in (u'Haugerud Idrettsforening'):
+       club_code=u'HAUGR'
+    elif club_name in (u'Haugesund Idrettslag Friidrett', u'Haugesund Idrettslag Friidrett - gr'):
+       club_code=u'HAUGF'
+    elif club_name in (u'Haugesund Triathlon Klubb'):
+       club_code=u'HAUGT'
+    elif club_name in (u'Havørn Allianseidrettslag'):
+       club_code=u'HAV'
+    elif club_name in (u'Heggedal Friidrettsklubb'):
+       club_code=u'HEGGF'
+    elif club_name in (u'Heggedal Idrettslag'):
+       club_code=u'HEGGI'
+    elif club_name in (u'Hell Ultraløperklubb'):
+       club_code=u'HELLU'
+    elif club_name in (u'Heming Idrettslaget'):
+       club_code=u'HEM'
+    elif club_name in (u'Henning I L'):
+       club_code=u'HENN'
+    elif club_name in (u'Herand Idrettslag'):
+       club_code=u'HERA'
+    elif club_name in (u'Herkules Friidrett'):
+       club_code=u'HERK'
+    elif club_name in (u'Herøy Idrettslag'):
+       club_code=u'HERY'
+    elif club_name in (u'Hinna Friidrett'):
+       club_code=u'HIN'
+    elif club_name in (u'Hitra Friidrettsklubb'):
+       club_code=u'HITF'
+    elif club_name in (u'Hitra Løpeklubb'):
+       club_code=u'HITL'
+    elif club_name in (u'Hobøl Idrettslag'):
+       club_code=u'HOB'
+    elif club_name in (u'Hof Idrettslag'):
+       club_code=u'HOF'
+    elif club_name in (u'Hol Idrettslag'):
+       club_code=u'HOL'
+    elif club_name in (u'Holmemstranda Idrettslag'):
+       club_code=u'HOLMS'
+    elif club_name in (u'Holum Idrettslag'):
+       club_code=u'HOLUM'
+    elif club_name in (u'Hommelvik Idrettslag', u'Hommelvik IL'):
+       club_code=u'HMLV'
+    elif club_name in (u'Hope Idrettslag'):
+       club_code=u'HOPE'
+    elif club_name in (u'Hornindal Idrettslag'):
+       club_code=u'HORNI'
+    elif club_name in (u'Horten Friidrettsklubb'):
+       club_code=u'HORFR'
+    elif club_name in (u'Huglo Idrettslag'):
+       club_code=u'HUG'
+    elif club_name in (u'Hurdal Idrettslag'):
+       club_code=u'HURD'
+    elif club_name in (u'Hvam Idrettslag'):
+       club_code=u'HVAM'
+    elif club_name in (u'Hvittingfoss Idrettslag'):
+       club_code=u'HVFO'
+    elif club_name in (u'Hyen Idrettslag'):
+       club_code=u'HYEN'
+    elif club_name in (u'Hyllestad Idrettslag'):
+       club_code=u'HYLLS'
+    elif club_name in (u'Høybråten og Stovner IL'):
+       club_code=u'HSI'
+    elif club_name in (u'Høydalsmo Idrottslag'):
+       club_code=u'HDMO'
+    elif club_name in (u'I.l Fjellørnen'):
+       club_code=u'FJELLO'
+    elif club_name in (u'I.L. Framsteg'):
+       club_code=u'FRAMS'
+    elif club_name in (u'I.L. Norna Salhus', u'Norna-Salhus IL'):
+       club_code=u'NORSA'
+    elif club_name in (u'I.L. Nybrott'):
+       club_code=u'NYBR'
+    elif club_name in (u'Idd Sportsklubb'):
+       club_code=u'IDD'
+    elif club_name in (u'Idrettsforeningen Birkebeineren'):
+       club_code=u'BIRK'
+    elif club_name in (u'Idrettsforeningen Fram'):
+       club_code=u'FRAM'
+    elif club_name in (u'Idrettsforeningen Hellas', u'IF Hellas'):
+       club_code=u'HELLA'
+    elif club_name in (u'Idrettsforeningen Njaal'):
+       club_code=u'NJAAL'
+    elif club_name in (u'Idrettsforeningen Sturla', u'Sturla IF'):
+       club_code=u'STUR'
+    elif club_name in (u'Idrettsforeningen Ørn'):
+       club_code=u'IFORN'
+    elif club_name in (u'Idrettslaget Bjarg'):
+       club_code=u'BJARG'
+    elif club_name in (u'Idrettslaget Bjørn'):
+       club_code=u'ILBJ'
+    elif club_name in (u'Idrettslaget Dalebrand'):
+       club_code=u'DLBR'
+    elif club_name in (u'Idrettslaget Dyre Vaa'):
+       club_code=u'DYREV'
+    elif club_name in (u'Idrettslaget Express'):
+       club_code=u'EXPR'
+    elif club_name in (u'Idrettslaget Forsøk'):
+       club_code=u'FORSK'
+    elif club_name in (u'Idrettslaget Fri'):
+       club_code=u'FRI'
+    elif club_name in (u'Idrettslaget Gneist' u'IL Gneist'):
+       club_code=u'GNE'
+    elif club_name in (u'Idrettslaget Holeværingen'):
+       club_code=u'HOLE'
+    elif club_name in (u'Idrettslaget I Bondeungdomslaget I Tromsø'):
+       club_code=u'BULT'
+    elif club_name in (u'Idrettslaget Ilar'):
+       club_code=u'ILAR'
+    elif club_name in (u'Idrettslaget Ivrig'):
+       club_code=u'IVRIG'
+    elif club_name in (u'Idrettslaget Jardar'):
+       club_code=u'JARD'
+    elif club_name in (u'Idrettslaget Jutul'):
+       club_code=u'JUT'
+    elif club_name in (u'Idrettslaget Ros'):
+       club_code=u'ILROS'
+    elif club_name in (u'Idrettslaget Runar', u'IL Runar'):
+       club_code=u'RUNAR'
+    elif club_name in (u'Idrettslaget Sand'):
+       club_code=u'ILSAN'
+    elif club_name in (u'Idrettslaget Sandvin', u'IL Sandvin'):
+       club_code=u'SANDV'
+    elif club_name in (u'Idrettslaget Skade'):
+       club_code=u'SKADE'
+    elif club_name in (u'Idrettslaget Skjalg'):
+       club_code=u'SKJA'
+    elif club_name in (u'Idrettslaget Syril'):
+       club_code=u'SYR'
+    elif club_name in (u'Idrettslaget Trysilgutten'):
+       club_code=u'TRY'
+    elif club_name in (u'Idrottslaget Gular Bygdeungdomen I Bergen', u'IL Gular'):
+       club_code=u'GULA'
+    elif club_name in (u'IDROTTSLAGET I BUL', u'IL i BUL'):
+       club_code=u'ILIBUL'
+    elif club_name in (u'IDROTTSLAGET I BUL 2'):
+       club_code=u'ILBUL'
+    elif club_name in (u'Idrottslaget Jotun', u'Jotun IL'):
+       club_code=u'JOT'
+    elif club_name in (u'Idun Idrettslag'):
+       club_code=u'IDUN'
+    elif club_name in (u'If Eiker Kvikk'):
+       club_code=u'EIKKV'
+    elif club_name in (u'IF Kamp/Vestheim', u'Kamp/Vestheim IF'):
+       club_code=u'KAVE'
+    elif club_name in (u'If Klypetussen'):
+       club_code=u'KLYP'
+    elif club_name in (u'Ik Grane Arendal Friidrett'):
+       club_code=u'GRANE'
+    elif club_name in (u'IK Hind', u'IK Hind '):
+       club_code=u'HIND'
+    elif club_name in (u'Ikornnes Idrettslag'):
+       club_code=u'IKORN'
+    elif club_name in (u'IL Aasguten'):
+       club_code=u'AASG'
+    elif club_name in (u'IL Alvidra'):
+       club_code=u'ALVI'
+    elif club_name in (u'IL Bever`n'):
+       club_code=u'ILBEV'
+    elif club_name in (u'IL Brodd'):
+       club_code=u'BRODD'
+    elif club_name in (u'IL Flåværingen'):
+       club_code=u'FLV'
+    elif club_name in (u'IL Gry'):
+       club_code=u'GRY'
+    elif club_name in (u'IL Norodd'):
+       club_code=u'ILNOR'
+    elif club_name in (u'IL Pioner Friidrett'):
+       club_code=u'PIO'
+    elif club_name in (u'IL Polarstjernen'):
+       club_code=u'POL'
+    elif club_name in (u'IL Samhald'):
+       club_code=u'SAMH'
+    elif club_name in (u'IL Santor'):
+       club_code=u'SANT'
+    elif club_name in (u'IL Stålkameratene'):
+       club_code=u'STKAM'
+    elif club_name in (u'IL Triumf'):
+       club_code=u'TRIUM'
+    elif club_name in (u'Il Vindbjart'):
+       club_code=u'VIND'
+    elif club_name in (u'IL Vinger'):
+       club_code=u'VING'
+    elif club_name in (u'Inderøy Idrettslag'):
+       club_code=u'INDRY'
+    elif club_name in (u'Innstranda IL'):
+       club_code=u'INN'
+    elif club_name in (u'International School of Stavanger'):
+       club_code=u'INSTA'
+    elif club_name in (u'Isfjorden Idrettslag'):
+       club_code=u'ISFJO'
+    elif club_name in (u'Jondalen Idrettslag'):
+       club_code=u'JOND'
+    elif club_name in (u'Jægervatnet Idrettslag'):
+       club_code=u'JVTN'
+    elif club_name in (u'Jøa Idrettslag'):
+       club_code=u'JIL'
+    elif club_name in (u'Jølster Idrettslag'):
+       club_code=u'JLSTE'
+    elif club_name in (u'Kaupanger Idrettslag'):
+       club_code=u'KAUP'
+    elif club_name in (u'Kfum-kameratene Oslo'):
+       club_code=u'KFUM'
+    elif club_name in (u'Kjelsås Idrettslag'):
+       club_code=u'KJ'
+    elif club_name in (u'Klepp Idrettslag'):
+       club_code=u'KLPP'
+    elif club_name in (u'Klæbu Løpeklubb'):
+       club_code=u'KLK'
+    elif club_name in (u'Kløfta Idrettslag'):
+       club_code=u'KLIL'
+    elif club_name in (u'Kolbukameratene I L'):
+       club_code=u'KLBK'
+    elif club_name in (u'Koll Idrettslaget'):
+       club_code=u'KOLL'
+    elif club_name in (u'Kolvereid Idrettslag'):
+       club_code=u'KLVIL'
+    elif club_name in (u'Kongsberg Idrettsforening'):
+       club_code=u'KNGSB'
+    elif club_name in (u'Kongsvinger IL Friidrett'):
+       club_code=u'KNGSV'
+    elif club_name in (u'Kopervik Idrettslag'):
+       club_code=u'KOP'
+    elif club_name in (u'Korgen Idrettslag'):
+       club_code=u'KORG'
+    elif club_name in (u'Kragerø IF Friidrett'):
+       club_code=u'KRAG'
+    elif club_name in (u'Kråkerøy Idrettslag'):
+       club_code=u'KRAAK'
+    elif club_name in (u'Kråkstad Idrettslag'):
+       club_code=u'KRSTD'
+    elif club_name in (u'Kristiansand Løpeklubb'):
+       club_code=u'KRL'
+    elif club_name in (u'Kristiansands Idrettsforening Friidrett', u'Kristiansands IF'):
+       club_code=u'KIF'
+    elif club_name in (u'Krødsherad Idrettslag'):
+       club_code=u'KRHER'
+    elif club_name in (u'Kvinesdal Idrettslag'):
+       club_code=u'KVINES'
+    elif club_name in (u'Kvæfjord Idrettslag'):
+       club_code=u'KVFJ'
+    elif club_name in (u'Kyrksæterøra Idrettslag Kil'):
+       club_code=u'KYRK'
+    elif club_name in (u'Laksevåg Turn og Idrettslag', u'Laksevåg TIL'):
+       club_code=u'LAKS'
+    elif club_name in (u'Lalm Idrettslag'):
+       club_code=u'LALM'
+    elif club_name in (u'Lambertseter IF'):
+       club_code=u'LAM'
+    elif club_name in (u'Langesund Sykle- og triathlonklubb'):
+       club_code=u'LANGS'
+    elif club_name in (u'Lånke Idrettslag'):
+       club_code=u'LNKEIL'
+    elif club_name in (u'Larvik Turn & Idrettsforening', u'Larvik Turn & IF'):
+       club_code=u'LRVK'
+    elif club_name in (u'Leinstrand Idrettslag'):
+       club_code=u'LEINS'
+    elif club_name in (u'Lena Idrettsforening'):
+       club_code=u'LENA'
+    elif club_name in (u'Lierne Idrettslag'):
+       club_code=u'LIERN'
+    elif club_name in (u'Lillehammer Idrettsforening', u'Lillehammer IF'):
+       club_code=u'LIF'
+    elif club_name in (u'Lillesand Idrettslag'):
+       club_code=u'LILLS'
+    elif club_name in (u'Lista Idrettslag'):
+       club_code=u'LISTA'
+    elif club_name in (u'Loddefjord IL'):
+       club_code=u'LODD'
+    elif club_name in (u'Lofoten Triatlonklubb'):
+       club_code=u'LFTR'
+    elif club_name in (u'Lom Idrettslag'):
+       club_code=u'LOM'
+    elif club_name in (u'Lundamo Idrettslag'):
+       club_code=u'LUND'
+    elif club_name in (u'Lundehøgda IL'):
+       club_code=u'LUNDH'
+    elif club_name in (u'Luster Idrettslag'):
+       club_code=u'LUST'
+    elif club_name in (u'Lye Idrettslag'):
+       club_code=u'LYE'
+    elif club_name in (u'Lyn Ski'):
+       club_code=u'LYN'
+    elif club_name in (u'Lyngdal Idrettslag', u'Lyngdal IL'):
+       club_code=u'LNGD'
+    elif club_name in (u'Lyngen/ Karnes Il'):
+       club_code=u'LYKA'
+    elif club_name in (u'Lyngstad og Omegn Idrettslag'):
+       club_code=u'LYNGO'
+    elif club_name in (u'Lørenskog Friidrettslag'):
+       club_code=u'LRSKG'
+    elif club_name in (u'Løten Friidrett'):
+       club_code=u'LFK'
+    elif club_name in (u'Løten Friidrett 2'):
+       club_code=u'LTN'
+    elif club_name in (u'Malm IL'):
+       club_code=u'MALM'
+    elif club_name in (u'Målselv Idrettslag'):
+       club_code=u'MLSEL'
+    elif club_name in (u'Malvik Idrettslag'):
+       club_code=u'MALV'
+    elif club_name in (u'Måløy Idrettslag Hovedstyre'):
+       club_code=u'MAAL'
+    elif club_name in (u'Mandal & Halse I.l.'):
+       club_code=u'MAHA'
+    elif club_name in (u'Måndalen Idrettslag'):
+       club_code=u'MNDL'
+    elif club_name in (u'Markabygda Idrettslag'):
+       club_code=u'MABY'
+    elif club_name in (u'Markane Idrettslag'):
+       club_code=u'MARKA'
+    elif club_name in (u'Marnardal Idrettslag'):
+       club_code=u'MARNA'
+    elif club_name in (u'Medkila Skilag'):
+       club_code=u'MEDKI'
+    elif club_name in (u'Meldal Idrettslag'):
+       club_code=u'MELD'
+    elif club_name in (u'Melhus Idrettslag'):
+       club_code=u'MELHU'
+    elif club_name in (u'Midsund Idrettslag'):
+       club_code=u'MDSND'
+    elif club_name in (u'Mjøsdalen IL'):
+       club_code=u'MJSD'
+    elif club_name in (u'Modum Friidrettsklubb'):
+       club_code=u'MOD'
+    elif club_name in (u'Moelven Idrettslag', u'Moelven IL'):
+       club_code=u'MOELV'
+    elif club_name in (u'Moi Idrettslag'):
+       club_code=u'MOI'
+    elif club_name in (u'Molde og Omegn Idrettsforening'):
+       club_code=u'MOLDE'
+    elif club_name in (u'Molde Olymp'):
+       club_code=u'OLYMP'
+    elif club_name in (u'Moltustranda Idrettslag'):
+       club_code=u'MOITU'
+    elif club_name in (u'Mosjøen Friidrettsklubb'):
+       club_code=u'MOSJ'
+    elif club_name in (u'Moss Idrettslag', u'Moss IL'):
+       club_code=u'MOSS'
+    elif club_name in (u'Mosvik Idrettslag'):
+       club_code=u'MOSV'
+    elif club_name in (u'MUIL - Mefjordvær Ungdoms- og Idrettslag'):
+       club_code=u'MUIL'
+    elif club_name in (u'Namdal løpeklubb'):
+       club_code=u'NAML'
+    elif club_name in (u'Namdalseid Idrettslag'):
+       club_code=u'NAMDA'
+    elif club_name in (u'Namsen Fif'):
+       club_code=u'NAMSE'
+    elif club_name in (u'Nannestad Idrettslag'):
+       club_code=u'NANN'
+    elif club_name in (u'Narvik Idrettslag'):
+       club_code=u'NAR'
+    elif club_name in (u'Nesbyen Idrettslag'):
+       club_code=u'NESB'
+    elif club_name in (u'Nesodden IF'):
+       club_code=u'NESO'
+    elif club_name in (u'Nesøya Idrettslag'):
+       club_code=u'NES'
+    elif club_name in (u'Nidelv Idrettslag'):
+       club_code=u'NID'
+    elif club_name in (u'Nissedal Idrettslag'):
+       club_code=u'NISS'
+    elif club_name in (u'Nittedal Idrettslag', u'Nittedal IL'):
+       club_code=u'NITT'
+    elif club_name in (u'Nordkjosbotn Idrettslag'):
+       club_code=u'NRDKJ'
+    elif club_name in (u'Nordre Eidsvoll Idrettslag'):
+       club_code=u'NEIDS'
+    elif club_name in (u'Nordre Fjell Friidrett'):
+       club_code=u'NFJEL'
+    elif club_name in (u'Nordre Land Idrettslag'):
+       club_code=u'NLAND'
+    elif club_name in (u'Nordre Trysil IL'):
+       club_code=u'NTRY'
+    elif club_name in (u'Nordøy Idrettslag'):
+       club_code=u'NORIL'
+    elif club_name in (u'Norrøna IL'):
+       club_code=u'NORR'
+    elif club_name in (u'Northern Runners'):
+       club_code=u'NRUN'
+    elif club_name in (u'NTNUI - Norges Teknisk-Naturvitenskapelige Universitets Idrettsforening'):
+       club_code=u'NTNUI'
+    elif club_name in (u'Nydalens Skiklub'):
+       club_code=u'NYSK'
+    elif club_name in (u'Nykirke Idrettsforening'):
+       club_code=u'NYKIR'
+    elif club_name in (u'Nøtterøy Idrettsforening'):
+       club_code=u'NTTRY'
+    elif club_name in (u'Odda Idrettslag'):
+       club_code=u'ODDA'
+    elif club_name in (u'Ogndal Idrettslag Hovedlaget'):
+       club_code=u'OGND'
+    elif club_name in (u'Olden Idrettslag'):
+       club_code=u'OLD'
+    elif club_name in (u'Olderdalen Idrettsklubb'):
+       club_code=u'OLDA'
+    elif club_name in (u'Oppdal IL Hovedlaget'):
+       club_code=u'OPPD'
+    elif club_name in (u'Oppegård Idrettslag'):
+       club_code=u'OPP'
+    elif club_name in (u'Oppsal Idrettsforening'):
+       club_code=u'OPSL'
+    elif club_name in (u'Oppstad Idrettslag'):
+       club_code=u'OPST'
+    elif club_name in (u'Oppstad Idrettslag 2'):
+       club_code=u'OPPST'
+    elif club_name in (u'Oppstryn Idrettslag'):
+       club_code=u'OPSTR'
+    elif club_name in (u'Opptur Motbakkeklubb'):
+       club_code=u'OPPT'
+    elif club_name in (u'Orkanger Idrettsforening'):
+       club_code=u'ORKA'
+    elif club_name in (u'Orkdal Idrettslag'):
+       club_code=u'ORKD'
+    elif club_name in (u'Orre Idrettslag'):
+       club_code=u'ORRE'
+    elif club_name in (u'Os Idrettslag'):
+       club_code=u'OS'
+    elif club_name in (u'Os Turnforening'):
+       club_code=u'OSTU'
+    elif club_name in (u'OSI Friidrett'):
+       club_code=u'FRII'
+    elif club_name in (u'Oslo Politis Idrettslag'):
+       club_code=u'POLIT'
+    elif club_name in (u'Oslostudentenes Idrettsklubb'):
+       club_code=u'OSI'
+    elif club_name in (u'Osterøy Idrottslag', u'Osterøy IL'):
+       club_code=u'OST'
+    elif club_name in (u'Otra IL'):
+       club_code=u'OTRA'
+    elif club_name in (u'Ottestad Idrettslag'):
+       club_code=u'OTTE'
+    elif club_name in (u'Ottestad Kast og Styrkeløft'):
+       club_code=u'OTKS'
+    elif club_name in (u'Overhalla Idrettslag', u'Overhalla IL'):
+       club_code=u'OVRH'
+    elif club_name in (u'Porsanger Idrettslag'):
+       club_code=u'PORS'
+    elif club_name in (u'Rana Friidrettsklubb'):
+       club_code=u'RANA'
+    elif club_name in (u'Ranheim Idrettslag', u'Ranheim IL'):
+       club_code=u'RAN'
+    elif club_name in (u'Raufoss IL Friidrett', 'Raufoss Friidrett'):
+       club_code=u'RAU'
+    elif club_name in (u'Raumnes & Årnes Idrettslag'):
+       club_code=u'RAUM'
+    elif club_name in (u'Re Friidrettsklubb'):
+       club_code=u'RE'
+    elif club_name in (u'Ready Idrettsforeningen'):
+       club_code=u'READY'
+    elif club_name in (u'Rena Idrettslag'):
+       club_code=u'RENA'
+    elif club_name in (u'Rendalen Idrettslag'):
+       club_code=u'RENDA'
+    elif club_name in (u'Rennebu Idrettslag'):
+       club_code=u'RENB'
+    elif club_name in (u'Rindal Idrettslag'):
+       club_code=u'RIND'
+    elif club_name in (u'Ringerike Friidrettsklubb'):
+       club_code=u'RING'
+    elif club_name in (u'Risør Idrettslag'):
+       club_code=u'RIS'
+    elif club_name in (u'Rjukan Idrettslag'):
+       club_code=u'RJU'
+    elif club_name in (u'Rogne Idrettslag'):
+       club_code=u'ROGNE'
+    elif club_name in (u'Romerike Friidrett'):
+       club_code=u'ROMFR'
+    elif club_name in (u'Romerike Ultraløperklubb'):
+       club_code=u'ROMUL'
+    elif club_name in (u'Romsdal Randoneklubb'):
+       club_code=u'ROMRA'
+    elif club_name in (u'Rosendal Turnlag'):
+       club_code=u'ROSEN'
+    elif club_name in (u'Royal Sport'):
+       club_code=u'ROYAL'
+    elif club_name in (u'Rustad Idrettslag'):
+       club_code=u'RUS'
+    elif club_name in (u'Rygge Idrettslag'):
+       club_code=u'RYGGE'
+    elif club_name in (u'Røa Allianseidrettslag'):
+       club_code=u'RIL'
+    elif club_name in (u'Røldal Idrettslag'):
+       club_code=u'RDIL'
+    elif club_name in (u'Røros Idrettslag'):
+       club_code=u'ROSIL'
+    elif club_name in (u'Røyken UIL'):
+       club_code=u'RKEN'
+    elif club_name in (u'Salangen IF Friidrett', u'Salangen IF - Friidrett'):
+       club_code=u'SALA'
+    elif club_name in (u'Samnanger Idrettslag'):
+       club_code=u'SAMN'
+    elif club_name in (u'Sandane Turn og Idrettslag'):
+       club_code=u'SANTU'
+    elif club_name in (u'SANDEFJORD TURN & IDRETTSFORENING'):
+       club_code=u'STIF'
+    elif club_name in (u'Sandnes Idrettslag', u'Sandnes IL'):
+       club_code=u'SAND'
+    elif club_name in (u'Sandnes Idrettslag 2'):
+       club_code=u'SNDI'
+    elif club_name in (u'Sandnessjøen Idrettslag'):
+       club_code=u'SNDSJ'
+    elif club_name in (u'Sarpsborg Allianseidrettslag', u'Sarpsborg IL'):
+       club_code=u'SARP'
+    elif club_name in (u'Sauda Idrettslag'):
+       club_code=u'SAUD'
+    elif club_name in (u'Sauland Idrettslag'):
+       club_code=u'SAUL'
+    elif club_name in (u'Selbu IL'):
+       club_code=u'SELB'
+    elif club_name in (u'Selje Idrettslag'):
+       club_code=u'SELJE'
+    elif club_name in (u'Seljord Idrettslag'):
+       club_code=u'SELJO'
+    elif club_name in (u'Selsbakk Idrettsforening'):
+       club_code=u'SELS'
+    elif club_name in (u'Sem Idrettsforening', u'Sem IF'):
+       club_code=u'SEM'
+    elif club_name in (u'Sigdal Friidrettsklubb'):
+       club_code=u'SIGFR'
+    elif club_name in (u'Sigdals Skiklub'):
+       club_code=u'SIGSK'
+    elif club_name in (u'Siljan Idrettslag'):
+       club_code=u'SILJ'
+    elif club_name in (u'Sirma Il'):
+       club_code=u'SIRMA'
+    elif club_name in (u'Sjetne Idrettslag'):
+       club_code=u'SJET'
+    elif club_name in (u'Sk Vedavåg Karmøy'):
+       club_code=u'VEDA'
+    elif club_name in (u'SK Vidar'):
+       club_code=u'VID'
+    elif club_name in (u'Skagerrak Sportsklubb'):
+       club_code=u'SKAGE'
+    elif club_name in (u'Skåla Idrettslag'):
+       club_code=u'SKLA'
+    elif club_name in (u'Skarphedin IL'):
+       club_code=u'SKRPH'
+    elif club_name in (u'Skaubygda Il'):
+       club_code=u'SKAU'
+    elif club_name in (u'Skaun Idrettslag'):
+       club_code=u'SKAUN'
+    elif club_name in (u'Ski IL Friidrett'):
+       club_code=u'SKI'
+    elif club_name in (u'Skjåk IL'):
+       club_code=u'SKJK'
+    elif club_name in (u'Skjoldar Il'):
+       club_code=u'SKJO'
+    elif club_name in (u'Skogn Idrettslag'):
+       club_code=u'SKOGN'
+    elif club_name in (u'Skotterud Idrettslag'):
+       club_code=u'SKO'
+    elif club_name in (u'Skreia Idrettslag'):
+       club_code=u'SKREIA'
+    elif club_name in (u'Snåsa Idrettslag'):
+       club_code=u'SNSA'
+    elif club_name in (u'Snøgg Friidrett'):
+       club_code=u'SNGG'
+    elif club_name in (u'Sogndal Idrettslag'):
+       club_code=u'SIL'
+    elif club_name in (u'Sokndal Friidrettsklubb'):
+       club_code=u'SOKND'
+    elif club_name in (u'Sola Friidrett'):
+       club_code=u'SOLA'
+    elif club_name in (u'Solnut IL'):
+       club_code=u'SOLN'
+    elif club_name in (u'Sortland Friidrettsklubb'):
+       club_code=u'SORTL'
+    elif club_name in (u'Sotra Sportsklubb'):
+       club_code=u'SOT'
+    elif club_name in (u'Spillum Idrettslag'):
+       club_code=u'SPILL'
+    elif club_name in (u'Spiridon Langløperlag'):
+       club_code=u'SPRD'
+    elif club_name in (u'Spjelkavik og Omegn Friidrettsklubb'):
+       club_code=u'SPJVK'
+    elif club_name in (u'Sportsklubben Kraft'):
+       club_code=u'KRAFT'
+    elif club_name in (u'Sportsklubben Rye'):
+       club_code=u'nan'
+    elif club_name in (u'Sportsklubben Rye 2'):
+       club_code=u'RYE'
+    elif club_name in (u'Sportsklubben Vidar'):
+       club_code=u'VIDAR'
+    elif club_name in (u'Spydeberg IL'):
+       club_code=u'SPYDE'
+    elif club_name in (u'Staal Jørpeland IL'):
+       club_code=u'STJIL'
+    elif club_name in (u'Stadsbygd IL'):
+       club_code=u'STAD'
+    elif club_name in (u'Stårheim Idrettslag'):
+       club_code=u'STRHEI'
+    elif club_name in (u'Stavanger Døve-Idrettsforening'):
+       club_code=u'STDIF'
+    elif club_name in (u'Stavanger Friidrettsklubb'):
+       club_code=u'STAVA'
+    elif club_name in (u'Stavanger Idrettsforening Allianseidrettslag - Friidrett'):
+       club_code=u'STAVIF'
+    elif club_name in (u'Stegaberg Idrettslag'):
+       club_code=u'STEGA'
+    elif club_name in (u'Stein Friidrettsklubb'):
+       club_code=u'STEIN'
+    elif club_name in (u'Steinkjer Friidrettsklubb'):
+       club_code=u'STEKJ'
+    elif club_name in (u'Stettevik Sportsklubb'):
+       club_code=u'STSK'
+    elif club_name in (u'Stjørdal Fridrettsklubb', u'Stjørdal Friidrettsklubb'):
+       club_code=u'STJF'
+    elif club_name in (u'Stjørdal Paraidrettslag'):
+       club_code=u'STJP'
+    elif club_name in (u'Stjørdals-Blink IL'):
+       club_code=u'STJB'
+    elif club_name in (u'Stokke Idrettslag'):
+       club_code=u'STOKK'
+    elif club_name in (u'Stokmarknes Idrettslag'):
+       club_code=u'STOKM'
+    elif club_name in (u'Stord Idrettslag', u'Stord IL (Allianseidrettslag)'):
+       club_code=u'STO'
+    elif club_name in (u'Storfjord idrettslag'):
+       club_code=u'STOFJ'
+    elif club_name in (u'Stranda Idrottslag'):
+       club_code=u'STRIL'
+    elif club_name in (u'Strandebarm Idrettslag'):
+       club_code=u'STRAB'
+    elif club_name in (u'Stranden Idrettslag'):
+       club_code=u'STRA'
+    elif club_name in (u'Straumsnes Idrettslag'):
+       club_code=u'STRAU'
+    elif club_name in (u'Strindheim Idrettslag', u'Strindheim il'):
+       club_code=u'STRI'
+    elif club_name in (u'Stryn Turn og Idrettslag'):
+       club_code=u'STRY'
+    elif club_name in (u'Støren Sportsklubb'):
+       club_code=u'STREN'
+    elif club_name in (u'Sunndal IL Friidrett'):
+       club_code=u'SUNND'
+    elif club_name in (u'Surnadal Idrettslag'):
+       club_code=u'SURN'
+    elif club_name in (u'Svalbard Turn Idrettslag'):
+       club_code=u'SVTU'
+    elif club_name in (u'Svarstad Idrettslag'):
+       club_code=u'SVARS'
+    elif club_name in (u'Sveio Idrettslag'):
+       club_code=u'SVEIO'
+    elif club_name in (u'Svelgen Turn og Idrettsforening'):
+       club_code=u'SVEL'
+    elif club_name in (u'Svint IL'):
+       club_code=u'SVINT'
+    elif club_name in (u'SVORKMO N.O.I.'):
+       club_code=u'SVORK'
+    elif club_name in (u'Sykkylven Idrottslag'):
+       club_code=u'SYKK'
+    elif club_name in (u'Sylling Idrettsforening'):
+       club_code=u'SYLL'
+    elif club_name in (u'Sædalen Idrettslag'):
+       club_code=u'SDAL'
+    elif club_name in (u'Sætre Idrætsforening Graabein'):
+       club_code=u'GRAA'
+    elif club_name in (u'Søfteland Turn & Idrettslag'):
+       club_code=u'STIL'
+    elif club_name in (u'Søgne Idrettslag'):
+       club_code=u'SGNE'
+    elif club_name in (u'Sømna Idrettslag', u'Sømna IL'):
+       club_code=u'SMNA'
+    elif club_name in (u'Søndre Land IL Friidrett', u'Friidrett Søndre Land IL'):
+       club_code=u'SNDLA'
+    elif club_name in (u'Søre Ål Idrettslag'):
+       club_code=u'SAAL'
+    elif club_name in (u'Sørild Fridrettsklubb', u'Sørild FIK'):
+       club_code=u'SRILD'
+    elif club_name in (u'Sørkedalens Idrettsforening'):
+       club_code=u'SRKDL'
+    elif club_name in (u'T I L Hovding'):
+       club_code=u'HOVD'
+    elif club_name in (u'Tamil Sangam IL'):
+       club_code=u'TAMSAN'
+    elif club_name in (u'Tingvoll Friidrettsklubb', u'Tingvoll Friidrettskl.'):
+       club_code=u'TING'
+    elif club_name in ( 'IK Tjalve', 'Idrettsklubben Tjalve', 'Tjalve, IK', 'Tjalve, Idrettsklubben', 'Tjalve Idrettsklubben' ):
+       club_code=u'TJAL'
+    elif club_name in (u'Tjølling Idrettsforening'):
+       club_code=u'TJØLL'
+    elif club_name in (u'Tjøme Idrettslag'):
+       club_code=u'TJI'
+    elif club_name in (u'Tjøme Løpeklubb'):
+       club_code=u'TJL'
+    elif club_name in (u'Tolga Idrettslag'):
+       club_code=u'TOL'
+    elif club_name in (u'Tomrefjord Idrettslag'):
+       club_code=u'TOMR'
+    elif club_name in (u'Torodd IF'):
+       club_code=u'TORO'
+    elif club_name in (u'Torvikbukt Idrettslag'):
+       club_code=u'TORVI'
+    elif club_name in (u'Treungen Idrettslag'):
+       club_code=u'TREU'
+    elif club_name in (u'Trio idrettslag'):
+       club_code=u'TRIO'
+    elif club_name in (u'Tromsø Friidrettsklubb'):
+       club_code=u'TRF'
+    elif club_name in (u'Tromsø Løpeklubb'):
+       club_code=u'TRL'
+    elif club_name in (u'Tromsø Svømmeklubb'):
+       club_code=u'TRS'
+    elif club_name in (u'Trondheim & Omegn Sportsklubb'):
+       club_code=u'TROO'
+    elif club_name in (u'Trondheim Friidrett', u'Trondheim Friidrett - Friidrett'):
+       club_code=u'TROF'
+    elif club_name in (u'Trøgstad Skiklubb'):
+       club_code=u'TSK'
+    elif club_name in (u'TUIL Tromsdalen Friidrett'):
+       club_code=u'TUIL'
+    elif club_name in (u'Tvedestrand Turn & Idrettsforening'):
+       club_code=u'TVEDE'
+    elif club_name in (u'Tyrving Idrettslag', u'Tyrving IL'):
+       club_code=u'TYR'
+    elif club_name in (u'Tønsberg Friidrettsklubb'):
+       club_code=u'TNSBF'
+    elif club_name in (u'Tørvikbygd Idrettslag'):
+       club_code=u'TRBIL'
+    elif club_name in (u'Tøyen Sportsklubb'):
+       club_code=u'TYEN'
+    elif club_name in (u'Ullensaker/Kisa IL Friidrett'):
+       club_code=u'ULLK'
+    elif club_name in (u'Ullensaker/Kisa IL Friidrett 2'):
+       club_code=u'ULKI'
+    elif club_name in (u'Undheim Idrettslag'):
+       club_code=u'UND'
+    elif club_name in (u'Urædd Friidrett'):
+       club_code=u'URFRI'
+    elif club_name in (u'Utleira Idrettslag'):
+       club_code=u'UTL'
+    elif club_name in (u'Vaaler Idrettsforening'):
+       club_code=u'VAAL'
+    elif club_name in (u'Vadsø Atletklubb'):
+       club_code=u'VA'
+    elif club_name in (u'Vadsø Turnforening (Vtf)'):
+       club_code=u'VTF'
+    elif club_name in (u'Vågå Idrettslag'):
+       club_code=u'VGAA'
+    elif club_name in (u'Vågstranda Idrettslag'):
+       club_code=u'VIL'
+    elif club_name in (u'Valkyrien Idrettslag'):
+       club_code=u'VALK'
+    elif club_name in (u'Valldal Idrettslag'):
+       club_code=u'VALL'
+    elif club_name in (u'Vallset IL'):
+       club_code=u'VAL'
+    elif club_name in (u'Varegg Fleridrett'):
+       club_code=u'VAR'
+    elif club_name in (u'Varhaug Idrettslag'):
+       club_code=u'VARH'
+    elif club_name in (u'Varteig Idrettslag'):
+       club_code=u'VART'
+    elif club_name in (u'Vegårshei Idrettslag'):
+       club_code=u'VEG'
+    elif club_name in (u'Veldre Friidrett'):
+       club_code=u'VELD'
+    elif club_name in (u'Velledalen Idrettslag'):
+       club_code=u'VELL'
+    elif club_name in (u'Verdal Friidrettsklubb'):
+       club_code=u'VERD'
+    elif club_name in (u'Vestby Idrettslag'):
+       club_code=u'VESTB'
+    elif club_name in (u'Vestfossen Idrettsforening', u'Vestfossen IF'):
+       club_code=u'VESTF'
+    elif club_name in (u'Vestre Spone IF'):
+       club_code=u'VSPON'
+    elif club_name in (u'Vik Idrettslag', u'Vik IL'):
+       club_code=u'VIKIL'
+    elif club_name in (u'Vikane IL'):
+       club_code=u'VIKAN'
+    elif club_name in (u'Viking Turn og Idrettsforening', u'TIF Viking'):
+       club_code=u'VIK'
+    elif club_name in (u'Viksdalen Idrettslag'):
+       club_code=u'VIKSD'
+    elif club_name in (u'Viljar IL'):
+       club_code=u'VILJ'
+    elif club_name in (u'Vind Idrettslag'):
+       club_code=u'VNDIL'
+    elif club_name in (u'Vindafjord Idrettslag'):
+       club_code=u'VINDA'
+    elif club_name in (u'Vinje Idrottslag'):
+       club_code=u'VINJE'
+    elif club_name in (u'Vollan Idrettsklubb', u'Vollan I.K.'):
+       club_code=u'VOLL'
+    elif club_name in (u'Voss Idrottslag'):
+       club_code=u'VOSS'
+    elif club_name in (u'Ytterøy Idrettslag'):
+       club_code=u'YTTER'
+    elif club_name in (u'Ørje Idrettslag'):
+       club_code=u'ORJIL'
+    elif club_name in (u'Ørsta Idrettslag'):
+       club_code=u'ORSTA'
+    elif club_name in (u'Østmarka Marsjklubb'):
+       club_code=u'OMARSJ'
+    elif club_name in (u'Øyer/Tretten Idrettsforening'):
+       club_code=u'OTRET'
+    elif club_name in (u'Øystre Slidre Idrettslag'):
+       club_code=u'OSLID'
+    else:
+       club_code = club_name
+ 
+    return club_code
+"""
     if club_name in ('IL Koll', 'Idrettslaget Koll', 'Koll, IL', 'Koll, Idrettslaget'):
         club_code = 'KOLL'
     elif club_name in ('IL i BUL', 'Idrottslaget i BUL', 'BUL, IL i', 'BUL, Idrottslaget i'):
@@ -827,12 +1941,25 @@ def club_code(club_name):
         club_code = 'GUI'
     elif club_name in ( 'Sturla IF', 'Idrettsforeningen Sturla'): 
         club_code = 'STUR'
+    elif club_name in ( 'Modum Friidrettsklubb'):
+        club_code = 'MOD'
+    elif club_name in ( u'Krødsherad Idrettslag', u'Krødsherad IL'):
+        club_code = 'KRHER'
+    elif club_name in ( u'Moss IL' ):
+        club_code = 'MOSS'
+    elif club_name in ( u'Norna-Salhus IL' ):
+        club_code = 'NORSA'
+    elif club_name in ( u'Sandnes IL' ):
+        club_code = 'SAND'
+    elif club_name in ( u'Askim IF' ):
+        club_code = 'ASKIM'
     else:
         club_code = club_name
 
     return club_code
-
+"""
 def club_name(club_code):
+    """
     if club_code == 'KOLL':
         club_name = 'IL Koll'
     elif club_code in ( 'ILBUL', 'ILIBUL'):
@@ -859,8 +1986,1121 @@ def club_name(club_code):
         club_name = 'Gui Sportsklubb'
     elif club_code ==  'STUR':
         club_name = 'IF Sturla'
+    elif club_code in ( 'MOD' ):
+        club_name = 'Modum Friidrettsklubb'
+    elif club_code in ( 'KRHER' ):
+        club_name = u'Krødsherad Idrettslag'
+    elif club_code in ( 'MOSS' ):
+        club_name = 'Moss IL'
+    elif club_code in ( 'NORSA'  ):
+        club_name = 'Norna-Salhus IL'
+    elif club_code in ( 'SAND'  ):
+        club_name = 'Sandnes IL'
+    elif club_code in ( 'ASKIM' ):
+        club_name = 'Askim IF
+    """
+    if club_code in (u'AALEN'):
+       club_name=u'ÅLEN IDRETTSLAG'
+    elif club_code in (u'AASUN'):
+       club_name=u'Ålesund Friidrettsklubb'
+    elif club_code in (u'IKV'):
+       club_name=u'Allianseidrettslaget Ik Våg'
+    elif club_code in (u'ALM'):
+       club_name=u'Almenning Il'
+    elif club_code in (u'ALSV'):
+       club_name=u'Alsvåg Idrettslag'
+    elif club_code in (u'ALTA'):
+       club_name=u'Alta Idrettsforening'
+    elif club_code in (u'ANDAL'):
+       club_name=u'Åndalsnes Idrettsforening'
+    elif club_code in (u'ANDE'):
+       club_name=u'Andebu Idrettslag'
+    elif club_code in (u'ANDSK'):
+       club_name=u'Andørja Sportsklubb'
+    elif club_code in (u'ARE'):
+       club_name=u'Aremark Idrettsforening'
+    elif club_code in (u'ARNA'):
+       club_name=u'Arna Turn & Idrettslag'
+    elif club_code in (u'ASIL'):
+       club_name=u'Ås Idrettslag'
+    elif club_code in (u'AASEN'):
+       club_name=u'Åsen Idrettslag'
+    elif club_code in (u'AASER'):
+       club_name=u'Åseral idrettslag'
+    elif club_code in (u'ASK'):
+       club_name=u'Ask Friidrett'
+    elif club_code in (u'ASKFL'):
+       club_name=u'Asker Fleridrettslag'
+    elif club_code in (u'ASKSK'):
+       club_name=u'Asker Skiklubb'
+    elif club_code in (u'ASKIM'):
+       club_name=u'Askim Idrettsforening'
+    elif club_code in (u'ATNA'):
+       club_name=u'Atna Idrettslag'
+    elif club_code in (u'AURE'):
+       club_name=u'Aure Idrettslag'
+    elif club_code in (u'AURL'):
+       club_name=u'Aurland Idrettslag'
+    elif club_code in (u'AURS'):
+       club_name=u'Aurskog-Høland Friidrettslag'
+    elif club_code in (u'AUFJ'):
+       club_name=u'Austefjord Idrettslag'
+    elif club_code in (u'AUST'):
+       club_name=u'Austevoll Idrettsklubb'
+    elif club_code in (u'AUSTR'):
+       club_name=u'Austrheim Idrettslag'
+    elif club_code in (u'BAGN'):
+       club_name=u'Bagn Idrettslag'
+    elif club_code in (u'BAKKE'):
+       club_name=u'Bakke IF'
+    elif club_code in (u'BALE'):
+       club_name=u'Balestrand Idrettslag'
+    elif club_code in (u'BARD'):
+       club_name=u'Bardu Idrettslag'
+    elif club_code in (u'BTSFJ'):
+       club_name=u'Båtsfjord Sportsklubb'
+    elif club_code in (u'BGND'):
+       club_name=u'Begnadalen Idrettslag'
+    elif club_code in (u'BEIT'):
+       club_name=u'Beitstad Idrettslag'
+    elif club_code in (u'BCK'):
+       club_name=u'Bergen Cykleklubb'
+    elif club_code in (u'BTC'):
+       club_name=u'Bergen Triathlon Club'
+    elif club_code in (u'BTU'):
+       club_name=u'Bergens Turnforening'
+    elif club_code in (u'BERGE'):
+       club_name=u'Berger Idrettslag'
+    elif club_code in (u'BFGL'):
+       club_name=u'BFG Bergen Løpeklubb'
+    elif club_code in (u'BJERR'):
+       club_name=u'Bjerkreim Idrettslag'
+    elif club_code in (u'BJERV'):
+       club_name=u'Bjerkvik Idrettsforening'
+    elif club_code in (u'BLA'):
+       club_name=u'Blaker IL'
+    elif club_code in (u'BLEFJ'):
+       club_name=u'Blefjell Idrettslag'
+    elif club_code in (u'BODO'):
+       club_name=u'Bodø & Omegn IF Friidrett'
+    elif club_code in (u'BODL'):
+       club_name=u'Bodø Bauta Løpeklubb'
+    elif club_code in (u'BODF'):
+       club_name=u'Bodø Friidrettsklubb'
+    elif club_code in (u'BOKN'):
+       club_name=u'Bokn Idrettslag'
+    elif club_code in (u'BOS'):
+       club_name=u'Bossekop Ungdomslag'
+    elif club_code in (u'BOTNA'):
+       club_name=u'Botnan Idrettslag'
+    elif club_code in (u'BOT'):
+       club_name=u'Botne Skiklubb'
+    elif club_code in (u'BRNDB'):
+       club_name=u'Brandbu IF'
+    elif club_code in (u'BRATS'):
+       club_name=u'Bratsberg Idrettslag'
+    elif club_code in (u'BRATTV'):
+       club_name=u'Brattvåg Idrettslag'
+    elif club_code in (u'BREIM'):
+       club_name=u'Breimsbygda IL'
+    elif club_code in (u'BREKK'):
+       club_name=u'Brekke Idrettslag'
+    elif club_code in (u'BREMA'):
+       club_name=u'Bremanger Idrettslag'
+    elif club_code in (u'BREM'):
+       club_name=u'Bremnes Idrettslag'
+    elif club_code in (u'BRE'):
+       club_name=u'Brevik Idrettslag'
+    elif club_code in (u'BROMM'):
+       club_name=u'Bromma Idrettslag'
+    elif club_code in (u'BRYF'):
+       club_name=u'Bryne Friidrettsklubb'
+    elif club_code in (u'BRYT'):
+       club_name=u'BRYNE TRIATLONKLUBB'
+    elif club_code in (u'BUD'):
+       club_name=u'Bud Idrettslag'
+    elif club_code in (u'BYS'):
+       club_name=u'Byaasen Skiklub'
+    elif club_code in (u'BYI'):
+       club_name=u'Byåsen Idrettslag'
+    elif club_code in (u'BYN'):
+       club_name=u'Byneset IL Hovedlaget'
+    elif club_code in (u'BSK'):
+       club_name=u'Bækkelagets SK'
+    elif club_code in (u'BRVHA'):
+       club_name=u'Bærums Verk Hauger Idrettsforening'
+    elif club_code in (u'BVRFJ'):
+       club_name=u'Bæverfjord Idrettslag'
+    elif club_code in (u'BIF'):
+       club_name=u'Bøler Idrettsforening'
+    elif club_code in (u'BMLO'):
+       club_name=u'Bømlo Idrettslag'
+    elif club_code in (u'BRSA'):
+       club_name=u'Børsa Idrettslag'
+    elif club_code in (u'DALE'):
+       club_name=u'Dale Idrettslag'
+    elif club_code in (u'DLN'):
+       club_name=u'Dalen Idrettslag'
+    elif club_code in (u'DIM'):
+       club_name=u'Dimna IL'
+    elif club_code in (u'DMB'):
+       club_name=u'Dombås Idrettslag'
+    elif club_code in (u'DRIV'):
+       club_name=u'Driv Idrettslag'
+    elif club_code in (u'DRIVA'):
+       club_name=u'Driva IL'
+    elif club_code in (u'DRFR'):
+       club_name=u'Drøbak-Frogn Idrettslag'
+    elif club_code in (u'DPVG'):
+       club_name=u'Dypvåg Idrettsforening'
+    elif club_code in (u'EGRSU'):
+       club_name=u'Egersunds Idrettsklubb'
+    elif club_code in (u'EIDIL'):
+       club_name=u'Eid Idrettslag'
+    elif club_code in (u'EIDA'):
+       club_name=u'Eidanger Idrettslag'
+    elif club_code in (u'EIDF'):
+       club_name=u'Eidfjord Idrettslag'
+    elif club_code in (u'EIDSB'):
+       club_name=u'Eidsberg Idrettslag'
+    elif club_code in (u'EIDS'):
+       club_name=u'Eidsvåg Idrettslag'
+    elif club_code in (u'EIDTU'):
+       club_name=u'Eidsvold Turnforening Friidrett'
+    elif club_code in (u'EIK'):
+       club_name=u'Eikanger Idrettslag'
+    elif club_code in (u'ESK'):
+       club_name=u'Ekeberg Sports Klubb'
+    elif club_code in (u'ESPA'):
+       club_name=u'Espa Idrettslag'
+    elif club_code in (u'ETNE'):
+       club_name=u'Etne Idrettslag'
+    elif club_code in (u'FAGIL'):
+       club_name=u'Fagernes Idrettslag N'
+    elif club_code in (u'FAG'):
+       club_name=u'Fagernes Idrettslag O'
+    elif club_code in (u'FALK'):
+       club_name=u'Falkeid idrettslag'
+    elif club_code in (u'FANA'):
+       club_name=u'Fana IL'
+    elif club_code in (u'FEIR'):
+       club_name=u'Feiring Idrettslag'
+    elif club_code in (u'FET'):
+       club_name=u'Fet Friidrettsklubb'
+    elif club_code in (u'FA77'):
+       club_name=u'FIL AKS-77'
+    elif club_code in (u'FINNY'):
+       club_name=u'Finnøy Idrettslag'
+    elif club_code in (u'FISIF'):
+       club_name=u'Fiskå Idrettsforening'
+    elif club_code in (u'FISIL'):
+       club_name=u'Fiskå Idrettslag'
+    elif club_code in (u'FITJ'):
+       club_name=u'Fitjar Idrettslag'
+    elif club_code in (u'FJVE'):
+       club_name=u'Fjellhug/Vereide IL'
+    elif club_code in (u'FLATS'):
+       club_name=u'Flatås Idrettslag'
+    elif club_code in (u'FLOR'):
+       club_name=u'Florø Turn og Idrettsforening'
+    elif club_code in (u'FOLFO'):
+       club_name=u'Follafoss Idrettslag'
+    elif club_code in (u'FOL'):
+       club_name=u'Folldal Idrettsforening'
+    elif club_code in (u'FOLLO'):
+       club_name=u'Follo Løpeklubb'
+    elif club_code in (u'FORRA'):
+       club_name=u'Forra Idrettslag'
+    elif club_code in (u'FOSSU'):
+       club_name=u'Fossum Idrettsforening'
+    elif club_code in (u'FRED'):
+       club_name=u'Fredrikstad Idrettsforening'
+    elif club_code in (u'FREI'):
+       club_name=u'Freidig Sportsklubben'
+    elif club_code in (u'ORION'):
+       club_name=u'Friidretsklubben Orion'
+    elif club_code in (u'REN'):
+       club_name=u'Friidrettsklubben Ren-Eng'
+    elif club_code in (u'BAMSE'):
+       club_name=u'Friidrettslaget Bamse'
+    elif club_code in (u'BORG'):
+       club_name=u'Friidrettslaget Borg'
+    elif club_code in (u'FRISK'):
+       club_name=u'Friidrettslaget Frisk'
+    elif club_code in (u'FRO'):
+       club_name=u'Frognerparken Idrettslag'
+    elif club_code in (u'FROL'):
+       club_name=u'Frol Idrettslag'
+    elif club_code in (u'FROSTA'):
+       club_name=u'Frosta Idrettslag'
+    elif club_code in (u'FRLND'):
+       club_name=u'Frøyland Idrettslag'
+    elif club_code in (u'FUR'):
+       club_name=u'Furuset Allidrett IF'
+    elif club_code in (u'FYLL'):
+       club_name=u'Fyllingen Idrettslag'
+    elif club_code in (u'FRDE'):
+       club_name=u'Førde Idrettslag'
+    elif club_code in (u'GAU'):
+       club_name=u'Gausdal Friidrettsklubb'
+    elif club_code in (u'GEI'):
+       club_name=u'Geilo Idrettslag'
+    elif club_code in (u'GEIR'):
+       club_name=u'Geiranger Idrettslag'
+    elif club_code in (u'GJER'):
+       club_name=u'Gjerpen Idrettsforening'
+    elif club_code in (u'GJERS'):
+       club_name=u'Gjerstad Idrettslag'
+    elif club_code in (u'GJDAL'):
+       club_name=u'Gjesdal Idrettslag'
+    elif club_code in (u'GJFK'):
+       club_name=u'Gjøvik Friidrettsklubb'
+    elif club_code in (u'GJVIK'):
+       club_name=u'Gjøvik Friidrettsklubb 2'
+    elif club_code in (u'GLO'):
+       club_name=u'Gloppen Friidrettslag'
+    elif club_code in (u'GOL'):
+       club_name=u'Gol Idrettslag'
+    elif club_code in (u'GRON'):
+       club_name=u'Grong Idrettslag'
+    elif club_code in (u'GRO'):
+       club_name=u'Groruddalen Friidrettsklubb'
+    elif club_code in (u'GRUE'):
+       club_name=u'Grue Idrettslag'
+    elif club_code in (u'GTI'):
+       club_name=u'GTI Friidrettsklubb'
+    elif club_code in (u'GUI'):
+       club_name=u'Gui Sportsklubb - Friidrett'
+    elif club_code in (u'GUL'):
+       club_name=u'Gulset Idrettsforening'
+    elif club_code in (u'HAB'):
+       club_name=u'HAB IL'
+    elif club_code in (u'HADE'):
+       club_name=u'Hadeland Friidrettsklubb'
+    elif club_code in (u'HAGA'):
+       club_name=u'Haga Idrettsforening '
+    elif club_code in (u'HAL'):
+       club_name=u'Halden Idrettslag'
+    elif club_code in (u'HALMO'):
+       club_name=u'Halmsås & Omegn Skilag'
+    elif club_code in (u'HALSA'):
+       club_name=u'Halsa Idrettslag'
+    elif club_code in (u'HIL'):
+       club_name=u'Hamar Idrettslag'
+    elif club_code in (u'HANNEV'):
+       club_name=u'Hannevikas Idrettslag'
+    elif club_code in (u'HARDB'):
+       club_name=u'Hardbagg Idrettslag'
+    elif club_code in (u'HAREI'):
+       club_name=u'Hareid Idrettslag'
+    elif club_code in (u'HARE'):
+       club_name=u'Harestua Idrettslag'
+    elif club_code in (u'HATT'):
+       club_name=u'Hattfjelldal Idrettslag'
+    elif club_code in (u'HAUGN'):
+       club_name=u'Haugen Idrettslag'
+    elif club_code in (u'HAUGR'):
+       club_name=u'Haugerud Idrettsforening'
+    elif club_code in (u'HAUGF'):
+       club_name=u'Haugesund Idrettslag Friidrett'
+    elif club_code in (u'HAUGT'):
+       club_name=u'Haugesund Triathlon Klubb'
+    elif club_code in (u'HAV'):
+       club_name=u'Havørn Allianseidrettslag'
+    elif club_code in (u'HEGGF'):
+       club_name=u'Heggedal Friidrettsklubb'
+    elif club_code in (u'HEGGI'):
+       club_name=u'Heggedal Idrettslag'
+    elif club_code in (u'HELLU'):
+       club_name=u'Hell Ultraløperklubb'
+    elif club_code in (u'HEM'):
+       club_name=u'Heming Idrettslaget'
+    elif club_code in (u'HENN'):
+       club_name=u'Henning I L'
+    elif club_code in (u'HERA'):
+       club_name=u'Herand Idrettslag'
+    elif club_code in (u'HERK'):
+       club_name=u'Herkules Friidrett'
+    elif club_code in (u'HERY'):
+       club_name=u'Herøy Idrettslag'
+    elif club_code in (u'HIN'):
+       club_name=u'Hinna Friidrett'
+    elif club_code in (u'HITF'):
+       club_name=u'Hitra Friidrettsklubb'
+    elif club_code in (u'HITL'):
+       club_name=u'Hitra Løpeklubb'
+    elif club_code in (u'HOB'):
+       club_name=u'Hobøl Idrettslag'
+    elif club_code in (u'HOF'):
+       club_name=u'Hof Idrettslag'
+    elif club_code in (u'HOL'):
+       club_name=u'Hol Idrettslag'
+    elif club_code in (u'HOLMS'):
+       club_name=u'Holmemstranda Idrettslag'
+    elif club_code in (u'HOLUM'):
+       club_name=u'Holum Idrettslag'
+    elif club_code in (u'HMLV'):
+       club_name=u'Hommelvik IL'
+    elif club_code in (u'HOPE'):
+       club_name=u'Hope Idrettslag'
+    elif club_code in (u'HORNI'):
+       club_name=u'Hornindal Idrettslag'
+    elif club_code in (u'HORFR'):
+       club_name=u'Horten Friidrettsklubb'
+    elif club_code in (u'HUG'):
+       club_name=u'Huglo Idrettslag'
+    elif club_code in (u'HURD'):
+       club_name=u'Hurdal Idrettslag'
+    elif club_code in (u'HVAM'):
+       club_name=u'Hvam Idrettslag'
+    elif club_code in (u'HVFO'):
+       club_name=u'Hvittingfoss Idrettslag'
+    elif club_code in (u'HYEN'):
+       club_name=u'Hyen Idrettslag'
+    elif club_code in (u'HYLLS'):
+       club_name=u'Hyllestad Idrettslag'
+    elif club_code in (u'HSI'):
+       club_name=u'Høybråten og Stovner IL'
+    elif club_code in (u'HDMO'):
+       club_name=u'Høydalsmo Idrottslag'
+    elif club_code in (u'FJELLO'):
+       club_name=u'I.l Fjellørnen'
+    elif club_code in (u'FRAMS'):
+       club_name=u'I.L. Framsteg'
+    elif club_code in (u'NORSA'):
+       club_name=u'Norna-Salhus IL'
+    elif club_code in (u'NYBR'):
+       club_name=u'I.L. Nybrott'
+    elif club_code in (u'IDD'):
+       club_name=u'Idd Sportsklubb'
+    elif club_code in (u'BIRK'):
+       club_name=u'Idrettsforeningen Birkebeineren'
+    elif club_code in (u'FRAM'):
+       club_name=u'Idrettsforeningen Fram'
+    elif club_code in (u'HELLA'):
+       club_name=u'IF Hellas'
+    elif club_code in (u'NJAAL'):
+       club_name=u'Idrettsforeningen Njaal'
+    elif club_code in (u'STUR'):
+       club_name=u'Sturla IF'
+    elif club_code in (u'IFORN'):
+       club_name=u'Idrettsforeningen Ørn'
+    elif club_code in (u'BJARG'):
+       club_name=u'Idrettslaget Bjarg'
+    elif club_code in (u'ILBJ'):
+       club_name=u'Idrettslaget Bjørn'
+    elif club_code in (u'DLBR'):
+       club_name=u'Idrettslaget Dalebrand'
+    elif club_code in (u'DYREV'):
+       club_name=u'Idrettslaget Dyre Vaa'
+    elif club_code in (u'EXPR'):
+       club_name=u'Idrettslaget Express'
+    elif club_code in (u'FORSK'):
+       club_name=u'Idrettslaget Forsøk'
+    elif club_code in (u'FRI'):
+       club_name=u'Idrettslaget Fri'
+    elif club_code in (u'GNE'):
+       club_name=u'Idrettslaget Gneist'
+    elif club_code in (u'HOLE'):
+       club_name=u'Idrettslaget Holeværingen'
+    elif club_code in (u'BULT'):
+       club_name=u'Idrettslaget I Bondeungdomslaget I Tromsø'
+    elif club_code in (u'ILAR'):
+       club_name=u'Idrettslaget Ilar'
+    elif club_code in (u'IVRIG'):
+       club_name=u'Idrettslaget Ivrig'
+    elif club_code in (u'JARD'):
+       club_name=u'Idrettslaget Jardar'
+    elif club_code in (u'JUT'):
+       club_name=u'Idrettslaget Jutul'
+    elif club_code in (u'ILROS'):
+       club_name=u'Idrettslaget Ros'
+    elif club_code in (u'RUNAR'):
+       club_name=u'IL Runar'
+    elif club_code in (u'ILSAN'):
+       club_name=u'Idrettslaget Sand'
+    elif club_code in (u'SANDV'):
+       club_name=u'IL Sandvin'
+    elif club_code in (u'SKADE'):
+       club_name=u'Idrettslaget Skade'
+    elif club_code in (u'SKJA'):
+       club_name=u'Idrettslaget Skjalg'
+    elif club_code in (u'SYR'):
+       club_name=u'Idrettslaget Syril'
+    elif club_code in (u'TRY'):
+       club_name=u'Idrettslaget Trysilgutten'
+    elif club_code in (u'GULA'):
+       club_name=u'IL Gular'
+    elif club_code in (u'ILIBUL'):
+       club_name=u'IDROTTSLAGET I BUL'
+    elif club_code in (u'ILBUL'):
+       club_name=u'IDROTTSLAGET I BUL 2'
+    elif club_code in (u'JOT'):
+       club_name=u'Idrottslaget Jotun'
+    elif club_code in (u'IDUN'):
+       club_name=u'Idun Idrettslag'
+    elif club_code in (u'EIKKV'):
+       club_name=u'If Eiker Kvikk'
+    elif club_code in (u'KAVE'):
+       club_name=u'IF Kamp/Vestheim'
+    elif club_code in (u'KLYP'):
+       club_name=u'If Klypetussen'
+    elif club_code in (u'GRANE'):
+       club_name=u'Ik Grane Arendal Friidrett'
+    elif club_code in (u'HIND'):
+       club_name=u'IK Hind'
+    elif club_code in (u'IKORN'):
+       club_name=u'Ikornnes Idrettslag'
+    elif club_code in (u'AASG'):
+       club_name=u'IL Aasguten'
+    elif club_code in (u'ALVI'):
+       club_name=u'IL Alvidra'
+    elif club_code in (u'ILBEV'):
+       club_name=u'IL Bever`n'
+    elif club_code in (u'BRODD'):
+       club_name=u'IL Brodd'
+    elif club_code in (u'FLV'):
+       club_name=u'IL Flåværingen'
+    elif club_code in (u'GRY'):
+       club_name=u'IL Gry'
+    elif club_code in (u'ILNOR'):
+       club_name=u'IL Norodd'
+    elif club_code in (u'PIO'):
+       club_name=u'IL Pioner Friidrett'
+    elif club_code in (u'POL'):
+       club_name=u'IL Polarstjernen'
+    elif club_code in (u'SAMH'):
+       club_name=u'IL Samhald'
+    elif club_code in (u'SANT'):
+       club_name=u'IL Santor'
+    elif club_code in (u'STKAM'):
+       club_name=u'IL Stålkameratene'
+    elif club_code in (u'TRIUM'):
+       club_name=u'IL Triumf'
+    elif club_code in (u'VIND'):
+       club_name=u'Il Vindbjart'
+    elif club_code in (u'VING'):
+       club_name=u'IL Vinger'
+    elif club_code in (u'INDRY'):
+       club_name=u'Inderøy Idrettslag'
+    elif club_code in (u'INN'):
+       club_name=u'Innstranda IL'
+    elif club_code in (u'INSTA'):
+       club_name=u'International School of Stavanger'
+    elif club_code in (u'ISFJO'):
+       club_name=u'Isfjorden Idrettslag'
+    elif club_code in (u'JOND'):
+       club_name=u'Jondalen Idrettslag'
+    elif club_code in (u'JVTN'):
+       club_name=u'Jægervatnet Idrettslag'
+    elif club_code in (u'JIL'):
+       club_name=u'Jøa Idrettslag'
+    elif club_code in (u'JLSTE'):
+       club_name=u'Jølster Idrettslag'
+    elif club_code in (u'KAUP'):
+       club_name=u'Kaupanger Idrettslag'
+    elif club_code in (u'KFUM'):
+       club_name=u'Kfum-kameratene Oslo'
+    elif club_code in (u'KJ'):
+       club_name=u'Kjelsås Idrettslag'
+    elif club_code in (u'KLPP'):
+       club_name=u'Klepp Idrettslag'
+    elif club_code in (u'KLK'):
+       club_name=u'Klæbu Løpeklubb'
+    elif club_code in (u'KLIL'):
+       club_name=u'Kløfta Idrettslag'
+    elif club_code in (u'KLBK'):
+       club_name=u'Kolbukameratene I L'
+    elif club_code in (u'KOLL'):
+       club_name=u'Koll Idrettslaget'
+    elif club_code in (u'KLVIL'):
+       club_name=u'Kolvereid Idrettslag'
+    elif club_code in (u'KNGSB'):
+       club_name=u'Kongsberg Idrettsforening'
+    elif club_code in (u'KNGSV'):
+       club_name=u'Kongsvinger IL Friidrett'
+    elif club_code in (u'KOP'):
+       club_name=u'Kopervik Idrettslag'
+    elif club_code in (u'KORG'):
+       club_name=u'Korgen Idrettslag'
+    elif club_code in (u'KRAG'):
+       club_name=u'Kragerø IF Friidrett'
+    elif club_code in (u'KRAAK'):
+       club_name=u'Kråkerøy Idrettslag'
+    elif club_code in (u'KRSTD'):
+       club_name=u'Kråkstad Idrettslag'
+    elif club_code in (u'KRL'):
+       club_name=u'Kristiansand Løpeklubb'
+    elif club_code in (u'KIF'):
+       club_name=u'Kristiansands IF'
+    elif club_code in (u'KRHER'):
+       club_name=u'Krødsherad Idrettslag'
+    elif club_code in (u'KVINES'):
+       club_name=u'Kvinesdal Idrettslag'
+    elif club_code in (u'KVFJ'):
+       club_name=u'Kvæfjord Idrettslag'
+    elif club_code in (u'KYRK'):
+       club_name=u'Kyrksæterøra Idrettslag Kil'
+    elif club_code in (u'LAKS'):
+       club_name=u'Laksevåg TIL'
+    elif club_code in (u'LALM'):
+       club_name=u'Lalm Idrettslag'
+    elif club_code in (u'LAM'):
+       club_name=u'Lambertseter IF'
+    elif club_code in (u'LANGS'):
+       club_name=u'Langesund Sykle- og triathlonklubb'
+    elif club_code in (u'LNKEIL'):
+       club_name=u'Lånke Idrettslag'
+    elif club_code in (u'LRVK'):
+       club_name=u'Larvik Turn & Idrettsforening'
+    elif club_code in (u'LEINS'):
+       club_name=u'Leinstrand Idrettslag'
+    elif club_code in (u'LENA'):
+       club_name=u'Lena Idrettsforening'
+    elif club_code in (u'LIERN'):
+       club_name=u'Lierne Idrettslag'
+    elif club_code in (u'LIF'):
+       club_name=u'Lillehammer IF'
+    elif club_code in (u'LILLS'):
+       club_name=u'Lillesand Idrettslag'
+    elif club_code in (u'LISTA'):
+       club_name=u'Lista Idrettslag'
+    elif club_code in (u'LODD'):
+       club_name=u'Loddefjord IL'
+    elif club_code in (u'LFTR'):
+       club_name=u'Lofoten Triatlonklubb'
+    elif club_code in (u'LOM'):
+       club_name=u'Lom Idrettslag'
+    elif club_code in (u'LUND'):
+       club_name=u'Lundamo Idrettslag'
+    elif club_code in (u'LUNDH'):
+       club_name=u'Lundehøgda IL'
+    elif club_code in (u'LUST'):
+       club_name=u'Luster Idrettslag'
+    elif club_code in (u'LYE'):
+       club_name=u'Lye Idrettslag'
+    elif club_code in (u'LYN'):
+       club_name=u'Lyn Ski'
+    elif club_code in (u'LNGD'):
+       club_name=u'Lyngdal Idrettslag'
+    elif club_code in (u'LYKA'):
+       club_name=u'Lyngen/ Karnes Il'
+    elif club_code in (u'LYNGO'):
+       club_name=u'Lyngstad og Omegn Idrettslag'
+    elif club_code in (u'LRSKG'):
+       club_name=u'Lørenskog Friidrettslag'
+    elif club_code in (u'LFK'):
+       club_name=u'Løten Friidrett'
+    elif club_code in (u'LTN'):
+       club_name=u'Løten Friidrett 2'
+    elif club_code in (u'MALM'):
+       club_name=u'Malm IL'
+    elif club_code in (u'MLSEL'):
+       club_name=u'Målselv Idrettslag'
+    elif club_code in (u'MALV'):
+       club_name=u'Malvik Idrettslag'
+    elif club_code in (u'MAAL'):
+       club_name=u'Måløy Idrettslag Hovedstyre'
+    elif club_code in (u'MAHA'):
+       club_name=u'Mandal & Halse I.l.'
+    elif club_code in (u'MNDL'):
+       club_name=u'Måndalen Idrettslag'
+    elif club_code in (u'MABY'):
+       club_name=u'Markabygda Idrettslag'
+    elif club_code in (u'MARKA'):
+       club_name=u'Markane Idrettslag'
+    elif club_code in (u'MARNA'):
+       club_name=u'Marnardal Idrettslag'
+    elif club_code in (u'MEDKI'):
+       club_name=u'Medkila Skilag'
+    elif club_code in (u'MELD'):
+       club_name=u'Meldal Idrettslag'
+    elif club_code in (u'MELHU'):
+       club_name=u'Melhus Idrettslag'
+    elif club_code in (u'MDSND'):
+       club_name=u'Midsund Idrettslag'
+    elif club_code in (u'MJSD'):
+       club_name=u'Mjøsdalen IL'
+    elif club_code in (u'MOD'):
+       club_name=u'Modum Friidrettsklubb'
+    elif club_code in (u'MOELV'):
+       club_name=u'Moelven IL'
+    elif club_code in (u'MOI'):
+       club_name=u'Moi Idrettslag'
+    elif club_code in (u'MOLDE'):
+       club_name=u'Molde og Omegn Idrettsforening'
+    elif club_code in (u'OLYMP'):
+       club_name=u'Molde Olymp'
+    elif club_code in (u'MOITU'):
+       club_name=u'Moltustranda Idrettslag'
+    elif club_code in (u'MOSJ'):
+       club_name=u'Mosjøen Friidrettsklubb'
+    elif club_code in (u'MOSS'):
+       club_name=u'Moss Idrettslag'
+    elif club_code in (u'MOSV'):
+       club_name=u'Mosvik Idrettslag'
+    elif club_code in (u'MUIL'):
+       club_name=u'MUIL - Mefjordvær Ungdoms- og Idrettslag'
+    elif club_code in (u'NAML'):
+       club_name=u'Namdal løpeklubb'
+    elif club_code in (u'NAMDA'):
+       club_name=u'Namdalseid Idrettslag'
+    elif club_code in (u'NAMSE'):
+       club_name=u'Namsen Fif'
+    elif club_code in (u'NANN'):
+       club_name=u'Nannestad Idrettslag'
+    elif club_code in (u'NAR'):
+       club_name=u'Narvik Idrettslag'
+    elif club_code in (u'NESB'):
+       club_name=u'Nesbyen Idrettslag'
+    elif club_code in (u'NESO'):
+       club_name=u'Nesodden IF'
+    elif club_code in (u'NES'):
+       club_name=u'Nesøya Idrettslag'
+    elif club_code in (u'NID'):
+       club_name=u'Nidelv Idrettslag'
+    elif club_code in (u'NISS'):
+       club_name=u'Nissedal Idrettslag'
+    elif club_code in (u'NITT'):
+       club_name=u'Nittedal Idrettslag'
+    elif club_code in (u'NRDKJ'):
+       club_name=u'Nordkjosbotn Idrettslag'
+    elif club_code in (u'NEIDS'):
+       club_name=u'Nordre Eidsvoll Idrettslag'
+    elif club_code in (u'NFJEL'):
+       club_name=u'Nordre Fjell Friidrett'
+    elif club_code in (u'NLAND'):
+       club_name=u'Nordre Land Idrettslag'
+    elif club_code in (u'NTRY'):
+       club_name=u'Nordre Trysil IL'
+    elif club_code in (u'NORIL'):
+       club_name=u'Nordøy Idrettslag'
+    elif club_code in (u'NORR'):
+       club_name=u'Norrøna IL'
+    elif club_code in (u'NRUN'):
+       club_name=u'Northern Runners'
+    elif club_code in (u'NTNUI'):
+       club_name=u'NTNUI - Norges Teknisk-Naturvitenskapelige Universitets Idrettsforening'
+    elif club_code in (u'NYSK'):
+       club_name=u'Nydalens Skiklub'
+    elif club_code in (u'NYKIR'):
+       club_name=u'Nykirke Idrettsforening'
+    elif club_code in (u'NTTRY'):
+       club_name=u'Nøtterøy Idrettsforening'
+    elif club_code in (u'ODDA'):
+       club_name=u'Odda Idrettslag'
+    elif club_code in (u'OGND'):
+       club_name=u'Ogndal Idrettslag Hovedlaget'
+    elif club_code in (u'OLD'):
+       club_name=u'Olden Idrettslag'
+    elif club_code in (u'OLDA'):
+       club_name=u'Olderdalen Idrettsklubb'
+    elif club_code in (u'OPPD'):
+       club_name=u'Oppdal IL Hovedlaget'
+    elif club_code in (u'OPP'):
+       club_name=u'Oppegård Idrettslag'
+    elif club_code in (u'OPSL'):
+       club_name=u'Oppsal Idrettsforening'
+    elif club_code in (u'OPST'):
+       club_name=u'Oppstad Idrettslag'
+    elif club_code in (u'OPPST'):
+       club_name=u'Oppstad Idrettslag 2'
+    elif club_code in (u'OPSTR'):
+       club_name=u'Oppstryn Idrettslag'
+    elif club_code in (u'OPPT'):
+       club_name=u'Opptur Motbakkeklubb'
+    elif club_code in (u'ORKA'):
+       club_name=u'Orkanger Idrettsforening'
+    elif club_code in (u'ORKD'):
+       club_name=u'Orkdal Idrettslag'
+    elif club_code in (u'ORRE'):
+       club_name=u'Orre Idrettslag'
+    elif club_code in (u'OS'):
+       club_name=u'Os Idrettslag'
+    elif club_code in (u'OSTU'):
+       club_name=u'Os Turnforening'
+    elif club_code in (u'FRII'):
+       club_name=u'OSI Friidrett'
+    elif club_code in (u'POLIT'):
+       club_name=u'Oslo Politis Idrettslag'
+    elif club_code in (u'OSI'):
+       club_name=u'Oslostudentenes Idrettsklubb'
+    elif club_code in (u'OST'):
+       club_name=u'Osterøy Idrottslag'
+    elif club_code in (u'OTRA'):
+       club_name=u'Otra IL'
+    elif club_code in (u'OTTE'):
+       club_name=u'Ottestad Idrettslag'
+    elif club_code in (u'OTKS'):
+       club_name=u'Ottestad Kast og Styrkeløft'
+    elif club_code in (u'OVRH'):
+       club_name=u'Overhalla Idrettslag'
+    elif club_code in (u'PORS'):
+       club_name=u'Porsanger Idrettslag'
+    elif club_code in (u'RANA'):
+       club_name=u'Rana Friidrettsklubb'
+    elif club_code in (u'RAN'):
+       club_name=u'Ranheim IL'
+    elif club_code in (u'RAU'):
+       club_name=u'Raufoss IL Friidrett'
+    elif club_code in (u'RAUM'):
+       club_name=u'Raumnes & Årnes Idrettslag'
+    elif club_code in (u'RE'):
+       club_name=u'Re Friidrettsklubb'
+    elif club_code in (u'READY'):
+       club_name=u'Ready Idrettsforeningen'
+    elif club_code in (u'RENA'):
+       club_name=u'Rena Idrettslag'
+    elif club_code in (u'RENDA'):
+       club_name=u'Rendalen Idrettslag'
+    elif club_code in (u'RENB'):
+       club_name=u'Rennebu Idrettslag'
+    elif club_code in (u'RIND'):
+       club_name=u'Rindal Idrettslag'
+    elif club_code in (u'RING'):
+       club_name=u'Ringerike Friidrettsklubb'
+    elif club_code in (u'RIS'):
+       club_name=u'Risør Idrettslag'
+    elif club_code in (u'RJU'):
+       club_name=u'Rjukan Idrettslag'
+    elif club_code in (u'ROGNE'):
+       club_name=u'Rogne Idrettslag'
+    elif club_code in (u'ROMFR'):
+       club_name=u'Romerike Friidrett'
+    elif club_code in (u'ROMUL'):
+       club_name=u'Romerike Ultraløperklubb'
+    elif club_code in (u'ROMRA'):
+       club_name=u'Romsdal Randoneklubb'
+    elif club_code in (u'ROSEN'):
+       club_name=u'Rosendal Turnlag'
+    elif club_code in (u'ROYAL'):
+       club_name=u'Royal Sport'
+    elif club_code in (u'RUS'):
+       club_name=u'Rustad Idrettslag'
+    elif club_code in (u'RYGGE'):
+       club_name=u'Rygge Idrettslag'
+    elif club_code in (u'RIL'):
+       club_name=u'Røa Allianseidrettslag'
+    elif club_code in (u'RDIL'):
+       club_name=u'Røldal Idrettslag'
+    elif club_code in (u'ROSIL'):
+       club_name=u'Røros Idrettslag'
+    elif club_code in (u'RKEN'):
+       club_name=u'Røyken UIL'
+    elif club_code in (u'SALA'):
+       club_name=u'Salangen IF Friidrett'
+    elif club_code in (u'SAMN'):
+       club_name=u'Samnanger Idrettslag'
+    elif club_code in (u'SANTU'):
+       club_name=u'Sandane Turn og Idrettslag'
+    elif club_code in (u'STIF'):
+       club_name=u'SANDEFJORD TURN & IDRETTSFORENING'
+    elif club_code in (u'SAND'):
+       club_name=u'Sandnes IL'
+    elif club_code in (u'SNDI'):
+       club_name=u'Sandnes Idrettslag 2'
+    elif club_code in (u'SNDSJ'):
+       club_name=u'Sandnessjøen Idrettslag'
+    elif club_code in (u'SARP'):
+       club_name=u'Sarpsborg IL'
+    elif club_code in (u'SAUD'):
+       club_name=u'Sauda Idrettslag'
+    elif club_code in (u'SAUL'):
+       club_name=u'Sauland Idrettslag'
+    elif club_code in (u'SELB'):
+       club_name=u'Selbu IL'
+    elif club_code in (u'SELJE'):
+       club_name=u'Selje Idrettslag'
+    elif club_code in (u'SELJO'):
+       club_name=u'Seljord Idrettslag'
+    elif club_code in (u'SELS'):
+       club_name=u'Selsbakk Idrettsforening'
+    elif club_code in (u'SEM'):
+       club_name=u'Sem Idrettsforening'
+    elif club_code in (u'SIGFR'):
+       club_name=u'Sigdal Friidrettsklubb'
+    elif club_code in (u'SIGSK'):
+       club_name=u'Sigdals Skiklub'
+    elif club_code in (u'SILJ'):
+       club_name=u'Siljan Idrettslag'
+    elif club_code in (u'SIRMA'):
+       club_name=u'Sirma Il'
+    elif club_code in (u'SJET'):
+       club_name=u'Sjetne Idrettslag'
+    elif club_code in (u'VEDA'):
+       club_name=u'Sk Vedavåg Karmøy'
+    elif club_code in (u'VID'):
+       club_name=u'SK Vidar'
+    elif club_code in (u'SKAGE'):
+       club_name=u'Skagerrak Sportsklubb'
+    elif club_code in (u'SKLA'):
+       club_name=u'Skåla Idrettslag'
+    elif club_code in (u'SKRPH'):
+       club_name=u'Skarphedin IL'
+    elif club_code in (u'SKAU'):
+       club_name=u'Skaubygda Il'
+    elif club_code in (u'SKAUN'):
+       club_name=u'Skaun Idrettslag'
+    elif club_code in (u'SKI'):
+       club_name=u'Ski IL Friidrett'
+    elif club_code in (u'SKJK'):
+       club_name=u'Skjåk IL'
+    elif club_code in (u'SKJO'):
+       club_name=u'Skjoldar Il'
+    elif club_code in (u'SKOGN'):
+       club_name=u'Skogn Idrettslag'
+    elif club_code in (u'SKO'):
+       club_name=u'Skotterud Idrettslag'
+    elif club_code in (u'SKREIA'):
+       club_name=u'Skreia Idrettslag'
+    elif club_code in (u'SNSA'):
+       club_name=u'Snåsa Idrettslag'
+    elif club_code in (u'SNGG'):
+       club_name=u'Snøgg Friidrett'
+    elif club_code in (u'SIL'):
+       club_name=u'Sogndal Idrettslag'
+    elif club_code in (u'SOKND'):
+       club_name=u'Sokndal Friidrettsklubb'
+    elif club_code in (u'SOLA'):
+       club_name=u'Sola Friidrett'
+    elif club_code in (u'SOLN'):
+       club_name=u'Solnut IL'
+    elif club_code in (u'SORTL'):
+       club_name=u'Sortland Friidrettsklubb'
+    elif club_code in (u'SOT'):
+       club_name=u'Sotra Sportsklubb'
+    elif club_code in (u'SPILL'):
+       club_name=u'Spillum Idrettslag'
+    elif club_code in (u'SPRD'):
+       club_name=u'Spiridon Langløperlag'
+    elif club_code in (u'SPJVK'):
+       club_name=u'Spjelkavik og Omegn Friidrettsklubb'
+    elif club_code in (u'KRAFT'):
+       club_name=u'Sportsklubben Kraft'
+    elif club_code in (u'nan'):
+       club_name=u'Sportsklubben Rye'
+    elif club_code in (u'RYE'):
+       club_name=u'Sportsklubben Rye 2'
+    elif club_code in (u'VIDAR'):
+       club_name=u'Sportsklubben Vidar'
+    elif club_code in (u'SPYDE'):
+       club_name=u'Spydeberg IL'
+    elif club_code in (u'STJIL'):
+       club_name=u'Staal Jørpeland IL'
+    elif club_code in (u'STAD'):
+       club_name=u'Stadsbygd IL'
+    elif club_code in (u'STRHEI'):
+       club_name=u'Stårheim Idrettslag'
+    elif club_code in (u'STDIF'):
+       club_name=u'Stavanger Døve-Idrettsforening'
+    elif club_code in (u'STAVA'):
+       club_name=u'Stavanger Friidrettsklubb'
+    elif club_code in (u'STAVIF'):
+       club_name=u'Stavanger Idrettsforening Allianseidrettslag - Friidrett'
+    elif club_code in (u'STEGA'):
+       club_name=u'Stegaberg Idrettslag'
+    elif club_code in (u'STEIN'):
+       club_name=u'Stein Friidrettsklubb'
+    elif club_code in (u'STEKJ'):
+       club_name=u'Steinkjer Friidrettsklubb'
+    elif club_code in (u'STSK'):
+       club_name=u'Stettevik Sportsklubb'
+    elif club_code in (u'STJF'):
+       club_name=u'Stjørdal Fridrettsklubb'
+    elif club_code in (u'STJP'):
+       club_name=u'Stjørdal Paraidrettslag'
+    elif club_code in (u'STJB'):
+       club_name=u'Stjørdals-Blink IL'
+    elif club_code in (u'STOKK'):
+       club_name=u'Stokke Idrettslag'
+    elif club_code in (u'STOKM'):
+       club_name=u'Stokmarknes Idrettslag'
+    elif club_code in (u'STO'):
+       club_name=u'Stord Idrettslag'
+    elif club_code in (u'STOFJ'):
+       club_name=u'Storfjord idrettslag'
+    elif club_code in (u'STRIL'):
+       club_name=u'Stranda Idrottslag'
+    elif club_code in (u'STRAB'):
+       club_name=u'Strandebarm Idrettslag'
+    elif club_code in (u'STRA'):
+       club_name=u'Stranden Idrettslag'
+    elif club_code in (u'STRAU'):
+       club_name=u'Straumsnes Idrettslag'
+    elif club_code in (u'STRI'):
+       club_name=u'Strindheim Idrettslag'
+    elif club_code in (u'STRY'):
+       club_name=u'Stryn Turn og Idrettslag'
+    elif club_code in (u'STREN'):
+       club_name=u'Støren Sportsklubb'
+    elif club_code in (u'SUNND'):
+       club_name=u'Sunndal IL Friidrett'
+    elif club_code in (u'SURN'):
+       club_name=u'Surnadal Idrettslag'
+    elif club_code in (u'SVTU'):
+       club_name=u'Svalbard Turn Idrettslag'
+    elif club_code in (u'SVARS'):
+       club_name=u'Svarstad Idrettslag'
+    elif club_code in (u'SVEIO'):
+       club_name=u'Sveio Idrettslag'
+    elif club_code in (u'SVEL'):
+       club_name=u'Svelgen Turn og Idrettsforening'
+    elif club_code in (u'SVINT'):
+       club_name=u'Svint IL'
+    elif club_code in (u'SVORK'):
+       club_name=u'SVORKMO N.O.I.'
+    elif club_code in (u'SYKK'):
+       club_name=u'Sykkylven Idrottslag'
+    elif club_code in (u'SYLL'):
+       club_name=u'Sylling Idrettsforening'
+    elif club_code in (u'SDAL'):
+       club_name=u'Sædalen Idrettslag'
+    elif club_code in (u'GRAA'):
+       club_name=u'Sætre Idrætsforening Graabein'
+    elif club_code in (u'STIL'):
+       club_name=u'Søfteland Turn & Idrettslag'
+    elif club_code in (u'SGNE'):
+       club_name=u'Søgne Idrettslag'
+    elif club_code in (u'SMNA'):
+       club_name=u'Sømna Idrettslag'
+    elif club_code in (u'SNDLA'):
+       club_name=u'Søndre Land IL Friidrett'
+    elif club_code in (u'SAAL'):
+       club_name=u'Søre Ål Idrettslag'
+    elif club_code in (u'SRILD'):
+       club_name=u'Sørild Fridrettsklubb'
+    elif club_code in (u'SRKDL'):
+       club_name=u'Sørkedalens Idrettsforening'
+    elif club_code in (u'HOVD'):
+       club_name=u'T I L Hovding'
+    elif club_code in (u'TAMSAN'):
+       club_name=u'Tamil Sangam IL'
+    elif club_code in (u'TING'):
+       club_name=u'Tingvoll Friidrettsklubb'
+    elif club_code in (u'TJAL'):
+       club_name=u'IK Tjalve'
+    elif club_code in (u'TJØLL'):
+       club_name=u'Tjølling Idrettsforening'
+    elif club_code in (u'TJI'):
+       club_name=u'Tjøme Idrettslag'
+    elif club_code in (u'TJL'):
+       club_name=u'Tjøme Løpeklubb'
+    elif club_code in (u'TOL'):
+       club_name=u'Tolga Idrettslag'
+    elif club_code in (u'TOMR'):
+       club_name=u'Tomrefjord Idrettslag'
+    elif club_code in (u'TORO'):
+       club_name=u'Torodd IF'
+    elif club_code in (u'TORVI'):
+       club_name=u'Torvikbukt Idrettslag'
+    elif club_code in (u'TREU'):
+       club_name=u'Treungen Idrettslag'
+    elif club_code in (u'TRIO'):
+       club_name=u'Trio idrettslag'
+    elif club_code in (u'TRF'):
+       club_name=u'Tromsø Friidrettsklubb'
+    elif club_code in (u'TRL'):
+       club_name=u'Tromsø Løpeklubb'
+    elif club_code in (u'TRS'):
+       club_name=u'Tromsø Svømmeklubb'
+    elif club_code in (u'TROO'):
+       club_name=u'Trondheim & Omegn Sportsklubb'
+    elif club_code in (u'TROF'):
+       club_name=u'Trondheim Friidrett'
+    elif club_code in (u'TSK'):
+       club_name=u'Trøgstad Skiklubb'
+    elif club_code in (u'TUIL'):
+       club_name=u'TUIL Tromsdalen Friidrett'
+    elif club_code in (u'TVEDE'):
+       club_name=u'Tvedestrand Turn & Idrettsforening'
+    elif club_code in (u'TYR'):
+       club_name=u'Tyrving IL'
+    elif club_code in (u'TNSBF'):
+       club_name=u'Tønsberg Friidrettsklubb'
+    elif club_code in (u'TRBIL'):
+       club_name=u'Tørvikbygd Idrettslag'
+    elif club_code in (u'TYEN'):
+       club_name=u'Tøyen Sportsklubb'
+    elif club_code in (u'ULLK'):
+       club_name=u'Ullensaker/Kisa IL Friidrett'
+    elif club_code in (u'ULKI'):
+       club_name=u'Ullensaker/Kisa IL Friidrett 2'
+    elif club_code in (u'UND'):
+       club_name=u'Undheim Idrettslag'
+    elif club_code in (u'URFRI'):
+       club_name=u'Urædd Friidrett'
+    elif club_code in (u'UTL'):
+       club_name=u'Utleira Idrettslag'
+    elif club_code in (u'VAAL'):
+       club_name=u'Vaaler Idrettsforening'
+    elif club_code in (u'VA'):
+       club_name=u'Vadsø Atletklubb'
+    elif club_code in (u'VTF'):
+       club_name=u'Vadsø Turnforening (Vtf)'
+    elif club_code in (u'VGAA'):
+       club_name=u'Vågå Idrettslag'
+    elif club_code in (u'VIL'):
+       club_name=u'Vågstranda Idrettslag'
+    elif club_code in (u'VALK'):
+       club_name=u'Valkyrien Idrettslag'
+    elif club_code in (u'VALL'):
+       club_name=u'Valldal Idrettslag'
+    elif club_code in (u'VAL'):
+       club_name=u'Vallset IL'
+    elif club_code in (u'VAR'):
+       club_name=u'Varegg Fleridrett'
+    elif club_code in (u'VARH'):
+       club_name=u'Varhaug Idrettslag'
+    elif club_code in (u'VART'):
+       club_name=u'Varteig Idrettslag'
+    elif club_code in (u'VEG'):
+       club_name=u'Vegårshei Idrettslag'
+    elif club_code in (u'VELD'):
+       club_name=u'Veldre Friidrett'
+    elif club_code in (u'VELL'):
+       club_name=u'Velledalen Idrettslag'
+    elif club_code in (u'VERD'):
+       club_name=u'Verdal Friidrettsklubb'
+    elif club_code in (u'VESTB'):
+       club_name=u'Vestby Idrettslag'
+    elif club_code in (u'VESTF'):
+       club_name=u'Vestfossen Idrettsforening'
+    elif club_code in (u'VSPON'):
+       club_name=u'Vestre Spone IF'
+    elif club_code in (u'VIKIL'):
+       club_name=u'Vik Idrettslag'
+    elif club_code in (u'VIKAN'):
+       club_name=u'Vikane IL'
+    elif club_code in (u'VIK'):
+       club_name=u'TIF Viking'
+    elif club_code in (u'VIKSD'):
+       club_name=u'Viksdalen Idrettslag'
+    elif club_code in (u'VILJ'):
+       club_name=u'Viljar IL'
+    elif club_code in (u'VNDIL'):
+       club_name=u'Vind Idrettslag'
+    elif club_code in (u'VINDA'):
+       club_name=u'Vindafjord Idrettslag'
+    elif club_code in (u'VINJE'):
+       club_name=u'Vinje Idrottslag'
+    elif club_code in (u'VOLL'):
+       club_name=u'Vollan Idrettsklubb'
+    elif club_code in (u'VOSS'):
+       club_name=u'Voss Idrottslag'
+    elif club_code in (u'YTTER'):
+       club_name=u'Ytterøy Idrettslag'
+    elif club_code in (u'ORJIL'):
+       club_name=u'Ørje Idrettslag'
+    elif club_code in (u'ORSTA'):
+       club_name=u'Ørsta Idrettslag'
+    elif club_code in (u'OMARSJ'):
+       club_name=u'Østmarka Marsjklubb'
+    elif club_code in (u'OTRET'):
+       club_name=u'Øyer/Tretten Idrettsforening'
+    elif club_code in (u'OSLID'):
+       club_name=u'Øystre Slidre Idrettslag'
     else:
-        club_name=club_code
+       club_name=club_code
 
     return club_name
    
@@ -884,8 +3124,8 @@ for e1 in sorted( events_crosstable.keys() ):
         print e1 +'|'+ e2, events_crosstable[e1][e2]
 """
 
-write_xlsx_results_template(tree)
-write_start_lists_as_html(tree)
+#write_xlsx_results_template(tree)
+#write_start_lists_as_html(tree)
 
 
 write_opentrack_import(tree)
