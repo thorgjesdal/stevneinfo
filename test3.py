@@ -96,7 +96,7 @@ for e in j['events']:
     competitors[bib] = (fn, ln, dob, t)
 #print(competitors)
 """
-print(competitors)
+#print(competitors)
 
 
 
@@ -131,13 +131,34 @@ for e in j["events"]:
                     
 #               print (bib, res, pl, poolnr)
                      results[event_code][cat][pool].append((bib, res, pl))
-                     print (bib, res, pl, pool)
+                     #print (bib, res, pl, pool)
 #           poolnr = poolnr + 1
-            print (type(u['trials']))
+#           print (type(u['trials']))
+#           print (u['trials'])
+            trials = {}
             for t in u['trials']:
-                print(type(t))
-                print(t)
-print(results)
+                bib = t['bib']
+                if trials.get(bib)==None:
+                    trials[bib] = {}
+                height = t['height']
+                if trials[bib].get(height)==None:
+                    trials[bib][height] = []
+                trials[bib][height].append(t['result'])
+            #print(trials)
+            for bib in trials.keys():
+                s = ''
+                for height in sorted(trials[bib].keys() ):
+                    #print(trials[bib][height])
+                    s += height + '(' + ''.join(trials[bib][height]) + ') ' 
+                s = s.replace('.',',')
+                i = s.index('x')
+                j = s.index('o')
+                ij = min(i,j)
+                #print(s.index('x'), s.index('o') )
+                print(s[ij-5:])
+
+
+#print(results)
 for event in sorted(results.keys()):
     print(event)
     for cat in sorted(results[event].keys() ):
