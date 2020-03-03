@@ -1,148 +1,59 @@
 {
   "competitors": [
     {
-      "ageGroup": "U16", 
-      "category": "U16G", 
-      "checkedIn": false, 
-      "competitorId": "101", 
-      "dateOfBirth": "2005-11-29", 
-      "event": "F01 - IVK Stav", 
-      "eventsEntered": [
-        {
-          "eventCode": "PV", 
-          "eventId": "F01"
-        }
-      ], 
-      "firstName": "Linnea-Kristine Austad", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/MOD.png", 
-      "gender": "F", 
-      "lastName": "Nilsen", 
-      "nonScorer": false, 
-      "notablePerformances": [], 
-      "numbered": false, 
-      "otAthleteId": "100ad968-0be5-46d7-8812-5b3954733b0c", 
-      "sortAgeGroup": "0-U16", 
-      "sortBib": "00101", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "MOD"
-    }, 
-    {
-      "ageGroup": "U16", 
-      "category": "U16G", 
-      "checkedIn": false, 
-      "competitorId": "102", 
-      "dateOfBirth": "2004-02-14", 
-      "event": "F01 - IVK Stav", 
-      "eventsEntered": [
-        {
-          "eventCode": "PV", 
-          "eventId": "F01"
-        }
-      ], 
-      "firstName": "Kassandra", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/EIDA.png", 
-      "gender": "F", 
-      "lastName": "Sch\u00f8nberg", 
-      "nonScorer": false, 
-      "notablePerformances": [], 
-      "numbered": false, 
-      "otAthleteId": "a7a72782-8201-4708-9b2a-ac5ffd13b9b5", 
-      "sortAgeGroup": "0-U16", 
-      "sortBib": "00102", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "EIDA"
-    }, 
-    {
-      "ageGroup": "U18", 
-      "category": "U18G", 
-      "checkedIn": false, 
-      "competitorId": "103", 
-      "dateOfBirth": "2002-08-16", 
-      "event": "F01 - IVK Stav", 
-      "eventsEntered": [
-        {
-          "eventCode": "PV", 
-          "eventId": "F01"
-        }
-      ], 
-      "firstName": "Maren", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TYR.png", 
-      "gender": "F", 
-      "lastName": "R\u00f8nnevig", 
-      "nonScorer": false, 
-      "notablePerformances": [], 
-      "numbered": false, 
-      "otAthleteId": "8c997042-e34d-4159-8840-1c96a07ccdbe", 
-      "sortAgeGroup": "0-U18", 
-      "sortBib": "00103", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "TYR"
-    }, 
-    {
       "ageGroup": "U14", 
       "category": "U14G", 
       "checkedIn": false, 
-      "competitorId": "104", 
-      "dateOfBirth": "2006-03-24", 
+      "competitorId": "1", 
+      "dateOfBirth": "2007-01-23", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
       "eventsEntered": [
         {
-          "eventCode": "PV", 
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "1", 
+          "qp": "1"
+        }, 
+        {
+          "eventCode": "HJ", 
           "eventId": "F01"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
         }
       ], 
-      "firstName": "Nora", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/URFRI.png", 
+      "firstName": "Susanne Tveit", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/ASKSK.png", 
       "gender": "F", 
-      "lastName": "Eikeng", 
-      "nationality": "NOR", 
+      "lastName": "Amundsen", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
-      "otAthleteId": "f25a8648-7d27-4c24-b879-e296dd359ddd", 
+      "otAthleteId": "c8ed439b-ce64-426a-bf4e-4de9351aaa8c", 
       "sortAgeGroup": "0-U14", 
-      "sortBib": "00104", 
-      "sortEventCode": "3_00001_PV", 
-      "summaryText": "Eikeng, Nora U14 F (URFRI), NOR", 
-      "teamId": "URFRI"
-    }, 
-    {
-      "ageGroup": "U16", 
-      "category": "U16G", 
-      "checkedIn": false, 
-      "competitorId": "105", 
-      "dateOfBirth": "2005-12-30", 
-      "eventsEntered": [
-        {
-          "eventCode": "PV", 
-          "eventId": "F01"
-        }
-      ], 
-      "firstName": "Helle", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/HAL.png", 
-      "gender": "F", 
-      "lastName": "Kvalheim", 
-      "nationality": "NOR", 
-      "nonScorer": false, 
-      "notablePerformances": [], 
-      "numbered": false, 
-      "otAthleteId": "1ab24fe4-82be-4b08-bca5-8e4c881f847d", 
-      "sortAgeGroup": "0-U16", 
-      "sortBib": "00105", 
-      "sortEventCode": "3_00001_PV", 
-      "summaryText": "Kvalheim, Helle U16 F (HAL), NOR", 
-      "teamId": "HAL"
+      "sortBib": "00001", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "ASKSK", 
+      "teamName": "Asker Skiklubb"
     }, 
     {
       "ageGroup": "U14", 
       "category": "U14B", 
       "checkedIn": false, 
-      "competitorId": "201", 
+      "competitorId": "10", 
       "dateOfBirth": "2007-04-29", 
-      "event": "F01 - IVK Stav", 
+      "event": "F04 - IVK Stav", 
       "eventsEntered": [
         {
           "eventCode": "PV", 
-          "eventId": "F01"
+          "eventId": "F04"
         }
       ], 
       "firstName": "Elias", 
@@ -154,99 +65,69 @@
       "numbered": false, 
       "otAthleteId": "21f4f578-9f6a-4083-856b-0d66576f0e2d", 
       "sortAgeGroup": "0-U14", 
-      "sortBib": "00201", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "SKI"
-    }, 
-    {
-      "ageGroup": "U14", 
-      "category": "U14B", 
-      "checkedIn": false, 
-      "competitorId": "202", 
-      "dateOfBirth": "2006-08-24", 
-      "event": "F01 - IVK Stav", 
-      "eventsEntered": [
-        {
-          "eventCode": "PV", 
-          "eventId": "F01"
-        }
-      ], 
-      "firstName": "Rolf Magnus Marstein", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/GUI.png", 
-      "gender": "M", 
-      "lastName": "Kristiansen", 
-      "nonScorer": false, 
-      "notablePerformances": [], 
-      "numbered": false, 
-      "otAthleteId": "31489561-566a-4ef8-990d-fafed92c2dae", 
-      "sortAgeGroup": "0-U14", 
-      "sortBib": "00202", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "GUI"
-    }, 
-    {
-      "ageGroup": "U14", 
-      "category": "U14B", 
-      "checkedIn": false, 
-      "competitorId": "203", 
-      "dateOfBirth": "2006-05-23", 
-      "event": "F01 - IVK Stav", 
-      "eventsEntered": [
-        {
-          "eventCode": "PV", 
-          "eventId": "F01"
-        }
-      ], 
-      "firstName": "Martin Beitnes", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/MOD.png", 
-      "gender": "M", 
-      "lastName": "Kreken", 
-      "nonScorer": false, 
-      "notablePerformances": [], 
-      "numbered": false, 
-      "otAthleteId": "869be083-3cfb-4c1e-a343-72cd489de5b5", 
-      "sortAgeGroup": "0-U14", 
-      "sortBib": "00203", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "MOD"
+      "sortBib": "00010", 
+      "sortEventCode": "3_00002_PV", 
+      "teamId": "SKI", 
+      "teamName": "Ski IL Friidrett"
     }, 
     {
       "ageGroup": "U16", 
-      "category": "U16B", 
+      "category": "U16G", 
       "checkedIn": false, 
-      "competitorId": "204", 
-      "dateOfBirth": "2005-10-24", 
-      "event": "F01 - IVK Stav", 
+      "competitorId": "11", 
+      "dateOfBirth": "2005-10-19", 
+      "event": "F02 - IVK Kule", 
       "eventsEntered": [
         {
-          "eventCode": "PV", 
-          "eventId": "F01"
+          "eventCode": "SP", 
+          "eventId": "F02"
         }
       ], 
-      "firstName": "Simen Johan", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/SANDV.png", 
-      "gender": "M", 
-      "lastName": "Teigstad", 
+      "firstName": "Ellevine Svensen", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/SKI.png", 
+      "gender": "F", 
+      "lastName": "Skare", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
-      "otAthleteId": "410f09b9-ee47-4416-95b6-bae31c34edc7", 
+      "otAthleteId": "6155f2ef-1751-4df4-a029-5487cf1db492", 
       "sortAgeGroup": "0-U16", 
-      "sortBib": "00204", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "SANDV"
+      "sortBib": "00011", 
+      "sortEventCode": "4_00007_SP", 
+      "teamId": "SKI", 
+      "teamName": "Ski IL Friidrett"
     }, 
     {
       "ageGroup": "U16", 
       "category": "U16B", 
       "checkedIn": false, 
-      "competitorId": "205", 
+      "competitorId": "12", 
       "dateOfBirth": "2005-06-24", 
-      "event": "F01 - IVK Stav", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
       "eventsEntered": [
         {
           "eventCode": "PV", 
+          "eventId": "F04"
+        }, 
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "2", 
+          "qp": "11"
+        }, 
+        {
+          "eventCode": "HJ", 
           "eventId": "F01"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
         }
       ], 
       "firstName": "Lucas Fernandes Thomaz", 
@@ -258,21 +139,22 @@
       "numbered": false, 
       "otAthleteId": "8fc7bf0f-7d3c-4bce-a40f-93ee9f779a60", 
       "sortAgeGroup": "0-U16", 
-      "sortBib": "00205", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "KOLL"
+      "sortBib": "00012", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
     }, 
     {
       "ageGroup": "U16", 
       "category": "U16B", 
       "checkedIn": false, 
-      "competitorId": "206", 
+      "competitorId": "13", 
       "dateOfBirth": "2005-04-12", 
-      "event": "F01 - IVK Stav", 
+      "event": "F04 - IVK Stav", 
       "eventsEntered": [
         {
           "eventCode": "PV", 
-          "eventId": "F01"
+          "eventId": "F04"
         }
       ], 
       "firstName": "Tobias", 
@@ -284,73 +166,479 @@
       "numbered": false, 
       "otAthleteId": "0b8b4ae6-4535-4611-8836-f5843b1b910f", 
       "sortAgeGroup": "0-U16", 
-      "sortBib": "00206", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "SKI"
+      "sortBib": "00013", 
+      "sortEventCode": "3_00002_PV", 
+      "teamId": "SKI", 
+      "teamName": "Ski IL Friidrett"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16G", 
+      "checkedIn": false, 
+      "competitorId": "14", 
+      "dateOfBirth": "2005-05-24", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "2", 
+          "qp": "12"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Ebba Jakobine", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Bell", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "3252abe2-d874-4f93-bd2e-aa0652a2b712", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00014", 
+      "sortEventCode": "3_00003_LJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16G", 
+      "checkedIn": false, 
+      "competitorId": "15", 
+      "dateOfBirth": "2005-10-31", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F04"
+        }, 
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "2", 
+          "qp": "13"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Kristin Emilie Holck", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Stor\u00e5s", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "5cc5b081-e3c9-4301-8e15-4322890206b1", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00015", 
+      "sortEventCode": "3_00002_PV", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
     }, 
     {
       "ageGroup": "U16", 
       "category": "U16B", 
       "checkedIn": false, 
-      "competitorId": "207", 
-      "dateOfBirth": "2005-02-20", 
-      "event": "F01 - IVK Stav", 
+      "competitorId": "16", 
+      "dateOfBirth": "2006-12-30", 
+      "event": "F02 - IVK Kule", 
       "eventsEntered": [
         {
-          "eventCode": "PV", 
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Felix Maxmillian", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/SKI.png", 
+      "gender": "M", 
+      "lastName": "Skare", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "569d3c2d-3faf-4a3a-8f81-6bfae325943e", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00016", 
+      "sortEventCode": "4_00007_SP", 
+      "teamId": "SKI", 
+      "teamName": "Ski IL Friidrett"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16G", 
+      "checkedIn": false, 
+      "competitorId": "17", 
+      "dateOfBirth": "2005-08-08", 
+      "event": "F01 - IVK H\u00f8yde", 
+      "eventEntered": {
+        "eventCode": "HJ", 
+        "eventId": "F01", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "2", 
+          "qp": "14"
+        }, 
+        {
+          "eventCode": "HJ", 
           "eventId": "F01"
         }
       ], 
-      "firstName": "Andreas Wiesener", 
+      "firstName": "Telma Bj\u00f6rk Rostoft", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Kristjansson", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "1977327b-fb4d-4c90-a634-2e9e28807efa", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00017", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16G", 
+      "checkedIn": false, 
+      "competitorId": "18", 
+      "dateOfBirth": "2005-01-04", 
+      "event": "F03 - IVK Lengde", 
+      "eventsEntered": [
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "2", 
+          "qp": "15"
+        }
+      ], 
+      "firstName": "Anna", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Sande", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "112adb70-8ed3-4b35-b8cd-4d3a8382a447", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00018", 
+      "sortEventCode": "3_00003_LJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U16", 
+      "category": "U16B", 
+      "checkedIn": false, 
+      "competitorId": "19", 
+      "dateOfBirth": "2005-07-28", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F04"
+        }, 
+        {
+          "eventCode": "HJ", 
+          "eventId": "F01"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Jonathan", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TYR.png", 
+      "gender": "M", 
+      "lastName": "Hertwig-\u00d8degaard", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "8a426d4e-c9ee-47cd-b392-63f396864aa0", 
+      "sortAgeGroup": "0-U16", 
+      "sortBib": "00019", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "TYR", 
+      "teamName": "Tyrving Idrettslag"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14B", 
+      "checkedIn": false, 
+      "competitorId": "2", 
+      "dateOfBirth": "2008-05-12", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F04"
+        }, 
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "1", 
+          "qp": "2"
+        }, 
+        {
+          "eventCode": "HJ", 
+          "eventId": "F01"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Even Bogen", 
       "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
       "gender": "M", 
-      "lastName": "Haga", 
+      "lastName": "N\u00f8rjordet", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
-      "otAthleteId": "d9572368-ce38-4f40-9667-5cf8f4b84e8c", 
-      "sortAgeGroup": "0-U16", 
-      "sortBib": "00207", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "KOLL"
+      "otAthleteId": "d265edd4-ee64-41d9-97f1-52928732e41b", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00002", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
     }, 
     {
-      "ageGroup": "U16", 
-      "category": "U16B", 
+      "ageGroup": "U18", 
+      "category": "U18G", 
       "checkedIn": false, 
-      "competitorId": "208", 
-      "dateOfBirth": "2004-12-18", 
-      "event": "F01 - IVK Stav", 
+      "competitorId": "20", 
+      "dateOfBirth": "2004-12-11", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
       "eventsEntered": [
         {
-          "eventCode": "PV", 
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "2", 
+          "qp": "16"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Eirin Aae", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Skotheim", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "9a467955-fd36-464e-bc77-6cdbd959a42f", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00020", 
+      "sortEventCode": "3_00003_LJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U18", 
+      "category": "U18B", 
+      "checkedIn": false, 
+      "competitorId": "21", 
+      "dateOfBirth": "2003-02-26", 
+      "event": "F01 - IVK H\u00f8yde", 
+      "eventsEntered": [
+        {
+          "eventCode": "HJ", 
           "eventId": "F01"
         }
       ], 
-      "firstName": "Andr\u00e9 Cruz", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/GRO.png", 
+      "firstName": "Daniel", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/STUR.png", 
       "gender": "M", 
-      "lastName": "Da Silva", 
+      "lastName": "Oppen", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
-      "otAthleteId": "9ebdce1f-813d-4006-b06e-f429451802db", 
-      "sortAgeGroup": "0-U16", 
-      "sortBib": "00208", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "GRO"
+      "otAthleteId": "54007bb2-57e1-4aa7-8ceb-6dc4541bc28b", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00021", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "STUR", 
+      "teamName": "Idrettsforeningen Sturla"
     }, 
     {
-      "ageGroup": "U16", 
-      "category": "U16B", 
+      "ageGroup": "U18", 
+      "category": "U18B", 
       "checkedIn": false, 
-      "competitorId": "209", 
+      "competitorId": "22", 
+      "dateOfBirth": "2003-03-23", 
+      "event": "F02 - IVK Kule", 
+      "eventsEntered": [
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Thomas", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/NES.png", 
+      "gender": "M", 
+      "lastName": "Kvam", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "a904f3e5-00b0-4924-8df0-39a6a2bd8920", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00022", 
+      "sortEventCode": "4_00007_SP", 
+      "teamId": "NES", 
+      "teamName": "Nes\u00f8ya Idrettslag"
+    }, 
+    {
+      "ageGroup": "U18", 
+      "category": "U18G", 
+      "checkedIn": false, 
+      "competitorId": "23", 
+      "dateOfBirth": "2004-11-08", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "2", 
+          "qp": "17"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Celia", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Schmidt-Cisternas", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "bece0ec2-37ec-4060-851f-a0f144fb6732", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00023", 
+      "sortEventCode": "3_00003_LJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U18", 
+      "category": "U18G", 
+      "checkedIn": false, 
+      "competitorId": "24", 
+      "dateOfBirth": "2004-11-08", 
+      "event": "F03 - IVK Lengde", 
+      "eventsEntered": [
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "2", 
+          "qp": "18"
+        }, 
+        {
+          "eventCode": "HJ", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Hedvig", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TYR.png", 
+      "gender": "F", 
+      "lastName": "Kall\u00e5k", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "9f243ed9-bac0-4799-a8ff-1caa22bdffeb", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00024", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "TYR", 
+      "teamName": "Tyrving Idrettslag"
+    }, 
+    {
+      "ageGroup": "U18", 
+      "category": "U18G", 
+      "checkedIn": false, 
+      "competitorId": "25", 
+      "dateOfBirth": "2004-02-22", 
+      "event": "F01 - IVK H\u00f8yde", 
+      "eventsEntered": [
+        {
+          "eventCode": "HJ", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Ingrid", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Hamsund", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "a736a673-2718-4b76-b926-b275a4409cb0", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00025", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U18", 
+      "category": "U18B", 
+      "checkedIn": false, 
+      "competitorId": "26", 
       "dateOfBirth": "2004-12-17", 
-      "event": "F01 - IVK Stav", 
+      "event": "F04 - IVK Stav", 
       "eventsEntered": [
         {
           "eventCode": "PV", 
-          "eventId": "F01"
+          "eventId": "F04"
         }
       ], 
       "firstName": "Sander", 
@@ -361,1423 +649,2483 @@
       "notablePerformances": [], 
       "numbered": false, 
       "otAthleteId": "17963b6d-eaa8-4ff4-b814-52f64b2ced65", 
-      "sortAgeGroup": "0-U16", 
-      "sortBib": "00209", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "STUR"
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00026", 
+      "sortEventCode": "3_00002_PV", 
+      "teamId": "STUR", 
+      "teamName": "Idrettsforeningen Sturla"
     }, 
     {
-      "ageGroup": "U18", 
-      "category": "U18B", 
+      "ageGroup": "U14", 
+      "category": "U14G", 
       "checkedIn": false, 
-      "competitorId": "210", 
-      "dateOfBirth": "2002-05-31", 
-      "event": "F01 - IVK Stav", 
+      "competitorId": "27", 
+      "dateOfBirth": "2008-05-24", 
       "eventsEntered": [
         {
-          "eventCode": "PV", 
-          "eventId": "F01"
+          "eventCode": "LJ", 
+          "eventId": "F03"
+        }
+      ], 
+      "firstName": "Antzela", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Gkiona", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00027", 
+      "sortEventCode": "3_00003_LJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U20", 
+      "category": "U20M", 
+      "checkedIn": false, 
+      "competitorId": "28", 
+      "dateOfBirth": "2002-05-31", 
+      "eventsEntered": [
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
         }
       ], 
       "firstName": "Sander Aae", 
       "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
       "gender": "M", 
       "lastName": "Skotheim", 
+      "nationality": "NOR", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
       "otAthleteId": "ea21086e-ac3c-42ab-b0dd-8779a9bfcecf", 
-      "sortAgeGroup": "0-U18", 
-      "sortBib": "00210", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "KOLL"
+      "sortAgeGroup": "0-U20", 
+      "sortBib": "00028", 
+      "sortEventCode": "4_00007_SP", 
+      "summaryText": "Skotheim, Sander Aae U18 M (KOLL), NOR", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
     }, 
     {
-      "ageGroup": "U20", 
-      "category": "U20M", 
+      "ageGroup": "U18", 
+      "category": "U18B", 
       "checkedIn": false, 
-      "competitorId": "211", 
-      "dateOfBirth": "2001-12-22", 
-      "event": "F01 - IVK Stav", 
+      "competitorId": "29", 
+      "dateOfBirth": "2003-02-11", 
       "eventsEntered": [
         {
-          "eventCode": "PV", 
-          "eventId": "F01"
+          "eventCode": "SP", 
+          "eventId": "F02"
         }
       ], 
-      "firstName": "Markus", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TJAL.png", 
+      "firstName": "Abraham Sandvin", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
       "gender": "M", 
-      "lastName": "Rooth", 
+      "lastName": "Vogelsang", 
+      "nationality": "NOR", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
-      "otAthleteId": "c3949f18-c5ad-4343-8fb1-d301830ce637", 
-      "sortAgeGroup": "0-U20", 
-      "sortBib": "00211", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "TJAL"
+      "otAthleteId": "86273fc0-13d2-42ff-a084-0353d98febcc", 
+      "sortAgeGroup": "0-U18", 
+      "sortBib": "00029", 
+      "sortEventCode": "4_00007_SP", 
+      "summaryText": "Vogelsang, Abraham Sandvin U18 M (KOLL), NOR", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
     }, 
     {
-      "ageGroup": "?", 
+      "ageGroup": "U14", 
+      "category": "U14G", 
       "checkedIn": false, 
-      "competitorId": "212", 
-      "eventsEntered": [], 
+      "competitorId": "3", 
+      "dateOfBirth": "2007-05-27", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "1", 
+          "qp": "3"
+        }, 
+        {
+          "eventCode": "HJ", 
+          "eventId": "F01"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Frida", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/RAUM.png", 
+      "gender": "F", 
+      "lastName": "Rimstad", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
-      "sortAgeGroup": "3-?", 
-      "sortBib": "00212"
+      "otAthleteId": "3e33fdc4-e644-4280-a977-94b72ea71835", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00003", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "RAUM", 
+      "teamName": "Raumnes & \u00c5rnes Idrettslag"
     }, 
     {
       "ageGroup": "SEN", 
       "category": "SM", 
       "checkedIn": false, 
-      "competitorId": "213", 
-      "dateOfBirth": "1995-11-22", 
-      "event": "F01 - IVK Stav", 
+      "competitorId": "30", 
+      "dateOfBirth": "1976-04-20", 
       "eventsEntered": [
         {
-          "eventCode": "PV", 
-          "eventId": "F01"
+          "eventCode": "SP", 
+          "eventId": "F02"
         }
       ], 
-      "firstName": "Andreas Fernandes Thomaz", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TJAL.png", 
+      "firstName": "Torbj\u00f8rn Helland", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/TYEN.png", 
       "gender": "M", 
-      "lastName": "Gjesdal", 
+      "lastName": "Solhaug ", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
-      "otAthleteId": "91863167-6259-4ae9-b653-cfafcad50063", 
       "sortAgeGroup": "1-SEN", 
-      "sortBib": "00213", 
-      "sortEventCode": "3_00001_PV", 
-      "teamId": "TJAL"
+      "sortBib": "00030", 
+      "sortEventCode": "4_00007_SP", 
+      "summaryText": "Vogelsang, Abraham Sandvin U18 M (KOLL), NOR", 
+      "teamId": "TYEN", 
+      "teamName": "T\u00f8yen Sportsklubb"
     }, 
     {
-      "ageGroup": "U20", 
-      "category": "U20M", 
+      "ageGroup": "U14", 
+      "category": "U14B", 
       "checkedIn": false, 
-      "competitorId": "214", 
-      "dateOfBirth": "2000-12-10", 
+      "competitorId": "4", 
+      "dateOfBirth": "2008-03-14", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
       "eventsEntered": [
         {
           "eventCode": "PV", 
+          "eventId": "F04"
+        }, 
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "1", 
+          "qp": "4"
+        }, 
+        {
+          "eventCode": "HJ", 
           "eventId": "F01"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
         }
       ], 
-      "firstName": "Sebastian", 
-      "flagUrl": "http://file.opentrack.run/clubflags/NOR/BSK.png", 
+      "firstName": "Jakob Refvem", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
       "gender": "M", 
-      "lastName": "Marrot", 
-      "nationality": "NOR", 
+      "lastName": "Kolderup", 
       "nonScorer": false, 
       "notablePerformances": [], 
       "numbered": false, 
-      "otAthleteId": "c242bf7f-9a87-45bc-a1bb-468f7d32c597", 
-      "sortAgeGroup": "0-U20", 
-      "sortBib": "00214", 
-      "sortEventCode": "3_00001_PV", 
-      "summaryText": "Marrot, Sebastian U20 M (BSK), NOR", 
-      "teamId": "BSK"
+      "otAthleteId": "ffa92f42-b8c8-43c3-a2b4-aa19f6c8dfa2", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00004", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14G", 
+      "checkedIn": false, 
+      "competitorId": "5", 
+      "dateOfBirth": "2008-11-20", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F04"
+        }, 
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "1", 
+          "qp": "5"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Emilie Helland", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Solhaug", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "a69cbb46-5261-4eee-8ca8-a84e57caf84a", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00005", 
+      "sortEventCode": "3_00002_PV", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14G", 
+      "checkedIn": false, 
+      "competitorId": "6", 
+      "dateOfBirth": "2007-04-23", 
+      "event": "F01 - IVK H\u00f8yde", 
+      "eventEntered": {
+        "eventCode": "HJ", 
+        "eventId": "F01", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "1", 
+          "qp": "6"
+        }, 
+        {
+          "eventCode": "HJ", 
+          "eventId": "F01"
+        }
+      ], 
+      "firstName": "Linnea Marie Zacho", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/NITT.png", 
+      "gender": "F", 
+      "lastName": "Bratteng", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "f1fc1ea3-9b08-4727-a7e3-1402141bb9d8", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00006", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "NITT", 
+      "teamName": "Nittedal Idrettslag"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14G", 
+      "checkedIn": false, 
+      "competitorId": "7", 
+      "dateOfBirth": "2007-02-01", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "PV", 
+          "eventId": "F04"
+        }, 
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "1", 
+          "qp": "7"
+        }, 
+        {
+          "eventCode": "HJ", 
+          "eventId": "F01"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Liv Kulle", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Andreassen", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "058ee2ad-f1df-46ed-86c8-0125b550a88b", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00007", 
+      "sortEventCode": "3_00000_HJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14G", 
+      "checkedIn": false, 
+      "competitorId": "8", 
+      "dateOfBirth": "2008-10-11", 
+      "event": "F02 - IVK Kule", 
+      "eventEntered": {
+        "eventCode": "SP", 
+        "eventId": "F02", 
+        "pb": null, 
+        "sb": null
+      }, 
+      "eventsEntered": [
+        {
+          "eventCode": "LJ", 
+          "eventId": "F03", 
+          "pb": "1", 
+          "qp": "8"
+        }, 
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Julia", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Hoven", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "1ba2822d-d465-4f51-a7ce-c59b56449e6c", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00008", 
+      "sortEventCode": "3_00003_LJ", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
+    }, 
+    {
+      "ageGroup": "U14", 
+      "category": "U14G", 
+      "checkedIn": false, 
+      "competitorId": "9", 
+      "dateOfBirth": "2007-11-20", 
+      "event": "F02 - IVK Kule", 
+      "eventsEntered": [
+        {
+          "eventCode": "SP", 
+          "eventId": "F02"
+        }
+      ], 
+      "firstName": "Petra Helene", 
+      "flagUrl": "http://file.opentrack.run/clubflags/NOR/KOLL.png", 
+      "gender": "F", 
+      "lastName": "Bell", 
+      "nonScorer": false, 
+      "notablePerformances": [], 
+      "numbered": false, 
+      "otAthleteId": "ca894d47-f94d-453a-a997-5c6c148cc200", 
+      "sortAgeGroup": "0-U14", 
+      "sortBib": "00009", 
+      "sortEventCode": "4_00007_SP", 
+      "teamId": "KOLL", 
+      "teamName": "Koll, Idrettslaget"
     }
   ], 
-  "contactDetails": "friidrett@koll.no", 
   "country": "NOR", 
-  "date": "2019-12-21", 
+  "date": "2020-02-28", 
   "events": [
     {
       "ageGroups": [
         "ALL"
       ], 
+      "cachedCount": 0, 
       "category": "IVK", 
       "cutAfterRound": 0, 
       "cutSurvivors": 0, 
       "day": 1, 
-      "eventCode": "PV", 
+      "eventCode": "HJ", 
       "eventId": "F01", 
       "genders": "MF", 
       "lanes": 8, 
-      "name": "IVK Stav", 
-      "r1Time": "14:00", 
+      "maxFieldAttempts": 6, 
+      "name": "IVK H\u00f8yde", 
+      "r1Time": "12:00", 
       "r2Day": 1, 
       "r3Day": 1, 
-      "rounds": "3", 
+      "reorderLastRound": false, 
+      "requireCallroomOverride": false, 
+      "rounds": "2", 
+      "status": "complete", 
+      "teamTypes": "INHERIT", 
+      "units": [
+        {
+          "day": 1, 
+          "eventId": "F01", 
+          "eventName": "IVK H\u00f8yde", 
+          "heat": 1, 
+          "heights": [
+            "1.27", 
+            "1.32", 
+            "1.37", 
+            "1.42", 
+            "1.47", 
+            "1.52", 
+            "1.57", 
+            "1.62", 
+            "1.67"
+          ], 
+          "initialHeight": "1.27", 
+          "results": [
+            {
+              "bib": "24", 
+              "catpos": 1, 
+              "performance": "1.62", 
+              "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "25", 
+              "catpos": 2, 
+              "performance": "1.57", 
+              "place": 2, 
+              "points": 0
+            }, 
+            {
+              "bib": "12", 
+              "catpos": 1, 
+              "performance": "1.32", 
+              "place": 5, 
+              "points": 0
+            }, 
+            {
+              "bib": "21", 
+              "catpos": 1, 
+              "performance": "1.52", 
+              "place": 3, 
+              "points": 0
+            }, 
+            {
+              "bib": "17", 
+              "catpos": 1, 
+              "performance": "1.52", 
+              "place": 3, 
+              "points": 0
+            }
+          ], 
+          "resultsStatus": "official", 
+          "round": 1, 
+          "scheduledStartTime": "12:00", 
+          "showAgeGrade": false, 
+          "showAthleteDetails": true, 
+          "showAthlonPoints": false, 
+          "showPartials": true, 
+          "showPoints": false, 
+          "status": "finished", 
+          "trials": [
+            {
+              "bib": "24", 
+              "height": "1.27", 
+              "result": "-"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.27", 
+              "result": "-"
+            }, 
+            {
+              "bib": "12", 
+              "height": "1.27", 
+              "result": "o"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.27", 
+              "result": "-"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.27", 
+              "result": "-"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.32", 
+              "result": "-"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.32", 
+              "result": "-"
+            }, 
+            {
+              "bib": "12", 
+              "height": "1.32", 
+              "result": "o"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.32", 
+              "result": "-"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.32", 
+              "result": "-"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.37", 
+              "result": "-"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.37", 
+              "result": "-"
+            }, 
+            {
+              "bib": "12", 
+              "height": "1.37", 
+              "result": "x"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.37", 
+              "result": "-"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.37", 
+              "result": "o"
+            }, 
+            {
+              "bib": "12", 
+              "height": "1.37", 
+              "result": "x"
+            }, 
+            {
+              "bib": "12", 
+              "height": "1.37", 
+              "result": "x"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.42", 
+              "result": "-"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.42", 
+              "result": "o"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.42", 
+              "result": "-"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.42", 
+              "result": "o"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.47", 
+              "result": "-"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.47", 
+              "result": "o"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.47", 
+              "result": "-"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.47", 
+              "result": "o"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.52", 
+              "result": "-"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.52", 
+              "result": "x"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.52", 
+              "result": "o"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.52", 
+              "result": "o"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.52", 
+              "result": "o"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.57", 
+              "result": "o"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.57", 
+              "result": "o"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.57", 
+              "result": "x"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.57", 
+              "result": "x"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.57", 
+              "result": "x"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.57", 
+              "result": "x"
+            }, 
+            {
+              "bib": "21", 
+              "height": "1.57", 
+              "result": "x"
+            }, 
+            {
+              "bib": "17", 
+              "height": "1.57", 
+              "result": "x"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.62", 
+              "result": "x"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.62", 
+              "result": "x"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.62", 
+              "result": "o"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.62", 
+              "result": "x"
+            }, 
+            {
+              "bib": "25", 
+              "height": "1.62", 
+              "result": "x"
+            }, 
+            {
+              "bib": "24", 
+              "height": "1.67", 
+              "result": "r"
+            }
+          ]
+        }, 
+        {
+          "day": 1, 
+          "eventId": "F01", 
+          "eventName": "IVK H\u00f8yde", 
+          "heat": 2, 
+          "heights": [
+            "1.22", 
+            "1.27", 
+            "1.32", 
+            "1.37", 
+            "1.42", 
+            "1.47"
+          ], 
+          "initialHeight": "1.22", 
+          "results": [
+            {
+              "bib": "1", 
+              "catpos": 1, 
+              "performance": "1.42", 
+              "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "3", 
+              "catpos": 2, 
+              "performance": "1.42", 
+              "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "6", 
+              "catpos": 3, 
+              "performance": "1.42", 
+              "place": 3, 
+              "points": 0
+            }
+          ], 
+          "resultsStatus": "official", 
+          "round": 1, 
+          "showAgeGrade": false, 
+          "showAthleteDetails": true, 
+          "showAthlonPoints": false, 
+          "showPartials": true, 
+          "showPoints": false, 
+          "status": "finished", 
+          "trials": [
+            {
+              "bib": "1", 
+              "height": "1.22", 
+              "result": "o"
+            }, 
+            {
+              "bib": "3", 
+              "height": "1.22", 
+              "result": "-"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.22", 
+              "result": "o"
+            }, 
+            {
+              "bib": "1", 
+              "height": "1.27", 
+              "result": "o"
+            }, 
+            {
+              "bib": "3", 
+              "height": "1.27", 
+              "result": "-"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.27", 
+              "result": "o"
+            }, 
+            {
+              "bib": "1", 
+              "height": "1.32", 
+              "result": "o"
+            }, 
+            {
+              "bib": "3", 
+              "height": "1.32", 
+              "result": "o"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.32", 
+              "result": "x"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.32", 
+              "result": "x"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.32", 
+              "result": "o"
+            }, 
+            {
+              "bib": "1", 
+              "height": "1.37", 
+              "result": "o"
+            }, 
+            {
+              "bib": "3", 
+              "height": "1.37", 
+              "result": "o"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.37", 
+              "result": "x"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.37", 
+              "result": "o"
+            }, 
+            {
+              "bib": "1", 
+              "height": "1.42", 
+              "result": "o"
+            }, 
+            {
+              "bib": "3", 
+              "height": "1.42", 
+              "result": "o"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.42", 
+              "result": "x"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.42", 
+              "result": "o"
+            }, 
+            {
+              "bib": "1", 
+              "height": "1.47", 
+              "result": "x"
+            }, 
+            {
+              "bib": "3", 
+              "height": "1.47", 
+              "result": "x"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.47", 
+              "result": "x"
+            }, 
+            {
+              "bib": "1", 
+              "height": "1.47", 
+              "result": "x"
+            }, 
+            {
+              "bib": "3", 
+              "height": "1.47", 
+              "result": "x"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.47", 
+              "result": "x"
+            }, 
+            {
+              "bib": "1", 
+              "height": "1.47", 
+              "result": "x"
+            }, 
+            {
+              "bib": "3", 
+              "height": "1.47", 
+              "result": "x"
+            }, 
+            {
+              "bib": "6", 
+              "height": "1.47", 
+              "result": "x"
+            }
+          ]
+        }
+      ]
+    }, 
+    {
+      "ageGroups": [
+        "ALL"
+      ], 
+      "cachedCount": 0, 
+      "category": "IVK", 
+      "cutAfterRound": 0, 
+      "cutSurvivors": 0, 
+      "day": 1, 
+      "eventCode": "SP", 
+      "eventId": "F02", 
+      "genders": "MF", 
+      "lanes": 8, 
+      "maxFieldAttempts": 6, 
+      "name": "IVK Kule", 
+      "r1Time": "12:00", 
+      "r2Day": 1, 
+      "r3Day": 1, 
+      "reorderLastRound": false, 
+      "requireCallroomOverride": false, 
+      "rounds": "1", 
+      "status": "complete", 
+      "teamTypes": "INHERIT", 
+      "units": [
+        {
+          "day": 1, 
+          "eventId": "F02", 
+          "eventName": "IVK Kule", 
+          "heat": 1, 
+          "results": [
+            {
+              "bib": "27", 
+              "catpos": 4, 
+              "order": 1, 
+              "performance": "6.09", 
+              "place": 14, 
+              "points": 0
+            }, 
+            {
+              "bib": "16", 
+              "catpos": 2, 
+              "order": 1, 
+              "performance": "9.64", 
+              "place": 7, 
+              "points": 0
+            }, 
+            {
+              "bib": "28", 
+              "catpos": 1, 
+              "order": 2, 
+              "performance": "13.81", 
+              "place": 2, 
+              "points": 0
+            }, 
+            {
+              "bib": "19", 
+              "catpos": 1, 
+              "order": 2, 
+              "performance": "12.22", 
+              "place": 5, 
+              "points": 0
+            }, 
+            {
+              "bib": "29", 
+              "catpos": 2, 
+              "order": 3, 
+              "performance": "13.20", 
+              "place": 3, 
+              "points": 0
+            }, 
+            {
+              "bib": "8", 
+              "catpos": 5, 
+              "order": 3, 
+              "performance": "5.13", 
+              "place": 16, 
+              "points": 0
+            }, 
+            {
+              "bib": "30", 
+              "catpos": 1, 
+              "order": 4, 
+              "performance": "7.22", 
+              "place": 13, 
+              "points": 0
+            }, 
+            {
+              "bib": "20", 
+              "catpos": 1, 
+              "order": 4, 
+              "performance": "7.42", 
+              "place": 11, 
+              "points": 0
+            }, 
+            {
+              "bib": "15", 
+              "catpos": 3, 
+              "order": 6, 
+              "performance": "7.36", 
+              "place": 12, 
+              "points": 0
+            }, 
+            {
+              "bib": "22", 
+              "catpos": 1, 
+              "order": 7, 
+              "performance": "14.53", 
+              "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "11", 
+              "catpos": 1, 
+              "order": 8, 
+              "performance": "12.20", 
+              "place": 6, 
+              "points": 0
+            }, 
+            {
+              "bib": "14", 
+              "catpos": 2, 
+              "order": 9, 
+              "performance": "8.87", 
+              "place": 9, 
+              "points": 0
+            }, 
+            {
+              "bib": "1", 
+              "catpos": 1, 
+              "order": 11, 
+              "performance": "12.25", 
+              "place": 4, 
+              "points": 0
+            }, 
+            {
+              "bib": "7", 
+              "catpos": 2, 
+              "order": 12, 
+              "performance": "9.47", 
+              "place": 8, 
+              "points": 0
+            }, 
+            {
+              "bib": "12", 
+              "catpos": 3, 
+              "order": 15, 
+              "performance": "5.49", 
+              "place": 15, 
+              "points": 0
+            }, 
+            {
+              "bib": "5", 
+              "catpos": 6, 
+              "order": 16, 
+              "performance": "5.01", 
+              "place": 17, 
+              "points": 0
+            }, 
+            {
+              "bib": "9", 
+              "catpos": 3, 
+              "order": 17, 
+              "performance": "7.57", 
+              "place": 10, 
+              "points": 0
+            }
+          ], 
+          "resultsStatus": "official", 
+          "round": 1, 
+          "rounds": 6, 
+          "scheduledStartTime": "12:00", 
+          "showAgeGrade": false, 
+          "showAthleteDetails": true, 
+          "showAthlonPoints": false, 
+          "showPartials": true, 
+          "showPoints": false, 
+          "status": "finished", 
+          "trials": [
+            {
+              "bib": "27", 
+              "result": "5.59", 
+              "round": 1
+            }, 
+            {
+              "bib": "27", 
+              "result": "5.33", 
+              "round": 2
+            }, 
+            {
+              "bib": "27", 
+              "result": "5.92", 
+              "round": 3
+            }, 
+            {
+              "bib": "27", 
+              "result": "6.09", 
+              "round": 4
+            }, 
+            {
+              "bib": "27", 
+              "result": "5.87", 
+              "round": 5
+            }, 
+            {
+              "bib": "27", 
+              "result": "6.05", 
+              "round": 6
+            }, 
+            {
+              "bib": "16", 
+              "result": "8.69", 
+              "round": 1
+            }, 
+            {
+              "bib": "16", 
+              "result": "9.16", 
+              "round": 2
+            }, 
+            {
+              "bib": "16", 
+              "result": "8.97", 
+              "round": 3
+            }, 
+            {
+              "bib": "16", 
+              "result": "9.64", 
+              "round": 4
+            }, 
+            {
+              "bib": "16", 
+              "result": "9.46", 
+              "round": 5
+            }, 
+            {
+              "bib": "16", 
+              "result": "9.08", 
+              "round": 6
+            }, 
+            {
+              "bib": "28", 
+              "result": "x", 
+              "round": 1
+            }, 
+            {
+              "bib": "28", 
+              "result": "12.86", 
+              "round": 2
+            }, 
+            {
+              "bib": "28", 
+              "result": "13.19", 
+              "round": 3
+            }, 
+            {
+              "bib": "28", 
+              "result": "13.81", 
+              "round": 4
+            }, 
+            {
+              "bib": "28", 
+              "result": "13.29", 
+              "round": 5
+            }, 
+            {
+              "bib": "28", 
+              "result": "13.42", 
+              "round": 6
+            }, 
+            {
+              "bib": "19", 
+              "result": "11.97", 
+              "round": 1
+            }, 
+            {
+              "bib": "19", 
+              "result": "12.22", 
+              "round": 2
+            }, 
+            {
+              "bib": "19", 
+              "result": "11.68", 
+              "round": 3
+            }, 
+            {
+              "bib": "19", 
+              "result": "12.22", 
+              "round": 4
+            }, 
+            {
+              "bib": "19", 
+              "result": "11.46", 
+              "round": 5
+            }, 
+            {
+              "bib": "19", 
+              "result": "12.17", 
+              "round": 6
+            }, 
+            {
+              "bib": "29", 
+              "result": "x", 
+              "round": 1
+            }, 
+            {
+              "bib": "29", 
+              "result": "13.20", 
+              "round": 2
+            }, 
+            {
+              "bib": "29", 
+              "result": "12.64", 
+              "round": 3
+            }, 
+            {
+              "bib": "29", 
+              "result": "x", 
+              "round": 4
+            }, 
+            {
+              "bib": "29", 
+              "result": "x", 
+              "round": 5
+            }, 
+            {
+              "bib": "29", 
+              "result": "x", 
+              "round": 6
+            }, 
+            {
+              "bib": "8", 
+              "result": "4.96", 
+              "round": 1
+            }, 
+            {
+              "bib": "8", 
+              "result": "5.07", 
+              "round": 2
+            }, 
+            {
+              "bib": "8", 
+              "result": "5.13", 
+              "round": 3
+            }, 
+            {
+              "bib": "8", 
+              "result": "4.32", 
+              "round": 4
+            }, 
+            {
+              "bib": "8", 
+              "result": "4.24", 
+              "round": 5
+            }, 
+            {
+              "bib": "8", 
+              "result": "4.27", 
+              "round": 6
+            }, 
+            {
+              "bib": "30", 
+              "result": "7.22", 
+              "round": 1
+            }, 
+            {
+              "bib": "30", 
+              "result": "6.30", 
+              "round": 2
+            }, 
+            {
+              "bib": "30", 
+              "result": "6.75", 
+              "round": 3
+            }, 
+            {
+              "bib": "30", 
+              "result": "6.06", 
+              "round": 4
+            }, 
+            {
+              "bib": "20", 
+              "result": "7.35", 
+              "round": 1
+            }, 
+            {
+              "bib": "20", 
+              "result": "7.20", 
+              "round": 2
+            }, 
+            {
+              "bib": "20", 
+              "result": "7.12", 
+              "round": 3
+            }, 
+            {
+              "bib": "20", 
+              "result": "6.51", 
+              "round": 4
+            }, 
+            {
+              "bib": "20", 
+              "result": "6.39", 
+              "round": 5
+            }, 
+            {
+              "bib": "20", 
+              "result": "7.42", 
+              "round": 6
+            }, 
+            {
+              "bib": "15", 
+              "result": "7.01", 
+              "round": 1
+            }, 
+            {
+              "bib": "15", 
+              "result": "7.36", 
+              "round": 2
+            }, 
+            {
+              "bib": "15", 
+              "result": "7.10", 
+              "round": 3
+            }, 
+            {
+              "bib": "15", 
+              "result": "6.72", 
+              "round": 4
+            }, 
+            {
+              "bib": "15", 
+              "result": "6.49", 
+              "round": 5
+            }, 
+            {
+              "bib": "15", 
+              "result": "x", 
+              "round": 6
+            }, 
+            {
+              "bib": "22", 
+              "result": "13.79", 
+              "round": 1
+            }, 
+            {
+              "bib": "22", 
+              "result": "14.05", 
+              "round": 2
+            }, 
+            {
+              "bib": "22", 
+              "result": "14.53", 
+              "round": 3
+            }, 
+            {
+              "bib": "22", 
+              "result": "x", 
+              "round": 4
+            }, 
+            {
+              "bib": "22", 
+              "result": "14.27", 
+              "round": 5
+            }, 
+            {
+              "bib": "22", 
+              "result": "x", 
+              "round": 6
+            }, 
+            {
+              "bib": "11", 
+              "result": "11.06", 
+              "round": 1
+            }, 
+            {
+              "bib": "11", 
+              "result": "11.71", 
+              "round": 2
+            }, 
+            {
+              "bib": "11", 
+              "result": "11.65", 
+              "round": 3
+            }, 
+            {
+              "bib": "11", 
+              "result": "11.33", 
+              "round": 4
+            }, 
+            {
+              "bib": "11", 
+              "result": "12.20", 
+              "round": 5
+            }, 
+            {
+              "bib": "11", 
+              "result": "11.99", 
+              "round": 6
+            }, 
+            {
+              "bib": "14", 
+              "result": "8.69", 
+              "round": 1
+            }, 
+            {
+              "bib": "14", 
+              "result": "8.87", 
+              "round": 2
+            }, 
+            {
+              "bib": "14", 
+              "result": "8.36", 
+              "round": 3
+            }, 
+            {
+              "bib": "14", 
+              "result": "8.49", 
+              "round": 4
+            }, 
+            {
+              "bib": "14", 
+              "result": "6.53", 
+              "round": 5
+            }, 
+            {
+              "bib": "14", 
+              "result": "8.35", 
+              "round": 6
+            }, 
+            {
+              "bib": "1", 
+              "result": "11.16", 
+              "round": 1
+            }, 
+            {
+              "bib": "1", 
+              "result": "12.25", 
+              "round": 2
+            }, 
+            {
+              "bib": "1", 
+              "result": "x", 
+              "round": 3
+            }, 
+            {
+              "bib": "1", 
+              "result": "x", 
+              "round": 4
+            }, 
+            {
+              "bib": "1", 
+              "result": "x", 
+              "round": 5
+            }, 
+            {
+              "bib": "1", 
+              "result": "x", 
+              "round": 6
+            }, 
+            {
+              "bib": "7", 
+              "result": "9.10", 
+              "round": 1
+            }, 
+            {
+              "bib": "7", 
+              "result": "9.12", 
+              "round": 2
+            }, 
+            {
+              "bib": "7", 
+              "result": "8.54", 
+              "round": 3
+            }, 
+            {
+              "bib": "7", 
+              "result": "8.43", 
+              "round": 4
+            }, 
+            {
+              "bib": "7", 
+              "result": "8.71", 
+              "round": 5
+            }, 
+            {
+              "bib": "7", 
+              "result": "9.47", 
+              "round": 6
+            }, 
+            {
+              "bib": "12", 
+              "result": "5.39", 
+              "round": 1
+            }, 
+            {
+              "bib": "12", 
+              "result": "5.49", 
+              "round": 2
+            }, 
+            {
+              "bib": "12", 
+              "result": "5.19", 
+              "round": 3
+            }, 
+            {
+              "bib": "12", 
+              "result": "5.46", 
+              "round": 4
+            }, 
+            {
+              "bib": "12", 
+              "result": "5.15", 
+              "round": 5
+            }, 
+            {
+              "bib": "12", 
+              "result": "5.17", 
+              "round": 6
+            }, 
+            {
+              "bib": "5", 
+              "result": "5.01", 
+              "round": 1
+            }, 
+            {
+              "bib": "5", 
+              "result": "4.64", 
+              "round": 2
+            }, 
+            {
+              "bib": "5", 
+              "result": "4.94", 
+              "round": 3
+            }, 
+            {
+              "bib": "5", 
+              "result": "4.76", 
+              "round": 4
+            }, 
+            {
+              "bib": "5", 
+              "result": "4.88", 
+              "round": 5
+            }, 
+            {
+              "bib": "5", 
+              "result": "4.72", 
+              "round": 6
+            }, 
+            {
+              "bib": "9", 
+              "result": "6.71", 
+              "round": 1
+            }, 
+            {
+              "bib": "9", 
+              "result": "7.57", 
+              "round": 2
+            }, 
+            {
+              "bib": "9", 
+              "result": "7.00", 
+              "round": 3
+            }, 
+            {
+              "bib": "9", 
+              "result": "7.31", 
+              "round": 4
+            }, 
+            {
+              "bib": "9", 
+              "result": "7.19", 
+              "round": 5
+            }, 
+            {
+              "bib": "9", 
+              "result": "7.03", 
+              "round": 6
+            }
+          ]
+        }
+      ]
+    }, 
+    {
+      "ageGroups": [
+        "ALL"
+      ], 
+      "cachedCount": 0, 
+      "category": "IVK", 
+      "cutAfterRound": 0, 
+      "cutSurvivors": 0, 
+      "day": 1, 
+      "eventCode": "LJ", 
+      "eventId": "F03", 
+      "genders": "MF", 
+      "lanes": 8, 
+      "maxFieldAttempts": 6, 
+      "maxPerHeat": 0, 
+      "name": "IVK Lengde", 
+      "r1Time": "12:00", 
+      "r2Day": 1, 
+      "r3Day": 1, 
+      "reorderLastRound": false, 
+      "requireCallroomOverride": false, 
+      "rounds": "2", 
       "seedingMethod": "fastest_last", 
       "status": "complete", 
       "teamTypes": "INHERIT", 
       "units": [
         {
-          "eventId": "F01", 
+          "day": 1, 
+          "eventId": "F03", 
+          "eventName": "IVK Lengde", 
+          "heat": 1, 
+          "results": [
+            {
+              "bib": "27", 
+              "catpos": 4, 
+              "order": 1, 
+              "performance": "3.31", 
+              "place": 5, 
+              "points": 0
+            }, 
+            {
+              "bib": "5", 
+              "catpos": 6, 
+              "order": 1, 
+              "performance": "3.00", 
+              "place": 7, 
+              "points": 0
+            }, 
+            {
+              "bib": "6", 
+              "catpos": 3, 
+              "order": 2, 
+              "performance": "4.34", 
+              "place": 3, 
+              "points": 0
+            }, 
+            {
+              "bib": "4", 
+              "catpos": 1, 
+              "order": 3, 
+              "performance": "3.77", 
+              "place": 4, 
+              "points": 0
+            }, 
+            {
+              "bib": "1", 
+              "catpos": 1, 
+              "order": 4, 
+              "performance": "4.71", 
+              "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "3", 
+              "catpos": 2, 
+              "order": 5, 
+              "performance": "4.62", 
+              "place": 2, 
+              "points": 0
+            }, 
+            {
+              "bib": "8", 
+              "catpos": 5, 
+              "order": 6, 
+              "performance": "3.24", 
+              "place": 6, 
+              "points": 0
+            }
+          ], 
+          "resultsStatus": "official", 
+          "round": 1, 
+          "rounds": 6, 
+          "scheduledStartTime": "12:00", 
+          "showAgeGrade": false, 
+          "showAthleteDetails": true, 
+          "showAthlonPoints": false, 
+          "showPartials": true, 
+          "showPoints": false, 
+          "status": "finished", 
+          "trials": [
+            {
+              "bib": "27", 
+              "result": "3.26", 
+              "round": 1
+            }, 
+            {
+              "bib": "27", 
+              "result": "3.19", 
+              "round": 2
+            }, 
+            {
+              "bib": "27", 
+              "result": "3.22", 
+              "round": 3
+            }, 
+            {
+              "bib": "27", 
+              "result": "3.14", 
+              "round": 4
+            }, 
+            {
+              "bib": "27", 
+              "result": "3.27", 
+              "round": 5
+            }, 
+            {
+              "bib": "27", 
+              "result": "3.31", 
+              "round": 6
+            }, 
+            {
+              "bib": "5", 
+              "result": "2.98", 
+              "round": 1
+            }, 
+            {
+              "bib": "5", 
+              "result": "2.92", 
+              "round": 2
+            }, 
+            {
+              "bib": "5", 
+              "result": "2.99", 
+              "round": 3
+            }, 
+            {
+              "bib": "5", 
+              "result": "2.96", 
+              "round": 4
+            }, 
+            {
+              "bib": "5", 
+              "result": "2.85", 
+              "round": 5
+            }, 
+            {
+              "bib": "5", 
+              "result": "3.00", 
+              "round": 6
+            }, 
+            {
+              "bib": "6", 
+              "result": "4.34", 
+              "round": 1
+            }, 
+            {
+              "bib": "6", 
+              "result": "4.25", 
+              "round": 2
+            }, 
+            {
+              "bib": "6", 
+              "result": "3.47", 
+              "round": 3
+            }, 
+            {
+              "bib": "6", 
+              "result": "3.97", 
+              "round": 4
+            }, 
+            {
+              "bib": "6", 
+              "result": "-", 
+              "round": 5
+            }, 
+            {
+              "bib": "4", 
+              "result": "3.60", 
+              "round": 1
+            }, 
+            {
+              "bib": "4", 
+              "result": "3.77", 
+              "round": 2
+            }, 
+            {
+              "bib": "4", 
+              "result": "x", 
+              "round": 3
+            }, 
+            {
+              "bib": "4", 
+              "result": "3.52", 
+              "round": 4
+            }, 
+            {
+              "bib": "4", 
+              "result": "x", 
+              "round": 5
+            }, 
+            {
+              "bib": "4", 
+              "result": "x", 
+              "round": 6
+            }, 
+            {
+              "bib": "1", 
+              "result": "4.56", 
+              "round": 1
+            }, 
+            {
+              "bib": "1", 
+              "result": "4.45", 
+              "round": 2
+            }, 
+            {
+              "bib": "1", 
+              "result": "4.41", 
+              "round": 3
+            }, 
+            {
+              "bib": "1", 
+              "result": "4.56", 
+              "round": 4
+            }, 
+            {
+              "bib": "1", 
+              "result": "4.60", 
+              "round": 5
+            }, 
+            {
+              "bib": "1", 
+              "result": "4.71", 
+              "round": 6
+            }, 
+            {
+              "bib": "3", 
+              "result": "4.62", 
+              "round": 1
+            }, 
+            {
+              "bib": "3", 
+              "result": "4.60", 
+              "round": 2
+            }, 
+            {
+              "bib": "3", 
+              "result": "2.71", 
+              "round": 3
+            }, 
+            {
+              "bib": "3", 
+              "result": "-", 
+              "round": 4
+            }, 
+            {
+              "bib": "3", 
+              "result": "-", 
+              "round": 5
+            }, 
+            {
+              "bib": "8", 
+              "result": "2.99", 
+              "round": 1
+            }, 
+            {
+              "bib": "8", 
+              "result": "3.16", 
+              "round": 2
+            }, 
+            {
+              "bib": "8", 
+              "result": "3.03", 
+              "round": 3
+            }, 
+            {
+              "bib": "8", 
+              "result": "3.05", 
+              "round": 4
+            }, 
+            {
+              "bib": "8", 
+              "result": "3.14", 
+              "round": 5
+            }, 
+            {
+              "bib": "8", 
+              "result": "3.24", 
+              "round": 6
+            }
+          ]
+        }, 
+        {
+          "day": 1, 
+          "eventId": "F03", 
+          "eventName": "IVK Lengde", 
+          "heat": 2, 
+          "results": [
+            {
+              "bib": "14", 
+              "catpos": 3, 
+              "order": 1, 
+              "performance": "4.09", 
+              "place": 5, 
+              "points": 0
+            }, 
+            {
+              "bib": "12", 
+              "catpos": 1, 
+              "order": 2, 
+              "performance": "3.79", 
+              "place": 6, 
+              "points": 0
+            }, 
+            {
+              "bib": "15", 
+              "catpos": 2, 
+              "order": 3, 
+              "performance": "4.19", 
+              "place": 4, 
+              "points": 0
+            }, 
+            {
+              "bib": "18", 
+              "catpos": 1, 
+              "order": 4, 
+              "performance": "4.77", 
+              "place": 2, 
+              "points": 0
+            }, 
+            {
+              "bib": "24", 
+              "catpos": 1, 
+              "order": 5, 
+              "performance": "4.86", 
+              "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "20", 
+              "catpos": 2, 
+              "order": 6, 
+              "performance": "4.64", 
+              "place": 3, 
+              "points": 0
+            }
+          ], 
+          "resultsStatus": "official", 
+          "round": 1, 
+          "rounds": 6, 
+          "scheduledStartTime": "13:30", 
+          "showAgeGrade": false, 
+          "showAthleteDetails": true, 
+          "showAthlonPoints": false, 
+          "showPartials": true, 
+          "showPoints": false, 
+          "status": "finished", 
+          "trials": [
+            {
+              "bib": "14", 
+              "result": "3.96", 
+              "round": 1
+            }, 
+            {
+              "bib": "14", 
+              "result": "3.98", 
+              "round": 2
+            }, 
+            {
+              "bib": "14", 
+              "result": "x", 
+              "round": 3
+            }, 
+            {
+              "bib": "14", 
+              "result": "3.95", 
+              "round": 4
+            }, 
+            {
+              "bib": "14", 
+              "result": "4.09", 
+              "round": 5
+            }, 
+            {
+              "bib": "14", 
+              "result": "x", 
+              "round": 6
+            }, 
+            {
+              "bib": "12", 
+              "result": "3.50", 
+              "round": 1
+            }, 
+            {
+              "bib": "12", 
+              "result": "3.73", 
+              "round": 2
+            }, 
+            {
+              "bib": "12", 
+              "result": "x", 
+              "round": 3
+            }, 
+            {
+              "bib": "12", 
+              "result": "3.74", 
+              "round": 4
+            }, 
+            {
+              "bib": "12", 
+              "result": "3.79", 
+              "round": 5
+            }, 
+            {
+              "bib": "12", 
+              "result": "3.60", 
+              "round": 6
+            }, 
+            {
+              "bib": "15", 
+              "result": "x", 
+              "round": 1
+            }, 
+            {
+              "bib": "15", 
+              "result": "3.82", 
+              "round": 2
+            }, 
+            {
+              "bib": "15", 
+              "result": "3.69", 
+              "round": 3
+            }, 
+            {
+              "bib": "15", 
+              "result": "4.19", 
+              "round": 4
+            }, 
+            {
+              "bib": "15", 
+              "result": "4.16", 
+              "round": 5
+            }, 
+            {
+              "bib": "15", 
+              "result": "3.74", 
+              "round": 6
+            }, 
+            {
+              "bib": "18", 
+              "result": "4.31", 
+              "round": 1
+            }, 
+            {
+              "bib": "18", 
+              "result": "4.69", 
+              "round": 2
+            }, 
+            {
+              "bib": "18", 
+              "result": "4.61", 
+              "round": 3
+            }, 
+            {
+              "bib": "18", 
+              "result": "4.63", 
+              "round": 4
+            }, 
+            {
+              "bib": "18", 
+              "result": "4.41", 
+              "round": 5
+            }, 
+            {
+              "bib": "18", 
+              "result": "4.77", 
+              "round": 6
+            }, 
+            {
+              "bib": "24", 
+              "result": "4.79", 
+              "round": 1
+            }, 
+            {
+              "bib": "24", 
+              "result": "4.86", 
+              "round": 2
+            }, 
+            {
+              "bib": "24", 
+              "result": "x", 
+              "round": 3
+            }, 
+            {
+              "bib": "24", 
+              "result": "-", 
+              "round": 4
+            }, 
+            {
+              "bib": "24", 
+              "result": "-", 
+              "round": 5
+            }, 
+            {
+              "bib": "20", 
+              "result": "x", 
+              "round": 1
+            }, 
+            {
+              "bib": "20", 
+              "result": "x", 
+              "round": 2
+            }, 
+            {
+              "bib": "20", 
+              "result": "4.52", 
+              "round": 3
+            }, 
+            {
+              "bib": "20", 
+              "result": "4.63", 
+              "round": 4
+            }, 
+            {
+              "bib": "20", 
+              "result": "4.64", 
+              "round": 5
+            }, 
+            {
+              "bib": "20", 
+              "result": "4.54", 
+              "round": 6
+            }
+          ]
+        }
+      ]
+    }, 
+    {
+      "ageGroups": [
+        "ALL"
+      ], 
+      "cachedCount": 0, 
+      "category": "IVK", 
+      "cutAfterRound": 0, 
+      "cutSurvivors": 0, 
+      "day": 1, 
+      "eventCode": "PV", 
+      "eventId": "F04", 
+      "genders": "MF", 
+      "lanes": 8, 
+      "maxFieldAttempts": 6, 
+      "name": "IVK Stav", 
+      "r1Time": "12:00", 
+      "r2Day": 1, 
+      "r3Day": 1, 
+      "reorderLastRound": false, 
+      "requireCallroomOverride": false, 
+      "rounds": "3", 
+      "status": "complete", 
+      "teamTypes": "INHERIT", 
+      "units": [
+        {
+          "day": 1, 
+          "eventId": "F04", 
           "eventName": "IVK Stav", 
           "heat": 1, 
           "heights": [
-            "1.60", 
             "1.70", 
             "1.80", 
             "1.90", 
             "2.00", 
-            "2.10", 
-            "2.20", 
-            "2.30", 
-            "2.40", 
             "2.50", 
             "2.60", 
             "2.70", 
             "2.80", 
             "2.90", 
             "3.00", 
-            "3.05", 
             "3.10", 
             "3.20", 
-            "3.30", 
-            "3.40"
+            "3.25", 
+            "3.30"
           ], 
-          "initialHeight": "1.60", 
+          "initialHeight": "1.70", 
           "results": [
             {
-              "bib": "101", 
-              "catpos": 2, 
-              "performance": "2.40", 
-              "place": 10, 
-              "points": 0
-            }, 
-            {
-              "bib": "102", 
-              "catpos": 1, 
-              "performance": "3.00", 
+              "bib": "19", 
+              "catpos": 3, 
+              "order": 1, 
+              "performance": "2.60", 
               "place": 3, 
               "points": 0
             }, 
             {
-              "bib": "103", 
+              "bib": "10", 
               "catpos": 1, 
-              "performance": "2.90", 
+              "order": 2, 
+              "performance": "1.90", 
               "place": 4, 
               "points": 0
             }, 
             {
-              "bib": "104", 
-              "catpos": 1, 
+              "bib": "12", 
+              "catpos": 2, 
+              "order": 3, 
               "performance": "2.90", 
-              "place": 5, 
-              "points": 0
-            }, 
-            {
-              "bib": "105", 
-              "catpos": 3, 
-              "performance": "2.30", 
-              "place": 11, 
-              "points": 0
-            }, 
-            {
-              "bib": "201", 
-              "catpos": 3, 
-              "performance": "2.00", 
-              "place": 13, 
-              "points": 0
-            }, 
-            {
-              "bib": "202", 
-              "catpos": 1, 
-              "performance": "2.60", 
-              "place": 7, 
-              "points": 0
-            }, 
-            {
-              "bib": "203", 
-              "catpos": 2, 
-              "performance": "2.60", 
-              "place": 8, 
-              "points": 0
-            }, 
-            {
-              "bib": "204", 
-              "catpos": 2, 
-              "performance": "3.20", 
               "place": 2, 
               "points": 0
             }, 
             {
-              "bib": "205", 
-              "catpos": 3, 
-              "performance": "2.80", 
-              "place": 6, 
-              "points": 0
-            }, 
-            {
-              "bib": "206", 
+              "bib": "13", 
               "catpos": 1, 
-              "performance": "3.30", 
+              "order": 4, 
+              "performance": "3.20", 
               "place": 1, 
-              "points": 0
-            }, 
-            {
-              "bib": "207", 
-              "catpos": 5, 
-              "performance": "2.20", 
-              "place": 12, 
-              "points": 0
-            }, 
-            {
-              "bib": "208", 
-              "catpos": 4, 
-              "performance": "2.60", 
-              "place": 9, 
               "points": 0
             }
           ], 
           "resultsStatus": "official", 
           "round": 1, 
-          "scheduledStartTime": "14:00", 
+          "scheduledStartTime": "12:00", 
           "showAgeGrade": false, 
           "showAthleteDetails": true, 
           "showAthlonPoints": false, 
-          "showPartials": true, 
+          "showPartials": false, 
           "showPoints": false, 
           "status": "finished", 
           "trials": [
             {
-              "bib": "101", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "102", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "105", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "201", 
-              "height": "1.60", 
-              "result": "o"
-            }, 
-            {
-              "bib": "202", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "203", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "204", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "207", 
-              "height": "1.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "101", 
+              "bib": "19", 
               "height": "1.70", 
               "result": "-"
             }, 
             {
-              "bib": "102", 
-              "height": "1.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "1.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "1.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "105", 
-              "height": "1.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "201", 
+              "bib": "10", 
               "height": "1.70", 
               "result": "o"
             }, 
             {
-              "bib": "202", 
+              "bib": "12", 
               "height": "1.70", 
               "result": "-"
             }, 
             {
-              "bib": "203", 
+              "bib": "13", 
               "height": "1.70", 
               "result": "-"
             }, 
             {
-              "bib": "204", 
-              "height": "1.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "1.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "1.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "207", 
-              "height": "1.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "101", 
+              "bib": "19", 
               "height": "1.80", 
               "result": "-"
             }, 
             {
-              "bib": "102", 
-              "height": "1.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "1.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "1.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "105", 
-              "height": "1.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "201", 
+              "bib": "10", 
               "height": "1.80", 
               "result": "o"
             }, 
             {
-              "bib": "202", 
+              "bib": "12", 
               "height": "1.80", 
               "result": "-"
             }, 
             {
-              "bib": "203", 
+              "bib": "13", 
               "height": "1.80", 
               "result": "-"
             }, 
             {
-              "bib": "204", 
-              "height": "1.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "1.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "1.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "207", 
-              "height": "1.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "101", 
+              "bib": "19", 
               "height": "1.90", 
               "result": "-"
             }, 
             {
-              "bib": "102", 
-              "height": "1.90", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "1.90", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "1.90", 
-              "result": "-"
-            }, 
-            {
-              "bib": "105", 
-              "height": "1.90", 
-              "result": "-"
-            }, 
-            {
-              "bib": "201", 
+              "bib": "10", 
               "height": "1.90", 
               "result": "o"
             }, 
             {
-              "bib": "202", 
+              "bib": "12", 
               "height": "1.90", 
               "result": "-"
             }, 
             {
-              "bib": "203", 
+              "bib": "13", 
               "height": "1.90", 
               "result": "-"
             }, 
             {
-              "bib": "204", 
-              "height": "1.90", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "1.90", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "1.90", 
-              "result": "-"
-            }, 
-            {
-              "bib": "207", 
-              "height": "1.90", 
-              "result": "o"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.00", 
-              "result": "o"
-            }, 
-            {
-              "bib": "102", 
+              "bib": "19", 
               "height": "2.00", 
               "result": "-"
             }, 
             {
-              "bib": "103", 
+              "bib": "10", 
+              "height": "2.00", 
+              "result": "x"
+            }, 
+            {
+              "bib": "12", 
               "height": "2.00", 
               "result": "-"
             }, 
             {
-              "bib": "104", 
+              "bib": "13", 
               "height": "2.00", 
               "result": "-"
             }, 
             {
-              "bib": "105", 
+              "bib": "10", 
               "height": "2.00", 
-              "result": "o"
+              "result": "x"
             }, 
             {
-              "bib": "201", 
+              "bib": "10", 
               "height": "2.00", 
-              "result": "o"
-            }, 
-            {
-              "bib": "202", 
-              "height": "2.00", 
-              "result": "-"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.00", 
-              "result": "-"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.00", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.00", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "2.00", 
-              "result": "-"
-            }, 
-            {
-              "bib": "207", 
-              "height": "2.00", 
-              "result": "o"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.10", 
-              "result": "o"
-            }, 
-            {
-              "bib": "102", 
-              "height": "2.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "2.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "2.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "105", 
-              "height": "2.10", 
-              "result": "o"
-            }, 
-            {
-              "bib": "201", 
-              "height": "2.10", 
               "result": "x"
             }, 
             {
-              "bib": "202", 
-              "height": "2.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "2.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "207", 
-              "height": "2.10", 
-              "result": "o"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.10", 
-              "result": "o"
-            }, 
-            {
-              "bib": "201", 
-              "height": "2.10", 
-              "result": "x"
-            }, 
-            {
-              "bib": "201", 
-              "height": "2.10", 
-              "result": "x"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.20", 
-              "result": "o"
-            }, 
-            {
-              "bib": "102", 
-              "height": "2.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "2.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "2.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "105", 
-              "height": "2.20", 
-              "result": "x"
-            }, 
-            {
-              "bib": "202", 
-              "height": "2.20", 
-              "result": "o"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "2.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "207", 
-              "height": "2.20", 
-              "result": "o"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.20", 
-              "result": "o"
-            }, 
-            {
-              "bib": "105", 
-              "height": "2.20", 
-              "result": "x"
-            }, 
-            {
-              "bib": "105", 
-              "height": "2.20", 
-              "result": "o"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.30", 
-              "result": "x"
-            }, 
-            {
-              "bib": "102", 
-              "height": "2.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "2.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "2.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "105", 
-              "height": "2.30", 
-              "result": "o"
-            }, 
-            {
-              "bib": "202", 
-              "height": "2.30", 
-              "result": "o"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "2.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "207", 
-              "height": "2.30", 
-              "result": "x"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.30", 
-              "result": "x"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.30", 
-              "result": "o"
-            }, 
-            {
-              "bib": "207", 
-              "height": "2.30", 
-              "result": "x"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.30", 
-              "result": "x"
-            }, 
-            {
-              "bib": "207", 
-              "height": "2.30", 
-              "result": "x"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.30", 
-              "result": "o"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.40", 
-              "result": "x"
-            }, 
-            {
-              "bib": "102", 
-              "height": "2.40", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "2.40", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "2.40", 
-              "result": "-"
-            }, 
-            {
-              "bib": "105", 
-              "height": "2.40", 
-              "result": "x"
-            }, 
-            {
-              "bib": "202", 
-              "height": "2.40", 
-              "result": "o"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.40", 
-              "result": "o"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.40", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.40", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "2.40", 
-              "result": "-"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.40", 
-              "result": "x"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.40", 
-              "result": "x"
-            }, 
-            {
-              "bib": "105", 
-              "height": "2.40", 
-              "result": "x"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.40", 
-              "result": "o"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.40", 
-              "result": "o"
-            }, 
-            {
-              "bib": "105", 
-              "height": "2.40", 
-              "result": "x"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "102", 
-              "height": "2.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
-              "height": "2.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "2.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "202", 
-              "height": "2.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "2.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "202", 
+              "bib": "19", 
               "height": "2.50", 
               "result": "o"
             }, 
             {
-              "bib": "203", 
+              "bib": "12", 
               "height": "2.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.50", 
-              "result": "o"
-            }, 
-            {
-              "bib": "101", 
-              "height": "2.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.50", 
-              "result": "o"
-            }, 
-            {
-              "bib": "102", 
-              "height": "2.60", 
               "result": "-"
             }, 
             {
-              "bib": "103", 
-              "height": "2.60", 
+              "bib": "13", 
+              "height": "2.50", 
               "result": "-"
             }, 
             {
-              "bib": "104", 
+              "bib": "19", 
               "height": "2.60", 
               "result": "o"
             }, 
             {
-              "bib": "202", 
-              "height": "2.60", 
-              "result": "o"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.60", 
-              "result": "o"
-            }, 
-            {
-              "bib": "204", 
+              "bib": "12", 
               "height": "2.60", 
               "result": "-"
             }, 
             {
-              "bib": "205", 
-              "height": "2.60", 
-              "result": "o"
-            }, 
-            {
-              "bib": "206", 
+              "bib": "13", 
               "height": "2.60", 
               "result": "-"
             }, 
             {
-              "bib": "208", 
-              "height": "2.60", 
+              "bib": "19", 
+              "height": "2.70", 
               "result": "x"
             }, 
             {
-              "bib": "208", 
-              "height": "2.60", 
-              "result": "x"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.60", 
+              "bib": "12", 
+              "height": "2.70", 
               "result": "o"
             }, 
             {
-              "bib": "102", 
+              "bib": "13", 
               "height": "2.70", 
               "result": "-"
             }, 
             {
-              "bib": "103", 
-              "height": "2.70", 
-              "result": "o"
-            }, 
-            {
-              "bib": "104", 
-              "height": "2.70", 
-              "result": "o"
-            }, 
-            {
-              "bib": "202", 
+              "bib": "19", 
               "height": "2.70", 
               "result": "x"
             }, 
             {
-              "bib": "203", 
+              "bib": "19", 
               "height": "2.70", 
               "result": "x"
             }, 
             {
-              "bib": "204", 
-              "height": "2.70", 
-              "result": "o"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.70", 
-              "result": "o"
-            }, 
-            {
-              "bib": "206", 
-              "height": "2.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "202", 
-              "height": "2.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "202", 
-              "height": "2.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "203", 
-              "height": "2.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "208", 
-              "height": "2.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "102", 
+              "bib": "12", 
               "height": "2.80", 
               "result": "x"
             }, 
             {
-              "bib": "103", 
-              "height": "2.80", 
-              "result": "x"
-            }, 
-            {
-              "bib": "104", 
-              "height": "2.80", 
-              "result": "x"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.80", 
-              "result": "o"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.80", 
-              "result": "x"
-            }, 
-            {
-              "bib": "206", 
+              "bib": "13", 
               "height": "2.80", 
               "result": "-"
             }, 
             {
-              "bib": "102", 
+              "bib": "12", 
               "height": "2.80", 
               "result": "o"
             }, 
             {
-              "bib": "103", 
-              "height": "2.80", 
-              "result": "o"
-            }, 
-            {
-              "bib": "104", 
-              "height": "2.80", 
-              "result": "o"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.80", 
-              "result": "x"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.80", 
-              "result": "o"
-            }, 
-            {
-              "bib": "102", 
-              "height": "2.90", 
-              "result": "-"
-            }, 
-            {
-              "bib": "103", 
+              "bib": "12", 
               "height": "2.90", 
               "result": "o"
             }, 
             {
-              "bib": "104", 
-              "height": "2.90", 
-              "result": "x"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.90", 
-              "result": "x"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.90", 
-              "result": "x"
-            }, 
-            {
-              "bib": "206", 
+              "bib": "13", 
               "height": "2.90", 
               "result": "o"
             }, 
             {
-              "bib": "104", 
-              "height": "2.90", 
-              "result": "o"
-            }, 
-            {
-              "bib": "204", 
-              "height": "2.90", 
-              "result": "o"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.90", 
-              "result": "x"
-            }, 
-            {
-              "bib": "205", 
-              "height": "2.90", 
-              "result": "x"
-            }, 
-            {
-              "bib": "102", 
+              "bib": "12", 
               "height": "3.00", 
               "result": "x"
             }, 
             {
-              "bib": "103", 
-              "height": "3.00", 
-              "result": "x"
-            }, 
-            {
-              "bib": "104", 
-              "height": "3.00", 
-              "result": "-"
-            }, 
-            {
-              "bib": "204", 
+              "bib": "13", 
               "height": "3.00", 
               "result": "o"
             }, 
             {
-              "bib": "206", 
-              "height": "3.00", 
-              "result": "o"
-            }, 
-            {
-              "bib": "102", 
+              "bib": "12", 
               "height": "3.00", 
               "result": "x"
             }, 
             {
-              "bib": "103", 
+              "bib": "12", 
               "height": "3.00", 
               "result": "x"
             }, 
             {
-              "bib": "102", 
-              "height": "3.00", 
-              "result": "o"
-            }, 
-            {
-              "bib": "103", 
-              "height": "3.00", 
-              "result": "x"
-            }, 
-            {
-              "bib": "102", 
-              "height": "3.05", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "3.05", 
-              "result": "x"
-            }, 
-            {
-              "bib": "204", 
-              "height": "3.05", 
-              "result": "-"
-            }, 
-            {
-              "bib": "206", 
-              "height": "3.05", 
-              "result": "-"
-            }, 
-            {
-              "bib": "104", 
-              "height": "3.05", 
-              "result": "x"
-            }, 
-            {
-              "bib": "104", 
-              "height": "3.05", 
-              "result": "x"
-            }, 
-            {
-              "bib": "102", 
+              "bib": "13", 
               "height": "3.10", 
               "result": "x"
             }, 
             {
-              "bib": "204", 
+              "bib": "13", 
               "height": "3.10", 
               "result": "o"
             }, 
             {
-              "bib": "206", 
-              "height": "3.10", 
+              "bib": "13", 
+              "height": "3.20", 
               "result": "x"
             }, 
             {
-              "bib": "102", 
-              "height": "3.10", 
-              "result": "x"
-            }, 
-            {
-              "bib": "206", 
-              "height": "3.10", 
-              "result": "o"
-            }, 
-            {
-              "bib": "102", 
-              "height": "3.10", 
-              "result": "x"
-            }, 
-            {
-              "bib": "204", 
+              "bib": "13", 
               "height": "3.20", 
               "result": "o"
             }, 
             {
-              "bib": "206", 
-              "height": "3.20", 
-              "result": "o"
+              "bib": "13", 
+              "height": "3.25", 
+              "result": "-"
             }, 
             {
-              "bib": "204", 
+              "bib": "13", 
               "height": "3.30", 
               "result": "x"
             }, 
             {
-              "bib": "206", 
-              "height": "3.30", 
-              "result": "o"
-            }, 
-            {
-              "bib": "204", 
+              "bib": "13", 
               "height": "3.30", 
               "result": "x"
             }, 
             {
-              "bib": "204", 
+              "bib": "13", 
               "height": "3.30", 
-              "result": "x"
-            }, 
-            {
-              "bib": "206", 
-              "height": "3.40", 
-              "result": "x"
-            }, 
-            {
-              "bib": "206", 
-              "height": "3.40", 
-              "result": "x"
-            }, 
-            {
-              "bib": "206", 
-              "height": "3.40", 
               "result": "x"
             }
           ]
         }, 
         {
-          "eventId": "F01", 
+          "day": 1, 
+          "eventId": "F04", 
           "eventName": "IVK Stav", 
           "heat": 2, 
           "heights": [
-            "3.20", 
-            "3.30", 
-            "3.35", 
-            "3.40", 
-            "3.50", 
-            "3.60", 
             "3.70", 
             "3.80", 
-            "3.85", 
             "3.90", 
-            "4.10", 
-            "4.30", 
-            "4.40", 
-            "4.50", 
-            "4.60", 
-            "4.75"
+            "4.05", 
+            "4.11"
           ], 
-          "initialHeight": "3.20", 
+          "initialHeight": "3.70", 
           "results": [
             {
-              "bib": "209", 
+              "bib": "26", 
               "catpos": 1, 
-              "performance": "3.60", 
-              "place": 4, 
-              "points": 0
-            }, 
-            {
-              "bib": "210", 
-              "catpos": 1, 
-              "performance": "4.40", 
-              "place": 2, 
-              "points": 0
-            }, 
-            {
-              "bib": "211", 
-              "catpos": 1, 
-              "performance": "4.60", 
+              "performance": "4.05", 
               "place": 1, 
-              "points": 0
-            }, 
-            {
-              "bib": "212", 
-              "catpos": 1, 
-              "performance": "NH", 
-              "place": 5, 
-              "points": 0
-            }, 
-            {
-              "bib": "214", 
-              "catpos": 2, 
-              "performance": "3.60", 
-              "place": 3, 
               "points": 0
             }
           ], 
           "resultsStatus": "official", 
           "round": 1, 
-          "scheduledStartTime": "14:00", 
           "showAgeGrade": false, 
           "showAthleteDetails": true, 
           "showAthlonPoints": false, 
@@ -1786,325 +3134,96 @@
           "status": "finished", 
           "trials": [
             {
-              "bib": "209", 
-              "height": "3.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "210", 
-              "height": "3.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "211", 
-              "height": "3.20", 
-              "result": "-"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.20", 
-              "result": "o"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.30", 
-              "result": "o"
-            }, 
-            {
-              "bib": "210", 
-              "height": "3.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "211", 
-              "height": "3.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.35", 
-              "result": "-"
-            }, 
-            {
-              "bib": "210", 
-              "height": "3.35", 
-              "result": "-"
-            }, 
-            {
-              "bib": "211", 
-              "height": "3.35", 
-              "result": "-"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.35", 
-              "result": "-"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.40", 
-              "result": "o"
-            }, 
-            {
-              "bib": "210", 
-              "height": "3.40", 
-              "result": "-"
-            }, 
-            {
-              "bib": "211", 
-              "height": "3.40", 
-              "result": "-"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.40", 
-              "result": "o"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "210", 
-              "height": "3.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "211", 
-              "height": "3.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.50", 
-              "result": "o"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.60", 
-              "result": "x"
-            }, 
-            {
-              "bib": "210", 
-              "height": "3.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "211", 
-              "height": "3.60", 
-              "result": "-"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.60", 
-              "result": "o"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.60", 
-              "result": "o"
-            }, 
-            {
-              "bib": "209", 
+              "bib": "26", 
               "height": "3.70", 
-              "result": "x"
+              "result": "o"
             }, 
             {
-              "bib": "210", 
-              "height": "3.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "211", 
-              "height": "3.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.70", 
-              "result": "-"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "209", 
-              "height": "3.70", 
-              "result": "x"
-            }, 
-            {
-              "bib": "210", 
+              "bib": "26", 
               "height": "3.80", 
-              "result": "-"
+              "result": "o"
             }, 
             {
-              "bib": "211", 
-              "height": "3.80", 
-              "result": "-"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.80", 
-              "result": "x"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.80", 
-              "result": "x"
-            }, 
-            {
-              "bib": "214", 
-              "height": "3.80", 
-              "result": "x"
-            }, 
-            {
-              "bib": "210", 
-              "height": "3.85", 
-              "result": "-"
-            }, 
-            {
-              "bib": "211", 
-              "height": "3.85", 
-              "result": "-"
-            }, 
-            {
-              "bib": "210", 
+              "bib": "26", 
               "height": "3.90", 
               "result": "x"
             }, 
             {
-              "bib": "211", 
+              "bib": "26", 
               "height": "3.90", 
-              "result": "-"
+              "result": "x"
             }, 
             {
-              "bib": "210", 
+              "bib": "26", 
               "height": "3.90", 
               "result": "o"
             }, 
             {
-              "bib": "210", 
-              "height": "4.10", 
+              "bib": "26", 
+              "height": "4.05", 
+              "result": "x"
+            }, 
+            {
+              "bib": "26", 
+              "height": "4.05", 
+              "result": "x"
+            }, 
+            {
+              "bib": "26", 
+              "height": "4.05", 
               "result": "o"
             }, 
             {
-              "bib": "211", 
-              "height": "4.10", 
-              "result": "-"
-            }, 
-            {
-              "bib": "210", 
-              "height": "4.30", 
-              "result": "o"
-            }, 
-            {
-              "bib": "211", 
-              "height": "4.30", 
-              "result": "-"
-            }, 
-            {
-              "bib": "210", 
-              "height": "4.40", 
+              "bib": "26", 
+              "height": "4.11", 
               "result": "x"
             }, 
             {
-              "bib": "211", 
-              "height": "4.40", 
-              "result": "o"
-            }, 
-            {
-              "bib": "210", 
-              "height": "4.40", 
+              "bib": "26", 
+              "height": "4.11", 
               "result": "x"
             }, 
             {
-              "bib": "210", 
-              "height": "4.40", 
-              "result": "o"
-            }, 
-            {
-              "bib": "210", 
-              "height": "4.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "211", 
-              "height": "4.50", 
-              "result": "-"
-            }, 
-            {
-              "bib": "210", 
-              "height": "4.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "210", 
-              "height": "4.50", 
-              "result": "x"
-            }, 
-            {
-              "bib": "211", 
-              "height": "4.60", 
-              "result": "x"
-            }, 
-            {
-              "bib": "211", 
-              "height": "4.60", 
-              "result": "o"
-            }, 
-            {
-              "bib": "211", 
-              "height": "4.75", 
-              "result": "x"
-            }, 
-            {
-              "bib": "211", 
-              "height": "4.75", 
-              "result": "x"
-            }, 
-            {
-              "bib": "211", 
-              "height": "4.75", 
+              "bib": "26", 
+              "height": "4.11", 
               "result": "x"
             }
           ]
         }, 
         {
-          "eventId": "F01", 
+          "day": 1, 
+          "eventId": "F04", 
           "eventName": "IVK Stav", 
           "heat": 3, 
           "heights": [
-            "4.80", 
-            "4.90", 
-            "5.00", 
-            "5.10"
+            "1.50", 
+            "1.60", 
+            "1.70", 
+            "1.80", 
+            "1.90", 
+            "2.00", 
+            "2.10", 
+            "2.20"
           ], 
-          "initialHeight": "4.80", 
+          "initialHeight": "1.50", 
           "results": [
             {
-              "bib": "213", 
+              "bib": "7", 
               "catpos": 1, 
-              "performance": "5.00", 
+              "performance": "2.10", 
               "place": 1, 
+              "points": 0
+            }, 
+            {
+              "bib": "15", 
+              "catpos": 1, 
+              "performance": "2.00", 
+              "place": 2, 
               "points": 0
             }
           ], 
           "resultsStatus": "official", 
           "round": 1, 
-          "scheduledStartTime": "12:30", 
           "showAgeGrade": false, 
           "showAthleteDetails": true, 
           "showAthlonPoints": false, 
@@ -2113,48 +3232,108 @@
           "status": "finished", 
           "trials": [
             {
-              "bib": "213", 
-              "height": "4.80", 
+              "bib": "7", 
+              "height": "1.50", 
               "result": "o"
             }, 
             {
-              "bib": "213", 
-              "height": "4.90", 
-              "result": "x"
-            }, 
-            {
-              "bib": "213", 
-              "height": "4.90", 
-              "result": "x"
-            }, 
-            {
-              "bib": "213", 
-              "height": "4.90", 
+              "bib": "15", 
+              "height": "1.50", 
               "result": "o"
             }, 
             {
-              "bib": "213", 
-              "height": "5.00", 
-              "result": "x"
-            }, 
-            {
-              "bib": "213", 
-              "height": "5.00", 
+              "bib": "7", 
+              "height": "1.60", 
               "result": "o"
             }, 
             {
-              "bib": "213", 
-              "height": "5.10", 
+              "bib": "15", 
+              "height": "1.60", 
+              "result": "o"
+            }, 
+            {
+              "bib": "7", 
+              "height": "1.70", 
               "result": "x"
             }, 
             {
-              "bib": "213", 
-              "height": "5.10", 
+              "bib": "15", 
+              "height": "1.70", 
+              "result": "o"
+            }, 
+            {
+              "bib": "7", 
+              "height": "1.70", 
+              "result": "o"
+            }, 
+            {
+              "bib": "7", 
+              "height": "1.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "15", 
+              "height": "1.80", 
+              "result": "o"
+            }, 
+            {
+              "bib": "7", 
+              "height": "1.90", 
               "result": "x"
             }, 
             {
-              "bib": "213", 
-              "height": "5.10", 
+              "bib": "15", 
+              "height": "1.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "7", 
+              "height": "1.90", 
+              "result": "o"
+            }, 
+            {
+              "bib": "7", 
+              "height": "2.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "15", 
+              "height": "2.00", 
+              "result": "o"
+            }, 
+            {
+              "bib": "7", 
+              "height": "2.10", 
+              "result": "o"
+            }, 
+            {
+              "bib": "15", 
+              "height": "2.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "15", 
+              "height": "2.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "15", 
+              "height": "2.10", 
+              "result": "x"
+            }, 
+            {
+              "bib": "7", 
+              "height": "2.20", 
+              "result": "x"
+            }, 
+            {
+              "bib": "7", 
+              "height": "2.20", 
+              "result": "x"
+            }, 
+            {
+              "bib": "7", 
+              "height": "2.20", 
               "result": "x"
             }
           ]
@@ -2162,13 +3341,15 @@
       ]
     }
   ], 
-  "finishDate": "2019-12-21", 
-  "fullName": "F\u00f8rjulsspretten", 
-  "id": "9d10f0fc-2bf2-47f9-a3da-7e5efa6ad5a0", 
+  "finishDate": "2020-02-28", 
+  "fullName": "KollHoppKast", 
+  "id": "ad2aa916-4ead-473b-b02b-31fcd9e7c032", 
+  "organiser": "1376e260-82f7-4bf6-9da6-064fd76c6d87", 
   "relayTeams": [], 
-  "slug": "forjulsspretten", 
+  "slug": "kollhoppkast", 
   "teamTypes": "ORG", 
   "teams": [], 
+  "type": "INDOOR", 
   "venue": {
     "altitude": null, 
     "certification": "", 
@@ -2200,5 +3381,5 @@
     "verified": true, 
     "waterJump": ""
   }, 
-  "year": 2019
+  "year": 2020
 }
