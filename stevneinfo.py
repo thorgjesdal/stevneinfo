@@ -638,10 +638,12 @@ def class_code(name):
             'Gutter 16'    : 'G16'          , 
             'Gutter 17'    : 'G17'          , 
             'Gutter 18/19' : 'G18/19'       , 
+            'Gutter alle klasser' : 'GALLE'       , 
             'Menn junior'  : 'MJ'           , 
             'Menn U20'     : 'MU20'         , 
             'Menn U23'     : 'MU23'         , 
             'Menn senior'  : 'MS'           , 
+            'Menn alle klasser'  : 'MALLE'           , 
             'Menn veteraner' : 'MV'         , 
             'Jenter 8'     : 'J 8'          , 
             'Jenter 9'     : 'J 9'          , 
@@ -654,10 +656,12 @@ def class_code(name):
             'Jenter 16'    : 'J16'          , 
             'Jenter 17'    : 'J17'          , 
             'Jenter 18/19' : 'J18/19'       , 
+            'Jenter alle klasser' : 'JALLE'       , 
             'Kvinner junior'  : 'KJ'        , 
             'Kvinner U20'     : 'KU20'      , 
             'Kvinner U23'     : 'KU23'      , 
             'Kvinner senior'  : 'KS'        , 
+            'Kvinner alle klasser'  : 'KALLE'           , 
             'Kvinner veteraner' : 'KV'      ,
             'Funksjonshemmede' : 'FH'      ,
             'Ikke valgt klasse' : 'IVK'
@@ -679,8 +683,10 @@ def age_group(class_code):
             'G16'    : 'U17',
             'G17'    : 'U18',
             'G18/19' : 'U20',
+            'GALLE' : 'ALL',
             'MJ'     : 'U20' ,
             'MS'     : 'SEN' ,
+            'MALLE'     : 'ALL' ,
             'MV'     : 'V35' ,
             'MV35'   : 'V35' ,
             'J 8'    : 'U9',
@@ -694,8 +700,10 @@ def age_group(class_code):
             'J16'    : 'U17',
             'J17'    : 'U18',
             'J18/19' : 'U20',
+            'JALLE' : 'ALL',
             'KJ'     : 'U20',
             'KS'     : 'SEN' ,
+            'KALLE'     : 'ALL' ,
             'FH'   : 'ALL' ,
             'IVK'    : 'ALL'  
             }
@@ -714,6 +722,7 @@ def age_group(class_code):
             'G16'    : 'U17B',
             'G17'    : 'U18B',
             'G18/19' : 'U20M',
+            'G10-19' : 'ALL',
             'MJ'     : 'U20M' ,
             'MS'     : 'SM' ,
             'MV'     : 'V35M' ,
@@ -729,6 +738,7 @@ def age_group(class_code):
             'J16'    : 'U17G',
             'J17'    : 'U18G',
             'J18/19' : 'U20W',
+            'J10-19' : 'ALL',
             'KJ'     : 'U20W' ,
             'KS'     : 'SW' 
             }
@@ -938,6 +948,8 @@ def club_code(club_name):
        club_code=u'BYI'
     elif club_name in (u'Byneset IL Hovedlaget'):
        club_code=u'BYN'
+    elif club_name in (u'Bøler IF'):
+       club_code=u'BIF'
     elif club_name in (u'Bækkelagets SK'):
        club_code=u'BSK'
     elif club_name in (u'Bærums Verk Hauger Idrettsforening'):
@@ -1290,6 +1302,8 @@ def club_code(club_name):
        club_code=u'STKAM'
     elif club_name in (u'IL Triumf'):
        club_code=u'TRIUM'
+    elif club_name in (u'Vestby IL'):
+       club_code=u'VESTB'
     elif club_name in (u'Il Vindbjart'):
        club_code=u'VIND'
     elif club_name in (u'IL Vinger'):
@@ -2059,6 +2073,8 @@ def club_name(club_code):
        club_name=u'Balestrand Idrettslag'
     elif club_code == (u'BARD'):
        club_name=u'Bardu Idrettslag'
+    elif club_code == (u'BIF'):
+       club_name=u'Bøler Idrettslag'
     elif club_code == (u'BTSFJ'):
        club_name=u'Båtsfjord Sportsklubb'
     elif club_code == (u'BGND'):
@@ -3063,6 +3079,8 @@ def club_name(club_code):
        club_name=u'Velledalen Idrettslag'
     elif club_code == (u'VERD'):
        club_name=u'Verdal Friidrettsklubb'
+    elif club_code == (u'VESTB'):
+       club_name=u'Vestby Idrettslag'
     elif club_code == (u'VESTB'):
        club_name=u'Vestby Idrettslag'
     elif club_code == (u'VESTF'):
