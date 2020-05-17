@@ -13,8 +13,11 @@ def get_category(birthdate, eventdate, gender):
 
     g = {'F' : 'J', 'M' : 'G' }
     if age > 19:
-        a = 'S'
         g = {'F' : 'K', 'M' : 'M' }
+        if age < 35:
+           a = 'S'
+        else:
+           a = 'V' + '%d'%(5*int(age/5))
     elif age in (18,19):
         a = '18/19'
     else:
@@ -628,7 +631,11 @@ def event_spec(event, klasse):
                        'J18/19' : '1,0kg', 'KU20' : '1,0kg', 'KU23' : '1,0kg', 'KS' : '1,0kg', 
                        'G10' : '0,6kg', 'G11' : '0,6kg', 'G12' : '0,75kg', 'G13' : '0,75kg', 
                        'G14' : '1,0kg', 'G15' : '1,0kg', 'G16' : '1,5kg', 'G17' : '1,5kg',
-                       'G18/19' : '1,75kg', 'MU20' : '1,75kg', 'MU23' : '2,0kg', 'MS' : '2,0kg'} 
+                       'G18/19' : '1,75kg', 'MU20' : '1,75kg', 'MU23' : '2,0kg', 'MS' : '2,0kg', 
+                       'MV35' : '2,0kg', 'MV40' : '2,0kg', 'MV45' : '2,0kg',
+                       'MV50' : '1,5kg', 'MV55' : '1,5kg', 
+                       'MV60' : '1,0kg', 'MV65' : '1,0kg', 'MV70' : '1,0kg', 'MV75' : '1,0kg' 
+                       } 
     throws['HT'] = { 'J10' : '2,0kg', 'J11' : '2,0kg', 'J12' : '2,0kg', 'J13' : '2,0kg', 
                        'J14' : '3,0kg', 'J15' : '3,0kg', 'J16' : '3,0kg', 'J17' : '3,0kg',
                        'J18/19' : '4,0kg', 'KU20' : '4,0kg', 'KU23' : '4,0kg', 'KS' : '4,0kg', 
@@ -697,7 +704,10 @@ bdate = datetime.datetime.strptime('2005-06-24', isodateformat)
 
 meetname = j['fullName']
 slug = j['slug']
-venue = j['venue']['formalName']
+if j.get('venue') == None: 
+    venue = ''
+else:
+    venue = j['venue']['formalName']
 #print(meetname, venue)
 
 ignore_bibs = []
@@ -818,7 +828,7 @@ for e in j["events"]:
                     j = s.index('o')
                     ij = min(i,j)
                     series[event_code][bib] = s[ij-5:]
-            elif event_code in ('LJ', 'SP'):
+            elif event_code in ('LJ', 'SP', 'DT'):
                 for t in u['trials']:
                     bib = t['bib']
                     if trials.get(bib)==None:
