@@ -176,6 +176,8 @@ def sort_events_by_athlete(tree):
        fn = n.find('Given')
        en = n.find('Family')
        bd = p.find('BirthDate')
+       idd = p.find('Identity')
+       idt = idd.attrib['value']
        name = fn.text + ' ' + en.text
        dd = int(bd.attrib['day'])
        mm = int(bd.attrib['month'])
@@ -186,7 +188,7 @@ def sort_events_by_athlete(tree):
        ec = c.find('./Entry/Exercise')
        #event = klasse + ' ' +ec.attrib['name'] 
        event = ( klasse, ec.attrib['name'] )
-       athlete_key = '+'.join((fn.text, en.text, dob, g, club))
+       athlete_key = '+'.join((fn.text, en.text, dob, g, club,idt))
 
        if athlete_key not in events_by_athlete.keys():
            events_by_athlete[athlete_key] = []
@@ -299,9 +301,11 @@ def write_opentrack_import(tree):
         dob = '-'.join(( k[2][6:10], k[2][3:5], k[2][0:2] ))
         g = k[3]
         club = k[4]
+        ident = k[5]
 
         for e in events_by_athlete[key]:
             ws["A%d"%row_counter] = bib
+            ws["B%d"%row_counter] = ident
             ws["C%d"%row_counter] = fn
             ws["D%d"%row_counter] = en
             ws["E%d"%row_counter] = gender(g)
@@ -974,7 +978,7 @@ def club_code(club_name):
        club_code=u'DRIV'
     elif club_name in (u'Driva IL'):
        club_code=u'DRIVA'
-    elif club_name in (u'Drøbak-Frogn Idrettslag'):
+    elif club_name in (u'Drøbak-Frogn Idrettslag', u'Drøbak-Frogn IL'):
        club_code=u'DRFR'
     elif club_name in (u'Dypvåg Idrettsforening'):
        club_code=u'DPVG'
@@ -1076,7 +1080,7 @@ def club_code(club_name):
        club_code=u'GJER'
     elif club_name in (u'Gjerstad Idrettslag'):
        club_code=u'GJERS'
-    elif club_name in (u'Gjesdal Idrettslag'):
+    elif club_name in (u'Gjesdal Idrettslag' , 'Gjesdal IL'):
        club_code=u'GJDAL'
     elif club_name in (u'Gjøvik Friidrettsklubb'):
        club_code=u'GJFK'
@@ -1257,9 +1261,9 @@ def club_code(club_name):
     elif club_name in (u'Idrottslaget Gular Bygdeungdomen I Bergen', u'IL Gular'):
        club_code=u'GULA'
     elif club_name in (u'IDROTTSLAGET I BUL', u'IL i BUL'):
-       club_code=u'ILIBUL'
-    elif club_name in (u'IDROTTSLAGET I BUL 2'):
        club_code=u'ILBUL'
+#   elif club_name in (u'IDROTTSLAGET I BUL 2'):
+#      club_code=u'ILBUL'
     elif club_name in (u'Idrottslaget Jotun', u'Jotun IL'):
        club_code=u'JOT'
     elif club_name in (u'Idun Idrettslag'):
@@ -1322,7 +1326,7 @@ def club_code(club_name):
        club_code=u'JVTN'
     elif club_name in (u'Jøa Idrettslag'):
        club_code=u'JIL'
-    elif club_name in (u'Jølster Idrettslag'):
+    elif club_name in (u'Jølster Idrettslag', u'Jølster IL'):
        club_code=u'JLSTE'
     elif club_name in (u'Kaupanger Idrettslag'):
        club_code=u'KAUP'
@@ -1346,6 +1350,8 @@ def club_code(club_name):
        club_code=u'KNGSB'
     elif club_name in (u'Kongsvinger IL Friidrett'):
        club_code=u'KNGSV'
+    elif club_name in (u'Konnerud IL Friidrett'):
+       club_code=u'KONN'
     elif club_name in (u'Kopervik Idrettslag'):
        club_code=u'KOP'
     elif club_name in (u'Korgen Idrettslag'):
@@ -1464,7 +1470,7 @@ def club_code(club_name):
        club_code=u'MOSJ'
     elif club_name in (u'Moss Idrettslag', u'Moss IL'):
        club_code=u'MOSS'
-    elif club_name in (u'Mosvik Idrettslag'):
+    elif club_name in (u'Mosvik Idrettslag', 'Mosvik IL - Friidrett'):
        club_code=u'MOSV'
     elif club_name in (u'MUIL - Mefjordvær Ungdoms- og Idrettslag'):
        club_code=u'MUIL'
@@ -1550,7 +1556,7 @@ def club_code(club_name):
        club_code=u'FRII'
     elif club_name in (u'Oslo Politis Idrettslag'):
        club_code=u'POLIT'
-    elif club_name in (u'Oslostudentenes Idrettsklubb'):
+    elif club_name in (u'Oslostudentenes Idrettsklubb', 'Oslostudentenes IK'):
        club_code=u'OSI'
     elif club_name in (u'Osterøy Idrottslag', u'Osterøy IL'):
        club_code=u'OST'
@@ -2537,6 +2543,8 @@ def club_name(club_code):
        club_name=u'Kongsberg Idrettsforening'
     elif club_code == (u'KNGSV'):
        club_name=u'Kongsvinger IL Friidrett'
+    elif club_code == (u'KONN'):
+       club_name = u'Konnerud IL'
     elif club_code == (u'KOP'):
        club_name=u'Kopervik Idrettslag'
     elif club_code == (u'KORG'):
