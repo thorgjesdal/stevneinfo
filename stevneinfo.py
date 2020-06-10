@@ -707,46 +707,11 @@ def age_group(class_code):
             'JALLE' : 'ALL',
             'KJ'     : 'U20',
             'KS'     : 'SEN' ,
+            'KV'     : 'V35' ,
             'KALLE'     : 'ALL' ,
             'FH'   : 'ALL' ,
             'IVK'    : 'ALL'  
             }
-    """
-    age_groups = {
-            'F6'    : 'U7MF',
-            'F7'    : 'U8MF',
-            'G 8'    : 'U9B',
-            'G 9'    : 'U10B',
-            'G10'    : 'U11B',
-            'G11'    : 'U12B',
-            'G12'    : 'U13B',
-            'G13'    : 'U14B',
-            'G14'    : 'U15B',
-            'G15'    : 'U16B',
-            'G16'    : 'U17B',
-            'G17'    : 'U18B',
-            'G18/19' : 'U20M',
-            'G10-19' : 'ALL',
-            'MJ'     : 'U20M' ,
-            'MS'     : 'SM' ,
-            'MV'     : 'V35M' ,
-            'MV35'   : 'V35M' ,
-            'J 8'    : 'U9G',
-            'J 9'    : 'U10G',
-            'J10'    : 'U11G',
-            'J11'    : 'U12G',
-            'J12'    : 'U13G',
-            'J13'    : 'U14G',
-            'J14'    : 'U15G',
-            'J15'    : 'U16G',
-            'J16'    : 'U17G',
-            'J17'    : 'U18G',
-            'J18/19' : 'U20W',
-            'J10-19' : 'ALL',
-            'KJ'     : 'U20W' ,
-            'KS'     : 'SW' 
-            }
-    """
 
     return age_groups[class_code]
 
