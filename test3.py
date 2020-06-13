@@ -230,7 +230,7 @@ def club_name(club_code):
     u'FRI':u'Idrettslaget Fri',
     u'GNE':u'Idrettslaget Gneist',
     u'HOLE':u'Idrettslaget Holeværingen',
-    u'BULT':u'Idrettslaget I Bondeungdomslaget I Tromsø',
+    u'BULT':u'IL i Bondeungdomslaget i Tromsø',
     u'ILAR':u'Idrettslaget Ilar',
     u'IVRIG':u'Idrettslaget Ivrig',
     u'JARD':u'Idrettslaget Jardar',
@@ -244,14 +244,14 @@ def club_name(club_code):
     u'SYR':u'Idrettslaget Syril',
     u'TRY':u'Idrettslaget Trysilgutten',
     u'GULA':u'Idrottslaget Gular Bygdeungdomen I Bergen',
-    u'ILIBUL':u'IDROTTSLAGET I BUL',
-    u'ILBUL':u'IDROTTSLAGET I BUL 2',
+    u'ILIBUL':u'IL i BUL',
+    u'ILBUL':u'IL i BUL',
     u'JOT':u'Idrottslaget Jotun',
     u'IDUN':u'Idun Idrettslag',
-    u'EIKKV':u'If Eiker Kvikk',
+    u'EIKKV':u'IF Eiker Kvikk',
     u'KAVE':u'IF Kamp/Vestheim',
-    u'KLYP':u'If Klypetussen',
-    u'GRANE':u'Ik Grane Arendal Friidrett',
+    u'KLYP':u'IF Klypetussen',
+    u'GRANE':u'IK Grane Arendal Friidrett',
     u'HIND':u'IK Hind',
     u'IKORN':u'Ikornnes Idrettslag',
     u'AASG':u'IL Aasguten',
@@ -902,7 +902,7 @@ for event in sorted(results.keys()):
                 ws["E%(row_counter)d"%vars()] = club_name(club)
                 ws["F%(row_counter)d"%vars()] = perf
 
-#--- extract wind form best performance from s
+#--- extract wind for best performance from series
                 s = series[event].get(bib, 'no_series')
                 if not s == 'no_series':
                     pat = r'/?%(perf)s\(([+-]?\d,\d)\)/?' % vars()
@@ -915,8 +915,6 @@ for event in sorted(results.keys()):
                 row_counter +=1
         row_counter +=1
         
-
-
 print("done")
 
 """
