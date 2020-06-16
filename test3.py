@@ -230,7 +230,7 @@ def club_name(club_code):
     u'FRI':u'Idrettslaget Fri',
     u'GNE':u'Idrettslaget Gneist',
     u'HOLE':u'Idrettslaget Holeværingen',
-    u'BULT':u'Idrettslaget I Bondeungdomslaget I Tromsø',
+    u'BULT':u'IL i Bondeungdomslaget i Tromsø',
     u'ILAR':u'Idrettslaget Ilar',
     u'IVRIG':u'Idrettslaget Ivrig',
     u'JARD':u'Idrettslaget Jardar',
@@ -244,14 +244,14 @@ def club_name(club_code):
     u'SYR':u'Idrettslaget Syril',
     u'TRY':u'Idrettslaget Trysilgutten',
     u'GULA':u'Idrottslaget Gular Bygdeungdomen I Bergen',
-    u'ILIBUL':u'IDROTTSLAGET I BUL',
-    u'ILBUL':u'IDROTTSLAGET I BUL 2',
+    u'ILIBUL':u'IL i BUL',
+    u'ILBUL':u'IL i BUL',
     u'JOT':u'Idrottslaget Jotun',
     u'IDUN':u'Idun Idrettslag',
-    u'EIKKV':u'If Eiker Kvikk',
+    u'EIKKV':u'IF Eiker Kvikk',
     u'KAVE':u'IF Kamp/Vestheim',
-    u'KLYP':u'If Klypetussen',
-    u'GRANE':u'Ik Grane Arendal Friidrett',
+    u'KLYP':u'IF Klypetussen',
+    u'GRANE':u'IK Grane Arendal Friidrett',
     u'HIND':u'IK Hind',
     u'IKORN':u'Ikornnes Idrettslag',
     u'AASG':u'IL Aasguten',
@@ -784,7 +784,7 @@ d  = j['date']
 d2 = j['finishDate']
 isodateformat = "%Y-%m-%d"
 date = datetime.datetime.strptime(d, isodateformat)
-print(d, date)
+#print(d, date)
 date2 = datetime.datetime.strptime(d2, isodateformat)
 bdate = datetime.datetime.strptime('2005-06-24', isodateformat)
 #print(get_category(bdate,date,'F'))
@@ -858,9 +858,6 @@ for e in j['events']:
 """
 #print(competitors)
 
-
-
-
 poolnr = 0
 results ={}
 series = {}
@@ -921,14 +918,21 @@ for e in j["events"]:
                     bib = t['bib']
                     if trials.get(bib)==None:
                         trials[bib] = {}
-                    print(event_code, t)
+#                   print(event_code, t)
                     rond = t['round']
                     if trials[bib].get(rond)==None:
-                        trials[bib][rond] = t['result']
+                        trials[bib][rond] = {}
+                    trials[bib][rond]['result'] = t['result']
+                    if 'wind' in t.keys():
+                        trials[bib][rond]['wind'] = t['wind']
+
                 for bib in trials.keys():
                     s = ''
                     for rond in sorted(trials[bib].keys() ):
-                        s += trials[bib][rond] + '/'
+                        s += trials[bib][rond]['result'] 
+                        if 'wind' in trials[bib][rond].keys():
+                            s += "(%3.1f)" % (trials[bib][rond]['wind'])
+                        s += '/'    
                     s = s.replace('.',',')
                     series[event_code][bib] = s[:-1]
 
@@ -958,7 +962,7 @@ row_counter = 14
 
 #print(results)
 for event in sorted(results.keys()):
-    print(event)
+#   print(event)
     for cat in sorted(results[event].keys() ):
         ws["A%(row_counter)d"%vars()] = cat; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
         ws["B%(row_counter)d"%vars()] = event_spec(event,cat) ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
@@ -966,7 +970,7 @@ for event in sorted(results.keys()):
         #print(cat)
         heats = sorted(results[event][cat].keys() )
         for h, heat in zip(range(len(heats)), heats):
-            print('Heat: %d'%(h+1))
+#           print('Heat: %d'%(h+1))
             ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
             row_counter +=1
             sorted_result = sorted(results[event][cat][heat], key=lambda tup: tup[2])
@@ -978,21 +982,27 @@ for event in sorted(results.keys()):
                 ln  = competitors[bib][1]
                 dob = competitors[bib][2]
                 club = competitors[bib][4]
-                print(i+1, fn+' '+ln, club, perf)
+
                 ws["A%(row_counter)d"%vars()] = i+1
                 #ws["B%(row_counter)d"%vars()] = bib
                 ws["C%(row_counter)d"%vars()] = ' '.join((fn,ln))
                 ws["D%(row_counter)d"%vars()] = dob.strftime('%Y')
                 ws["E%(row_counter)d"%vars()] = club_name(club)
                 ws["F%(row_counter)d"%vars()] = perf
-                row_counter +=1
+
+#--- extract wind for best performance from series
                 s = series[event].get(bib, 'no_series')
+                if not s == 'no_series':
+                    pat = r'/?%(perf)s\(([+-]?\d,\d)\)/?' % vars()
+                    match = re.search(pat,s)
+                    if match:
+                        ws["G%(row_counter)d"%vars()] = match.group(1)
+
+                row_counter +=1
                 ws["A%(row_counter)d"%vars()] = s
                 row_counter +=1
         row_counter +=1
         
-
-
 print("done")
 
 """
@@ -1022,6 +1032,7 @@ for klasse in class_keys:
           if ishjump(event):
              ws["G%(row_counter)d"%vars()] = "<vind>";  grc = ws["G%(row_counter)d"%vars()]; grc.font=greenfont
              ws["H%(row_counter)d"%vars()] = "<resultat>";  hrc = ws["H%(row_counter)d"%vars()]; hrc.font=greenfont
+
              ws["I%(row_counter)d"%vars()] = "<vind>";  irc = ws["I%(row_counter)d"%vars()]; irc.font=greenfont
           if isfield(event):
              row_counter +=1 # add blank line for series

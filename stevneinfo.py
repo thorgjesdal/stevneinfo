@@ -707,46 +707,11 @@ def age_group(class_code):
             'JALLE' : 'ALL',
             'KJ'     : 'U20',
             'KS'     : 'SEN' ,
+            'KV'     : 'V35' ,
             'KALLE'     : 'ALL' ,
             'FH'   : 'ALL' ,
             'IVK'    : 'ALL'  
             }
-    """
-    age_groups = {
-            'F6'    : 'U7MF',
-            'F7'    : 'U8MF',
-            'G 8'    : 'U9B',
-            'G 9'    : 'U10B',
-            'G10'    : 'U11B',
-            'G11'    : 'U12B',
-            'G12'    : 'U13B',
-            'G13'    : 'U14B',
-            'G14'    : 'U15B',
-            'G15'    : 'U16B',
-            'G16'    : 'U17B',
-            'G17'    : 'U18B',
-            'G18/19' : 'U20M',
-            'G10-19' : 'ALL',
-            'MJ'     : 'U20M' ,
-            'MS'     : 'SM' ,
-            'MV'     : 'V35M' ,
-            'MV35'   : 'V35M' ,
-            'J 8'    : 'U9G',
-            'J 9'    : 'U10G',
-            'J10'    : 'U11G',
-            'J11'    : 'U12G',
-            'J12'    : 'U13G',
-            'J13'    : 'U14G',
-            'J14'    : 'U15G',
-            'J15'    : 'U16G',
-            'J16'    : 'U17G',
-            'J17'    : 'U18G',
-            'J18/19' : 'U20W',
-            'J10-19' : 'ALL',
-            'KJ'     : 'U20W' ,
-            'KS'     : 'SW' 
-            }
-    """
 
     return age_groups[class_code]
 
@@ -791,28 +756,29 @@ def event_spec(event, klasse):
     hurdles = {}
     hurdles['60 meter hekk'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '76,2cm', 'J13' : '76,2cm', 'J14' : '76,2cm',
                                  'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
-                                 'J18/19' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
+                                 'J18/19' : '84,0cm','KJ' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
                                  'G10' : '68,0cm', 'G11' : '68,0cm', 'G12' : '76,2cm', 'G13' : '76,2cm', 'G14' : '84,0cm',
                                  'G15' : '84,0cm', 'G16' : '91,4cm', 'G17' : '91,4cm',
                                  'G18/19' : '100cm','MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm' }
     hurdles['80 meter hekk'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'G14' : '84,0cm' } 
-    hurdles['100 meter hekk'] = { 'J16' : '76,2cm', 'J17' : '76,2cm', 'J18/19' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
+    hurdles['100 meter hekk'] = { 'J16' : '76,2cm', 'J17' : '76,2cm', 'J18/19' : '84,0cm','KJ' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
                                  'G15' : '84,0cm', 'G16' : '91,4cm'}
-    hurdles['110 meter hekk'] = { 'G17' : '91,4cm', 'G18/19' : '100cm','MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm' }
+
+    hurdles['110 meter hekk'] = { 'G17' : '91,4cm', 'G18/19' : '100cm','MJ' : '100cm', 'MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm' }
     hurdles['200 meter hekk'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '68,0cm', 'J13' : '68,0cm', 'J14' : '76,2cm',
                                  'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
-                                 'J18/19' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
+                                 'J18/19' : '76,2cm','KJ' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
                                  'G10' : '68,0cm', 'G11' : '68,0cm', 'G12' : '68,0cm', 'G13' : '68,0cm', 'G14' : '76,2cm',
                                  'G15' : '76,2cm', 'G16' : '76,2cm', 'G17' : '76,2cm',
-                                 'G18/19' : '76,2cm','MU20' : '76,2cm', 'MU23' : '76,2cm', 'MS' : '76,2cm' }
+                                 'G18/19' : '76,2cm','MJ' : '76,2cm', 'MU20' : '76,2cm', 'MU23' : '76,2cm', 'MS' : '76,2cm' }
     hurdles['300 meter hekk'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
-                                 'J18/19' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
+                                 'J18/19' : '76,2cm','KJ' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
                                  'G15' : '76,2cm', 'G16' : '84,0cm', 'G17' : '84,0cm',
-                                 'G18/19' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
+                                 'G18/19' : '91,4cm','MJ' : '91,4cm', 'MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
     hurdles['400 meter hekk'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
-                                 'J18/19' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
+                                 'J18/19' : '76,2cm','KJ' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
                                  'G15' : '76,2cm', 'G16' : '84,0cm', 'G17' : '84,0cm',
-                                 'G18/19' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
+                                 'G18/19' : '91,4cm','MJ' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
 
     if isthrow(event):
        #e = event + ' ' + throws[event][klasse]
@@ -1068,7 +1034,7 @@ def club_code(club_name):
        club_code=u'FUR'
     elif club_name in (u'Fyllingen Idrettslag'):
        club_code=u'FYLL'
-    elif club_name in (u'Førde Idrettslag'):
+    elif club_name in (u'Førde Idrettslag', u'Førde IL'):
        club_code=u'FRDE'
     elif club_name in (u'Gausdal Friidrettsklubb'):
        club_code=u'GAU'
@@ -1096,7 +1062,7 @@ def club_code(club_name):
        club_code=u'GRO'
     elif club_name in (u'Grue Idrettslag'):
        club_code=u'GRUE'
-    elif club_name in (u'GTI Friidrettsklubb'):
+    elif club_name in (u'GTI Friidrettsklubb', u'GTI Friidrettsklubb - gr.  '):
        club_code=u'GTI'
     elif club_name in (u'Gui Sportsklubb - Friidrett'):
        club_code=u'GUI'
@@ -1238,7 +1204,7 @@ def club_code(club_name):
        club_code=u'ILAR'
     elif club_name in (u'Idrettslaget Ivrig'):
        club_code=u'IVRIG'
-    elif club_name in (u'Idrettslaget Jardar'):
+    elif club_name in (u'Idrettslaget Jardar', u'IL Jardar'):
        club_code=u'JARD'
     elif club_name in (u'Idrettslaget Jutul'):
        club_code=u'JUT'
@@ -1484,7 +1450,7 @@ def club_code(club_name):
        club_code=u'NANN'
     elif club_name in (u'Narvik Idrettslag'):
        club_code=u'NAR'
-    elif club_name in (u'Nesbyen Idrettslag'):
+    elif club_name in (u'Nesbyen Idrettslag', u'Nesbyen IL Friidrett'):
        club_code=u'NESB'
     elif club_name in (u'Nesodden IF'):
        club_code=u'NESO'
@@ -1530,7 +1496,7 @@ def club_code(club_name):
        club_code=u'OLDA'
     elif club_name in (u'Oppdal IL Hovedlaget'):
        club_code=u'OPPD'
-    elif club_name in (u'Oppegård Idrettslag'):
+    elif club_name in (u'Oppegård Idrettslag', u'Oppegård IL'):
        club_code=u'OPP'
     elif club_name in (u'Oppsal Idrettsforening'):
        club_code=u'OPSL'
@@ -1626,7 +1592,7 @@ def club_code(club_name):
        club_code=u'SAMN'
     elif club_name in (u'Sandane Turn og Idrettslag'):
        club_code=u'SANTU'
-    elif club_name in (u'SANDEFJORD TURN & IDRETTSFORENING'):
+    elif club_name in (u'Sandefjord Turn & Idrettsforening', u'SANDEFJORD TURN & IDRETTSFORENING'):
        club_code=u'STIF'
     elif club_name in (u'Sandnes Idrettslag', u'Sandnes IL'):
        club_code=u'SAND'
@@ -1924,7 +1890,7 @@ def club_code(club_name):
        club_code=u'YTTER'
     elif club_name in (u'Ørje Idrettslag'):
        club_code=u'ORJIL'
-    elif club_name in (u'Ørsta Idrettslag'):
+    elif club_name in (u'Ørsta Idrettslag', u'Ørsta IL'):
        club_code=u'ORSTA'
     elif club_name in (u'Østmarka Marsjklubb'):
        club_code=u'OMARSJ'
