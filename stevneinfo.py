@@ -13,6 +13,7 @@ from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.pdfgen import canvas
 from unidecode import unidecode
+from collections import defaultdict
 #import requests
 #from bs4 import BeautifulSoup
 
@@ -185,6 +186,8 @@ def sort_events_by_athlete(tree):
        dob = "%(dd)02d.%(mm)02d.%(yyyy)04d" % vars()
        ec = c.find('./Entry/EntryClass')
        klasse = ec.attrib['classCode']
+       if klasse == '':
+          klasse = ec.attrib['shortName']
        ec = c.find('./Entry/Exercise')
        #event = klasse + ' ' +ec.attrib['name'] 
        event = ( klasse, ec.attrib['name'] )
@@ -405,7 +408,6 @@ def make_horizontal_protocol(tree, event, classes):
     fname = output_file_name(tree) + '_' + event + '-' + '+'.join(classes) +'.pdf'
     fname = fname.replace(' ', '_')
     fname = fname.replace('/', '-')
-    print(fname)
     doc = SimpleDocTemplate(fname, pagesize=A4)
     doc.pagesize = landscape(A4)
  
@@ -427,7 +429,6 @@ def make_horizontal_protocol(tree, event, classes):
              data.append( [ c, athlete['name'], athlete['dob'][-4:], athlete['club'] ] )
              rows +=1
     pages = int(rows/(rows_on_page-1)) + 1
-    print(pages)
  
     if rows%rows_on_page > 5:
        pages +=1
@@ -567,6 +568,7 @@ def event_code(event):
             u'300 meter hekk'    : '300H', 
             u'400 meter hekk'    : '400H', 
             u'3000 meter hinder' : '3000SC', 
+            u'Kappgang 1000 meter' : '1000W', 
             u'Kappgang 3000 meter' : '3000W', 
             u'Kappgang 5000 meter' : '5000W', 
             u'Kappgang 5 km'     : '5000W', 
@@ -584,6 +586,7 @@ def event_code(event):
             u'Diskos'            : 'DT', 
             u'Slegge'            : 'HT', 
             u'Spyd'              : 'JT', 
+            u'Liten ball'        : 'OT', 
             u'Tikamp'            : 'DEC', 
             u'Sjukamp'           : 'HEP' ,
             u'4x200 meter stafett' : '4x200' 
@@ -670,7 +673,8 @@ def class_code(name):
             'Funksjonshemmede' : 'FH'      ,
             'Ikke valgt klasse' : 'IVK'
             }
-    return class_codes[name.strip()]
+    #return class_codes[name.strip()]
+    return class_codes.get(name.strip(), name.strip())
 
 def age_group(class_code):
     age_groups = {
@@ -713,7 +717,8 @@ def age_group(class_code):
             'IVK'    : 'ALL'  
             }
 
-    return age_groups[class_code]
+    #return age_groups[class_code]
+    return age_groups.get(class_code, class_code)
 
 def gender(class_code):
     if class_code[0] in ('G', 'M'):
@@ -732,7 +737,8 @@ def event_spec(event, klasse):
                        'J18/19' : '4,0kg', 'KU20' : '4,0kg', 'KU23' : '4,0kg', 'KS' : '4,0kg', 
                        'G10' : '2,0kg', 'G11' : '2,0kg', 'G12' : '3,0kg', 'G13' : '3,0kg', 
                        'G14' : '4,0kg', 'G15' : '4,0kg', 'G16' : '5,0kg', 'G17' : '5,0kg',
-                       'G18/19' : '6,0kg', 'MU20' : '6,0kg', 'MU23' : '7,26kg', 'MS' : '7,26kg'} 
+                       'G18/19' : '6,0kg', 'MU20' : '6,0kg', 'MU23' : '7,26kg', 'MS' : '7,26kg', 
+                       'default' : ''} 
     throws['Diskos'] = { 'J10' : '0,6kg', 'J11' : '0,6kg', 'J12' : '0,6kg', 'J13' : '0,6kg', 
                        'J14' : '0,75kg', 'J15' : '0,75kg', 'J16' : '0,75kg', 'J17' : '0,75kg',
                        'J18/19' : '1,0kg', 'KU20' : '1,0kg', 'KU23' : '1,0kg', 'KS' : '1,0kg', 
@@ -751,8 +757,10 @@ def event_spec(event, klasse):
                        'G10' : '400g', 'G11' : '400g', 'G12' : '400g', 'G13' : '400g', 
                        'G14' : '600g', 'G15' : '600g', 'G16' : '700g', 'G17' : '700g',
                        'G18/19' : '800g', 'MU20' : '800g', 'MU23' : '800g', 'MS' : '800g'} 
-    throws['Liten Ball'] = { 'J10' : '150g', 'J11' : '150g', 'J12' : '150g', 'J13' : '150g', 'J14' : '150g', 
-                             'G10' : '150g', 'G11' : '150g', 'G12' : '150g', 'G13' : '150g', 'G14' : '150g' }
+#    throws['Liten ball'] = { 'J10' : '150g', 'J11' : '150g', 'J12' : '150g', 'J13' : '150g', 'J14' : '150g', 
+#                             'G10' : '150g', 'G11' : '150g', 'G12' : '150g', 'G13' : '150g', 'G14' : '150g' 
+#                             }
+    throws['Liten ball'] = defaultdict(lambda : '150g') 
     hurdles = {}
     hurdles['60 meter hekk'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '76,2cm', 'J13' : '76,2cm', 'J14' : '76,2cm',
                                  'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
@@ -782,7 +790,10 @@ def event_spec(event, klasse):
 
     if isthrow(event):
        #e = event + ' ' + throws[event][klasse]
-       e = event + ' ' + throws[event].get(klasse,'')
+       t = throws[event].get(klasse,None)
+       if t == None:
+           t = throws[event]['default']
+       e = event + ' ' + t
     elif ishurdles(event):
        e = event + ' ' + hurdles[event][klasse]
     else:
@@ -1006,7 +1017,7 @@ def club_code(club_name):
        club_code=u'FOLLO'
     elif club_name in (u'Forra Idrettslag'):
        club_code=u'FORRA'
-    elif club_name in (u'Fossum Idrettsforening'):
+    elif club_name in (u'Fossum Idrettsforening', u'Fossum IF'):
        club_code=u'FOSSU'
     elif club_name in (u'Fredrikstad Idrettsforening', u'Fredrikstad IF'):
        club_code=u'FRED'
@@ -1206,7 +1217,7 @@ def club_code(club_name):
        club_code=u'IVRIG'
     elif club_name in (u'Idrettslaget Jardar', u'IL Jardar'):
        club_code=u'JARD'
-    elif club_name in (u'Idrettslaget Jutul'):
+    elif club_name in (u'IL Jutul', u'Idrettslaget Jutul'):
        club_code=u'JUT'
     elif club_name in (u'Idrettslaget Ros'):
        club_code=u'ILROS'
@@ -1234,7 +1245,7 @@ def club_code(club_name):
        club_code=u'JOT'
     elif club_name in (u'Idun Idrettslag'):
        club_code=u'IDUN'
-    elif club_name in (u'If Eiker Kvikk'):
+    elif club_name in (u'IF Eiker-Kvikk', u'If Eiker Kvikk'):
        club_code=u'EIKKV'
     elif club_name in (u'IF Kamp/Vestheim', u'Kamp/Vestheim IF'):
        club_code=u'KAVE'

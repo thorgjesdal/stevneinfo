@@ -38,6 +38,7 @@ def club_name(club_code):
     u'ANDE':u'Andebu Idrettslag',
     u'ANDSK':u'Andørja Sportsklubb',
     u'ARE':u'Aremark Idrettsforening',
+    u'AREM':u'Aremark Idrettsforening',
     u'ARNA':u'Arna Turn & Idrettslag',
     u'ASIL':u'Ås Idrettslag',
     u'AASEN':u'Åsen Idrettslag',
@@ -909,10 +910,17 @@ for e in j["events"]:
                     for height in sorted(trials[bib].keys() ):
                         s += height + '(' + ''.join(trials[bib][height]) + ') ' 
                     s = s.replace('.',',')
-                    i = s.index('x')
-                    j = s.index('o')
+                    print(s)
+                    i = j = len(s)
+                    if 'x' in s:
+                        i = s.index('x')
+                    if 'o' in s:
+                        j = s.index('o')
                     ij = min(i,j)
-                    series[event_code][bib] = s[ij-5:]
+                    if ij < len(s):
+                        series[event_code][bib] = s[ij-5:]
+                    else:
+                        series[event_code][bib] = ''
             elif event_code in ('LJ', 'SP', 'DT'):
                 for t in u['trials']:
                     bib = t['bib']
