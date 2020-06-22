@@ -606,6 +606,8 @@ def event_name(code):
             '300H'   : '300 meter hekk'    , 
             '400H'   : '400 meter hekk'    , 
             '3000SC' : '3000 meter hinder' , 
+            '1000W'  : 'Kappgang 1000 meter'        , 
+            '3000W'  : 'Kappgang 3000 meter'        , 
             'HJ'     : 'Høyde'             , 
             'PV'     : 'Stav'              , 
             'LJ'     : 'Lengde'            , 
@@ -614,6 +616,7 @@ def event_name(code):
             'DT'     : 'Diskos'            , 
             'HT'     : 'Slegge'            , 
             'JT'     : 'Spyd'              , 
+            'OT'     : 'Liten ballSpyi'              , 
             'DEC'    : 'Tikamp'            , 
             'HEP'    : 'Sjukamp'           
             }
@@ -821,7 +824,7 @@ for c in j['competitors']:
         ignore_bibs.append(bib)
     else:
         competitors[bib] = (fn, ln, dob, g, t)
-        #print(bib, competitors[bib])
+#        print(bib, competitors[bib])
 
 
 
@@ -910,7 +913,7 @@ for e in j["events"]:
                     for height in sorted(trials[bib].keys() ):
                         s += height + '(' + ''.join(trials[bib][height]) + ') ' 
                     s = s.replace('.',',')
-                    print(s)
+#                    print(s)
                     i = j = len(s)
                     if 'x' in s:
                         i = s.index('x')
@@ -1000,15 +1003,16 @@ for event in sorted(results.keys()):
 
 #--- extract wind for best performance from series
                 s = series[event].get(bib, 'no_series')
-                if not s == 'no_series':
+                if event in ('LJ', 'TJ') and not s == 'no_series':
                     pat = r'/?%(perf)s\(([+-]?\d,\d)\)/?' % vars()
                     match = re.search(pat,s)
                     if match:
                         ws["G%(row_counter)d"%vars()] = match.group(1)
 
-                row_counter +=1
-                ws["A%(row_counter)d"%vars()] = s
-                row_counter +=1
+                if not s=='no_series':
+                    row_counter +=1
+                    ws["A%(row_counter)d"%vars()] = s
+                    row_counter +=1
         row_counter +=1
         
 print("done")
