@@ -845,7 +845,7 @@ def club_code(club_name):
        club_code=u'AURE'
     elif club_name in (u'Aurland Idrettslag'):
        club_code=u'AURL'
-    elif club_name in (u'Aurskog-Høland Friidrettslag'):
+    elif club_name in (u'Aurskog-Høland Friidrettslag', u'Aurskog - Høland Friidrettslag - Friidrett'):
        club_code=u'AURS'
     elif club_name in (u'Austefjord Idrettslag'):
        club_code=u'AUFJ'
@@ -1309,7 +1309,7 @@ def club_code(club_name):
        club_code=u'KAUP'
     elif club_name in (u'Kfum-kameratene Oslo'):
        club_code=u'KFUM'
-    elif club_name in (u'Kjelsås Idrettslag'):
+    elif club_name in (u'Kjelsås Idrettslag', u'Kjelsås IL'):
        club_code=u'KJ'
     elif club_name in (u'Klepp Idrettslag'):
        club_code=u'KLPP'
@@ -1585,7 +1585,7 @@ def club_code(club_name):
        club_code=u'ROSEN'
     elif club_name in (u'Royal Sport'):
        club_code=u'ROYAL'
-    elif club_name in (u'Rustad Idrettslag'):
+    elif club_name in (u'Rustad Idrettslag', u'Rustad IL'):
        club_code=u'RUS'
     elif club_name in (u'Rygge Idrettslag'):
        club_code=u'RYGGE'
@@ -1609,7 +1609,7 @@ def club_code(club_name):
        club_code=u'SAND'
     elif club_name in (u'Sandnes Idrettslag 2'):
        club_code=u'SNDI'
-    elif club_name in (u'Sandnessjøen Idrettslag'):
+    elif club_name in (u'Sandnessjøen Idrettslag', u'Sandnessjøen IL'):
        club_code=u'SNDSJ'
     elif club_name in (u'Sarpsborg Allianseidrettslag', u'Sarpsborg IL'):
        club_code=u'SARP'
@@ -1785,6 +1785,8 @@ def club_code(club_name):
        club_code=u'HOVD'
     elif club_name in (u'Tamil Sangam IL'):
        club_code=u'TAMSAN'
+    elif club_name in (u'Tistedalen FL'):
+       club_code=u'TIST'
     elif club_name in (u'Tingvoll Friidrettsklubb', u'Tingvoll Friidrettskl.'):
        club_code=u'TING'
     elif club_name in ( 'IK Tjalve', 'Idrettsklubben Tjalve', 'Tjalve, IK', 'Tjalve, Idrettsklubben', 'Tjalve Idrettsklubben' ):
@@ -2980,6 +2982,8 @@ def club_name(club_code):
        club_name=u'Tamil Sangam IL'
     elif club_code == (u'TING'):
        club_name=u'Tingvoll Friidrettsklubb'
+    elif club_code == (u'TIST'):
+        club_name = u'Tistedalen FL'
     elif club_code == (u'TJAL'):
        club_name=u'IK Tjalve'
     elif club_code == (u'TJØLL'):
