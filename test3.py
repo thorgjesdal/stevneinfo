@@ -616,7 +616,7 @@ def event_name(code):
             'DT'     : 'Diskos'            , 
             'HT'     : 'Slegge'            , 
             'JT'     : 'Spyd'              , 
-            'OT'     : 'Liten ballSpyi'              , 
+            'OT'     : 'Liten ball'              , 
             'DEC'    : 'Tikamp'            , 
             'HEP'    : 'Sjukamp'           
             }
