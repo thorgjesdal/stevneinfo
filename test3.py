@@ -893,7 +893,7 @@ for e in j["events"]:
                      if "place" in r.keys():
                          pl = r["place"]
                     
-#               print (bib, res, pl, poolnr)
+#                    print (event_code, bib, res, pl, pool)
                      results[event_code][cat][pool].append((bib, res, pl))
                      #print (bib, res, pl, pool)
 #           poolnr = poolnr + 1
@@ -924,7 +924,7 @@ for e in j["events"]:
                         series[event_code][bib] = s[ij-5:]
                     else:
                         series[event_code][bib] = ''
-            elif event_code in ('LJ', 'SP', 'DT'):
+            elif event_code in ('LJ', 'TJ', 'SP', 'DT', 'HT', 'JT', 'OT'):
                 for t in u['trials']:
                     bib = t['bib']
                     if trials.get(bib)==None:
@@ -978,13 +978,14 @@ for event in sorted(results.keys()):
         ws["A%(row_counter)d"%vars()] = cat; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
         ws["B%(row_counter)d"%vars()] = event_spec(event,cat) ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
         row_counter +=1
-        #print(cat)
+#       print(cat)
         heats = sorted(results[event][cat].keys() )
         for h, heat in zip(range(len(heats)), heats):
 #           print('Heat: %d'%(h+1))
             ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
             row_counter +=1
             sorted_result = sorted(results[event][cat][heat], key=lambda tup: tup[2])
+#           print(sorted_result)
             for i,r in zip(range(len(sorted_result)),sorted_result):
                 bib = r[0]
                 perf = r[1].replace('.',',')
@@ -993,6 +994,7 @@ for event in sorted(results.keys()):
                 ln  = competitors[bib][1]
                 dob = competitors[bib][2]
                 club = competitors[bib][4]
+#               print(fn,ln,club,perf)
 
                 ws["A%(row_counter)d"%vars()] = i+1
                 #ws["B%(row_counter)d"%vars()] = bib
@@ -1012,7 +1014,7 @@ for event in sorted(results.keys()):
                 if not s=='no_series':
                     row_counter +=1
                     ws["A%(row_counter)d"%vars()] = s
-                    row_counter +=1
+                row_counter +=1
         row_counter +=1
         
 print("done")
