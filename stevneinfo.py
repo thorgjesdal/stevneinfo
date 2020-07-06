@@ -59,16 +59,20 @@ def issteeple(event):
     return istrack(event) and 'hinder' in event
 
 def isfield(event):
-    return 'meter' not in event
+    #return 'meter' not in event
+    return isvjump(event) or ishjump(event) or isthrow(event)
 
 def isvjump(event):
-    return isfield(event.encode('utf-8')) and event in [u'Høyde', u'Stav', u'Høyde uten tilløp']
+    #return isfield(event.encode('utf-8')) and event in [u'Høyde', u'Stav', u'Høyde uten tilløp']
+    return event in [u'Høyde', u'Stav', u'Høyde uten tilløp']
 
 def ishjump(event):
-    return isfield(event.encode('utf-8')) and event in [u'Lengde', u'Lengde satssone', u'Tresteg', u'Lengde uten tilløp', u'Tresteg uten tilløp']
+    #return isfield(event.encode('utf-8')) and event in [u'Lengde', u'Lengde satssone', u'Tresteg', u'Lengde uten tilløp', u'Tresteg uten tilløp']
+    return event in [u'Lengde', u'Lengde satssone', u'Tresteg', u'Lengde uten tilløp', u'Tresteg uten tilløp']
 
 def isthrow(event):
-    return isfield(event.encode('utf-8')) and event in [u'Kule', u'Diskos', u'Slegge', u'Spyd', u'Vektkast', u'Liten ball']
+    #return isfield(event.encode('utf-8')) and event in [u'Kule', u'Diskos', u'Slegge', u'Spyd', u'Vektkast', u'Liten ball']
+    return event in [u'Kule', u'Diskos', u'Slegge', u'Spyd', u'Vektkast', u'Liten ball']
 
 def sort_athletes_by_class_by_event(tree):
     athlete_by_class_by_event = {}
