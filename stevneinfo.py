@@ -775,19 +775,22 @@ def event_spec(event, klasse):
                        'J18/19' : '1,0kg', 'KU20' : '1,0kg', 'KU23' : '1,0kg', 'KS' : '1,0kg', 
                        'G10' : '0,6kg', 'G11' : '0,6kg', 'G12' : '0,75kg', 'G13' : '0,75kg', 
                        'G14' : '1,0kg', 'G15' : '1,0kg', 'G16' : '1,5kg', 'G17' : '1,5kg',
-                       'G18/19' : '1,75kg', 'MU20' : '1,75kg', 'MU23' : '2,0kg', 'MS' : '2,0kg'} 
+                       'G18/19' : '1,75kg', 'MU20' : '1,75kg', 'MU23' : '2,0kg', 'MS' : '2,0kg',
+                       'default': ''} 
     throws['Slegge'] = { 'J10' : '2,0kg', 'J11' : '2,0kg', 'J12' : '2,0kg', 'J13' : '2,0kg', 
                        'J14' : '3,0kg', 'J15' : '3,0kg', 'J16' : '3,0kg', 'J17' : '3,0kg',
                        'J18/19' : '4,0kg', 'KU20' : '4,0kg', 'KU23' : '4,0kg', 'KS' : '4,0kg', 
                        'G10' : '2,0kg', 'G11' : '2,0kg', 'G12' : '3,0kg', 'G13' : '3,0kg', 
                        'G14' : '4,0kg', 'G15' : '4,0kg', 'G16' : '5,0kg', 'G17' : '5,0kg',
-                       'G18/19' : '6,0kg', 'MU20' : '6,0kg', 'MU23' : '7,26kg', 'MS' : '7,26kg'} 
+                       'G18/19' : '6,0kg', 'MU20' : '6,0kg', 'MU23' : '7,26kg', 'MS' : '7,26kg',
+                       'default': ''} 
     throws['Spyd'] = { 'J10' : '400g', 'J11' : '400g', 'J12' : '400g', 'J13' : '400g', 
                        'J14' : '400g', 'J15' : '500g', 'J16' : '500g', 'J17' : '500g',
                        'J18/19' : '600g', 'KU20' : '600g', 'KU23' : '600g', 'KS' : '600g', 
                        'G10' : '400g', 'G11' : '400g', 'G12' : '400g', 'G13' : '400g', 
                        'G14' : '600g', 'G15' : '600g', 'G16' : '700g', 'G17' : '700g',
-                       'G18/19' : '800g', 'MU20' : '800g', 'MU23' : '800g', 'MS' : '800g'} 
+                       'G18/19' : '800g', 'MU20' : '800g', 'MU23' : '800g', 'MS' : '800g',
+                       'default': ''} 
 #    throws['Liten ball'] = { 'J10' : '150g', 'J11' : '150g', 'J12' : '150g', 'J13' : '150g', 'J14' : '150g', 
 #                             'G10' : '150g', 'G11' : '150g', 'G12' : '150g', 'G13' : '150g', 'G14' : '150g' 
 #                             }
@@ -822,6 +825,7 @@ def event_spec(event, klasse):
     if isthrow(event):
        #e = event + ' ' + throws[event][klasse]
        t = throws[event].get(klasse,None)
+       print(event,klasse)
        if t == None:
            t = throws[event]['default']
        e = event + ' ' + t
@@ -1612,7 +1616,7 @@ def club_code(club_name):
        club_code=u'ROMUL'
     elif club_name in (u'Romsdal Randoneklubb'):
        club_code=u'ROMRA'
-    elif club_name in (u'Rosendal Turnlag', u''):
+    elif club_name in (u'Rosendal Turnlag', u'Rosendal TL'):
        club_code=u'ROSEN'
     elif club_name in (u'Royal Sport'):
        club_code=u'ROYAL'
@@ -1719,8 +1723,6 @@ def club_code(club_name):
     elif club_name in (u'Sportsklubben Kraft'):
        club_code=u'KRAFT'
     elif club_name in (u'Sportsklubben Rye', u'Rye Sp.Kl.'):
-       club_code=u'nan'
-    elif club_name in (u'Sportsklubben Rye 2'):
        club_code=u'RYE'
     elif club_name in (u'Sportsklubben Vidar'):
        club_code=u'VIDAR'
