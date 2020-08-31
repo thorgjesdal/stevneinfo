@@ -330,7 +330,7 @@ def write_opentrack_import(tree):
             #print(e, full_events[e])
             if not isfield(e[1]):
                 res1 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2020' )
-                res2 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2019' )
+                res2 = 'nm' #get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2019' )
                 #print(res1,res2)
                 res = min(res1,res2)
                 if res=='nm':
@@ -986,7 +986,7 @@ def club_code(club_name):
        club_code=u'DIM'
     elif club_name in (u'Dombås Idrettslag'):
        club_code=u'DMB'
-    elif club_name in (u'Driv Idrettslag'):
+    elif club_name in (u'Driv Idrettslag', u'Driv Idrettslag - Friidrett ' ):
        club_code=u'DRIV'
     elif club_name in (u'Driva IL'):
        club_code=u'DRIVA'
@@ -1154,7 +1154,7 @@ def club_code(club_name):
        club_code=u'HEGGI'
     elif club_name in (u'Hell Ultraløperklubb'):
        club_code=u'HELLU'
-    elif club_name in (u'Heming Idrettslaget'):
+    elif club_name in (u'Heming Idrettslaget', u'IL Heming'):
        club_code=u'HEM'
     elif club_name in (u'Henning I L'):
        club_code=u'HENN'
@@ -1273,7 +1273,7 @@ def club_code(club_name):
     elif club_name in (u'Idrottslaget Gular Bygdeungdomen I Bergen', u'IL Gular'):
        club_code=u'GULA'
     elif club_name in (u'IDROTTSLAGET I BUL', u'IL i BUL'):
-       club_code=u'ILBUL'
+       club_code=u'ILIBUL'
 #   elif club_name in (u'IDROTTSLAGET I BUL 2'):
 #      club_code=u'ILBUL'
     elif club_name in (u'Idrottslaget Jotun', u'Jotun IL'):
@@ -1544,7 +1544,7 @@ def club_code(club_name):
        club_code=u'OPPD'
     elif club_name in (u'Oppegård Idrettslag', u'Oppegård IL'):
        club_code=u'OPP'
-    elif club_name in (u'Oppsal Idrettsforening'):
+    elif club_name in (u'Oppsal Idrettsforening', u'Oppsal IF'):
        club_code=u'OPSL'
     elif club_name in (u'Oppstad Idrettslag'):
        club_code=u'OPST'
@@ -2470,7 +2470,7 @@ def club_name(club_code):
     elif club_code == (u'ILIBUL'):
        club_name=u'IDROTTSLAGET I BUL'
     elif club_code == (u'ILBUL'):
-       club_name=u'IDROTTSLAGET I BUL 2'
+       club_name=u'IDROTTSLAGET I BUL'
     elif club_code == (u'JOT'):
        club_name=u'Idrottslaget Jotun'
     elif club_code == (u'IDUN'):
@@ -3147,14 +3147,16 @@ def club_name(club_code):
     return club_name
    
 def get_stats(event,cat,season):
-    event_id = {'100':'4', '200': 5, '400':'7', 800:'9', '1500':'11', '3000':'13', '5000':'14', '10000':'15',
+    event_id = {'100':'4', '200': 5, '400':'7', '800':'9', '1500':'11', '3000':'13', '5000':'14', '10000':'15',
             '100H':'35', '110H':'42', '400H':'59'}
     catcodes = {'KS': '22', 'MS': '11'}
 
-    print(cat, event)
+    #print(cat, event)
     #event = event_code(event)
+    #print(type(event),event)
     if event in event_id.keys():
        url = 'https://www.minfriidrettsstatistikk.info/php/LandsStatistikk.php?showclass=' + cat + '&showevent=' + event_id[event] + '&outdoor=Y&showseason=' + season + '&showclub=0'
+       #print(url)
        r = requests.get(url)
 
     
@@ -3168,14 +3170,16 @@ def get_stats(event,cat,season):
        ] 
    
        stats = []
-       for row in tables[0]:
-           if not row == [] and not row[0] == '-----':
-              name, club  =  row[1].split(',')
-              dob = row[2]
-              #dob = datetime.date.strptime(row[2],'%d.%m.%y')
-              perf = row[0]
-              stats.append( (name, dob, perf) )
-       #print(stats)
+       for table in tables:
+       #for row in tables[0]:
+           for row in table:
+               if not row == [] and not row[0] == '-----':
+                  name, club  =  row[1].split(',')
+                  dob = row[2]
+                  #dob = datetime.date.strptime(row[2],'%d.%m.%y')
+                  perf = row[0]
+                  stats.append( (name, dob, perf) )
+       #print('x',stats)
        return stats
 
 def get_seed_marks(name, dob, event, cat, season): 
@@ -3205,9 +3209,12 @@ def get_seed_marks(name, dob, event, cat, season):
 
     res = 'nm'
     #print(event, cat, season)
+    #print('a',event_stats)
     s = event_stats.get(event, None)
+    #print(s)
     if not s==None:
         #for p in event_stats[event][cat][season]:
+        #print(cat,season)
         for p in s[cat][season]:
             #print(p)
             nme = p[0]
@@ -3222,17 +3229,19 @@ def get_seed_marks(name, dob, event, cat, season):
 
     minsecpat = '(\d?\d)[:.,](\d\d[,.]\d?\d)'
     match1 = re.match(minsecpat,res)
-    secwindpat = "(\d\d[,.]\d\d)[(]([+-]\d[,.]\d)[)]"
+    secwindpat = "(\d?\d[,.]\d\d)[(]([+-]\d[,.]\d)[)]"
     match2 = re.match(minsecpat,res)
     if match1:
         mins = match1.group(1)
         secs = match1.group(2).replace(',','.')
         res = mins + ':' + secs
     elif match2:
-        res = match.group(1).replace(',','.')
+        secs = match2.group(1)
+        wind = match2.group(2)
+        res = secs.replace(',','.')
     else:
         res = res.replace(',','.')
-    print(name,res)
+    #print(name,res)
     return res
 
 
