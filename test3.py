@@ -322,6 +322,7 @@ for e in j["events"]:
         for pool, u in zip(range(len(e["units"])),e["units"]):
             #results[event_code] ={}
             for r in u["results"]:
+                print(r)
                 if "bib" in r.keys():
                     bib = r["bib"]
                 
@@ -339,8 +340,12 @@ for e in j["events"]:
 
                      if "place" in r.keys():
                          pl = r["place"]
+                   
+#                    if "order" in r.keys():
+#                        pl = r["order"]
                     
-#                    print (event_code, bib, res, pl, pool)
+                     print(r.keys())
+                     print (event_code, bib, res, pl, pool)
                      results[event_code][cat][pool].append((bib, res, pl))
                      #print (bib, res, pl, pool)
 #           poolnr = poolnr + 1

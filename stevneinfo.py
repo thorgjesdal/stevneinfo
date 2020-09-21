@@ -279,6 +279,7 @@ def write_opentrack_import(tree):
     jf = 0
     jt = 0
     full_events = {}
+    print(events)
     for e in events:
         if isfield(e[1]):
             jf +=1
@@ -287,6 +288,7 @@ def write_opentrack_import(tree):
             jt +=1
             event_ref = "T%02d"%jt
 
+        print(e)
         full_events[ ( class_code(e[0]) , e[1] ) ]  = event_ref + ' - ' + ' '.join(( class_code(e[0]), event_spec(e[1], class_code(e[0])) ))
         ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], event_spec(e[1], class_code(e[0]))])
         ws1["B%d"%row_counter] = event_ref
@@ -304,6 +306,7 @@ def write_opentrack_import(tree):
         row_counter +=1
 #   ws.insert_cols(13)
 
+#   print (full_events)
     row_counter = 2    
     bib = 0
     for key in events_by_athlete.keys():
@@ -327,7 +330,7 @@ def write_opentrack_import(tree):
             ws["G%d"%row_counter] = club_code(club)
             ws["I%d"%row_counter] = full_events[e]
 
-            #print(e, full_events[e])
+#           print(e, full_events[e])
             if not isfield(e[1]):
                 res1 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2020' )
                 res2 = 'nm' #get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2019' )
@@ -663,47 +666,50 @@ def event_name(code):
 
 def class_code(name):
     class_codes = {
-            u'6 år Fellesklasse' : 'F6' ,
-            u'7 år Fellesklasse' : 'F7' ,
-            'Gutter 8'     : 'G 8'          , 
-            'Gutter 9'     : 'G 9'          , 
-            'Gutter 10'    : 'G10'          , 
-            'Gutter 11'    : 'G11'          , 
-            'Gutter 12'    : 'G12'          , 
-            'Gutter 13'    : 'G13'          , 
-            'Gutter 14'    : 'G14'          , 
-            'Gutter 15'    : 'G15'          , 
-            'Gutter 16'    : 'G16'          , 
-            'Gutter 17'    : 'G17'          , 
-            'Gutter 18/19' : 'G18/19'       , 
-            'Gutter alle klasser' : 'GALLE'       , 
-            'Menn junior'  : 'MJ'           , 
-            'Menn U20'     : 'MU20'         , 
-            'Menn U23'     : 'MU23'         , 
-            'Menn senior'  : 'MS'           , 
-            'Menn alle klasser'  : 'MALLE'           , 
-            'Menn veteraner' : 'MV'         , 
-            'Jenter 8'     : 'J 8'          , 
-            'Jenter 9'     : 'J 9'          , 
-            'Jenter 10'    : 'J10'          , 
-            'Jenter 11'    : 'J11'          , 
-            'Jenter 12'    : 'J12'          , 
-            'Jenter 13'    : 'J13'          , 
-            'Jenter 14'    : 'J14'          , 
-            'Jenter 15'    : 'J15'          , 
-            'Jenter 16'    : 'J16'          , 
-            'Jenter 17'    : 'J17'          , 
-            'Jenter 18/19' : 'J18/19'       , 
-            'Jenter alle klasser' : 'JALLE'       , 
-            'Kvinner junior'  : 'KJ'        , 
-            'Kvinner U20'     : 'KU20'      , 
-            'Kvinner U23'     : 'KU23'      , 
-            'Kvinner senior'  : 'KS'        , 
-            'Kvinner alle klasser'  : 'KALLE'           , 
-            'Kvinner veteraner' : 'KV'      ,
-            'Funksjonshemmede' : 'FH'      ,
-            'Ikke valgt klasse' : 'IVK'
+            u'6 år Fellesklasse' : u'F6' ,
+            u'7 år Fellesklasse' : u'F7' ,
+            u'Gutter 6 - 7'     : u'G 6-7'          , 
+            u'Gutter 8'     : u'G 8'          , 
+            u'Gutter 9'     : u'G 9'          , 
+            u'Gutter 10'    : u'G10'          , 
+            u'Gutter 11'    : u'G11'          , 
+            u'Gutter 12'    : u'G12'          , 
+            u'Gutter 13'    : u'G13'          , 
+            u'Gutter 14'    : u'G14'          , 
+            u'Gutter 15'    : u'G15'          , 
+            u'Gutter 16'    : u'G16'          , 
+            u'Gutter 17'    : u'G17'          , 
+            u'Gutter 18/19' : u'G18/19'       , 
+            u'Gutter alle klasser' : u'GALLE'       , 
+            u'Menn junior'  : u'MJ'           , 
+            u'Menn U20'     : u'MU20'         , 
+            u'Menn U23'     : u'MU23'         , 
+            u'Menn senior'  : u'MS'           , 
+            u'Menn alle klasser'  : u'MALLE'           , 
+            u'Menn veteraner' : u'MV'         , 
+            u'Jenter 6 - 7'     : u'J 6-7'          , 
+            u'Jenter 8'     : u'J 8'          , 
+            u'Jenter 9'     : u'J 9'          , 
+            u'Jenter 10'    : u'J10'          , 
+            u'Jenter 11'    : u'J11'          , 
+            u'Jenter 12'    : u'J12'          , 
+            u'Jenter 13'    : u'J13'          , 
+            u'Jenter 14'    : u'J14'          , 
+            u'Jenter 15'    : u'J15'          , 
+            u'Jenter 16'    : u'J16'          , 
+            u'Jenter 17'    : u'J17'          , 
+            u'Jenter 18/19' : u'J18/19'       , 
+            u'Jenter alle klasser' : u'JALLE'       , 
+            u'Kvinner junior'  : u'KJ'        , 
+            u'Kvinner U20'     : u'KU20'      , 
+            u'Kvinner U23'     : u'KU23'      , 
+            u'Kvinner senior'  : u'KS'        , 
+            u'Kvinner alle klasser'  : u'KALLE'           , 
+            u'Kvinner veteraner' : u'KV'      ,
+            u'Funksjonshemmede' : u'FH'      ,
+            u'Ikke valgt klasse' : u'IVK'
             }
+    print(name, class_codes[name.strip()])
     #return class_codes[name.strip()]
     return class_codes.get(name.strip(), name.strip())
 
@@ -711,6 +717,7 @@ def age_group(class_code):
     age_groups = {
             'F6'    : 'U7',
             'F7'    : 'U8',
+            'G 6-7'    : 'U8',
             'G 8'    : 'U9',
             'G 9'    : 'U10',
             'G10'    : 'U11',
@@ -728,6 +735,7 @@ def age_group(class_code):
             'MALLE'     : 'ALL' ,
             'MV'     : 'V35' ,
             'MV35'   : 'V35' ,
+            'J 6-7'    : 'U8',
             'J 8'    : 'U9',
             'J 9'    : 'U10',
             'J10'    : 'U11',
@@ -3229,8 +3237,8 @@ def get_seed_marks(name, dob, event, cat, season):
 
     minsecpat = '(\d?\d)[:.,](\d\d[,.]\d?\d)'
     match1 = re.match(minsecpat,res)
-    secwindpat = "(\d?\d[,.]\d\d)[(]([+-]\d[,.]\d)[)]"
-    match2 = re.match(minsecpat,res)
+    reswindpat = "(\d?\d[,.]\d\d)[(]([+-]\d[,.]\d)[)]"
+    match2 = re.match(reswindpat,res)
     if match1:
         mins = match1.group(1)
         secs = match1.group(2).replace(',','.')
@@ -3238,6 +3246,7 @@ def get_seed_marks(name, dob, event, cat, season):
     elif match2:
         secs = match2.group(1)
         wind = match2.group(2)
+        print('wind=', wind)
         res = secs.replace(',','.')
     else:
         res = res.replace(',','.')
