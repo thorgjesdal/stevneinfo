@@ -62,6 +62,7 @@ def event_name(code):
             'HT'     : 'Slegge'            , 
             'JT'     : 'Spyd'              , 
             'OT'     : 'Liten ball'              , 
+            'BT'     : 'Liten ball'              , 
             'DEC'    : 'Tikamp'            , 
             'HEP'    : 'Sjukamp'           
             }
@@ -314,6 +315,7 @@ results ={}
 series = {}
 for e in j["events"]:
     event_code = e["eventCode"]
+    print(event_code)
     series[event_code] = {}
     if event_code not in e.keys():
         results[event_code] = {}
@@ -321,6 +323,12 @@ for e in j["events"]:
         trials = {}
         for pool, u in zip(range(len(e["units"])),e["units"]):
             #results[event_code] ={}
+            if "windAssistance" in u.keys():
+                wind = u["windAssistance"]
+            else:
+                wind = None
+            print(wind)
+
             for r in u["results"]:
                 if "bib" in r.keys():
                     bib = r["bib"]
@@ -332,7 +340,10 @@ for e in j["events"]:
                      if results[event_code].get(cat) == None:
                          results[event_code][cat] = {}
                      if results[event_code][cat].get(pool) == None:
-                         results[event_code][cat][pool] = []
+                         #results[event_code][cat][pool] = []
+                         results[event_code][cat][pool] = {'marks' : []}
+                     if not wind == None:
+                         results[event_code][cat][pool]['wind'] = wind
 #                    x
                      if "performance" in r.keys():
                          res = r["performance"]
@@ -341,7 +352,8 @@ for e in j["events"]:
                          pl = r["place"]
                     
 #                    print (event_code, bib, res, pl, pool)
-                     results[event_code][cat][pool].append((bib, res, pl))
+                     #results[event_code][cat][pool].append((bib, res, pl))
+                     results[event_code][cat][pool]['marks'].append((bib, res, pl))
                      #print (bib, res, pl, pool)
 #           poolnr = poolnr + 1
 #           print (type(u['trials']))
@@ -430,8 +442,10 @@ for event in sorted(results.keys()):
         for h, heat in zip(range(len(heats)), heats):
 #           print('Heat: %d'%(h+1))
             ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
+            if 'wind' in results[event][cat][heat].keys():
+                ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[event][cat][heat]['wind']
             row_counter +=1
-            sorted_result = sorted(results[event][cat][heat], key=lambda tup: tup[2])
+            sorted_result = sorted(results[event][cat][heat]['marks'], key=lambda tup: tup[2])
 #           print(sorted_result)
             for i,r in zip(range(len(sorted_result)),sorted_result):
                 bib = r[0]
