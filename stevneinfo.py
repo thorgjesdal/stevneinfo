@@ -333,7 +333,7 @@ def write_opentrack_import(tree):
 #           print(e, full_events[e])
             if not isfield(e[1]):
                 res1 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2020' )
-                res2 = 'nm' #get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2019' )
+                res2 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2019' )
                 #print(res1,res2)
                 res = min(res1,res2)
                 if res=='nm':
