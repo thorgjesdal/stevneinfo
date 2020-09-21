@@ -315,10 +315,11 @@ results ={}
 series = {}
 for e in j["events"]:
     event_code = e["eventCode"]
-    print(event_code)
-    series[event_code] = {}
-    if event_code not in e.keys():
-        results[event_code] = {}
+    category = e["category"]
+    event_key = (category, event_code)
+    series[event_key] = {}
+    if event_key not in e.keys():
+        results[event_key] = {}
 #       for u in e["units"]:
         trials = {}
         for pool, u in zip(range(len(e["units"])),e["units"]):
@@ -327,10 +328,10 @@ for e in j["events"]:
                 wind = u["windAssistance"]
             else:
                 wind = None
-            print(wind)
+            #print(wind)
 
             for r in u["results"]:
-                print(r)
+                #print(r)
                 if "bib" in r.keys():
                     bib = r["bib"]
                 
@@ -338,13 +339,13 @@ for e in j["events"]:
                      bdate = competitors[bib][2]
                      g = competitors[bib][3]
                      cat = get_category(bdate,date,g)
-                     if results[event_code].get(cat) == None:
-                         results[event_code][cat] = {}
-                     if results[event_code][cat].get(pool) == None:
+                     if results[event_key].get(cat) == None:
+                         results[event_key][cat] = {}
+                     if results[event_key][cat].get(pool) == None:
                          #results[event_code][cat][pool] = []
-                         results[event_code][cat][pool] = {'marks' : []}
+                         results[event_key][cat][pool] = {'marks' : []}
                      if not wind == None:
-                         results[event_code][cat][pool]['wind'] = wind
+                         results[event_key][cat][pool]['wind'] = wind
 #                    x
                      if "performance" in r.keys():
                          res = r["performance"]
@@ -357,7 +358,7 @@ for e in j["events"]:
                     
 #                    print (event_code, bib, res, pl, pool)
                      #results[event_code][cat][pool].append((bib, res, pl))
-                     results[event_code][cat][pool]['marks'].append((bib, res, pl))
+                     results[event_key][cat][pool]['marks'].append((bib, res, pl))
                      #print (bib, res, pl, pool)
 #           poolnr = poolnr + 1
 #           print (type(u['trials']))
@@ -384,10 +385,10 @@ for e in j["events"]:
                         j = s.index('o')
                     ij = min(i,j)
                     if ij < len(s):
-                        series[event_code][bib] = s[ij-5:]
+                        series[event_key][bib] = s[ij-5:]
                     else:
-                        series[event_code][bib] = ''
-            elif event_code in ('LJ', 'TJ', 'SP', 'DT', 'HT', 'JT', 'OT'):
+                        series[event_key][bib] = ''
+            elif event_code in ('LJ', 'TJ', 'SP', 'DT', 'HT', 'JT', 'OT', 'BT'):
                 for t in u['trials']:
                     bib = t['bib']
                     if trials.get(bib)==None:
@@ -408,7 +409,7 @@ for e in j["events"]:
                             s += "(%3.1f)" % (trials[bib][rond]['wind'])
                         s += '/'    
                     s = s.replace('.',',')
-                    series[event_code][bib] = s[:-1]
+                    series[event_key][bib] = s[:-1]
 
 #... write template for Results to xlsx workbook
 wb = Workbook()
@@ -435,21 +436,22 @@ ws['a12'] = 'Resultater';     ws['b12'] = date.strftime('%d.%m.%Y')
 row_counter = 14
 
 #print(results)
-for event in sorted(results.keys()):
-#   print(event)
-    for cat in sorted(results[event].keys() ):
+for event_key in sorted(results.keys()):
+    print(event_key)
+    event = event_key[1]
+    for cat in sorted(results[event_key].keys() ):
         ws["A%(row_counter)d"%vars()] = cat; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
         ws["B%(row_counter)d"%vars()] = event_spec(event,cat) ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
         row_counter +=1
 #       print(cat)
-        heats = sorted(results[event][cat].keys() )
+        heats = sorted(results[event_key][cat].keys() )
         for h, heat in zip(range(len(heats)), heats):
 #           print('Heat: %d'%(h+1))
             ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
-            if 'wind' in results[event][cat][heat].keys():
-                ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[event][cat][heat]['wind']
+            if 'wind' in results[event_key][cat][heat].keys():
+                ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[event_key][cat][heat]['wind']
             row_counter +=1
-            sorted_result = sorted(results[event][cat][heat]['marks'], key=lambda tup: tup[2])
+            sorted_result = sorted(results[event_key][cat][heat]['marks'], key=lambda tup: tup[2])
 #           print(sorted_result)
             for i,r in zip(range(len(sorted_result)),sorted_result):
                 bib = r[0]
@@ -470,7 +472,7 @@ for event in sorted(results.keys()):
                 ws["F%(row_counter)d"%vars()] = perf
 
 #--- extract wind for best performance from series
-                s = series[event].get(bib, 'no_series')
+                s = series[event_key].get(bib, 'no_series')
                 if event in ('LJ', 'TJ') and not s == 'no_series':
                     pat = r'/?%(perf)s\(([+-]?\d,\d)\)/?' % vars()
                     match = re.search(pat,s)
