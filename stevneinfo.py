@@ -332,15 +332,15 @@ def write_opentrack_import(tree):
 
 #           print(e, full_events[e])
             if not isfield(e[1]):
-                res1 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2020' )
-                res2 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2019' )
+                res1 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2021' )
+                res2 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2020' )
                 #print(res1,res2)
                 res = min(res1,res2)
                 if res=='nm':
                     res=''
                 if e[1] == '10 000 meter':
-                    res3 = get_seed_marks(' '.join((fn, en)), dob, '5000 meter', e[0], '2020' )
-                    res4 = get_seed_marks(' '.join((fn, en)), dob, '5000 meter', e[0], '2019' )
+                    res3 = get_seed_marks(' '.join((fn, en)), dob, '5000 meter', e[0], '2021' )
+                    res4 = get_seed_marks(' '.join((fn, en)), dob, '5000 meter', e[0], '2020' )
                     res3 = min(res3,res4)
                     if res3 == 'nm':
                         res3 = ''
@@ -601,6 +601,7 @@ def event_code(event):
             u'200 meter hekk'    : '200H', 
             u'300 meter hekk'    : '300H', 
             u'400 meter hekk'    : '400H', 
+            u'2000 meter hinder' : '2000SC', 
             u'3000 meter hinder' : '3000SC', 
             u'Kappgang 1000 meter' : '1000W', 
             u'Kappgang 3000 meter' : '3000W', 
@@ -650,6 +651,7 @@ def event_name(code):
             '200H'   : '200 meter hekk'    ,
             '300H'   : '300 meter hekk'    , 
             '400H'   : '400 meter hekk'    , 
+            '2000SC' : '2000 meter hinder' , 
             '3000SC' : '3000 meter hinder' , 
             'HJ'     : 'Høyde'             , 
             'PV'     : 'Stav'              , 
@@ -1281,7 +1283,7 @@ def club_code(club_name):
     elif club_name in (u'Idrottslaget Gular Bygdeungdomen I Bergen', u'IL Gular'):
        club_code=u'GULA'
     elif club_name in (u'IDROTTSLAGET I BUL', u'IL i BUL'):
-       club_code=u'ILIBUL'
+       club_code=u'ILBUL'
 #   elif club_name in (u'IDROTTSLAGET I BUL 2'):
 #      club_code=u'ILBUL'
     elif club_name in (u'Idrottslaget Jotun', u'Jotun IL'):
@@ -3156,7 +3158,7 @@ def club_name(club_code):
    
 def get_stats(event,cat,season):
     event_id = {'100':'4', '200': 5, '400':'7', '800':'9', '1500':'11', '3000':'13', '5000':'14', '10000':'15',
-            '100H':'35', '110H':'42', '400H':'59'}
+            '100H':'35', '110H':'42', '400H':'59', '2000SC':'65'}
     catcodes = {'KS': '22', 'MS': '11'}
 
     #print(cat, event)
@@ -3182,7 +3184,9 @@ def get_stats(event,cat,season):
        #for row in tables[0]:
            for row in table:
                if not row == [] and not row[0] == '-----':
-                  name, club  =  row[1].split(',')
+                  #print(row)
+                  #name, club  =  row[1].split(',')
+                  name, club  =  row[1].rsplit(',', 1)
                   dob = row[2]
                   #dob = datetime.date.strptime(row[2],'%d.%m.%y')
                   perf = row[0]
@@ -3216,13 +3220,15 @@ def get_seed_marks(name, dob, event, cat, season):
         event_stats[event][cat][season] = get_stats(event,cat,season)
 
     res = 'nm'
-    #print(event, cat, season)
+    print(event, cat, season)
     #print('a',event_stats)
     s = event_stats.get(event, None)
     #print(s)
     if not s==None:
         #for p in event_stats[event][cat][season]:
-        #print(cat,season)
+        print(cat,season)
+        print(type(s[cat][season]))
+        print(s[cat][season])
         for p in s[cat][season]:
             #print(p)
             nme = p[0]
