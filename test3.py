@@ -104,7 +104,7 @@ def event_spec(event, klasse):
         if gender == 'F':
            if klasse in ('J10', 'J11', 'J12', 'J13'):
               weight = '0,6kg'
-           elif klasse in ('J14', 'J15', 'J15', 'J16', 'J17'):
+           elif klasse in ('J14', 'J15'):
                weight = '0,75kg'
            elif klasse >= 'KV80':
                weight = '0,75kg'
@@ -331,7 +331,7 @@ for e in j["events"]:
             #print(wind)
 
             for r in u["results"]:
-                #print(r)
+                print(r)
                 if "bib" in r.keys():
                     bib = r["bib"]
                 
@@ -349,14 +349,18 @@ for e in j["events"]:
 #                    x
                      if "performance" in r.keys():
                          res = r["performance"]
+                     else:
+                         res = ''
 
                      if "place" in r.keys():
                          pl = r["place"]
+                     else:
+                         pl = 0
                    
 #                    if "order" in r.keys():
 #                        pl = r["order"]
                     
-#                    print (event_code, bib, res, pl, pool)
+                     print (event_code, bib, res, pl, pool)
                      #results[event_code][cat][pool].append((bib, res, pl))
                      results[event_key][cat][pool]['marks'].append((bib, res, pl))
                      #print (bib, res, pl, pool)

@@ -268,11 +268,11 @@ def write_opentrack_import(tree):
     ws["D1"] = 'Last name'
     ws["E1"] = 'Gender'
     ws["F1"] = 'Date of birth'
-    ws["G1"] = 'Team ID'
-    ws["H1"] = 'Nationality'
-    ws["I1"] = 'Event'
-    ws["J1"] = 'Pb'
-    ws["K1"] = 'Sb'
+    ws["H1"] = 'Team ID'
+    ws["I1"] = 'Nationality'
+    ws["J1"] = 'Event'
+    ws["K1"] = 'Pb'
+    ws["L1"] = 'Sb'
     ws1["A1"] = 'Event selection'
     row_counter = 2
 
@@ -288,7 +288,7 @@ def write_opentrack_import(tree):
             jt +=1
             event_ref = "T%02d"%jt
 
-        print(e)
+        #print(e)
         full_events[ ( class_code(e[0]) , e[1] ) ]  = event_ref + ' - ' + ' '.join(( class_code(e[0]), event_spec(e[1], class_code(e[0])) ))
         ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], event_spec(e[1], class_code(e[0]))])
         ws1["B%d"%row_counter] = event_ref
@@ -327,10 +327,10 @@ def write_opentrack_import(tree):
             ws["D%d"%row_counter] = en
             ws["E%d"%row_counter] = gender(g)
             ws["F%d"%row_counter] = dob.strftime(isodateformat)
-            ws["G%d"%row_counter] = club_code(club)
-            ws["I%d"%row_counter] = full_events[e]
+            ws["H%d"%row_counter] = club_code(club)
+            ws["J%d"%row_counter] = full_events[e]
 
-#           print(e, full_events[e])
+            #print(e, full_events[e])
             if not isfield(e[1]):
                 res1 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2021' )
                 res2 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2020' )
@@ -344,10 +344,10 @@ def write_opentrack_import(tree):
                     res3 = min(res3,res4)
                     if res3 == 'nm':
                         res3 = ''
-                    ws["L%d"%row_counter] = res3
+                    ws["M%d"%row_counter] = res3
             else:
                 res = ''
-            ws["K%d"%row_counter] = res
+            ws["L%d"%row_counter] = res
 
             row_counter +=1
 
@@ -525,7 +525,7 @@ def make_vertical_protocol(tree, event, classes):
              data.append( [ c, athlete['name'], athlete['dob'][-4:], athlete['club'][0:11] ] )
              rows +=1
     pages = int(rows/(rows_on_page-1)) + 1
-    print(pages)
+    #print(pages)
  
     if rows%rows_on_page > 15:
        pages +=1
@@ -711,7 +711,7 @@ def class_code(name):
             u'Funksjonshemmede' : u'FH'      ,
             u'Ikke valgt klasse' : u'IVK'
             }
-    print(name, class_codes[name.strip()])
+    #print(name, class_codes[name.strip()])
     #return class_codes[name.strip()]
     return class_codes.get(name.strip(), name.strip())
 
@@ -835,7 +835,7 @@ def event_spec(event, klasse):
     if isthrow(event):
        #e = event + ' ' + throws[event][klasse]
        t = throws[event].get(klasse,None)
-       print(event,klasse)
+       #print(event,klasse)
        if t == None:
            t = throws[event]['default']
        e = event + ' ' + t
@@ -3157,8 +3157,8 @@ def club_name(club_code):
     return club_name
    
 def get_stats(event,cat,season):
-    event_id = {'100':'4', '200': 5, '400':'7', '800':'9', '1500':'11', '3000':'13', '5000':'14', '10000':'15',
-            '100H':'35', '110H':'42', '400H':'59', '2000SC':'65'}
+    event_id = {'100':'4', '200': '5', '400':'7', '800':'9', '1500':'11', '3000':'13', '5000':'14', '10000':'15',
+            '100H':'35', '110H':'42', '400H':'59', '2000SC':'65', '3000SC' : '121'}
     catcodes = {'KS': '22', 'MS': '11'}
 
     #print(cat, event)
@@ -3196,8 +3196,8 @@ def get_stats(event,cat,season):
 
 def get_seed_marks(name, dob, event, cat, season): 
     event_id = {'100':'4', '200': 5, '400':'7', 800:'9', '1500':'11', '3000':'13', '5000':'14', '10000':'15',
-            '100H':'35', '110H':'42', '400H':'59',
-            'HJ':'68', 'PV':'70', 'LJ':'71', 'TJ':'75', }
+            '100H':'35', '110H':'42', '400H':'59', '3000SC' : '120' ,
+            'HJ':'68', 'PV':'70', 'LJ':'71', 'TJ':'75', } 
     catcodes = {'KS': '22', 'MS': '11',
             'G15':'6', 'G16':'7', 'G17':'8', 'G18/19':'9',
             'J15':'17', 'J16':'18', 'J17':'19', 'J18/19':'20'}
@@ -3220,15 +3220,15 @@ def get_seed_marks(name, dob, event, cat, season):
         event_stats[event][cat][season] = get_stats(event,cat,season)
 
     res = 'nm'
-    print(event, cat, season)
+    #print(event, cat, season)
     #print('a',event_stats)
     s = event_stats.get(event, None)
     #print(s)
     if not s==None:
         #for p in event_stats[event][cat][season]:
-        print(cat,season)
-        print(type(s[cat][season]))
-        print(s[cat][season])
+        #print(cat,season)
+        #print(type(s[cat][season]))
+        #print(s[cat][season])
         for p in s[cat][season]:
             #print(p)
             nme = p[0]
@@ -3238,6 +3238,8 @@ def get_seed_marks(name, dob, event, cat, season):
             ratio = fuzz.token_set_ratio(name, nme)
             #print(name,nme,pratio)
             if ratio>85:
+                if 'Magnus' in name:
+                    print(name, nme, ratio, p[2])
                 res = p[2]
                 break
 
@@ -3252,7 +3254,7 @@ def get_seed_marks(name, dob, event, cat, season):
     elif match2:
         secs = match2.group(1)
         wind = match2.group(2)
-        print('wind=', wind)
+        #print('wind=', wind)
         res = secs.replace(',','.')
     else:
         res = res.replace(',','.')
