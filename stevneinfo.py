@@ -268,11 +268,11 @@ def write_opentrack_import(tree):
     ws["D1"] = 'Last name'
     ws["E1"] = 'Gender'
     ws["F1"] = 'Date of birth'
-    ws["H1"] = 'Team ID'
-    ws["I1"] = 'Nationality'
-    ws["J1"] = 'Event'
-    ws["K1"] = 'Pb'
-    ws["L1"] = 'Sb'
+    ws["G1"] = 'Team ID'
+    ws["H1"] = 'Nationality'
+    ws["I1"] = 'Event'
+    ws["J1"] = 'Pb'
+    ws["K1"] = 'Sb'
     ws1["A1"] = 'Event selection'
     row_counter = 2
 
