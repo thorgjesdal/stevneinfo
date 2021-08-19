@@ -327,8 +327,8 @@ def write_opentrack_import(tree):
             ws["D%d"%row_counter] = en
             ws["E%d"%row_counter] = gender(g)
             ws["F%d"%row_counter] = dob.strftime(isodateformat)
-            ws["H%d"%row_counter] = club_code(club)
-            ws["J%d"%row_counter] = full_events[e]
+            ws["G%d"%row_counter] = club_code(club)
+            ws["I%d"%row_counter] = full_events[e]
 
             #print(e, full_events[e])
             if not isfield(e[1]):
@@ -347,7 +347,7 @@ def write_opentrack_import(tree):
                     ws["M%d"%row_counter] = res3
             else:
                 res = ''
-            ws["L%d"%row_counter] = res
+            ws["J%d"%row_counter] = res
 
             row_counter +=1
 
