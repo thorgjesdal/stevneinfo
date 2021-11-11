@@ -1368,7 +1368,7 @@ def club_code(club_name):
        club_code=u'KOLL'
     elif club_name in (u'Kolvereid Idrettslag'):
        club_code=u'KLVIL'
-    elif club_name in (u'Kongsberg Idrettsforening'):
+    elif club_name in (u'Kongsberg Idrettsforening', u'Kongsberg IF'):
        club_code=u'KNGSB'
     elif club_name in (u'Kongsvinger IL Friidrett'):
        club_code=u'KNGSV'
