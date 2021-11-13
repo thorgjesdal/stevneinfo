@@ -64,7 +64,9 @@ def event_name(code):
             'OT'     : 'Liten ball'              , 
             'BT'     : 'Liten ball'              , 
             'DEC'    : 'Tikamp'            , 
-            'HEP'    : 'Sjukamp'           
+            'HEP'    : 'Sjukamp'           ,
+            'SHJ'    : 'Høyde uten tilløp' ,
+            'SLJ'    : 'Lengde uten tilløp'           
             }
     return event_names[code]
 
@@ -419,7 +421,8 @@ for e in j["events"]:
 wb = Workbook()
 ws = wb.active
     
-greenfont = Font(name='Calibri', color=xlcolors.GREEN)
+greenfont = Font(name='Calibri', color="0000FF00")
+#greenfont = Font(name='Calibri', color=xlcolors.GREEN)
 boldfont = Font(name='Calibri', bold=True, underline="single")
     
 ws.title = "Resultatliste"
