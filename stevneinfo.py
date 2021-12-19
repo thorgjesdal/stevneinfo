@@ -1310,7 +1310,7 @@ def club_code(club_name):
        club_code=u'ILBEV'
     elif club_name in (u'IL Brodd'):
        club_code=u'BRODD'
-    elif club_name in (u'IL Flåværingen'):
+    elif club_name in (u'IL Flåværingen, 'u'Flåværingen IL '):
        club_code=u'FLV'
     elif club_name in (u'IL Gry'):
        club_code=u'GRY'
