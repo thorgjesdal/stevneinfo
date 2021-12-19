@@ -242,7 +242,7 @@ bdate = datetime.datetime.strptime('2005-06-24', isodateformat)
 #print(get_category(bdate,date,'F'))
 
 
-meetname = j['fullName']
+meetname = j['nameLocal']
 slug = j['slug']
 if j.get('venue') == None: 
     venue = ''
