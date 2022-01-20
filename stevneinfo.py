@@ -624,6 +624,8 @@ def event_code(event):
             u'Liten ball'        : 'OT', 
             u'Tikamp'            : 'DEC', 
             u'Sjukamp'           : 'HEP' ,
+            u'7-kamp'           : 'HEP' ,
+            u'5-kamp'           : 'PEN' ,
             u'4x200 meter stafett' : '4x200' 
             }
     return event_codes[event]
@@ -3220,7 +3222,7 @@ def get_seed_marks(name, dob, event, cat, season):
         event_stats[event][cat][season] = get_stats(event,cat,season)
 
     res = 'nm'
-    #print(event, cat, season)
+    print(event, cat, season)
     #print('a',event_stats)
     s = event_stats.get(event, None)
     #print(s)
@@ -3229,37 +3231,39 @@ def get_seed_marks(name, dob, event, cat, season):
         #print(cat,season)
         #print(type(s[cat][season]))
         #print(s[cat][season])
-        for p in s[cat][season]:
-            #print(p)
-            nme = p[0]
-            #dd = datetime.datetime.strptime(p[1], '%d.%m.%y')
-            #res = p[2]
+        #print(s)
+        if not s[cat][season]==None:
+           for p in s[cat][season]:
+               #print(p)
+               nme = p[0]
+               #dd = datetime.datetime.strptime(p[1], '%d.%m.%y')
+               #res = p[2]
 
-            ratio = fuzz.token_set_ratio(name, nme)
-            #print(name,nme,pratio)
-            if ratio>85:
-                if 'Magnus' in name:
-                    print(name, nme, ratio, p[2])
-                res = p[2]
-                break
+               ratio = fuzz.token_set_ratio(name, nme)
+               #print(name,nme,pratio)
+               if ratio>85:
+                   if 'Magnus' in name:
+                       print(name, nme, ratio, p[2])
+                   res = p[2]
+                   break
 
-    minsecpat = '(\d?\d)[:.,](\d\d[,.]\d?\d)'
-    match1 = re.match(minsecpat,res)
-    reswindpat = "(\d?\d[,.]\d\d)[(]([+-]\d[,.]\d)[)]"
-    match2 = re.match(reswindpat,res)
-    if match1:
-        mins = match1.group(1)
-        secs = match1.group(2).replace(',','.')
-        res = mins + ':' + secs
-    elif match2:
-        secs = match2.group(1)
-        wind = match2.group(2)
-        #print('wind=', wind)
-        res = secs.replace(',','.')
-    else:
-        res = res.replace(',','.')
-    #print(name,res)
-    return res
+        minsecpat = '(\d?\d)[:.,](\d\d[,.]\d?\d)'
+        match1 = re.match(minsecpat,res)
+        reswindpat = "(\d?\d[,.]\d\d)[(]([+-]\d[,.]\d)[)]"
+        match2 = re.match(reswindpat,res)
+        if match1:
+            mins = match1.group(1)
+            secs = match1.group(2).replace(',','.')
+            res = mins + ':' + secs
+        elif match2:
+            secs = match2.group(1)
+            wind = match2.group(2)
+            #print('wind=', wind)
+            res = secs.replace(',','.')
+        else:
+            res = res.replace(',','.')
+        #print(name,res)
+        return res
 
 
 
