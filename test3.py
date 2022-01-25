@@ -6,6 +6,7 @@ from openpyxl import Workbook
 from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
 
+noplace = int(1.e10)-1
 def get_category(birthdate, eventdate, gender):
     birthyear = birthdate.year
     eventyear = eventdate.year
@@ -337,7 +338,7 @@ for e in j["events"]:
             #print(wind)
 
             for r in u["results"]:
-                print(r)
+                #print(r)
                 if "bib" in r.keys():
                     bib = r["bib"]
                 
@@ -361,7 +362,7 @@ for e in j["events"]:
                      if "place" in r.keys():
                          pl = r["place"]
                      else:
-                         pl = 9999
+                         pl = noplace
                    
 #                    if "order" in r.keys():
 #                        pl = r["order"]
@@ -475,7 +476,7 @@ for event_key in sorted(results.keys()):
                 club = competitors[bib][4]
 #               print(fn,ln,club,perf)
 
-                if place == 9999:
+                if place == noplace:
                     pl = ''
                 else:
                     pl = i+1
