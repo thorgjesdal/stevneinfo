@@ -357,7 +357,7 @@ for e in j["events"]:
                      if "place" in r.keys():
                          pl = r["place"]
                      else:
-                         pl = 0
+                         pl = 9999
                    
 #                    if "order" in r.keys():
 #                        pl = r["order"]
@@ -463,6 +463,7 @@ for event_key in sorted(results.keys()):
             for i,r in zip(range(len(sorted_result)),sorted_result):
                 bib = r[0]
                 perf = r[1].replace('.',',')
+                place = r[2]
 
                 fn  = competitors[bib][0]
                 ln  = competitors[bib][1]
@@ -470,7 +471,11 @@ for event_key in sorted(results.keys()):
                 club = competitors[bib][4]
 #               print(fn,ln,club,perf)
 
-                ws["A%(row_counter)d"%vars()] = i+1
+                if place == 9999:
+                    pl = ''
+                else:
+                    pl = i+1
+                ws["A%(row_counter)d"%vars()] = pl
                 #ws["B%(row_counter)d"%vars()] = bib
                 ws["C%(row_counter)d"%vars()] = ' '.join((fn,ln))
                 ws["D%(row_counter)d"%vars()] = dob.strftime('%Y')
