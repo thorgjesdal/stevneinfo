@@ -153,7 +153,7 @@ def event_spec(event, klasse):
     elif event == 'OT' :
         weight='150g'
 
-    """
+
     throws = {}
     throws['SP'] = { 'J10' : '2,0kg', 'J11' : '2,0kg', 'J12' : '2,0kg', 'J13' : '2,0kg', 
                        'J14' : '3,0kg', 'J15' : '3,0kg', 'J16' : '3,0kg', 'J17' : '3,0kg',
@@ -192,9 +192,13 @@ def event_spec(event, klasse):
     hurdles['60H'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '76,2cm', 'J13' : '76,2cm', 'J14' : '76,2cm',
                                  'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
                                  'J18/19' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
+                                 'KV50' : '76,2cm',
                                  'G10' : '68,0cm', 'G11' : '68,0cm', 'G12' : '76,2cm', 'G13' : '76,2cm', 'G14' : '84,0cm',
                                  'G15' : '84,0cm', 'G16' : '91,4cm', 'G17' : '91,4cm',
-                                 'G18/19' : '100cm','MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm' }
+                                 'G18/19' : '100cm','MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm' ,
+                                 'MV35':'100cm', 'MV40':'91,4cm', 'MV45':'91,4cm', 'MV50':'91,4cm', 'MV55':'91,4cm', 
+                                 'MV60':'84cm', 'MV65':'84cm', 'MV70':'76,2cm', 'MV75':'76,2cm', 
+                                 }
     hurdles['80H'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'G14' : '84,0cm' } 
     hurdles['100H'] = { 'J16' : '76,2cm', 'J17' : '76,2cm', 'J18/19' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
                                  'G15' : '84,0cm', 'G16' : '91,4cm'}
@@ -214,13 +218,13 @@ def event_spec(event, klasse):
                                  'G15' : '76,2cm', 'G16' : '84,0cm', 'G17' : '84,0cm',
                                  'G18/19' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
 
-    """
+
     if event in ('SP', 'DT', 'JT', 'HT', 'OT'):
        #e = event + ' ' + throws[event][klasse]
 #       e = event_name(event) + ' ' + throws[event].get(klasse,'')
        e = event_name(event) + ' ' + weight
-#   elif event in ('60H', '80H', '100H', '110H', '200H', '300H', '400H'): 
-#      e = event_name(event) + ' ' + hurdles[event][klasse]
+    elif event in ('60H', '80H', '100H', '110H', '200H', '300H', '400H'): 
+       e = event_name(event) + ' ' + hurdles[event][klasse]
     else:
        e = event_name(event)
 
