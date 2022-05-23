@@ -5,6 +5,7 @@ import re
 from openpyxl import Workbook
 from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
+import pprint
 
 noplace = int(1.e10)-1
 def get_category(birthdate, eventdate, gender):
@@ -315,7 +316,7 @@ for e in j['events']:
                     results[eventcode][cat] = []
                 # might want to add a dict of performance attributes to this tuple
                 # e.g. jump series, sort keys ...
-                results[eventcode][cat].append( (bib, r['performance']) )    
+                rfiesults[eventcode][cat].append( (bib, r['performance']) )    
  
     print( bib, (fn, ln, dob.strftime('%d.%m.%Y'), t) )
     competitors[bib] = (fn, ln, dob, t)
@@ -327,12 +328,16 @@ poolnr = 0
 results ={}
 series = {}
 for e in j["events"]:
+    day = e["day"]
     event_code = e["eventCode"]
     category = e["category"]
     event_key = (category, event_code)
     series[event_key] = {}
+    #if day not in e.keys():
+    if day not in results.keys():
+        results[day] = {}
     if event_key not in e.keys():
-        results[event_key] = {}
+        results[day][event_key] = {}
 #       for u in e["units"]:
         trials = {}
         for pool, u in zip(range(len(e["units"])),e["units"]):
@@ -352,13 +357,13 @@ for e in j["events"]:
                      bdate = competitors[bib][2]
                      g = competitors[bib][3]
                      cat = get_category(bdate,date,g)
-                     if results[event_key].get(cat) == None:
-                         results[event_key][cat] = {}
-                     if results[event_key][cat].get(pool) == None:
+                     if results[day][event_key].get(cat) == None:
+                         results[day][event_key][cat] = {}
+                     if results[day][event_key][cat].get(pool) == None:
                          #results[event_code][cat][pool] = []
-                         results[event_key][cat][pool] = {'marks' : []}
+                         results[day][event_key][cat][pool] = {'marks' : []}
                      if not wind == None:
-                         results[event_key][cat][pool]['wind'] = wind
+                         results[day][event_key][cat][pool]['wind'] = wind
 #                    x
                      if "performance" in r.keys():
                          res = r["performance"]
@@ -373,9 +378,9 @@ for e in j["events"]:
 #                    if "order" in r.keys():
 #                        pl = r["order"]
                     
-                     print (event_code, bib, res, pl, pool)
+#                    print (event_code, bib, res, pl, pool)
                      #results[event_code][cat][pool].append((bib, res, pl))
-                     results[event_key][cat][pool]['marks'].append((bib, res, pl))
+                     results[day][event_key][cat][pool]['marks'].append((bib, res, pl))
                      #print (bib, res, pl, pool)
 #           poolnr = poolnr + 1
 #           print (type(u['trials']))
@@ -428,6 +433,9 @@ for e in j["events"]:
                     s = s.replace('.',',')
                     series[event_key][bib] = s[:-1]
 
+pp = pprint.PrettyPrinter(indent=4)
+pp.pprint(results)
+
 #... write template for Results to xlsx workbook
 wb = Workbook()
 ws = wb.active
@@ -453,23 +461,24 @@ ws['a12'] = 'Resultater';     ws['b12'] = date.strftime('%d.%m.%Y')
 
 row_counter = 14
 
-#print(results)
-for event_key in sorted(results.keys()):
+day = 1
+#print(results[day].keys())
+for event_key in sorted(results[day].keys()):
     print(event_key)
     event = event_key[1]
-    for cat in sorted(results[event_key].keys() ):
+    for cat in sorted(results[day][event_key].keys() ):
         ws["A%(row_counter)d"%vars()] = cat; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
         ws["B%(row_counter)d"%vars()] = event_spec(event,cat) ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
         row_counter +=1
 #       print(cat)
-        heats = sorted(results[event_key][cat].keys() )
+        heats = sorted(results[day][event_key][cat].keys() )
         for h, heat in zip(range(len(heats)), heats):
 #           print('Heat: %d'%(h+1))
             ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
-            if 'wind' in results[event_key][cat][heat].keys():
+            if 'wind' in results[day][event_key][cat][heat].keys():
                 ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[event_key][cat][heat]['wind']
             row_counter +=1
-            sorted_result = sorted(results[event_key][cat][heat]['marks'], key=lambda tup: tup[2])
+            sorted_result = sorted(results[day][event_key][cat][heat]['marks'], key=lambda tup: tup[2])
 #           print(sorted_result)
             for i,r in zip(range(len(sorted_result)),sorted_result):
                 bib = r[0]
