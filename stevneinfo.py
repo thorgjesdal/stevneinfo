@@ -77,6 +77,9 @@ def ishjump(event):
 def isthrow(event):
     return event in [u'Kule', u'Diskos', u'Slegge', u'Spyd', u'Vektkast', u'Liten ball']
 
+def ismulti(event):
+    return 'kamp' in event
+
 def sort_athletes_by_class_by_event(tree):
     athlete_by_class_by_event = {}
     for c in tree.findall('.//Competitor'):
@@ -278,12 +281,16 @@ def write_opentrack_import(tree):
 
     jf = 0
     jt = 0
+    jm = 0
     full_events = {}
     print(events)
     for e in events:
         if isfield(e[1]):
             jf +=1
             event_ref = "F%02d"%jf
+        elif ismulti(e[1]):
+            jm +=1
+            event_ref = "M%02d"%jm
         else:
             jt +=1
             event_ref = "T%02d"%jt
@@ -331,11 +338,16 @@ def write_opentrack_import(tree):
             ws["I%d"%row_counter] = full_events[e]
 
             #print(e, full_events[e])
+            event = e[1]
+            print(event)
             if not isfield(e[1]):
-                res1 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2021' )
-                res2 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2020' )
+                if event == "60 meter": # for Bassen sprint
+                    event = "100 meter"
+                res1 = get_seed_marks(' '.join((fn, en)), dob, event, e[0], '2021' )
+                #res2 = get_seed_marks(' '.join((fn, en)), dob, e[1], e[0], '2020' )
                 #print(res1,res2)
-                res = min(res1,res2)
+                #res = min(res1,res2)
+                res = res1
                 if res=='nm':
                     res=''
                 if e[1] == '10 000 meter':
@@ -719,38 +731,38 @@ def class_code(name):
 
 def age_group(class_code):
     age_groups = {
-            'F6'    : 'U7',
-            'F7'    : 'U8',
-            'G 6-7'    : 'U8',
-            'G 8'    : 'U9',
-            'G 9'    : 'U10',
-            'G10'    : 'U11',
-            'G11'    : 'U12',
-            'G12'    : 'U13',
-            'G13'    : 'U14',
-            'G14'    : 'U15',
-            'G15'    : 'U16',
-            'G16'    : 'U17',
-            'G17'    : 'U18',
-            'G18/19' : 'U20',
+            'F6'    : '6',
+            'F7'    : '7',
+            'G 6-7'    : '6-7',
+            'G 8'    : '8',
+            'G 9'    : '9',
+            'G10'    : '10',
+            'G11'    : '11',
+            'G12'    : '12',
+            'G13'    : '13',
+            'G14'    : '14',
+            'G15'    : '15',
+            'G16'    : '16',
+            'G17'    : '17',
+            'G18/19' : '18-19',
             'GALLE' : 'ALL',
             'MJ'     : 'U20' ,
             'MS'     : 'SEN' ,
             'MALLE'     : 'ALL' ,
             'MV'     : 'V35' ,
             'MV35'   : 'V35' ,
-            'J 6-7'    : 'U8',
-            'J 8'    : 'U9',
-            'J 9'    : 'U10',
-            'J10'    : 'U11',
-            'J11'    : 'U12',
-            'J12'    : 'U13',
-            'J13'    : 'U14',
-            'J14'    : 'U15',
-            'J15'    : 'U16',
-            'J16'    : 'U17',
-            'J17'    : 'U18',
-            'J18/19' : 'U20',
+            'J 6-7'    : '6-7',
+            'J 8'    : '8',
+            'J 9'    : '9',
+            'J10'    : '10',
+            'J11'    : '11',
+            'J12'    : '12',
+            'J13'    : '13',
+            'J14'    : '14',
+            'J15'    : '15',
+            'J16'    : '16',
+            'J17'    : '17',
+            'J18/19' : '18/19',
             'JALLE' : 'ALL',
             'KJ'     : 'U20',
             'KS'     : 'SEN' ,
@@ -813,7 +825,7 @@ def event_spec(event, klasse):
                                  'J18/19' : '84,0cm','KJ' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
                                  'G10' : '68,0cm', 'G11' : '68,0cm', 'G12' : '76,2cm', 'G13' : '76,2cm', 'G14' : '84,0cm',
                                  'G15' : '84,0cm', 'G16' : '91,4cm', 'G17' : '91,4cm',
-                                 'G18/19' : '100cm','MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm' }
+                                 'G18/19' : '100cm','MU20' : '100cm', 'MU23' : '106,7cm', 'MS' : '106,7cm', 'default':'' }
     hurdles['80 meter hekk'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'G14' : '84,0cm' } 
     hurdles['100 meter hekk'] = { 'J16' : '76,2cm', 'J17' : '76,2cm', 'J18/19' : '84,0cm','KJ' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
                                  'G15' : '84,0cm', 'G16' : '91,4cm'}
@@ -837,12 +849,14 @@ def event_spec(event, klasse):
     if isthrow(event):
        #e = event + ' ' + throws[event][klasse]
        t = throws[event].get(klasse,None)
-       #print(event,klasse)
        if t == None:
            t = throws[event]['default']
        e = event + ' ' + t
     elif ishurdles(event):
-       e = event + ' ' + hurdles[event][klasse]
+       h = hurdles[event].get(klasse,None)
+       if h == None:
+           h = hurdles[event]['default']
+       e = event + ' ' + h
     else:
        e = event
 
@@ -1204,7 +1218,7 @@ def club_code(club_name):
        club_code=u'HUG'
     elif club_name in (u'Hurdal Idrettslag'):
        club_code=u'HURD'
-    elif club_name in (u'Hvam Idrettslag'):
+    elif club_name in (u'Hvam Idrettslag', u'Hvam IL'):
        club_code=u'HVAM'
     elif club_name in (u'Hvittingfoss Idrettslag'):
        club_code=u'HVFO'
