@@ -243,8 +243,14 @@ isodateformat = "%Y-%m-%d"
 date = datetime.datetime.strptime(d, isodateformat)
 #print(d, date)
 date2 = datetime.datetime.strptime(d2, isodateformat)
-bdate = datetime.datetime.strptime('2005-06-24', isodateformat)
+#bdate = datetime.datetime.strptime('2005-06-24', isodateformat)
 #print(get_category(bdate,date,'F'))
+dates = []
+d = date
+while d <= date2:
+    dates.append(d)
+    d += datetime.timedelta(days=1)
+print(dates)
 
 
 meetname = j['nameLocal']
