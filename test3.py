@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+
+# TODO: 
+#       + combined events results
+#
 import json
 import datetime
 import re
@@ -241,14 +245,14 @@ with open('downloads.json', 'r') as f:
 d  = j['date']
 d2 = j['finishDate']
 isodateformat = "%Y-%m-%d"
-date = datetime.datetime.strptime(d, isodateformat)
+date0 = datetime.datetime.strptime(d, isodateformat)
 #print(d, date)
-date2 = datetime.datetime.strptime(d2, isodateformat)
+date1 = datetime.datetime.strptime(d2, isodateformat)
 #bdate = datetime.datetime.strptime('2005-06-24', isodateformat)
 #print(get_category(bdate,date,'F'))
 dates = []
-d = date
-while d <= date2:
+d = date0
+while d <= date1:
     dates.append(d)
     d += datetime.timedelta(days=1)
 print(dates)
@@ -356,7 +360,7 @@ for e in j["events"]:
                 if bib not in ignore_bibs:
                      bdate = competitors[bib][2]
                      g = competitors[bib][3]
-                     cat = get_category(bdate,date,g)
+                     cat = get_category(bdate,date0,g)
                      if results[day][event_key].get(cat) == None:
                          results[day][event_key][cat] = {}
                      if results[day][event_key][cat].get(pool) == None:
@@ -448,7 +452,7 @@ ws.title = "Resultatliste"
     
 ws['a1'] = 'Stevne:';         ws['b1'] = meetname
 ws['a2'] = 'Stevnested:';     ws['b2'] = venue
-ws['a3'] = 'Stevnedato:';     ws['b3'] = date.strftime('%d.%m.%Y'); ws['c3'] = date2.strftime('%d.%m.%Y')
+ws['a3'] = 'Stevnedato:';     ws['b3'] = date0.strftime('%d.%m.%Y'); ws['c3'] = date1.strftime('%d.%m.%Y')
 ws['a4'] = 'Arrangør:';       ws['b4'] = '<arrangør>'; b4=ws['b4']; b4.font=greenfont
 ws['a5'] = 'Kontaktperson:';  ws['b5'] = '<navn>'    ; b5=ws['b5']; b5.font=greenfont
 ws['a6'] = 'Erklæring*: ';    ws['b6'] = '<J/N>'     ; b6=ws['b6']; b6.font=greenfont
@@ -457,65 +461,64 @@ ws['a8'] = 'Epost:';          ws['b8'] = '<e-post>'  ; b8=ws['b8']; b8.font=gree
 ws['a9'] = 'Utendørs:';       ws['b9'] = '<J/N>'     ; b9=ws['b9']; b9.font=greenfont
 ws['a10'] = 'Kommentar:'
 
-ws['a12'] = 'Resultater';     ws['b12'] = date.strftime('%d.%m.%Y')
 
-row_counter = 14
+row_counter = 12 
 
 day = 1
-#print(results[day].keys())
-for event_key in sorted(results[day].keys()):
-    print(event_key)
-    event = event_key[1]
-    for cat in sorted(results[day][event_key].keys() ):
-        ws["A%(row_counter)d"%vars()] = cat; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
-        ws["B%(row_counter)d"%vars()] = event_spec(event,cat) ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
-        row_counter +=1
-#       print(cat)
-        heats = sorted(results[day][event_key][cat].keys() )
-        for h, heat in zip(range(len(heats)), heats):
-#           print('Heat: %d'%(h+1))
-            ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
-            if 'wind' in results[day][event_key][cat][heat].keys():
-                ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[event_key][cat][heat]['wind']
+#for day,date in zip(range(1,len(dates)+1), dates):
+for day,date in enumerate(dates):
+    day +=1
+    ws[f'A{row_counter}'] = 'Resultater';     ws[f'B{row_counter}'] = date.strftime('%d.%m.%Y')
+    row_counter +=2
+    for event_key in sorted(results[day].keys()):
+        print(event_key)
+        event = event_key[1]
+        for cat in sorted(results[day][event_key].keys() ):
+            ws["A%(row_counter)d"%vars()] = cat; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
+            ws["B%(row_counter)d"%vars()] = event_spec(event,cat) ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
             row_counter +=1
-            sorted_result = sorted(results[day][event_key][cat][heat]['marks'], key=lambda tup: tup[2])
-#           print(sorted_result)
-            for i,r in zip(range(len(sorted_result)),sorted_result):
-                bib = r[0]
-                perf = r[1].replace('.',',')
-                place = r[2]
-
-                fn  = competitors[bib][0]
-                ln  = competitors[bib][1]
-                dob = competitors[bib][2]
-                club = competitors[bib][4]
-#               print(fn,ln,club,perf)
-
-                if place == noplace:
-                    pl = ''
-                else:
-                    pl = i+1
-                ws["A%(row_counter)d"%vars()] = pl
-                #ws["B%(row_counter)d"%vars()] = bib
-                ws["C%(row_counter)d"%vars()] = ' '.join((fn,ln))
-                ws["D%(row_counter)d"%vars()] = dob.strftime('%Y')
-#               ws["E%(row_counter)d"%vars()] = club_name(club)
-                ws["E%(row_counter)d"%vars()] = club
-                ws["F%(row_counter)d"%vars()] = perf
-
-#--- extract wind for best performance from series
-                s = series[event_key].get(bib, 'no_series')
-                if event in ('LJ', 'TJ') and not s == 'no_series':
-                    pat = r'/?%(perf)s\(([+-]?\d,\d)\)/?' % vars()
-                    match = re.search(pat,s)
-                    if match:
-                        ws["G%(row_counter)d"%vars()] = match.group(1)
-
-                if not s=='no_series':
-                    row_counter +=1
-                    ws["A%(row_counter)d"%vars()] = s
+            heats = sorted(results[day][event_key][cat].keys() )
+            for h, heat in zip(range(len(heats)), heats):
+                ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
+                if 'wind' in results[day][event_key][cat][heat].keys():
+                    ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[event_key][cat][heat]['wind']
                 row_counter +=1
-        row_counter +=1
+                sorted_result = sorted(results[day][event_key][cat][heat]['marks'], key=lambda tup: tup[2])
+                for i,r in zip(range(len(sorted_result)),sorted_result):
+                    bib = r[0]
+                    perf = r[1].replace('.',',')
+                    place = r[2]
+    
+                    fn  = competitors[bib][0]
+                    ln  = competitors[bib][1]
+                    dob = competitors[bib][2]
+                    club = competitors[bib][4]
+    
+                    if place == noplace:
+                        pl = ''
+                    else:
+                        pl = i+1
+                    ws["A%(row_counter)d"%vars()] = pl
+                    #ws["B%(row_counter)d"%vars()] = bib
+                    ws["C%(row_counter)d"%vars()] = ' '.join((fn,ln))
+                    ws["D%(row_counter)d"%vars()] = dob.strftime('%Y')
+    #               ws["E%(row_counter)d"%vars()] = club_name(club)
+                    ws["E%(row_counter)d"%vars()] = club
+                    ws["F%(row_counter)d"%vars()] = perf
+    
+    #--- extract wind for best performance from series
+                    s = series[event_key].get(bib, 'no_series')
+                    if event in ('LJ', 'TJ') and not s == 'no_series':
+                        pat = r'/?%(perf)s\(([+-]?\d,\d)\)/?' % vars()
+                        match = re.search(pat,s)
+                        if match:
+                            ws["G%(row_counter)d"%vars()] = match.group(1)
+    
+                    if not s=='no_series':
+                        row_counter +=1
+                        ws["A%(row_counter)d"%vars()] = s
+                    row_counter +=1
+            row_counter +=1
         
 print("done")
 
@@ -559,5 +562,5 @@ for klasse in class_keys:
 fname = output_file_name(tree)
 xlname = fname+'.xlsx'
 """
-xlname = slug + '-' + date.strftime(isodateformat) + '.xlsx'
+xlname = slug + '-' + date0.strftime(isodateformat) + '.xlsx'
 wb.save(xlname)
