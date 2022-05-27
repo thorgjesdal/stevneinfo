@@ -9,6 +9,8 @@ import re
 from openpyxl import Workbook
 from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
+import random
+
 import pprint
 
 noplace = int(1.e10)-1
@@ -437,8 +439,8 @@ for e in j["events"]:
                     s = s.replace('.',',')
                     series[event_key][bib] = s[:-1]
 
-pp = pprint.PrettyPrinter(indent=4)
-pp.pprint(results)
+#pp = pprint.PrettyPrinter(indent=4)
+#pp.pprint(results)
 
 #... write template for Results to xlsx workbook
 wb = Workbook()
@@ -481,10 +483,17 @@ for day,date in enumerate(dates):
             for h, heat in zip(range(len(heats)), heats):
                 ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
                 if 'wind' in results[day][event_key][cat][heat].keys():
-                    ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[event_key][cat][heat]['wind']
+                    ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[day][event_key][cat][heat]['wind']
                 row_counter +=1
-                sorted_result = sorted(results[day][event_key][cat][heat]['marks'], key=lambda tup: tup[2])
-                for i,r in zip(range(len(sorted_result)),sorted_result):
+                sorted_results = sorted(results[day][event_key][cat][heat]['marks'], key=lambda tup: tup[2])
+                pat = "[GJ](\d?\d)"
+                match = re.search(pat,event_key[0])
+                if match: 
+                    age = int(match.group(1))
+                    if age < 11:
+                        sorted_results = results[day][event_key][cat][heat]['marks']
+                        random.shuffle(sorted_results)
+                for i,r in zip(range(len(sorted_results)),sorted_results):
                     bib = r[0]
                     perf = r[1].replace('.',',')
                     place = r[2]
