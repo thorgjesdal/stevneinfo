@@ -2,6 +2,8 @@
 
 # TODO: 
 #       + combined events results
+#       + load json directly from url
+#       + clean up/more modular
 #
 import json
 import datetime
