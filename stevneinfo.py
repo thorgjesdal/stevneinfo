@@ -918,7 +918,7 @@ def club_code(club_name):
        club_code=u'BAGN'
     elif club_name in (u'Bakke IF'):
        club_code=u'BAKKE'
-    elif club_name in (u'Balestrand Idrettslag'):
+    elif club_name in (u'Balestrand Idrettslag', u'Balestrand IL'):
        club_code=u'BALE'
     elif club_name in (u'Bardu Idrettslag'):
        club_code=u'BARD'
@@ -1068,7 +1068,7 @@ def club_code(club_name):
        club_code=u'FJVE'
     elif club_name in (u'Flatås Idrettslag'):
        club_code=u'FLATS'
-    elif club_name in (u'Florø Turn og Idrettsforening', u'Florø Tog IF'):
+    elif club_name in (u'Florø Turn og Idrettsforening', u'Florø T og IF', u'Florø T&IF'):
        club_code=u'FLOR'
     elif club_name in (u'Follafoss Idrettslag'):
        club_code=u'FOLFO'
@@ -1108,6 +1108,8 @@ def club_code(club_name):
        club_code=u'FYLL'
     elif club_name in (u'Førde Idrettslag', u'Førde IL'):
        club_code=u'FRDE'
+    elif club_name in (u'Gaular IL'):
+       club_code=u'GAULA'
     elif club_name in (u'Gausdal Friidrettsklubb'):
        club_code=u'GAU'
     elif club_name in (u'Geilo Idrettslag'):
@@ -1342,6 +1344,8 @@ def club_code(club_name):
        club_code=u'SANT'
     elif club_name in (u'IL Stålkameratene'):
        club_code=u'STKAM'
+    elif club_name in (u'IL Tambarskjelvar'):
+       club_code=u'TAMBA'
     elif club_name in (u'IL Triumf'):
        club_code=u'TRIUM'
     elif club_name in (u'Vestby IL'):
@@ -1478,7 +1482,7 @@ def club_code(club_name):
        club_code=u'MNDL'
     elif club_name in (u'Markabygda Idrettslag'):
        club_code=u'MABY'
-    elif club_name in (u'Markane Idrettslag'):
+    elif club_name in (u'Markane Idrettslag', u'Markane IL'):
        club_code=u'MARKA'
     elif club_name in (u'Marnardal Idrettslag'):
        club_code=u'MARNA'
@@ -1758,8 +1762,8 @@ def club_code(club_name):
        club_code=u'STJIL'
     elif club_name in (u'Stadsbygd IL'):
        club_code=u'STAD'
-    elif club_name in (u'Stårheim Idrettslag'):
-       club_code=u'STRHEI'
+    elif club_name in (u'Stårheim Idrettslag', u'Stårheim IL'):
+       club_code=u'STRHE'
     elif club_name in (u'Stavanger Døve-Idrettsforening'):
        club_code=u'STDIF'
     elif club_name in (u'Stavanger Friidrettsklubb'):
@@ -2114,7 +2118,7 @@ def club_name(club_code):
     elif club_code == (u'BAKKE'):
        club_name=u'Bakke IF'
     elif club_code == (u'BALE'):
-       club_name=u'Balestrand Idrettslag'
+       club_name=u'Balestrand IL'
     elif club_code == (u'BARD'):
        club_name=u'Bardu Idrettslag'
     elif club_code == (u'BIF'):
@@ -2264,7 +2268,7 @@ def club_name(club_code):
     elif club_code == (u'FLATS'):
        club_name=u'Flatås Idrettslag'
     elif club_code == (u'FLOR'):
-       club_name=u'Florø Turn og Idrettsforening'
+       club_name=u'Florø T & IF'
     elif club_code == (u'FOLFO'):
        club_name=u'Follafoss Idrettslag'
     elif club_code == (u'FOL'):
@@ -2303,6 +2307,8 @@ def club_name(club_code):
        club_name=u'Fyllingen Idrettslag'
     elif club_code == (u'FRDE'):
        club_name=u'Førde Idrettslag'
+    elif club_code == (u'GAULA'):
+       club_name=u'Gaular IL'
     elif club_code == (u'GAU'):
        club_name=u'Gausdal Friidrettsklubb'
     elif club_code == (u'GEI'):
@@ -2672,7 +2678,7 @@ def club_name(club_code):
     elif club_code == (u'MABY'):
        club_name=u'Markabygda Idrettslag'
     elif club_code == (u'MARKA'):
-       club_name=u'Markane Idrettslag'
+       club_name=u'Markane IL'
     elif club_code == (u'MARNA'):
        club_name=u'Marnardal Idrettslag'
     elif club_code == (u'MEDKI'):
@@ -2953,8 +2959,8 @@ def club_name(club_code):
        club_name=u'Staal Jørpeland IL'
     elif club_code == (u'STAD'):
        club_name=u'Stadsbygd IL'
-    elif club_code == (u'STRHEI'):
-       club_name=u'Stårheim Idrettslag'
+    elif club_code == (u'STRHE'):
+       club_name=u'Stårheim IL'
     elif club_code == (u'STDIF'):
        club_name=u'Stavanger Døve-Idrettsforening'
     elif club_code == (u'STAVA'):
@@ -3037,6 +3043,8 @@ def club_name(club_code):
        club_name=u'Sørkedalens Idrettsforening'
     elif club_code == (u'HOVD'):
        club_name=u'T I L Hovding'
+    elif club_code == (u'TAMBA'):
+       club_name=u'IL Tambarskjelvar'
     elif club_code == (u'TAMSAN'):
        club_name=u'Tamil Sangam IL'
     elif club_code == (u'TING'):
