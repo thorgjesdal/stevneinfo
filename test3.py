@@ -12,6 +12,7 @@ from openpyxl import Workbook
 from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
 import random
+from collections import defaultdict
 
 import pprint
 
@@ -222,7 +223,8 @@ def event_spec(event, klasse):
     hurdles['300H'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
                                  'J18/19' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
                                  'G15' : '76,2cm', 'G16' : '84,0cm', 'G17' : '84,0cm',
-                                 'G18/19' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
+                                 'G18/19' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm',
+                                 'default':''}
     hurdles['400H'] = { 'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
                                  'J18/19' : '76,2cm','KU20' : '76,2cm', 'KU23' : '76,2cm', 'KS' : '76,2cm',
                                  'G15' : '76,2cm', 'G16' : '84,0cm', 'G17' : '84,0cm',
@@ -234,7 +236,8 @@ def event_spec(event, klasse):
 #       e = event_name(event) + ' ' + throws[event].get(klasse,'')
        e = event_name(event) + ' ' + weight
     elif event in ('60H', '80H', '100H', '110H', '200H', '300H', '400H'): 
-       e = event_name(event) + ' ' + hurdles[event][klasse]
+#      e = event_name(event) + ' ' + hurdles[event][klasse]
+       e = event_name(event) + ' ' + hurdles[event].get(klasse,'')
     else:
        e = event_name(event)
 
@@ -259,7 +262,7 @@ d = date0
 while d <= date1:
     dates.append(d)
     d += datetime.timedelta(days=1)
-print(dates)
+#print(dates)
 
 
 meetname = j['nameLocal']
@@ -336,10 +339,13 @@ poolnr = 0
 results ={}
 series = {}
 for e in j["events"]:
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(e)
     day = e["day"]
     event_code = e["eventCode"]
     category = e["category"]
     event_key = (category, event_code)
+    print(event_key)
     series[event_key] = {}
     #if day not in e.keys():
     if day not in results.keys():
@@ -348,7 +354,8 @@ for e in j["events"]:
         results[day][event_key] = {}
 #       for u in e["units"]:
         trials = {}
-        for pool, u in zip(range(len(e["units"])),e["units"]):
+        for pool, u in enumerate(e["units"]):
+#       for pool, u in zip(range(len(e["units"])),e["units"]):
             #results[event_code] ={}
             if "windAssistance" in u.keys():
                 wind = u["windAssistance"]
@@ -357,7 +364,7 @@ for e in j["events"]:
             #print(wind)
 
             for r in u["results"]:
-                #print(r)
+#               print(r)
                 if "bib" in r.keys():
                     bib = r["bib"]
                 
@@ -373,8 +380,11 @@ for e in j["events"]:
                      if not wind == None:
                          results[day][event_key][cat][pool]['wind'] = wind
 #                    x
-                     if "performance" in r.keys():
-                         res = r["performance"]
+#                    print(r.keys())
+                     if 'performance' in r.keys():
+                         res = r['performance']
+                     elif 'total' in r.keys():
+                         res = r['total']
                      else:
                          res = ''
 
@@ -440,12 +450,15 @@ for e in j["events"]:
                         s += '/'    
                     s = s.replace('.',',')
                     series[event_key][bib] = s[:-1]
+            elif event_code in ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO'):
+                print(event_code)
 
 #pp = pprint.PrettyPrinter(indent=4)
 #pp.pprint(results)
 
 #... write template for Results to xlsx workbook
 wb = Workbook()
+
 ws = wb.active
     
 greenfont = Font(name='Calibri', color="0000FF00")
@@ -475,7 +488,7 @@ for day,date in enumerate(dates):
     ws[f'A{row_counter}'] = 'Resultater';     ws[f'B{row_counter}'] = date.strftime('%d.%m.%Y')
     row_counter +=2
     for event_key in sorted(results[day].keys()):
-        print(event_key)
+#       print(event_key)
         event = event_key[1]
         for cat in sorted(results[day][event_key].keys() ):
             ws["A%(row_counter)d"%vars()] = cat; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
