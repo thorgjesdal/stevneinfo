@@ -5,6 +5,7 @@
 #       + load json directly from url
 #       + clean up/more modular
 #
+import sys
 import json
 import datetime
 import re
@@ -13,6 +14,7 @@ from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
 import random
 from collections import defaultdict
+from athlib import tyrving_score 
 
 import pprint
 
@@ -50,7 +52,6 @@ def event_name(code):
             '600'    : '600 meter'         , 
             '800'    : '800 meter'         , 
             '1000'   : '1000 meter'        , 
-            '2000'   : '2000 meter'        , 
             '1500'   : '1500 meter'        , 
             '3000'   : '3000 meter'        , 
             '5000'   : '5000 meter'        , 
@@ -62,11 +63,8 @@ def event_name(code):
             '200H'   : '200 meter hekk'    ,
             '300H'   : '300 meter hekk'    , 
             '400H'   : '400 meter hekk'    , 
-            '1500SC' : '1500 meter hinder' , 
-            '2000SC' : '2000 meter hinder' , 
             '3000SC' : '3000 meter hinder' , 
             '1000W'  : 'Kappgang 1000 meter'        , 
-            '2000W'  : 'Kappgang 2000 meter'        , 
             '3000W'  : 'Kappgang 3000 meter'        , 
             'HJ'     : 'Høyde'             , 
             'PV'     : 'Stav'              , 
@@ -81,7 +79,8 @@ def event_name(code):
             'DEC'    : 'Tikamp'            , 
             'HEP'    : 'Sjukamp'           ,
             'SHJ'    : 'Høyde uten tilløp' ,
-            'SLJ'    : 'Lengde uten tilløp'           
+            'SLJ'    : 'Lengde uten tilløp'           ,
+            'SLJ'    : 'Tresteg uten tilløp'           
             }
     return event_names[code]
 
@@ -247,9 +246,16 @@ def event_spec(event, klasse):
 
     return e
 #---------------------------------------
-with open('downloads.json', 'r') as f: 
+if len(sys.argv) < 2:
+   sys.exit("Usage: %s <infile>" % sys.argv[0])
+   
+infile = sys.argv[1]
+print(infile)
+
+with open(infile, 'r') as f: 
     j = json.load(f)
 
+   
 #print(type(j))
 #print(j.keys())
 #print(j['date'])
@@ -269,14 +275,14 @@ while d <= date1:
 #print(dates)
 
 
-meetname = j['nameLocal']
-slug = j['slug']
-if j.get('venue') == None: 
-    venue = ''
-else:
-    venue = j['venue']['formalName']
-#print(meetname, venue)
-
+#meetname = j['nameLocal']
+#slug = j['slug']
+#if j.get('venue') == None: 
+#    venue = ''
+#else:
+#    venue = j['venue']['formalName']
+##print(meetname, venue)
+   
 ignore_bibs = []
 competitors = {}
 #print(j['competitors'][0])
@@ -342,9 +348,10 @@ for e in j['events']:
 poolnr = 0
 results ={}
 series = {}
+scores = []
 for e in j["events"]:
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(e)
+#   pp = pprint.PrettyPrinter(indent=4)
+#   pp.pprint(e)
     day = e["day"]
     event_code = e["eventCode"]
     category = e["category"]
@@ -397,12 +404,29 @@ for e in j["events"]:
                      else:
                          pl = noplace
                    
+                     score = 0
+                     if "athlonPoints" in r.keys():
+                         score = r["athlonPoints"]
+
+                     gender = 'F'
+                     if category[0] in ('M', 'G'):
+                         gender = 'M'
+                     age = category[1:]
+                     if age=='18-19':
+                         age=19
+                     
+                     tyrving=0
+                     if 'x' not in event_key[1]:
+                         if res not in ['DNF', 'DNS', 'NM', 'NH', 'DQ', '']:
+                             tyrving = tyrving_score(gender,age,event_key[1],res)
+
 #                    if "order" in r.keys():
 #                        pl = r["order"]
                     
 #                    print (event_code, bib, res, pl, pool)
                      #results[event_code][cat][pool].append((bib, res, pl))
                      results[day][event_key][cat][pool]['marks'].append((bib, res, pl))
+                     scores.append( (competitors[bib][0], competitors[bib][1], event_code, category, res, score, tyrving) )
                      #print (bib, res, pl, pool)
 #           poolnr = poolnr + 1
 #           print (type(u['trials']))
@@ -459,33 +483,46 @@ for e in j["events"]:
 
 #pp = pprint.PrettyPrinter(indent=4)
 #pp.pprint(results)
+#print(scores)
 
 #... write template for Results to xlsx workbook
 wb = Workbook()
 
 ws = wb.active
     
-greenfont = Font(name='Calibri', color="0000FF00")
+#greenfont = Font(name='Calibri', color="0000FF00")
 #greenfont = Font(name='Calibri', color=xlcolors.GREEN)
-boldfont = Font(name='Calibri', bold=True, underline="single")
+#boldfont = Font(name='Calibri', bold=True, underline="single")
     
-ws.title = "Resultatliste"
+#ws.title = "Resultatliste"
     
-ws['a1'] = 'Stevne:';         ws['b1'] = meetname
-ws['a2'] = 'Stevnested:';     ws['b2'] = venue
-ws['a3'] = 'Stevnedato:';     ws['b3'] = date0.strftime('%d.%m.%Y'); ws['c3'] = date1.strftime('%d.%m.%Y')
-ws['a4'] = 'Arrangør:';       ws['b4'] = '<arrangør>'; b4=ws['b4']; b4.font=greenfont
-ws['a5'] = 'Kontaktperson:';  ws['b5'] = '<navn>'    ; b5=ws['b5']; b5.font=greenfont
-ws['a6'] = 'Erklæring*: ';    ws['b6'] = '<J/N>'     ; b6=ws['b6']; b6.font=greenfont
-ws['a7'] = 'Telefon:';        ws['b7'] = '<tlf>'     ; b7=ws['b7']; b7.font=greenfont
-ws['a8'] = 'Epost:';          ws['b8'] = '<e-post>'  ; b8=ws['b8']; b8.font=greenfont
-ws['a9'] = 'Utendørs:';       ws['b9'] = '<J/N>'     ; b9=ws['b9']; b9.font=greenfont
-ws['a10'] = 'Kommentar:'
+#ws['a1'] = 'Stevne:';         ws['b1'] = meetname
+#ws['a2'] = 'Stevnested:';     ws['b2'] = venue
+#ws['a3'] = 'Stevnedato:';     ws['b3'] = date0.strftime('%d.%m.%Y'); ws['c3'] = date1.strftime('%d.%m.%Y')
+#ws['a4'] = 'Arrangør:';       ws['b4'] = '<arrangør>'; b4=ws['b4']; b4.font=greenfont
+#ws['a5'] = 'Kontaktperson:';  ws['b5'] = '<navn>'    ; b5=ws['b5']; b5.font=greenfont
+#ws['a6'] = 'Erklæring*: ';    ws['b6'] = '<J/N>'     ; b6=ws['b6']; b6.font=greenfont
+#ws['a7'] = 'Telefon:';        ws['b7'] = '<tlf>'     ; b7=ws['b7']; b7.font=greenfont
+#ws['a8'] = 'Epost:';          ws['b8'] = '<e-post>'  ; b8=ws['b8']; b8.font=greenfont
+#ws['a9'] = 'Utendørs:';       ws['b9'] = '<J/N>'     ; b9=ws['b9']; b9.font=greenfont
+#ws['a10'] = 'Kommentar:'
 
 
-row_counter = 12 
+row_counter = 1 
+for score in scores:
+    ws[f'A{row_counter}'] = score[0]
+    ws[f'B{row_counter}'] = score[1]
+    ws[f'C{row_counter}'] = score[2]
+    ws[f'D{row_counter}'] = score[3]
+    ws[f'E{row_counter}'] = score[4]
+    ws[f'F{row_counter}'] = score[5]
+    ws[f'G{row_counter}'] = score[6]
 
-day = 1
+    row_counter +=1
+
+wb.save('scores.xlsx')
+exit()
+#day = 1
 #for day,date in zip(range(1,len(dates)+1), dates):
 for day,date in enumerate(dates):
     day +=1
