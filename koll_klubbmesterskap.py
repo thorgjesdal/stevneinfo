@@ -12,6 +12,7 @@ import re
 from openpyxl import Workbook
 from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
+import requests
 import random
 from collections import defaultdict
 from athlib import tyrving_score 
@@ -39,6 +40,9 @@ def get_category(birthdate, eventdate, gender):
     cat = g[gender]+a
     return cat
 
+track_events = ['60', '80', '100', '150', '200', '300', '400', '600', '800', '1500', '2000', '3000', '5000', '10000', '60H', '80H', '100H', '110H', '200H', '300H', '400H', '1500SC', '2000SC', '3000SC']
+jump_events  = ['HJ', 'PV', 'LJ', 'TJ', 'SHJ', 'SLJ']
+throw_events = ['SP', 'DT', 'JT', 'HT', 'BT', 'OT']
    
 def event_name(code):
     event_names = {
@@ -249,43 +253,28 @@ def event_spec(event, klasse):
 if len(sys.argv) < 2:
    sys.exit("Usage: %s <infile>" % sys.argv[0])
    
-infile = sys.argv[1]
-print(infile)
+url = sys.argv[1]+'json'
+print(url)
 
-with open(infile, 'r') as f: 
-    j = json.load(f)
+r=requests.get(url)
+j = json.loads(r.text)
 
+slug = j['slug']
    
-#print(type(j))
-#print(j.keys())
-#print(j['date'])
 d  = j['date']
 d2 = j['finishDate']
 isodateformat = "%Y-%m-%d"
 date0 = datetime.datetime.strptime(d, isodateformat)
-#print(d, date)
 date1 = datetime.datetime.strptime(d2, isodateformat)
-#bdate = datetime.datetime.strptime('2005-06-24', isodateformat)
-#print(get_category(bdate,date,'F'))
 dates = []
 d = date0
 while d <= date1:
     dates.append(d)
     d += datetime.timedelta(days=1)
-#print(dates)
 
 
-#meetname = j['nameLocal']
-#slug = j['slug']
-#if j.get('venue') == None: 
-#    venue = ''
-#else:
-#    venue = j['venue']['formalName']
-##print(meetname, venue)
-   
 ignore_bibs = []
 competitors = {}
-#print(j['competitors'][0])
 for c in j['competitors']:
     fn = ''; ln = ''; dob= ''; t=''
     bib  = c['competitorId']
@@ -296,336 +285,102 @@ for c in j['competitors']:
     if 'dateOfBirth' in c.keys():
         d    = c['dateOfBirth']
         dob  = datetime.datetime.strptime(d, isodateformat)
-#   if 'teamId' in c.keys():
-#       t    = c['teamId']
     if 'teamName' in c.keys():
         t    = c['teamName']
+    if 'teamId' in c.keys():
+        t2    = c['teamId']
 
     if 'gender' in c.keys():
         g = c['gender']
     if fn=='':
         ignore_bibs.append(bib)
     else:
-        competitors[bib] = (fn, ln, dob, g, t)
-#        print(bib, competitors[bib])
+        competitors[bib] = (fn, ln, dob, g, t2)
 
-
-
-#print(type(j['events']))
-#print(type(j['events'][0]))
-#print(j['events'][0].keys())
-#print(j['events'][0]['units'][0])
-
-"""
-results = {}
-for e in j['events']:
-    eventcode = e['eventCode']
-    if eventcode not in results:
-        results[eventcode] = {}
-    #print(eventcode)
-    for u in e['units']:
-        #print(u.keys())
-        for r in u['results']:
-            bib = r['bib']
-            if bib not in ignore_bibs:
-                #print(r)
-                d = competitors[bib][2]
-                g = competitors[bib][3]
-                cat = get_category(d,date,g)
-                #print(d, date.strftime('%d.%m.%Y'), cat)
-                if cat not in results[eventcode].keys():
-                    results[eventcode][cat] = []
-                # might want to add a dict of performance attributes to this tuple
-                # e.g. jump series, sort keys ...
-                rfiesults[eventcode][cat].append( (bib, r['performance']) )    
- 
-    print( bib, (fn, ln, dob.strftime('%d.%m.%Y'), t) )
-    competitors[bib] = (fn, ln, dob, t)
-#print(competitors)
-"""
-#print(competitors)
 
 poolnr = 0
 results ={}
 series = {}
 scores = []
 for e in j["events"]:
-#   pp = pprint.PrettyPrinter(indent=4)
-#   pp.pprint(e)
     day = e["day"]
     event_code = e["eventCode"]
-    category = e["category"]
-    event_key = (category, event_code)
-    print(event_key)
-    series[event_key] = {}
-    #if day not in e.keys():
-    if day not in results.keys():
-        results[day] = {}
-    if event_key not in e.keys():
-        results[day][event_key] = {}
-#       for u in e["units"]:
-        trials = {}
-        for pool, u in enumerate(e["units"]):
-#       for pool, u in zip(range(len(e["units"])),e["units"]):
-            #results[event_code] ={}
-            if "windAssistance" in u.keys():
-                wind = u["windAssistance"]
-            else:
-                wind = None
-            #print(wind)
 
-            for r in u["results"]:
-#               print(r)
-                if "bib" in r.keys():
-                    bib = r["bib"]
-                
-                if bib not in ignore_bibs:
-                     bdate = competitors[bib][2]
-                     g = competitors[bib][3]
-                     cat = get_category(bdate,date0,g)
-                     if results[day][event_key].get(cat) == None:
-                         results[day][event_key][cat] = {}
-                     if results[day][event_key][cat].get(pool) == None:
-                         #results[event_code][cat][pool] = []
-                         results[day][event_key][cat][pool] = {'marks' : []}
-                     if not wind == None:
-                         results[day][event_key][cat][pool]['wind'] = wind
-#                    x
-#                    print(r.keys())
-                     if 'performance' in r.keys():
-                         res = r['performance']
-                     elif 'total' in r.keys():
-                         res = r['total']
-                     else:
-                         res = ''
+    for pool, u in enumerate(e["units"]):
+        for r in u["results"]:
+            if "bib" in r.keys():
+                bib = r["bib"]
+            
+            age = int(date0.strftime('%Y'))-int(competitors[bib][2].strftime('%Y'))
+            if age < 11:
+                continue
+            elif age == 18:
+                age=19
 
-                     if "place" in r.keys():
-                         pl = r["place"]
-                     else:
-                         pl = noplace
-                   
-                     score = 0
-                     if "athlonPoints" in r.keys():
-                         score = r["athlonPoints"]
+            gender = competitors[bib][3]
+            g='G'
+            if gender=='F':
+                g='J'
+            category = f'{g}{age}'
 
-                     gender = 'F'
-                     if category[0] in ('M', 'G'):
-                         gender = 'M'
-                     age = category[1:]
-                     if age=='18-19':
-                         age=19
-                     
-                     tyrving=0
-                     if 'x' not in event_key[1]:
-                         if res not in ['DNF', 'DNS', 'NM', 'NH', 'DQ', '']:
-                             tyrving = tyrving_score(gender,age,event_key[1],res)
+            if category not in results.keys():
+                results[category] = {}
 
-#                    if "order" in r.keys():
-#                        pl = r["order"]
-                    
-#                    print (event_code, bib, res, pl, pool)
-                     #results[event_code][cat][pool].append((bib, res, pl))
-                     results[day][event_key][cat][pool]['marks'].append((bib, res, pl))
-                     scores.append( (competitors[bib][0], competitors[bib][1], event_code, category, res, score, tyrving) )
-                     #print (bib, res, pl, pool)
-#           poolnr = poolnr + 1
-#           print (type(u['trials']))
-#           print (u['trials'])
-            if event_code in ('HJ', 'SHJ', 'PV'):
-                for t in u['trials']:
-                    bib = t['bib']
-                    if trials.get(bib)==None:
-                        trials[bib] = {}
-                    height = t['height']
-                    if trials[bib].get(height)==None:
-                        trials[bib][height] = []
-                    trials[bib][height].append(t['result'])
-                for bib in trials.keys():
-                    s = ''
-                    for height in sorted(trials[bib].keys() ):
-                        s += height + '(' + ''.join(trials[bib][height]) + ') ' 
-                    s = s.replace('.',',')
-#                    print(s)
-                    i = j = len(s)
-                    if 'x' in s:
-                        i = s.index('x')
-                    if 'o' in s:
-                        j = s.index('o')
-                    ij = min(i,j)
-                    if ij < len(s):
-                        series[event_key][bib] = s[ij-5:]
-                    else:
-                        series[event_key][bib] = ''
-            elif event_code in ('LJ', 'TJ', 'SP', 'DT', 'HT', 'JT', 'OT', 'BT'):
-                for t in u['trials']:
-                    bib = t['bib']
-                    if trials.get(bib)==None:
-                        trials[bib] = {}
-#                   print(event_code, t)
-                    rond = t['round']
-                    if trials[bib].get(rond)==None:
-                        trials[bib][rond] = {}
-                    trials[bib][rond]['result'] = t['result']
-                    if 'wind' in t.keys():
-                        trials[bib][rond]['wind'] = t['wind']
+            if bib not in results[category].keys():
+                results[category][bib] = { 'runs' : [], 'jumps' : [], 'throws' : [], 'count' : 0, 'score' : 0 }
 
-                for bib in trials.keys():
-                    s = ''
-                    for rond in sorted(trials[bib].keys() ):
-                        s += trials[bib][rond]['result'] 
-                        if 'wind' in trials[bib][rond].keys():
-                            s += "(%3.1f)" % (trials[bib][rond]['wind'])
-                        s += '/'    
-                    s = s.replace('.',',')
-                    series[event_key][bib] = s[:-1]
-            elif event_code in ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO'):
-                print(event_code)
+            res = r['performance']
+            if res not in ['DNF', 'DNS', 'NM', 'NH', 'DQ', '']:
+                if event_code == 'BT':
+                    event_code='OT'
+                tyrving = tyrving_score(gender,age,event_code,res)
+
+
+            if event_code in track_events:
+                results[category][bib]['runs'].append((event_code, res, tyrving))
+            elif event_code in jump_events:
+                results[category][bib]['jumps'].append((event_code, res, tyrving))
+            elif event_code in throw_events:
+                results[category][bib]['throws'].append((event_code, res, tyrving))
+
+for cat in results.keys():
+    for bib in results[cat].keys():
+        count =   int( len(results[cat][bib]['runs']) > 0 ) + int( len(results[cat][bib]['jumps']) > 0 ) + int( len(results[cat][bib]['throws']) > 0 )   
+        results[cat][bib]['count'] = count
+
+        if count == 3:
+            score = 0.
+            for ev in ['runs', 'jumps', 'throws']:
+                score += max([ results[cat][bib][ev][i][2] for i in range( len(results[cat][bib][ev]) ) ]  )
+            results[cat][bib]['score'] = score
 
 #pp = pprint.PrettyPrinter(indent=4)
 #pp.pprint(results)
-#print(scores)
+#exit()
 
 #... write template for Results to xlsx workbook
 wb = Workbook()
 
 ws = wb.active
     
-#greenfont = Font(name='Calibri', color="0000FF00")
-#greenfont = Font(name='Calibri', color=xlcolors.GREEN)
-#boldfont = Font(name='Calibri', bold=True, underline="single")
-    
-#ws.title = "Resultatliste"
-    
-#ws['a1'] = 'Stevne:';         ws['b1'] = meetname
-#ws['a2'] = 'Stevnested:';     ws['b2'] = venue
-#ws['a3'] = 'Stevnedato:';     ws['b3'] = date0.strftime('%d.%m.%Y'); ws['c3'] = date1.strftime('%d.%m.%Y')
-#ws['a4'] = 'Arrangør:';       ws['b4'] = '<arrangør>'; b4=ws['b4']; b4.font=greenfont
-#ws['a5'] = 'Kontaktperson:';  ws['b5'] = '<navn>'    ; b5=ws['b5']; b5.font=greenfont
-#ws['a6'] = 'Erklæring*: ';    ws['b6'] = '<J/N>'     ; b6=ws['b6']; b6.font=greenfont
-#ws['a7'] = 'Telefon:';        ws['b7'] = '<tlf>'     ; b7=ws['b7']; b7.font=greenfont
-#ws['a8'] = 'Epost:';          ws['b8'] = '<e-post>'  ; b8=ws['b8']; b8.font=greenfont
-#ws['a9'] = 'Utendørs:';       ws['b9'] = '<J/N>'     ; b9=ws['b9']; b9.font=greenfont
-#ws['a10'] = 'Kommentar:'
-
-
 row_counter = 1 
-for score in scores:
-    ws[f'A{row_counter}'] = score[0]
-    ws[f'B{row_counter}'] = score[1]
-    ws[f'C{row_counter}'] = score[2]
-    ws[f'D{row_counter}'] = score[3]
-    ws[f'E{row_counter}'] = score[4]
-    ws[f'F{row_counter}'] = score[5]
-    ws[f'G{row_counter}'] = score[6]
+columns = {'60' : 'D', '100' : 'D', '600':'E' , '800' : 'E', 'HJ':'F', 'LJ': 'G', 'SP' : 'H', 'OT' : 'I' }
+for cat in results.keys():
+    for bib in results[cat].keys():
+        if competitors[bib][4] == 'KOLL':
+            ws[f'A{row_counter}'] = cat
+            ws[f'B{row_counter}'] = competitors[bib][0]
+            ws[f'C{row_counter}'] = competitors[bib][1]
+            for ev in ['runs', 'jumps', 'throws']:
+                for i in results[cat][bib][ev]:
+                    column = columns[i[0]]
+                    ws[f'{column}{row_counter}'] = f'{i[1]} ({i[2]})'
+            ws[f'J{row_counter}'] = results[cat][bib]['score']
 
-    row_counter +=1
-
-wb.save('scores.xlsx')
-exit()
-#day = 1
-#for day,date in zip(range(1,len(dates)+1), dates):
-for day,date in enumerate(dates):
-    day +=1
-    ws[f'A{row_counter}'] = 'Resultater';     ws[f'B{row_counter}'] = date.strftime('%d.%m.%Y')
-    row_counter +=2
-    for event_key in sorted(results[day].keys()):
-#       print(event_key)
-        event = event_key[1]
-        for cat in sorted(results[day][event_key].keys() ):
-            ws["A%(row_counter)d"%vars()] = cat; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
-            ws["B%(row_counter)d"%vars()] = event_spec(event,cat) ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
             row_counter +=1
-            heats = sorted(results[day][event_key][cat].keys() )
-            for h, heat in zip(range(len(heats)), heats):
-                ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
-                if 'wind' in results[day][event_key][cat][heat].keys():
-                    ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[day][event_key][cat][heat]['wind']
-                row_counter +=1
-                sorted_results = sorted(results[day][event_key][cat][heat]['marks'], key=lambda tup: tup[2])
-                pat = "[GJ](\d?\d)"
-                match = re.search(pat,event_key[0])
-                if match: 
-                    age = int(match.group(1))
-                    if age < 11:
-                        sorted_results = results[day][event_key][cat][heat]['marks']
-                        random.shuffle(sorted_results)
-                for i,r in zip(range(len(sorted_results)),sorted_results):
-                    bib = r[0]
-                    perf = r[1].replace('.',',')
-                    place = r[2]
-    
-                    fn  = competitors[bib][0]
-                    ln  = competitors[bib][1]
-                    dob = competitors[bib][2]
-                    club = competitors[bib][4]
-    
-                    if place == noplace:
-                        pl = ''
-                    else:
-                        pl = i+1
-                    ws["A%(row_counter)d"%vars()] = pl
-                    #ws["B%(row_counter)d"%vars()] = bib
-                    ws["C%(row_counter)d"%vars()] = ' '.join((fn,ln))
-                    ws["D%(row_counter)d"%vars()] = dob.strftime('%Y')
-    #               ws["E%(row_counter)d"%vars()] = club_name(club)
-                    ws["E%(row_counter)d"%vars()] = club
-                    ws["F%(row_counter)d"%vars()] = perf
-    
-    #--- extract wind for best performance from series
-                    s = series[event_key].get(bib, 'no_series')
-                    if event in ('LJ', 'TJ') and not s == 'no_series':
-                        pat = r'/?%(perf)s\(([+-]?\d,\d)\)/?' % vars()
-                        match = re.search(pat,s)
-                        if match:
-                            ws["G%(row_counter)d"%vars()] = match.group(1)
-    
-                    if not s=='no_series':
-                        row_counter +=1
-                        ws["A%(row_counter)d"%vars()] = s
-                    row_counter +=1
-            row_counter +=1
-        
-print("done")
+                
 
-"""
-class_keys = athlete_by_event_by_class.keys()
-class_keys.sort()
-for klasse in class_keys:
-   event_keys = athlete_by_event_by_class[klasse].keys()
-   event_keys.sort()
-   for event in event_keys:
-           
-       e = event_spec(event,klasse)
-       ws["A%(row_counter)d"%vars()] = klasse; arc = ws["A%(row_counter)d"%vars()]; arc.font=boldfont
-       ws["B%(row_counter)d"%vars()] = e     ; brc = ws["B%(row_counter)d"%vars()]; brc.font=boldfont
-       ws["C%(row_counter)d"%vars()] = "<spesiell konkurransestatus>";  crc = ws["C%(row_counter)d"%vars()]; crc.font=greenfont
-       row_counter +=1
 
-       if istrack(event):
-           ws["A%(row_counter)d"%vars()] = "<Heat | Finale:>";  arc = ws["A%(row_counter)d"%vars()]; arc.font=greenfont
-           ws["C%(row_counter)d"%vars()] = "Vind:";  crc = ws["C%(row_counter)d"%vars()]; crc.font=greenfont
-           row_counter +=1
-          
-       for athlete in athlete_by_event_by_class[klasse][event]:
-          ws["C%(row_counter)d"%vars()] = athlete['name']
-          ws["D%(row_counter)d"%vars()] = athlete['dob'][-4:]
-          ws["E%(row_counter)d"%vars()] = athlete['club']
-          ws["F%(row_counter)d"%vars()] = "<resultat>"
-          if ishjump(event):
-             ws["G%(row_counter)d"%vars()] = "<vind>";  grc = ws["G%(row_counter)d"%vars()]; grc.font=greenfont
-             ws["H%(row_counter)d"%vars()] = "<resultat>";  hrc = ws["H%(row_counter)d"%vars()]; hrc.font=greenfont
-
-             ws["I%(row_counter)d"%vars()] = "<vind>";  irc = ws["I%(row_counter)d"%vars()]; irc.font=greenfont
-          if isfield(event):
-             row_counter +=1 # add blank line for series
-             ws["A%(row_counter)d"%vars()] = "<hopp-/kastserie>";  arc = ws["A%(row_counter)d"%vars()]; arc.font=greenfont
-    
-          row_counter +=1
-       row_counter +=1
-           
-    
-fname = output_file_name(tree)
-xlname = fname+'.xlsx'
-"""
-xlname = slug + '-' + date0.strftime(isodateformat) + '.xlsx'
+xlname = slug + '-' + date0.strftime(isodateformat) + '_score.xlsx'
+print(xlname)
 wb.save(xlname)

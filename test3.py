@@ -81,7 +81,8 @@ def event_name(code):
             'DEC'    : 'Tikamp'            , 
             'HEP'    : 'Sjukamp'           ,
             'SHJ'    : 'Høyde uten tilløp' ,
-            'SLJ'    : 'Lengde uten tilløp'           
+            'SLJ'    : 'Lengde uten tilløp'           ,
+            'STJ'    : 'Tresteg uten tilløp'           
             }
     return event_names[code]
 
@@ -269,7 +270,10 @@ while d <= date1:
 #print(dates)
 
 
-meetname = j['nameLocal']
+if 'nameLocal' in j.keys():
+    meetname = j['nameLocal']
+meetname = j['fullName']
+
 slug = j['slug']
 if j.get('venue') == None: 
     venue = ''
@@ -350,6 +354,8 @@ for e in j["events"]:
     category = e["category"]
     event_key = (category, event_code)
     print(event_key)
+    if 'x' in event_key[1]:
+        continue
     series[event_key] = {}
     #if day not in e.keys():
     if day not in results.keys():
