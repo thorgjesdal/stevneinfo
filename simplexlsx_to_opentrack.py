@@ -43,8 +43,8 @@ def read_simplexlsx(f):
             dob = value[4]
             team = value[5]
             qp = value[6]
-            event = (cat, ev)
-            athlete_key = (first_name, last_name, dob, team, qp)
+            event = (cat, ev, qp)
+            athlete_key = (first_name, last_name, dob, team)
 
             if athlete_key not in events_by_athlete.keys():
                 events_by_athlete[athlete_key] = []
@@ -93,8 +93,13 @@ def write_opentrack_import(ef, cf):
         dob  = key[2]
         #dob = datetime.datetime.strptime(dob,ddmmyyyyformat)
         team = key[3]
-        qp = key[4]
+        #qp = key[4]
+#       print(key)
         for event in events_by_athlete[key]:
+            #print(event)
+            e = (event[0], event[1])
+            qp = event[2]
+            #print(e, qp)
 #           e = ( event[2], event[1] )
 
             ws["A%d"%row_counter] = bib
@@ -104,7 +109,7 @@ def write_opentrack_import(ef, cf):
             ws["E%d"%row_counter] = gender[event[0][0]]
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = team
-            ws["I%d"%row_counter] = event_codes[event]
+            ws["I%d"%row_counter] = event_codes[e]
             ws["J%d"%row_counter] = qp
 
             row_counter +=1
