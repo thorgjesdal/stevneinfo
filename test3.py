@@ -2,8 +2,9 @@
 
 # TODO: 
 #       + combined events results
-#       + load json directly from url
 #       + clean up/more modular
+#       + different sorting critera (age, cats in json, predefined cats)
+#       + command line arguments
 #
 import json
 import datetime
@@ -248,8 +249,16 @@ def event_spec(event, klasse):
 
     return e
 #---------------------------------------
-with open('downloads.json', 'r') as f: 
-    j = json.load(f)
+if len(sys.argv) < 2:
+   sys.exit("Usage: %s <infile>" % sys.argv[0])
+   
+url = sys.argv[1]+'json'
+print(url)
+
+r=requests.get(url)
+j = json.loads(r.text)
+#with open('downloads.json', 'r') as f: 
+#    j = json.load(f)
 
 #print(type(j))
 #print(j.keys())
