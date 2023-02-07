@@ -5,13 +5,16 @@
 #       + clean up/more modular
 #       + different sorting critera (age, cats in json, predefined cats)
 #       + command line arguments
+#       + fill in more header info
 #
+import sys
 import json
 import datetime
 import re
 from openpyxl import Workbook
 from openpyxl.styles import colors as xlcolors
 from openpyxl.styles import Font, Color
+import requests
 import random
 from collections import defaultdict
 

@@ -23,6 +23,8 @@ def issteeple(event):
     return istrack(event) and 'hinder' in event
 
 def isfield(event):
+    #return event in ('HJ', 'PV', 'LJ', 'TJ', 'SHJ', 'SLJ', 'STJ',
+    #                 'SP', 'DT', 'HT', 'JT', 'BT', 'OT' )
     return isvjump(event) or ishjump(event) or isthrow(event)
 
 def isvjump(event):
@@ -93,11 +95,13 @@ def cat_code(name):
     cat_codes = {
             u'6 år Fellesklasse' : u'F6' ,
             u'7 år Fellesklasse' : u'F7' ,
-            u'Gutter 6 - 7'     : u'G 6-7'          , 
-            u'Gutter 8'     : u'G 8'          , 
-            u'Gutter 9'     : u'G 9'          , 
+            u'Gutter Rekrutt'    : u'G6-7'          , 
+            u'Gutter 6 - 7'      : u'G6-7'          , 
+            u'Gutter 8'     : u'G8'          , 
+            u'Gutter 9'     : u'G9'          , 
             u'Gutter 10'    : u'G10'          , 
             u'Gutter 11'    : u'G11'          , 
+            u'Gutter 11-14' : u'G11-14'       , 
             u'Gutter 12'    : u'G12'          , 
             u'Gutter 13'    : u'G13'          , 
             u'Gutter 14'    : u'G14'          , 
@@ -105,6 +109,7 @@ def cat_code(name):
             u'Gutter 16'    : u'G16'          , 
             u'Gutter 17'    : u'G17'          , 
             u'Gutter 18/19' : u'G18/19'       , 
+            u'Gutter 18-19' : u'G18-19'       , 
             u'Gutter alle klasser' : u'GALLE'       , 
             u'Menn junior'  : u'MJ'           , 
             u'Menn U20'     : u'MU20'         , 
@@ -112,11 +117,13 @@ def cat_code(name):
             u'Menn senior'  : u'MS'           , 
             u'Menn alle klasser'  : u'MALLE'           , 
             u'Menn veteraner' : u'MV'         , 
+            u'Jenter Rekrutt'    : u'J6-7'          , 
             u'Jenter 6 - 7'     : u'J 6-7'          , 
-            u'Jenter 8'     : u'J 8'          , 
-            u'Jenter 9'     : u'J 9'          , 
+            u'Jenter 8'     : u'J8'          , 
+            u'Jenter 9'     : u'J9'          , 
             u'Jenter 10'    : u'J10'          , 
             u'Jenter 11'    : u'J11'          , 
+            u'Jenter 11-14' : u'J11-14'          , 
             u'Jenter 12'    : u'J12'          , 
             u'Jenter 13'    : u'J13'          , 
             u'Jenter 14'    : u'J14'          , 
@@ -124,6 +131,7 @@ def cat_code(name):
             u'Jenter 16'    : u'J16'          , 
             u'Jenter 17'    : u'J17'          , 
             u'Jenter 18/19' : u'J18/19'       , 
+            u'Jenter 18-19' : u'J18-19'       , 
             u'Jenter alle klasser' : u'JALLE'       , 
             u'Kvinner junior'  : u'KJ'        , 
             u'Kvinner U20'     : u'KU20'      , 
@@ -154,11 +162,12 @@ def age_group(cat):
     age_groups = {
             'F6'    : '6',
             'F7'    : '7',
-            'G 6-7'    : '6-7',
-            'G 8'    : '8',
-            'G 9'    : '9',
+            'G6-7'    : '6-7',
+            'G8'    : '8',
+            'G9'    : '9',
             'G10'    : '10',
             'G11'    : '11',
+            'G11-14'    : '11-14',
             'G12'    : '12',
             'G13'    : '13',
             'G14'    : '14',
@@ -166,24 +175,27 @@ def age_group(cat):
             'G16'    : '16',
             'G17'    : '17',
             'G18/19' : '18-19',
+            'G18-19' : '18-19',
             'GALLE' : 'ALL',
             'MJ'     : 'U20' ,
             'MS'     : 'SEN' ,
             'MALLE'     : 'ALL' ,
             'MV'     : 'V35' ,
             'MV35'   : 'V35' ,
-            'J 6-7'    : '6-7',
-            'J 8'    : '8',
-            'J 9'    : '9',
+            'J6-7'    : '6-7',
+            'J8'    : '8',
+            'J9'    : '9',
             'J10'    : '10',
             'J11'    : '11',
+            'J11-14'    : '11-14',
             'J12'    : '12',
             'J13'    : '13',
             'J14'    : '14',
             'J15'    : '15',
             'J16'    : '16',
             'J17'    : '17',
-            'J18/19' : '18/19',
+            'J18/19' : '18-19',
+            'J18-19' : '18-19',
             'JALLE' : 'ALL',
             'KJ'     : 'U20',
             'KS'     : 'SEN' ,
@@ -833,7 +845,7 @@ def club_code(club_name):
        club_code=u'LAKS'
     elif club_name in (u'Lalm Idrettslag'):
        club_code=u'LALM'
-    elif club_name in (u'Lambertseter IF'):
+    elif club_name in (u'Lambertseter IF', u'Lambertseter Idrettsforening'):
        club_code=u'LAM'
     elif club_name in (u'Langesund Sykle- og triathlonklubb'):
        club_code=u'LANGS'
@@ -1270,7 +1282,7 @@ def club_code(club_name):
     elif club_name in (u'Tingvoll Friidrettsklubb', u'Tingvoll Friidrettskl.'):
        club_code=u'TING'
     elif club_name in ( 'IK Tjalve', 'Idrettsklubben Tjalve', 'Tjalve, IK', 'Tjalve, Idrettsklubben', 'Tjalve Idrettsklubben' ):
-       club_code=u'TJAL'
+       club_code=u'TJALV'
     elif club_name in (u'Tjølling Idrettsforening'):
        club_code=u'TJØLL'
     elif club_name in (u'Tjøme Idrettslag'):
@@ -1398,13 +1410,17 @@ def club_code(club_name):
 
 def sort_event_list(events):
     def sort_fcn(e):
-#       print(e)
-        catsort = ['G15', 'G16', 'G17', 'G18/19', 'J15', 'J16', 'J17', 'J18/19', 'MS', 'KS']
-        evsort = ['60', '100', '200', '400', '800', '1000', '1500', 'MILE', '3000', '5000', '10000', 
+        #print(e)
+        catsort = ['G6-7', 'G8', 'G9', 'G10', 'G11', 'G11-14', 'G12', 'G13', 'G14', 'G15', 'G16', 'G17', 'G18-19', 
+                   'J6-7', 'J8', 'J9', 'J10', 'J11-14', 'J11', 'J12', 'J13', 'J14', 'J15', 'J16', 'J17', 'J18-19', 
+                   'MS', 'KS']
+
+        evsort = ['60', '100', '200', '400', '600', '800', '1000', '1500', 'MILE', '3000', '5000', '10000', 
                 '60H', '80H', '100H', '110H', '200H', '300H', '400H', '2000SC', '3000SC', 
                 'HJ', 'PV', 'LJ', 'TJ', 'SP', 'DT', 'JT', 'HT', 'PEN', 'HEP', 'DEC']
         return 100*catsort.index(e[2]) + evsort.index(e[1])
 
+    print(events)
     events.sort(key=sort_fcn)
     return events
 
@@ -1415,16 +1431,20 @@ def read_isonenxls(f):
     events =  []
     events_by_athlete= {}
     for value in ws.iter_rows(min_row=2,min_col=1, max_col=46, values_only=True):
-        if 'Avmeldt' not in value[41] or value[41] is None:
+        if value[0] is None:
+            continue
+        if 'Avmeldt' not in value[28] or value[28] is None:
             first_name = value[0]
             last_name = value[1]
             dob = value[5]
             g = gender[ value[6] ]
-            club = value[12]
-            ev = value[18]
-            cat = cat_code(value[19])
+            club = value[10]
+            ev = value[16]
+            cat = cat_code(value[17])
             athlete_key = (first_name, last_name, dob, g, club)
             event = (ev, event_code(ev),  cat)
+            print(athlete_key)
+            print(event)
 
             if event[0] is None:
                 continue
@@ -1478,6 +1498,7 @@ def get_seed_marks(name, dob, event, cat, season):
             'G15':'6', 'G16':'7', 'G17':'8', 'G18/19':'9',
             'J15':'17', 'J16':'18', 'J17':'19', 'J18/19':'20'}
 
+    print(cat,event)
     if cat not in ('MS', 'KS'):
         return ''
     #event = event_code(event)
@@ -1600,9 +1621,12 @@ def write_opentrack_import(f):
         dob = datetime.datetime.strptime(dob,ddmmyyyyformat)
         g    = key[3]
         club = key[4]
-        for event in events_by_athlete[key]:
-#           print(event)
-            e = ( event[2], event[1] )
+        for e in events_by_athlete[key]:
+            #print(e)
+            event     = e[0]
+            eventcode = e[1]
+            cat       = e[2]
+            #e = ( event[2], event[1] )
 
             ws["A%d"%row_counter] = bib
 #           ws["B%d"%row_counter] = ident
@@ -1611,13 +1635,13 @@ def write_opentrack_import(f):
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = club_code(club)
-            ws["I%d"%row_counter] = full_events[e]
+            ws["I%d"%row_counter] = full_events[ (e[2], e[1]) ]
 
-            event = e[1]
-            if not isfield(e[1]):
-                if event == "60 meter": # for Bassen sprint
-                    event = "100 meter"
-                res1 = get_seed_marks(' '.join((fn, ln)), dob, event, e[0], '2022' )
+            #event = e[1]
+            if not isfield(event):
+                if eventcode == "60": # for Bassen sprint
+                    eventcode = "100"
+                res1 = get_seed_marks(' '.join((fn, ln)), dob, eventcode, cat, '2022' )
                 res = res1
                 if res=='nm':
                     res=''

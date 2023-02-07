@@ -1218,7 +1218,7 @@ def club_code(club_name):
        club_code=u'HORFR'
     elif club_name in (u'Huglo Idrettslag'):
        club_code=u'HUG'
-    elif club_name in (u'Hurdal Idrettslag'):
+    elif club_name in (u'Hurdal Idrettslag', u'Hurdal IL'):
        club_code=u'HURD'
     elif club_name in (u'Hvam Idrettslag', u'Hvam IL'):
        club_code=u'HVAM'
@@ -1328,7 +1328,7 @@ def club_code(club_name):
        club_code=u'ILBEV'
     elif club_name in (u'IL Brodd'):
        club_code=u'BRODD'
-    elif club_name in (u'IL Flåværingen, 'u'Flåværingen IL '):
+    elif club_name in (u'IL Flåværingen ', u'Flåværingen IL '):
        club_code=u'FLV'
     elif club_name in (u'IL Gry'):
        club_code=u'GRY'

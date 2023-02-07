@@ -24,6 +24,7 @@ def read_eventfile(f):
         code = value[0]
 
         key = (cat, event)
+        print(key,code)
         event_codes[key] = code
         
     return event_codes
@@ -117,8 +118,8 @@ def write_opentrack_import(ef, cf):
     xlname = 'opentrack_input.xlsx'
     wb.save(xlname)
 #-----
-event_file = 'Distriktskampen_event_grid.xlsx'
-competitor_file = 'Distriktskampen_deltakere.xlsx'
+event_file = 'event_grid_bassen.xlsx'
+competitor_file = 'etteranmeldinger_bassen.xlsx'
 
 #if len(sys.argv) < 2:
 #   sys.exit("Usage: %s <infile>" % sys.argv[0])
