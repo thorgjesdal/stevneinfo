@@ -4,8 +4,8 @@
 #       + combined events results
 #       + clean up/more modular
 #       + different sorting critera (age, cats in json, predefined cats)
-#       + command line arguments
-#       + fill in more header info
+#       + PARA categories
+#       + sorting order
 #
 import sys
 import json
@@ -251,14 +251,20 @@ def event_spec(event, klasse):
        e = event_name(event)
 
     return e
+
+def get_organiser_name(key):
+    organisers = { "1376e260-82f7-4bf6-9da6-064fd76c6d87" : "IL Koll", 
+                   "575153d6-7f1b-4795-9276-5f8d57414944" : 'IK Tjalve'
+            }
+    return organisers.get(key, key)
 #---------------------------------------
 if len(sys.argv) < 2:
-   sys.exit("Usage: %s <infile>" % sys.argv[0])
+   sys.exit("Usage: %s <url>" % sys.argv[0])
    
-url = sys.argv[1]+'json'
+url = sys.argv[1]
 print(url)
 
-r=requests.get(url)
+r=requests.get(url+'json')
 j = json.loads(r.text)
 #with open('downloads.json', 'r') as f: 
 #    j = json.load(f)
@@ -287,11 +293,18 @@ if 'nameLocal' in j.keys():
 meetname = j['fullName']
 
 slug = j['slug']
+outdoors = 'J'
 if j.get('venue') == None: 
     venue = ''
 else:
     venue = j['venue']['formalName']
+    if j['venue']['indoor'] == 'true':
+        outdoors = 'N'
+   
 #print(meetname, venue)
+organiser_key =  j['organiser']
+organiser_name = get_organiser_name(organiser_key)
+
 
 ignore_bibs = []
 competitors = {}
@@ -359,13 +372,13 @@ poolnr = 0
 results ={}
 series = {}
 for e in j["events"]:
-    pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(e)
+#   pp = pprint.PrettyPrinter(indent=4)
+#   pp.pprint(e)
     day = e["day"]
     event_code = e["eventCode"]
     category = e["category"]
     event_key = (category, event_code)
-    print(event_key)
+#   print(event_key)
     if 'x' in event_key[1]:
         continue
     series[event_key] = {}
@@ -440,12 +453,12 @@ for e in j["events"]:
                         s += height + '(' + ''.join(trials[bib][height]) + ') ' 
                     s = s.replace('.',',')
 #                    print(s)
-                    i = j = len(s)
+                    i0 = i1 = len(s)
                     if 'x' in s:
-                        i = s.index('x')
+                        i0 = s.index('x')
                     if 'o' in s:
-                        j = s.index('o')
-                    ij = min(i,j)
+                        i1 = s.index('o')
+                    ij = min(i0,i1)
                     if ij < len(s):
                         series[event_key][bib] = s[ij-5:]
                     else:
@@ -492,16 +505,17 @@ ws.title = "Resultatliste"
 ws['a1'] = 'Stevne:';         ws['b1'] = meetname
 ws['a2'] = 'Stevnested:';     ws['b2'] = venue
 ws['a3'] = 'Stevnedato:';     ws['b3'] = date0.strftime('%d.%m.%Y'); ws['c3'] = date1.strftime('%d.%m.%Y')
-ws['a4'] = 'Arrangør:';       ws['b4'] = '<arrangør>'; b4=ws['b4']; b4.font=greenfont
+ws['a4'] = 'Arrangør:';       ws['b4'] = organiser_name; #b4=ws['b4']; b4.font=greenfont
 ws['a5'] = 'Kontaktperson:';  ws['b5'] = '<navn>'    ; b5=ws['b5']; b5.font=greenfont
-ws['a6'] = 'Erklæring*: ';    ws['b6'] = '<J/N>'     ; b6=ws['b6']; b6.font=greenfont
+ws['a6'] = 'Erklæring*: ';    ws['b6'] = 'J'     #; b6=ws['b6']; b6.font=greenfont
 ws['a7'] = 'Telefon:';        ws['b7'] = '<tlf>'     ; b7=ws['b7']; b7.font=greenfont
-ws['a8'] = 'Epost:';          ws['b8'] = '<e-post>'  ; b8=ws['b8']; b8.font=greenfont
-ws['a9'] = 'Utendørs:';       ws['b9'] = '<J/N>'     ; b9=ws['b9']; b9.font=greenfont
-ws['a10'] = 'Kommentar:'
+ws['a8'] = 'Epost:';          ws['b8'] = j['contactDetails']  ; #b8=ws['b8']; b8.font=greenfont
+ws['a9'] = 'Utendørs:';       ws['b9'] = outdoors #   ; b9=ws['b9']; b9.font=greenfont
+ws['a10'] = 'Kommentar:';     ws['b10'] = url
+ws['a11'] = 'Kommentar:';     
 
 
-row_counter = 12 
+row_counter = 13 
 
 day = 1
 #for day,date in zip(range(1,len(dates)+1), dates):
