@@ -302,8 +302,8 @@ else:
         outdoors = 'N'
    
 #print(meetname, venue)
-organiser_key =  j['organiser']
-organiser_name = get_organiser_name(organiser_key)
+organiser_name =  j['organiser']['name']
+#organiser_name = get_organiser_name(organiser_key)
 
 
 ignore_bibs = []
@@ -378,7 +378,7 @@ for e in j["events"]:
     event_code = e["eventCode"]
     category = e["category"]
     event_key = (category, event_code)
-#   print(event_key)
+#   print(event_code, event_key)
     if 'x' in event_key[1]:
         continue
     series[event_key] = {}

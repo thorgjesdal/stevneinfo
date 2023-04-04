@@ -729,7 +729,7 @@ def club_code(club_name):
        club_code=u'ILBUL'
 #   elif club_name in (u'IDROTTSLAGET I BUL 2'):
 #      club_code=u'ILBUL'
-    elif club_name in (u'Idrottslaget Jotun', u'Jotun IL'):
+    elif club_name in (u'Idrottslaget Jotun', u'Jotun IL', u'Jotun'):
        club_code=u'JOT'
     elif club_name in (u'Idun Idrettslag'):
        club_code=u'IDUN'
@@ -1428,20 +1428,29 @@ def read_isonenxls(f):
     wb = load_workbook(filename=f)
     ws = wb.active
 
+#   columns = ws[1]
+#   print(list(columns))
+#   sys.exit()
     events =  []
     events_by_athlete= {}
-    for value in ws.iter_rows(min_row=2,min_col=1, max_col=46, values_only=True):
+    i=1
+    for value in ws.iter_rows(min_row=1,min_col=1, max_col=46, values_only=True):
+        if i==1:
+            columns = value
+            i+=1
+            continue
         if value[0] is None:
             continue
-        if 'Avmeldt' not in value[28] or value[28] is None:
-            first_name = value[0]
-            last_name = value[1]
-            dob = value[5]
-            g = gender[ value[6] ]
-            club = value[10]
-            ev = value[16]
-            cat = cat_code(value[17])
-            athlete_key = (first_name, last_name, dob, g, club)
+        if 'Avmeldt' not in value[columns.index('Påmeldingsstatus')] or value[columns.index('Påmeldingsstatus')] is None:
+            first_name = value[columns.index('Fornavn')]
+            last_name = value[columns.index('Etternavn')]
+            dob = value[columns.index('Fødselsdato')]
+            g = gender[value[columns.index('Kjønn')]]
+            club = value[columns.index('Klubb')]
+            ev = value[columns.index('Øvelse')]
+            cat = cat_code(value[columns.index('Klasse')])
+            nat = cat_code(value[columns.index('Landskode')])
+            athlete_key = (first_name, last_name, dob, g, club, nat)
             event = (ev, event_code(ev),  cat)
             print(athlete_key)
             print(event)
@@ -1621,6 +1630,7 @@ def write_opentrack_import(f):
         dob = datetime.datetime.strptime(dob,ddmmyyyyformat)
         g    = key[3]
         club = key[4]
+        nat  = key[5]
         for e in events_by_athlete[key]:
             #print(e)
             event     = e[0]
@@ -1635,6 +1645,7 @@ def write_opentrack_import(f):
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = club_code(club)
+            ws["H%d"%row_counter] = nat
             ws["I%d"%row_counter] = full_events[ (e[2], e[1]) ]
 
             #event = e[1]
