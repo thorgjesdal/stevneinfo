@@ -1242,7 +1242,7 @@ def club_name(club_code):
        club_name=u'Tingvoll Friidrettsklubb'
     elif club_code == (u'TIST'):
         club_name = u'Tistedalen FL'
-    elif club_code == (u'TJAL'):
+    elif club_code == (u'TJALV'):
        club_name=u'IK Tjalve'
     elif club_code == (u'TJØLL'):
        club_name=u'Tjølling Idrettsforening'
@@ -1418,7 +1418,10 @@ else:
     venue = j['venue']['formalName']
     if j['venue']['indoor'] == 'true':
         outdoors = 'N'
-   
+if j['type']=="INDOOR":
+    outdoors='N'
+
+
 #print(meetname, venue)
 organiser_name =  j['organiser']['name']
 #organiser_name = get_organiser_name(organiser_key)
@@ -1458,7 +1461,9 @@ for c in j['competitors']:
 #print(type(j['events'][0]))
 #print(j['events'][0].keys())
 #print(j['events'][0]['units'][0])
-
+outdoor = 'J'
+if j['type'] == "INDOOR":
+    outdoor = 'N'
 """
 results = {}
 for e in j['events']:
