@@ -85,7 +85,10 @@ def event_code(event):
             u'Liten ball'        : 'OT', 
             u'Tikamp'            : 'DEC', 
             u'Sjukamp'           : 'HEP' ,
+            u'10-kamp'           : 'DEC' ,
+            u'9-kamp'           : 'ENN' ,
             u'7-kamp'           : 'HEP' ,
+            u'6-kamp'           : 'HEX' ,
             u'5-kamp'           : 'PEN' ,
             u'4x200 meter stafett' : '4x200' 
             }
@@ -113,10 +116,20 @@ def cat_code(name):
             u'Gutter alle klasser' : u'GALLE'       , 
             u'Menn junior'  : u'MJ'           , 
             u'Menn U20'     : u'MU20'         , 
+            u'Menn u20'     : u'MU20'         , 
             u'Menn U23'     : u'MU23'         , 
             u'Menn senior'  : u'MS'           , 
             u'Menn alle klasser'  : u'MALLE'           , 
             u'Menn veteraner' : u'MV'         , 
+            u'Menn veteran 35-39' : u'MV35'         , 
+            u'Menn veteran 40-44' : u'MV40'         , 
+            u'Menn veteran 45-49' : u'MV45'         , 
+            u'Menn veteran 50-54' : u'MV50'         , 
+            u'Menn veteran 55-59' : u'MV55'         , 
+            u'Menn veteran 60-64' : u'MV60'         , 
+            u'Menn veteran 65-69' : u'MV65'         , 
+            u'Menn veteran 70-75' : u'MV70'         , 
+            u'Menn veteran 75-79' : u'MV75'         , 
             u'Jenter Rekrutt'    : u'J6-7'          , 
             u'Jenter 6 - 7'     : u'J 6-7'          , 
             u'Jenter 8'     : u'J8'          , 
@@ -135,11 +148,22 @@ def cat_code(name):
             u'Jenter alle klasser' : u'JALLE'       , 
             u'Kvinner junior'  : u'KJ'        , 
             u'Kvinner U20'     : u'KU20'      , 
+            u'Kvinner u20'     : u'KU20'      , 
             u'Kvinner U23'     : u'KU23'      , 
+            u'Kvinner u23'     : u'KU23'      , 
             u'Kvinner senior'  : u'KS'        , 
             u'Kvinner Senior'  : u'KS'        , 
             u'Kvinner alle klasser'  : u'KALLE'           , 
             u'Kvinner veteraner' : u'KV'      ,
+            u'Kvinner veteran 35-39' : u'KV35'         , 
+            u'Kvinner veteran 40-44' : u'KV40'         , 
+            u'Kvinner veteran 45-49' : u'KV45'         , 
+            u'Kvinner veteran 50-54' : u'KV50'         , 
+            u'Kvinner veteran 55-59' : u'KV55'         , 
+            u'Kvinner veteran 60-64' : u'KV60'         , 
+            u'Kvinner veteran 65-69' : u'KV65'         , 
+            u'Kvinner veteran 70-75' : u'KV70'         , 
+            u'Kvinner veteran 75-79' : u'KV75'         , 
             u'Funksjonshemmede' : u'FH'      ,
             u'Ikke valgt klasse' : u'IVK'
             }
@@ -178,10 +202,20 @@ def age_group(cat):
             'G18-19' : '18-19',
             'GALLE' : 'ALL',
             'MJ'     : 'U20' ,
+            'MU20'     : 'U20' ,
+            'MU23'     : 'U23' ,
             'MS'     : 'SEN' ,
             'MALLE'     : 'ALL' ,
             'MV'     : 'V35' ,
             'MV35'   : 'V35' ,
+            'MV40'   : 'V40' ,
+            'MV45'   : 'V45' ,
+            'MV50'   : 'V50' ,
+            'MV55'   : 'V55' ,
+            'MV60'   : 'V60' ,
+            'MV65'   : 'V65' ,
+            'MV70'   : 'V70' ,
+            'MV75'   : 'V75' ,
             'J6-7'    : '6-7',
             'J8'    : '8',
             'J9'    : '9',
@@ -198,8 +232,19 @@ def age_group(cat):
             'J18-19' : '18-19',
             'JALLE' : 'ALL',
             'KJ'     : 'U20',
+            'KU20'     : 'U20' ,
+            'KU23'     : 'U23' ,
             'KS'     : 'SEN' ,
             'KV'     : 'V35' ,
+            'KV35'   : 'V35' ,
+            'KV40'   : 'V40' ,
+            'KV45'   : 'V45' ,
+            'KV50'   : 'V50' ,
+            'KV55'   : 'V55' ,
+            'KV60'   : 'V60' ,
+            'KV65'   : 'V65' ,
+            'KV70'   : 'V70' ,
+            'KV75'   : 'V75' ,
             'KALLE'     : 'ALL' ,
             'FH'   : 'ALL' ,
             'IVK'    : 'ALL'  
@@ -1413,11 +1458,13 @@ def sort_event_list(events):
         #print(e)
         catsort = ['G6-7', 'G8', 'G9', 'G10', 'G11', 'G11-14', 'G12', 'G13', 'G14', 'G15', 'G16', 'G17', 'G18-19', 
                    'J6-7', 'J8', 'J9', 'J10', 'J11-14', 'J11', 'J12', 'J13', 'J14', 'J15', 'J16', 'J17', 'J18-19', 
-                   'MS', 'KS']
+                   'MU20', 'MU23', 'MS', 'KU20', 'KU23', 'KS', 
+                   'MV35', 'MV40', 'MV45', 'MV50', 'MV55', 'MV60', 'MV65', 'MV70', 'MV75',
+                   'KV35', 'KV40', 'KV45', 'KV50', 'KV55', 'KV60', 'KV65', 'KV70', 'KV75']
 
         evsort = ['60', '100', '200', '400', '600', '800', '1000', '1500', 'MILE', '3000', '5000', '10000', 
                 '60H', '80H', '100H', '110H', '200H', '300H', '400H', '2000SC', '3000SC', 
-                'HJ', 'PV', 'LJ', 'TJ', 'SP', 'DT', 'JT', 'HT', 'PEN', 'HEP', 'DEC']
+                'HJ', 'PV', 'LJ', 'TJ', 'SP', 'DT', 'JT', 'HT', 'PEN', 'HEX', 'HEP', 'ENN', 'DEC']
         return 100*catsort.index(e[2]) + evsort.index(e[1])
 
     print(events)
@@ -1578,7 +1625,7 @@ def write_opentrack_import(f):
     ws["I1"] = 'Event'
     ws["J1"] = 'Pb'
     ws["K1"] = 'Sb'
-    ws1["A1"] = 'Event selection'
+#   ws1["A1"] = 'Event selection'
     row_counter = 2
 
     jf = 0
@@ -1615,6 +1662,7 @@ def write_opentrack_import(f):
         ws1["K%d"%row_counter] = '12:00'
         
         row_counter +=1
+    ws1.delete_cols(1,1)
 #   ws.insert_cols(13)
 #   print (full_events)
     row_counter = 2    
