@@ -102,6 +102,7 @@ def cat_code(name):
             u'Gutter 6 - 7'      : u'G6-7'          , 
             u'Gutter 8'     : u'G8'          , 
             u'Gutter 9'     : u'G9'          , 
+            u'Gutter  9-10'     : u'G9-10'          , 
             u'Gutter 10'    : u'G10'          , 
             u'Gutter 11'    : u'G11'          , 
             u'Gutter 11-14' : u'G11-14'       , 
@@ -134,6 +135,7 @@ def cat_code(name):
             u'Jenter 6 - 7'     : u'J 6-7'          , 
             u'Jenter 8'     : u'J8'          , 
             u'Jenter 9'     : u'J9'          , 
+            u'Jenter  9-10'     : u'J9-10'          , 
             u'Jenter 10'    : u'J10'          , 
             u'Jenter 11'    : u'J11'          , 
             u'Jenter 11-14' : u'J11-14'          , 
@@ -578,7 +580,7 @@ def club_code(club_name):
        club_code=u'FYLL'
     elif club_name in (u'Førde Idrettslag', u'Førde IL'):
        club_code=u'FRDE'
-    elif club_name in (u'Gaular IL'):
+    elif club_name in (u'Gaular IL', u'Gaular Idrettslag' ):
        club_code=u'GAULA'
     elif club_name in (u'Gausdal Friidrettsklubb'):
        club_code=u'GAU'
@@ -1456,11 +1458,11 @@ def club_code(club_name):
 def sort_event_list(events):
     def sort_fcn(e):
         #print(e)
-        catsort = ['G6-7', 'G8', 'G9', 'G10', 'G11', 'G11-14', 'G12', 'G13', 'G14', 'G15', 'G16', 'G17', 'G18-19', 
-                   'J6-7', 'J8', 'J9', 'J10', 'J11-14', 'J11', 'J12', 'J13', 'J14', 'J15', 'J16', 'J17', 'J18-19', 
+        catsort = ['G6-7', 'G8', 'G9', 'G9-10', 'G10', 'G11', 'G11-14', 'G12', 'G13', 'G14', 'G15', 'G16', 'G17', 'G18-19', 
+                   'J6-7', 'J8', 'J9', 'J9-10', 'J10', 'J11-14', 'J11', 'J12', 'J13', 'J14', 'J15', 'J16', 'J17', 'J18-19', 
                    'MU20', 'MU23', 'MS', 'KU20', 'KU23', 'KS', 
-                   'MV35', 'MV40', 'MV45', 'MV50', 'MV55', 'MV60', 'MV65', 'MV70', 'MV75',
-                   'KV35', 'KV40', 'KV45', 'KV50', 'KV55', 'KV60', 'KV65', 'KV70', 'KV75']
+                   'MV', 'MV35', 'MV40', 'MV45', 'MV50', 'MV55', 'MV60', 'MV65', 'MV70', 'MV75',
+                   'KV', 'KV35', 'KV40', 'KV45', 'KV50', 'KV55', 'KV60', 'KV65', 'KV70', 'KV75']
 
         evsort = ['60', '100', '200', '400', '600', '800', '1000', '1500', 'MILE', '3000', '5000', '10000', 
                 '60H', '80H', '100H', '110H', '200H', '300H', '400H', '2000SC', '3000SC', 
@@ -1693,8 +1695,8 @@ def write_opentrack_import(f):
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = club_code(club)
-            ws["H%d"%row_counter] = nat
-            ws["I%d"%row_counter] = full_events[ (e[2], e[1]) ]
+            ws["J%d"%row_counter] = nat
+            ws["K%d"%row_counter] = full_events[ (e[2], e[1]) ]
 
             #event = e[1]
             if not isfield(event):
