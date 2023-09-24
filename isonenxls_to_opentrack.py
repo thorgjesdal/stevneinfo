@@ -1514,7 +1514,7 @@ def read_isonenxls(f):
             if event not in events_by_athlete[athlete_key]:
                 events_by_athlete[athlete_key].append( event )
 
-    events = sort_event_list(events)
+#   events = sort_event_list(events)
     return events, events_by_athlete
 
 def get_stats(event,cat,season):
