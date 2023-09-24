@@ -102,14 +102,16 @@ def cat_code(name):
             u'Gutter 6 - 7'      : u'G6-7'          , 
             u'Gutter 8'     : u'G8'          , 
             u'Gutter 9'     : u'G9'          , 
-            u'Gutter  9-10'     : u'G9-10'          , 
+            u'Gutter  9-10' : u'G9-10'          , 
             u'Gutter 10'    : u'G10'          , 
             u'Gutter 11'    : u'G11'          , 
+            u'Gutter 11-12' : u'G11-12'       , 
             u'Gutter 11-14' : u'G11-14'       , 
             u'Gutter 12'    : u'G12'          , 
             u'Gutter 13'    : u'G13'          , 
             u'Gutter 14'    : u'G14'          , 
             u'Gutter 15'    : u'G15'          , 
+            u'Gutter 15-17' : u'G15-17'          , 
             u'Gutter 16'    : u'G16'          , 
             u'Gutter 17'    : u'G17'          , 
             u'Gutter 18/19' : u'G18/19'       , 
@@ -138,11 +140,13 @@ def cat_code(name):
             u'Jenter  9-10'     : u'J9-10'          , 
             u'Jenter 10'    : u'J10'          , 
             u'Jenter 11'    : u'J11'          , 
+            u'Jenter 11-12' : u'J11-12'          , 
             u'Jenter 11-14' : u'J11-14'          , 
             u'Jenter 12'    : u'J12'          , 
             u'Jenter 13'    : u'J13'          , 
             u'Jenter 14'    : u'J14'          , 
             u'Jenter 15'    : u'J15'          , 
+            u'Jenter 15-17' : u'J15-17'    , 
             u'Jenter 16'    : u'J16'          , 
             u'Jenter 17'    : u'J17'          , 
             u'Jenter 18/19' : u'J18/19'       , 
@@ -1458,15 +1462,15 @@ def club_code(club_name):
 def sort_event_list(events):
     def sort_fcn(e):
         #print(e)
-        catsort = ['G6-7', 'G8', 'G9', 'G9-10', 'G10', 'G11', 'G11-14', 'G12', 'G13', 'G14', 'G15', 'G16', 'G17', 'G18-19', 
-                   'J6-7', 'J8', 'J9', 'J9-10', 'J10', 'J11-14', 'J11', 'J12', 'J13', 'J14', 'J15', 'J16', 'J17', 'J18-19', 
+        catsort = ['G6-7', 'G8', 'G9', 'G9-10', 'G10', 'G11', 'G11-12', 'G11-14', 'G12', 'G13', 'G14', 'G15', 'G15-17', 'G16', 'G17', 'G18-19', 
+                   'J6-7', 'J8', 'J9', 'J9-10', 'J10', 'J11', 'J11-12', 'J11-14', 'J12', 'J13', 'J14', 'J15', 'J15-17', 'J16', 'J17', 'J18-19', 
                    'MU20', 'MU23', 'MS', 'KU20', 'KU23', 'KS', 
                    'MV', 'MV35', 'MV40', 'MV45', 'MV50', 'MV55', 'MV60', 'MV65', 'MV70', 'MV75',
                    'KV', 'KV35', 'KV40', 'KV45', 'KV50', 'KV55', 'KV60', 'KV65', 'KV70', 'KV75']
 
         evsort = ['60', '100', '200', '400', '600', '800', '1000', '1500', 'MILE', '3000', '5000', '10000', 
                 '60H', '80H', '100H', '110H', '200H', '300H', '400H', '2000SC', '3000SC', 
-                'HJ', 'PV', 'LJ', 'TJ', 'SP', 'DT', 'JT', 'HT', 'PEN', 'HEX', 'HEP', 'ENN', 'DEC']
+                'HJ', 'PV', 'LJ', 'TJ', 'SP', 'DT', 'JT', 'HT', 'OT', 'PEN', 'HEX', 'HEP', 'ENN', 'DEC']
         return 100*catsort.index(e[2]) + evsort.index(e[1])
 
     print(events)
@@ -1623,8 +1627,7 @@ def write_opentrack_import(f):
     ws["E1"] = 'Gender'
     ws["F1"] = 'Date of birth'
     ws["G1"] = 'Team ID'
-    ws["H1"] = 'Nationality'
-    ws["I1"] = 'Event'
+    ws["H1"] = 'Event'
     ws["J1"] = 'Pb'
     ws["K1"] = 'Sb'
 #   ws1["A1"] = 'Event selection'
@@ -1695,8 +1698,7 @@ def write_opentrack_import(f):
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = club_code(club)
-            ws["J%d"%row_counter] = nat
-            ws["K%d"%row_counter] = full_events[ (e[2], e[1]) ]
+            ws["H%d"%row_counter] = full_events[ (e[2], e[1]) ]
 
             #event = e[1]
             if not isfield(event):
