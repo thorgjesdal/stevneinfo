@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 # TODO: 
-#       + combined events results
+#       + combined events results (in part OK. prints and sorts totals, need to include event results)
 #       + clean up/more modular
 #       + different sorting critera (age, cats in json, predefined cats)
 #       + PARA categories
 #       + sorting order
+#       + ties
 #
 import sys
 import json
@@ -771,7 +772,7 @@ def club_name(club_code):
     elif club_code == (u'KLBK'):
        club_name=u'Kolbukameratene I L'
     elif club_code == (u'KOLL'):
-       club_name=u'Koll Idrettslaget'
+       club_name=u'IL Koll'
     elif club_code == (u'KLVIL'):
        club_name=u'Kolvereid Idrettslag'
     elif club_code == (u'KNGSB'):
