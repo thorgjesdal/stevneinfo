@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 # TODO: 
-#       + combined events results
 #       + clean up/more modular
 #       + different sorting critera (age, cats in json, predefined cats)
 #       + PARA categories
 #       + sorting order
+#       + ties
+#       + foreign and non-default teams
 #
 import sys
 import json
@@ -771,7 +772,7 @@ def club_name(club_code):
     elif club_code == (u'KLBK'):
        club_name=u'Kolbukameratene I L'
     elif club_code == (u'KOLL'):
-       club_name=u'Koll Idrettslaget'
+       club_name=u'IL Koll'
     elif club_code == (u'KLVIL'):
        club_name=u'Kolvereid Idrettslag'
     elif club_code == (u'KNGSB'):
@@ -1617,7 +1618,7 @@ for e in j["events"]:
                 del results[day][event_key] 
                 day +=1
                 results[day][event_key] = {}
-            print(event_key, day)
+#           print(event_key, day)
 #           print(event_key)
 #           print( results[day][event_key] )
             for r in e['results']:
@@ -1650,9 +1651,23 @@ for e in j["events"]:
                      else:
                          pl = noplace
 #                    print(bib, cat, res, pl)
+#                    series[event_key][bib] = []
+                     if 'perfsByEvent' in r.keys():
+                         sl = []
+                         is_dnf = False
+                         for pf,pt in zip(r['perfsByEvent'].items(), r['pointsByEvent'].items()):
+                             sl.append(f'{pf[1]}({+pt[1]})')
+                             is_dnf = is_dnf or pf[1] == 'DNS'
+                         s = '/'.join(sl)
+                         series[event_key][bib]=s
+                         if is_dnf:
+                             res = 'DNF'
 
 #                    pool = 0
                      results[day][event_key][cat][pool]['marks'].append((bib, res, pl))
+
+                     # add code to extract event results and scores here (... use series[event_code][bib] ...)
+                     #series[even_code][bib] = ""
 
 
 #       #   elif event_code in ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO'):
