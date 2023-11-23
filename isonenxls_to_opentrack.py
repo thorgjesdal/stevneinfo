@@ -122,6 +122,7 @@ def cat_code(name):
             u'Menn u20'     : u'MU20'         , 
             u'Menn U23'     : u'MU23'         , 
             u'Menn senior'  : u'MS'           , 
+            u'Menn Senior Para'  : u'MSPARA'           , 
             u'Menn alle klasser'  : u'MALLE'           , 
             u'Menn veteraner' : u'MV'         , 
             u'Menn veteran 35-39' : u'MV35'         , 
@@ -1206,7 +1207,7 @@ def club_code(club_name):
        club_code=u'SKREIA'
     elif club_name in (u'Snåsa Idrettslag'):
        club_code=u'SNSA'
-    elif club_name in (u'Snøgg Friidrett'):
+    elif club_name in (u'Snøgg Friidrett', u'Snøgg Notodden Friidrett'):
        club_code=u'SNGG'
     elif club_name in (u'Sogndal Idrettslag'):
        club_code=u'SIL'
@@ -1465,6 +1466,7 @@ def sort_event_list(events):
         catsort = ['G6-7', 'G8', 'G9', 'G9-10', 'G10', 'G11', 'G11-12', 'G11-14', 'G12', 'G13', 'G14', 'G15', 'G15-17', 'G16', 'G17', 'G18-19', 
                    'J6-7', 'J8', 'J9', 'J9-10', 'J10', 'J11', 'J11-12', 'J11-14', 'J12', 'J13', 'J14', 'J15', 'J15-17', 'J16', 'J17', 'J18-19', 
                    'MU20', 'MU23', 'MS', 'KU20', 'KU23', 'KS', 
+                   'MSPARA',
                    'MV', 'MV35', 'MV40', 'MV45', 'MV50', 'MV55', 'MV60', 'MV65', 'MV70', 'MV75',
                    'KV', 'KV35', 'KV40', 'KV45', 'KV50', 'KV55', 'KV60', 'KV65', 'KV70', 'KV75']
 
@@ -1677,8 +1679,11 @@ def write_opentrack_import(f):
 #   pp.pprint(full_events)
     for key in events_by_athlete.keys():
         bib+=1
+        maxname = 30
         fn   = key[0]
+        fn   = fn[0:min(len(fn),maxname)]
         ln   = key[1]
+        ln   = ln[0:min(len(ln),maxname)]
         dob  = key[2]
         dob = datetime.datetime.strptime(dob,ddmmyyyyformat)
         g    = key[3]
