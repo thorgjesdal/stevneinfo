@@ -11,7 +11,15 @@ from bs4 import BeautifulSoup
 
 import pprint
 
-gender = {'M':'M', 'K':'F', 'G':'M', 'J':'F'}
+def get_gender(cat):
+    gender_nor = {'M':'M', 'K':'F', 'G':'M', 'J':'F'}
+    gender_eng = {'M':'M', 'W':'F', 'B':'M', 'G':'F'}
+    if cat[0] in ('M', 'K', 'G', 'J'):
+        g = gender_nor[cat[0]]
+    elif cat[-1] in ('M', 'W', 'B', 'G'):
+        g = gender_eng[cat[-1]]
+
+    return g
 
 def read_eventfile(f):
     wb = load_workbook(filename=f)
@@ -27,6 +35,7 @@ def read_eventfile(f):
         print(key,code)
         event_codes[key] = code
         
+    print(event_codes)
     return event_codes
 
 
@@ -76,10 +85,10 @@ def write_opentrack_import(ef, cf):
     ws["E1"] = 'Gender'
     ws["F1"] = 'Date of birth'
     ws["G1"] = 'Team ID'
-    ws["H1"] = 'Nationality'
-    ws["I1"] = 'Event'
-    ws["J1"] = 'Pb'
-    ws["K1"] = 'Sb'
+#   ws["H1"] = 'Nationality'
+    ws["H1"] = 'Event'
+    ws["I1"] = 'Pb'
+    ws["J1"] = 'Sb'
     row_counter = 2
 
     row_counter = 2    
@@ -100,36 +109,38 @@ def write_opentrack_import(ef, cf):
             #print(event)
             e = (event[0], event[1])
             qp = event[2]
-            #print(e, qp)
+            print(e)
 #           e = ( event[2], event[1] )
 
             ws["A%d"%row_counter] = bib
 #           ws["B%d"%row_counter] = ident
             ws["C%d"%row_counter] = fn
             ws["D%d"%row_counter] = ln
-            ws["E%d"%row_counter] = gender[event[0][0]]
+            #ws["E%d"%row_counter] = gender[event[0][0]]
+            ws["E%d"%row_counter] = get_gender(event[0])
+            print(dob)
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = team
-            ws["I%d"%row_counter] = event_codes[e]
-            ws["J%d"%row_counter] = qp
+            ws["H%d"%row_counter] = event_codes[e]
+            ws["I%d"%row_counter] = qp
 
             row_counter +=1
 
     xlname = 'opentrack_input.xlsx'
     wb.save(xlname)
 #-----
-event_file = 'event_grid_bassen.xlsx'
-competitor_file = 'etteranmeldinger_bassen.xlsx'
+event_file = 'EventTable_NordicU20.xlsx'
+competitor_file = 'testpåmedlinger-nordisku20-demo.xlsx'
 
-#if len(sys.argv) < 2:
-#   sys.exit("Usage: %s <infile>" % sys.argv[0])
+if len(sys.argv) < 2:
+   sys.exit("Usage: %s <infile>" % sys.argv[0])
    
-#infile = sys.argv[1]
-#print(infile)
+infile = sys.argv[1]
+print(infile)
 
 #pp = pprint.PrettyPrinter(indent=4)
 #pp.pprint(event_codes)
 #pp.pprint(events_by_athlete)
 
-write_opentrack_import(event_file, competitor_file)
+write_opentrack_import(event_file, infile)
 

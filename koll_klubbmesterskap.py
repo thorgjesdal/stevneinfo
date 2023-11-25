@@ -251,8 +251,15 @@ def event_spec(event, klasse):
     return e
 #---------------------------------------
 if len(sys.argv) < 2:
-   sys.exit("Usage: %s <infile>" % sys.argv[0])
+   sys.exit("Usage: %s <url>" % sys.argv[0])
    
+url = sys.argv[1]
+print(url)
+
+r=requests.get(url+'json')
+#if len(sys.argv) < 2:
+#   sys.exit("Usage: %s <infile>" % sys.argv[0])
+#   
 url = sys.argv[1]+'json'
 print(url)
 
@@ -329,7 +336,9 @@ for e in j["events"]:
             if bib not in results[category].keys():
                 results[category][bib] = { 'runs' : [], 'jumps' : [], 'throws' : [], 'count' : 0, 'score' : 0 }
 
-            res = r['performance']
+#           res = r['performance']
+            res = r.get('performance','NM')
+            tyrving=0
             if res not in ['DNF', 'DNS', 'NM', 'NH', 'DQ', '']:
                 if event_code == 'BT':
                     event_code='OT'
@@ -363,8 +372,15 @@ wb = Workbook()
 
 ws = wb.active
     
-row_counter = 1 
 columns = {'60' : 'D', '100' : 'D', '600':'E' , '800' : 'E', 'HJ':'F', 'LJ': 'G', 'SP' : 'H', 'OT' : 'I' }
+ws['D1'] = '60/100'
+ws['E1'] = '600/800'
+ws['F1'] = 'Høyde'
+ws['G1'] = 'Lengde'
+ws['H1'] = 'Kule'
+ws['I1'] = 'Liten ball'
+ws['J1'] = 'Poeng'
+row_counter = 2 
 for cat in results.keys():
     for bib in results[cat].keys():
         if competitors[bib][4] == 'KOLL':
