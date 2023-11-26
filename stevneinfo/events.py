@@ -49,11 +49,12 @@ def event_code(event):
             u'200 meter hekk'    : '200H', 
             u'300 meter hekk'    : '300H', 
             u'400 meter hekk'    : '400H', 
+            u'1500 meter hinder' : '1500SC', 
             u'2000 meter hinder' : '2000SC', 
             u'3000 meter hinder' : '3000SC', 
             u'Kappgang 1000 meter' : '1000W', 
             u'Kappgang 3000 meter' : '3000W', 
-            u'Kappgang 5000 meter' : '5000W', 
+            u'Kappgang 5000 meter' : '5KW', 
             u'Kappgang 5 km'     : '5000W', 
             u'Kappgang'          : '1500W', 
             u'Høyde'             : 'HJ', 
@@ -117,7 +118,7 @@ def event_spec(event, klasse):
 #                             }
     throws['Liten ball'] = defaultdict(lambda : '150g') 
     hurdles = {}
-    hurdles['60 meter hekk'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '76,2cm', 'J13' : '76,2cm', 'J14' : '76,2cm',
+    hurdles['60 meter hekk'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '68,0cm', 'J13' : '76,2cm', 'J14' : '76,2cm',
                                  'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
                                  'J18/19' : '84,0cm','KJ' : '84,0cm','KU20' : '84,0cm', 'KU23' : '84,0cm', 'KS' : '84,0cm',
                                  'G10' : '68,0cm', 'G11' : '68,0cm', 'G12' : '76,2cm', 'G13' : '76,2cm', 'G14' : '84,0cm',

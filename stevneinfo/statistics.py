@@ -1,0 +1,178 @@
+import requests
+import json
+from collections import defaultdict
+
+def event_id(event, cat):
+
+    event_ids = {}
+
+    event_ids['40'] = defaultdict(lambda : '1') 
+    event_ids['60'] = defaultdict(lambda : '2') 
+    event_ids['80'] = defaultdict(lambda : '3') 
+    event_ids['100'] = defaultdict(lambda : '4') 
+    event_ids['200'] = defaultdict(lambda : '5') 
+    event_ids['300'] = defaultdict(lambda : '6') 
+    event_ids['400'] = defaultdict(lambda : '7') 
+    event_ids['600'] = defaultdict(lambda : '8') 
+    event_ids['800'] = defaultdict(lambda : '9') 
+    event_ids['1000'] = defaultdict(lambda : '10') 
+    event_ids['1500'] = defaultdict(lambda : '11') 
+    event_ids['2000'] = defaultdict(lambda : '12') 
+    event_ids['3000'] = defaultdict(lambda : '13') 
+    event_ids['5000'] = defaultdict(lambda : '14') 
+    event_ids['10000'] = defaultdict(lambda : '15') 
+    event_ids['60H'] = { 'J10' : '19', 'J11' : '19', 'J12' : '19', 'J13' : '20', 'J14' : '20', 'J15' : '20', 'J16' : '20', 'J17' : '20', 'J18/19' : '21','KJ' : '21','KU20' : '21', 'KU23' : '21', 'KS' : '21', 'G10' : '19', 'G11' : '19', 'G12' : '20', 'G13' : '20', 'G14' : '21', 'G15' : '21', 'G16' : '22', 'G17' : '22', 'G18/19' : '23','MU20' : '23', 'MU23' : '24', 'MS' : '24', 'default':'' }
+    event_ids['80H'] = { 'J15' : '27', 'J16' : '27', 'G14' : '28' }
+    event_ids['100H'] = { 'J16' : '34', 'J17' : '34', 'J18/19' : '35','KJ' : '35','KU20' : '35', 'KU23' : '35', 'KS' : '35', 'G15' : '35', 'G16' : '36'}
+    event_ids['110H'] = { 'G17' : '40', 'G18/19' : '41','MJ' : '41', 'MU20' : '41', 'MU23' : '42', 'MS' : '42' }
+    event_ids['200H'] = { 'J10' : '44', 'J11' : '44', 'J12' : '44', 'J13' : '44', 'G10' : '44', 'G11' : '44', 'G12' : '44', 'G13' : '44', 'default' : '45' }
+    event_ids['300H'] = { 'J15' : '51', 'J16' : '51', 'J17' : '51', 'J18/19' : '51','KJ' : '51','KU20' : '51', 'KU23' : '51', 'KS' : '51', 'G15' : '51', 'G16' : '52', 'G17' : '52', 'G18/19' : '53','MJ' : '53', 'MU20' : '53', 'MU23' : '53', 'MS' : '53' }
+    event_ids['400H'] = { 'J15' : '57', 'J16' : '57', 'J17' : '57', 'J18/19' : '57','KJ' : '57','KU20' : '57', 'KU23' : '57', 'KS' : '57', 'G15' : '57', 'G16' : '58', 'G17' : '58', 'G18/19' : '59','MJ' : '59','MU20' : '59', 'MU23' : '59', 'MS' : '59' }
+#   event_ids['1500SC'] = {}
+#   event_ids['2000SC'] = {}
+# ... jumps
+    event_ids['HJ'] = defaultdict(lambda : '68') 
+    event_ids['SHJ'] = defaultdict(lambda : '69') 
+    event_ids['PV'] = defaultdict(lambda : '70') 
+    event_ids['LJ'] = {'G10': '72','G11': '72','G12': '72',  'G13': '72', 'J10': '72','J11': '72','J12': '72',  'J13': '72', 'default' : '71' }
+    event_ids['SLJ'] = defaultdict(lambda : '74') 
+    event_ids['TJ'] = {'G10': '76','G11': '76','G12': '76',  'G13': '76', 'J10': '76','J11': '76','J12': '76',  'J13': '76', 'default' : '75' }
+    event_ids['STJ'] = defaultdict(lambda : '78') 
+
+# ... throws
+    event_ids['SP'] = { 'J10' : '81', 'J11' : '81', 'J12' : '81', 'J13' : '81', 'J14' : '82', 'J15' : '82', 'J16' : '82', 'J17' : '82', 'J18/19' : '83', 'KU20' : '83', 'KU23' : '83', 'KS' : '83', 'G10' : '81', 'G11' : '81', 'G12' : '82', 'G13' : '82', 'G14' : '83', 'G15' : '83', 'G16' : '84', 'G17' : '84', 'G18/19' : '85', 'MU20' : '85', 'MU23' : '86', 'MS' : '86', 'default' : ''}
+    event_ids['DT'] = { 'J10' : '88', 'J11' : '88', 'J12' : '88', 'J13' : '88', 'J14' : '89', 'J15' : '89', 'J16' : '89', 'J17' : '89', 'J18/19' : '90', 'KU20' : '90', 'KU23' : '90', 'KS' : '90', 'G10' : '88', 'G11' : '88', 'G12' : '89', 'G13' : '89', 'G14' : '90', 'G15' : '90', 'G16' : '91', 'G17' : '91', 'G18/19' : '92', 'MU20' : '92', 'MU23' : '93', 'MS' : '93', 'default': ''}
+    event_ids['JT'] = { 'J10' : '95', 'J11' : '95', 'J12' : '95', 'J13' : '95', 'J14' : '95', 'J15' : '139', 'J16' : '139', 'J17' : '139', 'J18/19' : '96', 'KU20' : '96', 'KU23' : '96', 'KS' : '96', 'G10' : '95', 'G11' : '95', 'G12' : '95', 'G13' : '95', 'G14' : '96', 'G15' : '96', 'G16' : '97', 'G17' : '97', 'G18/19' : '98', 'MU20' : '98', 'MU23' : '98', 'MS' : '98', 'default': ''}
+    event_ids['HT'] = { 'J10' : '101', 'J11' : '101', 'J12' : '101', 'J13' : '101', 'J14' : '155', 'J15' : '155', 'J16' : '155', 'J17' : '155', 'J18/19' : '103', 'KU20' : '103', 'KU23' : '103', 'KS' : '103', 'G10' : '101', 'G11' : '101', 'G12' : '155', 'G13' : '155', 'G14' : '103', 'G15' : '103', 'G16' : '104', 'G17' : '104', 'G18/19' : '105', 'MU20' : '105', 'MU23' : '106', 'MS' : '106', 'default': ''}
+
+    return event_ids[event].get(cat) 
+
+
+def get_athlete_id(fn, ln, dob):
+    #
+    url = 'https://www.minfriidrettsstatistikk.info/php/sokutover.php'
+    r = requests.post(url, data=json.dumps({'FirstName' : fn, 'LastName' : ln, 'DateOfBirth' : dob}))
+
+    return json.loads(r.text)[0]['Athlete_Id']
+
+
+def get_athlete_bests(athlete_id, event_code, category):
+    #
+    Event_Id = event_id(event_code, category)
+
+    url = 'https://www.minfriidrettsstatistikk.info/php/hentresultater.php'
+    #r   = requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id}))
+    r   = json.loads( requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id})).text )
+    
+    pb = ''
+    sb = ''
+    if len(r) > 0:
+        if 'PB' in r.keys():
+            pb = r['PB']['Result'].replace(',', '.')
+        if 'SB' in r.keys():
+            sb = r['SB']['Result'].replace(',', '.')
+
+    return (pb, sb)
+    
+
+"""
+Id   ShortName
+1       40m 
+2       60m 
+3       80m 
+4       100m 
+5       200m 
+6       300m 
+7       400m 
+8       600m 
+9       800m 
+10      1000m 
+11      1500m 
+12      2000m 
+13      3000m 
+14      5000m 
+15      10000m 
+19      60mhekk68,0cm 
+20      60mhekk76,2cm 
+21      60mhekk84,0cm 
+22      60mhekk91,4cm 
+23      60mhekk100cm 
+24      60mhekk106,7cm 
+26      80mhekk68,0cm 
+27      80mhekk76,2cm 
+28      80mhekk84,0cm 
+29      80mhekk91,4cm 
+30      80mhekk100cm 
+31      80mhekk106,7cm 
+34      100mhekk76,2cm 
+35      100mhekk84,0cm 
+36      100mhekk91,4cm 
+40      110mhekk91,4cm 
+41      110mhekk100cm 
+42      110mhekk106,7cm 
+44      200mhekk68,0cm
+45      200mhekk76,2cm
+51      300mhekk76,2cm
+52      300mhekk84,0cm 
+53      300mhekk91,4cm 
+57      400mhekk76,2cm 
+58      400mhekk84,0cm 
+59      400mhekk91,4cm 
+62      1500mhinder76,2cm 
+63      1500mhinder91,4cm 
+65      2000mhinder76,2cm 
+66      2000mhinder91,4cm 
+68      Høyde 
+69      Høydeu/t 
+70      Stav 
+71      Lengde 
+72      LengdeSone0,5m 
+74      Lengdeu/t 
+75      Tresteg 
+76      TrestegSone0,5m 
+78      Trestegu/t 
+81      Kule2,0Kg 
+82      Kule3,0Kg 
+83      Kule4,0Kg 
+84      Kule5,0Kg 
+85      Kule6,0Kg 
+86      Kule7,26Kg 
+88      Diskos600gr 
+89      Diskos750gr 
+90      Diskos1,0Kg 
+91      Diskos1,5Kg 
+92      Diskos1,75Kg 
+93      Diskos2,0Kg 
+95      Spyd400gr 
+96      Spyd600gr 
+97      Spyd700gr 
+98      Spyd800gr 
+101         Slegge2,0Kg 
+103         Slegge4,0Kg 
+104      Slegge5,0Kg 
+105         Slegge6,0Kg 
+106         Slegge7,26Kg 
+109         LitenBall150gr 
+111         Slengball1,0Kg 
+113      Vektkast5,45Kg 
+114         Vektkast7,26Kg 
+115         Vektkast9,08Kg 
+116      Vektkast11,34Kg 
+117         Vektkast15,88Kg 
+118         Kappgang1000m 
+120         3000mhinder76,2cm 
+121         3000mhinder91,4cm 
+122         Kappgang3000m 
+123         1mile 
+124     Kappgang5000m 
+139         Spyd500gr 
+143         Kappgang600m 
+146         Kappgang400m 
+147         Vektkast4,0kg 
+148      Kappgang2000m 
+151         Kappgang1500m 
+155         Slegge3,0Kg/119,5cm 
+156         Kappgang10000m 
+236         Kappgang800m 
+275         2000mhinder84,0cm 
+"""

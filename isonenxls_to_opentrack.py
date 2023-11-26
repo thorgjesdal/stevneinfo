@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
 
-from stevneinfo import clubs, categories as cats, events
+from stevneinfo import clubs, categories as cats, events, statistics as stats
 
 import pprint
 
@@ -244,6 +244,7 @@ def write_opentrack_import(f):
             ws["H%d"%row_counter] = full_events[ (e[2], e[1]) ]
 
             #event = e[1]
+            """
             if not events.isfield(event):
                 if eventcode == "60": # for Bassen sprint
                     eventcode = "100"
@@ -260,7 +261,17 @@ def write_opentrack_import(f):
                     ws["M%d"%row_counter] = res3
             else:
                 res = ''
-            ws["K%d"%row_counter] = res
+                """
+            athlete_id = stats.get_athlete_id(fn,ln,datetime.datetime.strftime(dob,ddmmyyyyformat))
+            if eventcode == "60": # for Bassen sprint
+                eventcode = "100"
+            athlete_bests =  stats.get_athlete_bests(athlete_id, eventcode, cat)
+            print(athlete_bests)
+            pb = athlete_bests[0]
+            sb = athlete_bests[1]
+
+            ws["J%d"%row_counter] = pb
+            ws["K%d"%row_counter] = sb
             row_counter +=1
 
     xlname = 'opentrack_input.xlsx'
