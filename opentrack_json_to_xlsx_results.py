@@ -93,7 +93,7 @@ def event_name(code):
     return event_names[code]
 
 def event_spec(event, klasse):
-    # 18.05.2020 rewrite based om implements.py form athlib
+    # 18.05.2020 rewrite based om implements.py from athlib
     gender = 'F'
     if klasse[0] in ('M', 'G'):
         gender = 'M'

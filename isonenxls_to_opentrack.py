@@ -45,8 +45,8 @@ def read_isonenxls(f):
             nat = value[columns.index('Landskode')]
             athlete_key = (first_name, last_name, dob, g, club, nat)
             event = (ev, events.event_code(ev),  cat)
-            print(athlete_key)
-            print(event)
+#           print(athlete_key)
+#           print(event)
 
             if event[0] is None:
                 continue
@@ -100,7 +100,7 @@ def get_seed_marks(name, dob, event, cat, season):
             'G15':'6', 'G16':'7', 'G17':'8', 'G18/19':'9',
             'J15':'17', 'J16':'18', 'J17':'19', 'J18/19':'20'}
 
-    print(cat,event)
+#   print(cat,event)
     if cat not in ('MS', 'KS'):
         return ''
     #event = events.event_code(event)
@@ -263,6 +263,7 @@ def write_opentrack_import(f):
                 res = ''
                 """
             athlete_id = stats.get_athlete_id(fn,ln,datetime.datetime.strftime(dob,ddmmyyyyformat))
+            print('=', athlete_id)
             if eventcode == "60": # for Bassen sprint
                 eventcode = "100"
             athlete_bests =  stats.get_athlete_bests(athlete_id, eventcode, cat)

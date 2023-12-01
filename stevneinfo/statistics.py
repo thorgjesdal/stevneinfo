@@ -4,55 +4,89 @@ from collections import defaultdict
 
 def event_id(event, cat):
 
+    print('+', event, cat)
     event_ids = {}
 
-    event_ids['40'] = defaultdict(lambda : '1') 
-    event_ids['60'] = defaultdict(lambda : '2') 
-    event_ids['80'] = defaultdict(lambda : '3') 
-    event_ids['100'] = defaultdict(lambda : '4') 
-    event_ids['200'] = defaultdict(lambda : '5') 
-    event_ids['300'] = defaultdict(lambda : '6') 
-    event_ids['400'] = defaultdict(lambda : '7') 
-    event_ids['600'] = defaultdict(lambda : '8') 
-    event_ids['800'] = defaultdict(lambda : '9') 
-    event_ids['1000'] = defaultdict(lambda : '10') 
-    event_ids['1500'] = defaultdict(lambda : '11') 
-    event_ids['2000'] = defaultdict(lambda : '12') 
-    event_ids['3000'] = defaultdict(lambda : '13') 
-    event_ids['5000'] = defaultdict(lambda : '14') 
-    event_ids['10000'] = defaultdict(lambda : '15') 
-    event_ids['60H'] = { 'J10' : '19', 'J11' : '19', 'J12' : '19', 'J13' : '20', 'J14' : '20', 'J15' : '20', 'J16' : '20', 'J17' : '20', 'J18/19' : '21','KJ' : '21','KU20' : '21', 'KU23' : '21', 'KS' : '21', 'G10' : '19', 'G11' : '19', 'G12' : '20', 'G13' : '20', 'G14' : '21', 'G15' : '21', 'G16' : '22', 'G17' : '22', 'G18/19' : '23','MU20' : '23', 'MU23' : '24', 'MS' : '24', 'default':'' }
-    event_ids['80H'] = { 'J15' : '27', 'J16' : '27', 'G14' : '28' }
-    event_ids['100H'] = { 'J16' : '34', 'J17' : '34', 'J18/19' : '35','KJ' : '35','KU20' : '35', 'KU23' : '35', 'KS' : '35', 'G15' : '35', 'G16' : '36'}
-    event_ids['110H'] = { 'G17' : '40', 'G18/19' : '41','MJ' : '41', 'MU20' : '41', 'MU23' : '42', 'MS' : '42' }
-    event_ids['200H'] = { 'J10' : '44', 'J11' : '44', 'J12' : '44', 'J13' : '44', 'G10' : '44', 'G11' : '44', 'G12' : '44', 'G13' : '44', 'default' : '45' }
-    event_ids['300H'] = { 'J15' : '51', 'J16' : '51', 'J17' : '51', 'J18/19' : '51','KJ' : '51','KU20' : '51', 'KU23' : '51', 'KS' : '51', 'G15' : '51', 'G16' : '52', 'G17' : '52', 'G18/19' : '53','MJ' : '53', 'MU20' : '53', 'MU23' : '53', 'MS' : '53' }
-    event_ids['400H'] = { 'J15' : '57', 'J16' : '57', 'J17' : '57', 'J18/19' : '57','KJ' : '57','KU20' : '57', 'KU23' : '57', 'KS' : '57', 'G15' : '57', 'G16' : '58', 'G17' : '58', 'G18/19' : '59','MJ' : '59','MU20' : '59', 'MU23' : '59', 'MS' : '59' }
+    if event == '40':
+        eid = '1'
+    elif event == '60':
+        eid = 2
+    elif event == '80':
+        eid = 3
+    elif event == '100':
+        eid = 4
+    elif event == '200':
+        eid = 5
+    elif event == '300':
+        eid = 6
+    elif event == '400':
+        eid = 7
+    elif event == '800':
+        eid = 9
+    elif event == '1000':
+        eid = 10
+    elif event == '1500':
+        eid = 11
+    elif event == '2000':
+        eid = 12
+    elif event == '3000':
+        eid = 13
+    elif event == '5000':
+        eid = 14
+    elif event == '10000':
+        eid = 15
+    elif event ==  '60H':
+        eid = { 'J10' : '19', 'J11' : '19', 'J12' : '19', 'J13' : '20', 'J14' : '20', 'J15' : '20', 'J16' : '20', 'J17' : '20', 'J18/19' : '21','KJ' : '21','KU20' : '21', 'KU23' : '21', 'KS' : '21', 'G10' : '19', 'G11' : '19', 'G12' : '20', 'G13' : '20', 'G14' : '21', 'G15' : '21', 'G16' : '22', 'G17' : '22', 'G18/19' : '23','MU20' : '23', 'MU23' : '24', 'MS' : '24', 'default':'' }.get(cat,'')
+    elif event == '80H':
+        eid = { 'J15' : '27', 'J16' : '27', 'G14' : '28' }.get(cat,'')
+    elif event == '100H':
+        eid = { 'J16' : '34', 'J17' : '34', 'J18/19' : '35','KJ' : '35','KU20' : '35', 'KU23' : '35', 'KS' : '35', 'G15' : '35', 'G16' : '36'}.get(cat,'')
+    elif event == '110H':
+        eid = { 'G17' : '40', 'G18/19' : '41','MJ' : '41', 'MU20' : '41', 'MU23' : '42', 'MS' : '42' }.get(cat,'')
+    elif event == '200H':
+        eid = { 'J10' : '44', 'J11' : '44', 'J12' : '44', 'J13' : '44', 'G10' : '44', 'G11' : '44', 'G12' : '44', 'G13' : '44', 'default' : '45' }.get(cat,'')
+    elif event == '300H':
+        eid = { 'J15' : '51', 'J16' : '51', 'J17' : '51', 'J18/19' : '51','KJ' : '51','KU20' : '51', 'KU23' : '51', 'KS' : '51', 'G15' : '51', 'G16' : '52', 'G17' : '52', 'G18/19' : '53','MJ' : '53', 'MU20' : '53', 'MU23' : '53', 'MS' : '53' }.get(cat,'')
+    elif event == '400H':
+        eid = { 'J15' : '57', 'J16' : '57', 'J17' : '57', 'J18/19' : '57','KJ' : '57','KU20' : '57', 'KU23' : '57', 'KS' : '57', 'G15' : '57', 'G16' : '58', 'G17' : '58', 'G18/19' : '59','MJ' : '59','MU20' : '59', 'MU23' : '59', 'MS' : '59' }.get(cat,'')
 #   event_ids['1500SC'] = {}
 #   event_ids['2000SC'] = {}
+#   event_ids['3000SC'] = {}
 # ... jumps
-    event_ids['HJ'] = defaultdict(lambda : '68') 
-    event_ids['SHJ'] = defaultdict(lambda : '69') 
-    event_ids['PV'] = defaultdict(lambda : '70') 
-    event_ids['LJ'] = {'G10': '72','G11': '72','G12': '72',  'G13': '72', 'J10': '72','J11': '72','J12': '72',  'J13': '72', 'default' : '71' }
-    event_ids['SLJ'] = defaultdict(lambda : '74') 
-    event_ids['TJ'] = {'G10': '76','G11': '76','G12': '76',  'G13': '76', 'J10': '76','J11': '76','J12': '76',  'J13': '76', 'default' : '75' }
-    event_ids['STJ'] = defaultdict(lambda : '78') 
-
+    elif event == 'HJ':
+        eid = '68' 
+    elif event == 'SHJ':
+        eid = '69' 
+    elif event == 'PV':
+        eid = '70' 
+    elif event == 'LJ':
+        eid = {'G10': '72','G11': '72','G12': '72',  'G13': '72', 'J10': '72','J11': '72','J12': '72',  'J13': '72', 'default' : '71' }.get(cat,'')
+    elif event == 'SLJ':
+        eid = '74' 
+    elif event == 'TJ':
+        eid = {'G10': '76','G11': '76','G12': '76',  'G13': '76', 'J10': '76','J11': '76','J12': '76',  'J13': '76', 'default' : '75' }.get(cat,'')
+    elif event == 'STJ':
+        eid = '78' 
 # ... throws
-    event_ids['SP'] = { 'J10' : '81', 'J11' : '81', 'J12' : '81', 'J13' : '81', 'J14' : '82', 'J15' : '82', 'J16' : '82', 'J17' : '82', 'J18/19' : '83', 'KU20' : '83', 'KU23' : '83', 'KS' : '83', 'G10' : '81', 'G11' : '81', 'G12' : '82', 'G13' : '82', 'G14' : '83', 'G15' : '83', 'G16' : '84', 'G17' : '84', 'G18/19' : '85', 'MU20' : '85', 'MU23' : '86', 'MS' : '86', 'default' : ''}
-    event_ids['DT'] = { 'J10' : '88', 'J11' : '88', 'J12' : '88', 'J13' : '88', 'J14' : '89', 'J15' : '89', 'J16' : '89', 'J17' : '89', 'J18/19' : '90', 'KU20' : '90', 'KU23' : '90', 'KS' : '90', 'G10' : '88', 'G11' : '88', 'G12' : '89', 'G13' : '89', 'G14' : '90', 'G15' : '90', 'G16' : '91', 'G17' : '91', 'G18/19' : '92', 'MU20' : '92', 'MU23' : '93', 'MS' : '93', 'default': ''}
-    event_ids['JT'] = { 'J10' : '95', 'J11' : '95', 'J12' : '95', 'J13' : '95', 'J14' : '95', 'J15' : '139', 'J16' : '139', 'J17' : '139', 'J18/19' : '96', 'KU20' : '96', 'KU23' : '96', 'KS' : '96', 'G10' : '95', 'G11' : '95', 'G12' : '95', 'G13' : '95', 'G14' : '96', 'G15' : '96', 'G16' : '97', 'G17' : '97', 'G18/19' : '98', 'MU20' : '98', 'MU23' : '98', 'MS' : '98', 'default': ''}
-    event_ids['HT'] = { 'J10' : '101', 'J11' : '101', 'J12' : '101', 'J13' : '101', 'J14' : '155', 'J15' : '155', 'J16' : '155', 'J17' : '155', 'J18/19' : '103', 'KU20' : '103', 'KU23' : '103', 'KS' : '103', 'G10' : '101', 'G11' : '101', 'G12' : '155', 'G13' : '155', 'G14' : '103', 'G15' : '103', 'G16' : '104', 'G17' : '104', 'G18/19' : '105', 'MU20' : '105', 'MU23' : '106', 'MS' : '106', 'default': ''}
+    elif event == 'SP':
+        eid = { 'J10' : '81', 'J11' : '81', 'J12' : '81', 'J13' : '81', 'J14' : '82', 'J15' : '82', 'J16' : '82', 'J17' : '82', 'J18/19' : '83', 'KU20' : '83', 'KU23' : '83', 'KS' : '83', 'G10' : '81', 'G11' : '81', 'G12' : '82', 'G13' : '82', 'G14' : '83', 'G15' : '83', 'G16' : '84', 'G17' : '84', 'G18/19' : '85', 'MU20' : '85', 'MU23' : '86', 'MS' : '86', 'default' : ''}.get(cat,'')
+    elif event == 'DT':
+        eid = { 'J10' : '88', 'J11' : '88', 'J12' : '88', 'J13' : '88', 'J14' : '89', 'J15' : '89', 'J16' : '89', 'J17' : '89', 'J18/19' : '90', 'KU20' : '90', 'KU23' : '90', 'KS' : '90', 'G10' : '88', 'G11' : '88', 'G12' : '89', 'G13' : '89', 'G14' : '90', 'G15' : '90', 'G16' : '91', 'G17' : '91', 'G18/19' : '92', 'MU20' : '92', 'MU23' : '93', 'MS' : '93', 'default': ''}.get(cat,'')
+    elif event == 'JT':
+        eid = { 'J10' : '95', 'J11' : '95', 'J12' : '95', 'J13' : '95', 'J14' : '95', 'J15' : '139', 'J16' : '139', 'J17' : '139', 'J18/19' : '96', 'KU20' : '96', 'KU23' : '96', 'KS' : '96', 'G10' : '95', 'G11' : '95', 'G12' : '95', 'G13' : '95', 'G14' : '96', 'G15' : '96', 'G16' : '97', 'G17' : '97', 'G18/19' : '98', 'MU20' : '98', 'MU23' : '98', 'MS' : '98', 'default': ''}.get(cat,'')
+    elif event == 'HT':
+        eid = { 'J10' : '101', 'J11' : '101', 'J12' : '101', 'J13' : '101', 'J14' : '155', 'J15' : '155', 'J16' : '155', 'J17' : '155', 'J18/19' : '103', 'KU20' : '103', 'KU23' : '103', 'KS' : '103', 'G10' : '101', 'G11' : '101', 'G12' : '155', 'G13' : '155', 'G14' : '103', 'G15' : '103', 'G16' : '104', 'G17' : '104', 'G18/19' : '105', 'MU20' : '105', 'MU23' : '106', 'MS' : '106', 'default': ''}.get(cat,'')
 
-    return event_ids[event].get(cat) 
+    return eid
 
 
 def get_athlete_id(fn, ln, dob):
     #
     url = 'https://www.minfriidrettsstatistikk.info/php/sokutover.php'
+    print(fn, ln, dob)
     r = requests.post(url, data=json.dumps({'FirstName' : fn, 'LastName' : ln, 'DateOfBirth' : dob}))
 
+    print(r.text)
     return json.loads(r.text)[0]['Athlete_Id']
 
 
@@ -60,17 +94,20 @@ def get_athlete_bests(athlete_id, event_code, category):
     #
     Event_Id = event_id(event_code, category)
 
-    url = 'https://www.minfriidrettsstatistikk.info/php/hentresultater.php'
-    #r   = requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id}))
-    r   = json.loads( requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id})).text )
-    
     pb = ''
     sb = ''
-    if len(r) > 0:
-        if 'PB' in r.keys():
-            pb = r['PB']['Result'].replace(',', '.')
-        if 'SB' in r.keys():
-            sb = r['SB']['Result'].replace(',', '.')
+    print('#', athlete_id, Event_Id)
+    if not athlete_id == '':
+        #
+        url = 'https://www.minfriidrettsstatistikk.info/php/hentresultater.php'
+        r   = json.loads( requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id})).text )
+        print(r)
+    
+        if len(r) > 0:
+            if 'PB' in r.keys():
+                pb = r['PB']['Result'].replace(',', '.')
+            if 'SB' in r.keys():
+                sb = r['SB']['Result'].replace(',', '.')
 
     return (pb, sb)
     
