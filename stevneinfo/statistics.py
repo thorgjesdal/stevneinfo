@@ -1,3 +1,4 @@
+import re
 import requests
 import json
 from collections import defaultdict
@@ -21,6 +22,8 @@ def event_id(event, cat):
         eid = 6
     elif event == '400':
         eid = 7
+    elif event == '600':
+        eid = 8
     elif event == '800':
         eid = 9
     elif event == '1000':
@@ -79,15 +82,33 @@ def event_id(event, cat):
 
     return eid
 
+def format_result(res):
+    MINSECPAT = r'(\d?\d)[:.,](\d\d[,.]\d?\d)'
+    match1 = re.match(MINSECPAT,res)
+    if match1:
+        mins = match1.group(1)
+        secs = match1.group(2).replace(',','.')
+        res  = f'{mins}:{secs}'
+    else:
+        res= res.replace(',','.')
+
+    return res
 
 def get_athlete_id(fn, ln, dob):
     #
     url = 'https://www.minfriidrettsstatistikk.info/php/sokutover.php'
     print(fn, ln, dob)
-    r = requests.post(url, data=json.dumps({'FirstName' : fn, 'LastName' : ln, 'DateOfBirth' : dob}))
+    r = requests.post(url, data=json.dumps({'FirstName' : fn.split()[0], 'LastName' : ln, 'DateOfBirth' : dob}))
 
+    aid = ''
     print(r.text)
-    return json.loads(r.text)[0]['Athlete_Id']
+    ATHIDPAT = r'{"Athlete_Id":"(\d*)",.*}'
+    match = re.search(ATHIDPAT, r.text)
+    print(match)
+    if match:
+        print(match.groups)
+        aid = match.group(1)
+    return aid
 
 
 def get_athlete_bests(athlete_id, event_code, category):
@@ -100,14 +121,34 @@ def get_athlete_bests(athlete_id, event_code, category):
     if not athlete_id == '':
         #
         url = 'https://www.minfriidrettsstatistikk.info/php/hentresultater.php'
-        r   = json.loads( requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id})).text )
-        print(r)
+        r   = requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id}))
+        print(r.text)
+
+        PBSBPAT = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)",.*,"SB":{"Result":"(.*?).*}'
+        PBPAT   = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)".*}'
+
+        match1 = re.search(PBSBPAT,r.text)
+        match2 = re.search(PBPAT  ,r.text)
+        print(match1, match2)
+
+        if match1:
+            pb = match1.group(1)
+            sb = match1.group(2)
+        elif match2:
+            pb = match2.group(1)
+
+        pb = format_result(pb)
+        sb = format_result(sb)
+
+        print(pb,sb)
     
+        """
         if len(r) > 0:
             if 'PB' in r.keys():
                 pb = r['PB']['Result'].replace(',', '.')
             if 'SB' in r.keys():
                 sb = r['SB']['Result'].replace(',', '.')
+        """
 
     return (pb, sb)
     
