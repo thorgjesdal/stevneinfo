@@ -82,6 +82,54 @@ def event_code(event):
             }
     return event_codes.get(event, '')
 
+def event_name(code):
+    event_names = {
+            '60'     : '60 meter'          , 
+            '80'     : '80 meter'          , 
+            '100'    : '100 meter'         , 
+            '150'    : '150 meter'         , 
+            '200'    : '200 meter'         , 
+            '300'    : '300 meter'         , 
+            '400'    : '400 meter'         , 
+            '600'    : '600 meter'         , 
+            '800'    : '800 meter'         , 
+            '1000'   : '1000 meter'        , 
+            '2000'   : '2000 meter'        , 
+            '1500'   : '1500 meter'        , 
+            '3000'   : '3000 meter'        , 
+            '5000'   : '5000 meter'        , 
+            '10000'  : '10000 meter'       , 
+            '60H'    : '60 meter hekk'     , 
+            '80H'    : '80 meter hekk'     , 
+            '100H'   : '100 meter hekk'    , 
+            '110H'   : '110 meter hekk'    , 
+            '200H'   : '200 meter hekk'    ,
+            '300H'   : '300 meter hekk'    , 
+            '400H'   : '400 meter hekk'    , 
+            '1500SC' : '1500 meter hinder' , 
+            '2000SC' : '2000 meter hinder' , 
+            '3000SC' : '3000 meter hinder' , 
+            '1000W'  : 'Kappgang 1000 meter'        , 
+            '2000W'  : 'Kappgang 2000 meter'        , 
+            '3000W'  : 'Kappgang 3000 meter'        , 
+            'HJ'     : 'Høyde'             , 
+            'PV'     : 'Stav'              , 
+            'LJ'     : 'Lengde'            , 
+            'TJ'     : 'Tresteg'           , 
+            'SP'     : 'Kule'              , 
+            'DT'     : 'Diskos'            , 
+            'HT'     : 'Slegge'            , 
+            'JT'     : 'Spyd'              , 
+            'OT'     : 'Liten ball'              , 
+            'BT'     : 'Liten ball'              , 
+            'DEC'    : 'Tikamp'            , 
+            'HEP'    : 'Sjukamp'           ,
+            'PEN'    : 'Femkamp'           ,
+            'SHJ'    : 'Høyde uten tilløp' ,
+            'SLJ'    : 'Lengde uten tilløp'           ,
+            'STJ'    : 'Tresteg uten tilløp'           
+            }
+    return event_names[code]
 
 def event_spec(event, klasse):
     throws = {}
@@ -145,18 +193,17 @@ def event_spec(event, klasse):
                                  'G18/19' : '91,4cm','MJ' : '91,4cm','MU20' : '91,4cm', 'MU23' : '91,4cm', 'MS' : '91,4cm' }
 
     if isthrow(event):
-       #e = event + ' ' + throws[event][klasse]
        t = throws[event].get(klasse,None)
        if t == None:
            t = throws[event]['default']
-       e = event + ' ' + t
+       e = event_name(event) + ' ' + t
     elif ishurdles(event):
        h = hurdles[event].get(klasse,None)
        if h == None:
            h = hurdles[event]['default']
-       e = event + ' ' + h
+       e = event_name(event) + ' ' + h
     else:
-       e = event
+       e = event_name(event)
 
     return e
 

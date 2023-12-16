@@ -191,8 +191,9 @@ def write_opentrack_import(f):
             jt +=1
             event_ref = "T%02d"%jt
 
-        #print(e)
-        full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(event, cat) ))
+        print(e)
+#       full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(event, cat) ))
+        full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(evcode, cat) ))
         ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], events.event_spec(e[1], cat)])
         ws1["B%d"%row_counter] = event_ref
         ws1["C%d"%row_counter] = evcode
@@ -201,7 +202,7 @@ def write_opentrack_import(f):
         ws1["F%d"%row_counter] = cat
 #       ws1["G%d"%row_counter] = age_group(class_code(e[0]))
 
-        ws1["H%d"%row_counter] = ' '.join(( cat, events.event_spec(event, cat) ))
+        ws1["H%d"%row_counter] = ' '.join(( cat, events.event_spec(evcode, cat) ))
         ws1["I%d"%row_counter] = '1'
         ws1["J%d"%row_counter] = '1'
         ws1["K%d"%row_counter] = '12:00'
