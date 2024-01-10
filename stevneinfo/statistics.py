@@ -5,7 +5,7 @@ from collections import defaultdict
 
 def event_id(event, cat):
 
-    print('+', event, cat)
+    #print('+', event, cat)
     event_ids = {}
 
     if event == '40':
@@ -97,16 +97,16 @@ def format_result(res):
 def get_athlete_id(fn, ln, dob):
     #
     url = 'https://www.minfriidrettsstatistikk.info/php/sokutover.php'
-    print(fn, ln, dob)
+    #print(fn, ln, dob)
     r = requests.post(url, data=json.dumps({'FirstName' : fn.split()[0], 'LastName' : ln, 'DateOfBirth' : dob}))
 
     aid = ''
-    print(r.text)
+    #print(r.text)
     ATHIDPAT = r'{"Athlete_Id":"(\d*)",.*}'
     match = re.search(ATHIDPAT, r.text)
-    print(match)
+    #print(match)
     if match:
-        print(match.groups)
+        #print(match.groups)
         aid = match.group(1)
     return aid
 
@@ -117,19 +117,19 @@ def get_athlete_bests(athlete_id, event_code, category):
 
     pb = ''
     sb = ''
-    print('#', athlete_id, Event_Id)
+    #print('#', athlete_id, Event_Id)
     if not athlete_id == '':
         #
         url = 'https://www.minfriidrettsstatistikk.info/php/hentresultater.php'
         r   = requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id}))
-        print(r.text)
+        #print(r.text)
 
         PBSBPAT = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)",.*,"SB":{"Result":"(.*?).*}'
         PBPAT   = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)".*}'
 
         match1 = re.search(PBSBPAT,r.text)
         match2 = re.search(PBPAT  ,r.text)
-        print(match1, match2)
+        #print(match1, match2)
 
         if match1:
             pb = match1.group(1)
@@ -140,7 +140,7 @@ def get_athlete_bests(athlete_id, event_code, category):
         pb = format_result(pb)
         sb = format_result(sb)
 
-        print(pb,sb)
+        #print(pb,sb)
     
         """
         if len(r) > 0:

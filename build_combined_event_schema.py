@@ -28,6 +28,8 @@ def ce_fullname(event):
         name = '3-kamp'
     elif event == 'QUAD':
         name = '4-kamp'
+    elif event == 'PEN':
+        name = '5-kamp'
     return name
 
 def event_name(code):
@@ -82,6 +84,7 @@ def event_name(code):
 
 #multis = { }
 #multis['G13'] =  {'ot_code' : 'M01', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]}
+"""
 multis = { 
         'G13':  {'ot_code' : 'M01', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]},
         'G14':  {'ot_code' : 'M02', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]},
@@ -106,6 +109,23 @@ multis = {
         'KV50': {'ot_code' : 'M21', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
         'MV85': {'ot_code' : 'M22', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]}
             }
+"""
+multis = { 
+        'G13':  {'ot_code' : 'M01', 'ce_code' : 'QUAD', 'events' : [[ '60H','LJ', 'SP','600' ]]},
+        'G14':  {'ot_code' : 'M02', 'ce_code' : 'QUAD', 'events' : [[ '60H','LJ', 'SP','600' ]]},
+        'G15':  {'ot_code' : 'M05', 'ce_code' : 'HEP', 'events' : [[ '60', 'LJ', 'SP', 'HJ' ],['60H', 'PV','800']]},
+        'G16':  {'ot_code' : 'M06', 'ce_code' : 'HEP', 'events' : [[ '60', 'LJ', 'SP', 'HJ' ],['60H', 'PV','800']]},
+        'G17':  {'ot_code' : 'M07', 'ce_code' : 'HEP', 'events' : [[ '60', 'LJ', 'SP', 'HJ' ],['60H', 'PV','1000']]},
+        'J13':  {'ot_code' : 'M03', 'ce_code' : 'QUAD', 'events' : [[ '60H','LJ', 'SP','600' ]]},
+        'J14':  {'ot_code' : 'M04', 'ce_code' : 'QUAD', 'events' : [[ '60H','LJ', 'SP','600' ]]},
+        'J15': {'ot_code' : 'M08', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','600']]},
+        'J16': {'ot_code' : 'M09', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','600']]},
+        'J17': {'ot_code' : 'M10', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
+        'MU20':  {'ot_code' : 'M11', 'ce_code' : 'HEP', 'events' : [[ '60', 'LJ', 'SP', 'HJ' ],['60H', 'PV','1000']]},
+        'MS':  {'ot_code' : 'M12', 'ce_code' : 'HEP', 'events' : [[ '60', 'LJ', 'SP', 'HJ' ],['60H', 'PV','1000']]},
+        'KU20': {'ot_code' : 'M13', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
+        'KS': {'ot_code' : 'M14', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
+            }
 #print(multis)
 #print(multis.keys())
 
@@ -114,6 +134,26 @@ wb = Workbook()
 ws = wb.active
 ws.title = 'Events'
 row_counter = 0
+
+for k in multis.keys():
+    #
+    cat = k
+    combined_events = multis[cat]['ce_code']
+    day = 1
+    if not multis[k]['events'][0]:
+        day = 2
+
+    row_counter +=1
+    ws["A%d"%row_counter] = multis[cat]['ot_code']
+    ws["B%d"%row_counter] = combined_events
+    ws["C%d"%row_counter] = get_age(cat)
+    ws["D%d"%row_counter] = cats.get_gender(cat)
+    ws["E%d"%row_counter] = k
+    ws["G%d"%row_counter] = f'{cat} {events.event_spec(combined_events, cat)}'
+    ws["H%d"%row_counter] = '1'
+    ws["I%d"%row_counter] = day
+    ws["J%d"%row_counter] = '12:00'
+
 
 event_code = 0
 for k in multis.keys():
@@ -139,7 +179,6 @@ for k in multis.keys():
             ws["D%d"%row_counter] = gender
             ws["E%d"%row_counter] = cat
             ws["G%d"%row_counter] = f'{cat} {events.event_spec(event, cat)}'
-            #ws["G%d"%row_counter] = f'{cat} {event_spec(event, cat)}'
             ws["H%d"%row_counter] = '1'
             ws["I%d"%row_counter] = day
             ws["J%d"%row_counter] = '12:00'
@@ -149,5 +188,6 @@ for k in multis.keys():
 xlname = 'combined_events_table.xlsx'
 wb.save(xlname)
    
+
 
 

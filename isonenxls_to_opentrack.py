@@ -39,7 +39,7 @@ def read_isonenxls(f):
             dob = value[columns.index('Fødselsdato')]
             g = gender[value[columns.index('Kjønn')]]
             club = value[columns.index('Klubb')]
-            ev = value[columns.index('Øvelse')]
+            ev = value[columns.index('Øvelse')].strip()
             cat = cats.cat_code(value[columns.index('Klasse')])
             #nat = cats.cat_code(value[columns.index('Landskode')])
             nat = value[columns.index('Landskode')]
@@ -146,10 +146,18 @@ def get_seed_marks(name, dob, event, cat, season):
             res = res.replace(',','.')
         return res
 
+"""
+def build_event_table_from_input():
+    #
 
+def build_event_table_from_json(url):
+    #
+    r = requests.get(url+'json')
+    j = json.loads(r.text)
+"""
 
 def write_opentrack_import(f):
-    event_list, events_by_athlete = read_isonenxls(f)
+#   event_list, events_by_athlete = read_isonenxls(f)
 
     isodateformat = "%Y-%m-%d"
     ddmmyyyyformat = "%d.%m.%Y"
@@ -191,7 +199,7 @@ def write_opentrack_import(f):
             jt +=1
             event_ref = "T%02d"%jt
 
-        print(e)
+        #print('+',e)
 #       full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(event, cat) ))
         full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(evcode, cat) ))
         ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], events.event_spec(e[1], cat)])
@@ -264,11 +272,11 @@ def write_opentrack_import(f):
                 res = ''
                 """
             athlete_id = stats.get_athlete_id(fn,ln,datetime.datetime.strftime(dob,ddmmyyyyformat))
-            print('=', athlete_id)
+            #print('=', athlete_id)
             if eventcode == "60": # for Bassen sprint
                 eventcode = "100"
             athlete_bests =  stats.get_athlete_bests(athlete_id, eventcode, cat)
-            print(athlete_bests)
+            #print(athlete_bests)
             pb = athlete_bests[0]
             sb = athlete_bests[1]
 
@@ -285,7 +293,8 @@ if len(sys.argv) < 2:
    
 infile = sys.argv[1]
 print(infile)
-#events, events_by_athlete = read_isonenxls(infile)
+event_list, events_by_athlete = read_isonenxls(infile)
+print(event_list)
 write_opentrack_import(infile)
 #print(events)
 #pp = pprint.PrettyPrinter(indent=4)

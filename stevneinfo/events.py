@@ -122,9 +122,10 @@ def event_name(code):
             'JT'     : 'Spyd'              , 
             'OT'     : 'Liten ball'              , 
             'BT'     : 'Liten ball'              , 
-            'DEC'    : 'Tikamp'            , 
-            'HEP'    : 'Sjukamp'           ,
-            'PEN'    : 'Femkamp'           ,
+            'DEC'    : '10-kamp'            , 
+            'HEP'    : '7-kamp'           ,
+            'PEN'    : '5-kamp'           ,
+            'QUAD'   : '4-kamp'           ,
             'SHJ'    : 'Høyde uten tilløp' ,
             'SLJ'    : 'Lengde uten tilløp'           ,
             'STJ'    : 'Tresteg uten tilløp'           
