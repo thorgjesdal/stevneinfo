@@ -25,6 +25,9 @@ def read_isonenxls(f):
 #   sys.exit()
     event_list =  []
     events_by_athlete= {}
+    days = []
+    isodateformat = "%Y-%m-%d"
+    ddmmyyyyformat = "%d.%m.%Y"
     i=1
     for value in ws.iter_rows(min_row=1,min_col=1, max_col=46, values_only=True):
         if i==1:
@@ -43,8 +46,12 @@ def read_isonenxls(f):
             cat = cats.cat_code(value[columns.index('Klasse')])
             #nat = cats.cat_code(value[columns.index('Landskode')])
             nat = value[columns.index('Landskode')]
+            day = value[columns.index('Dato')]
+            day = datetime.datetime.strptime(day,ddmmyyyyformat)
+            if day not in days:
+                days.append(day)
             athlete_key = (first_name, last_name, dob, g, club, nat)
-            event = (ev, events.event_code(ev),  cat)
+            event = (events.event_code(ev),  cat, day)
 #           print(athlete_key)
 #           print(event)
 
@@ -59,7 +66,9 @@ def read_isonenxls(f):
                 events_by_athlete[athlete_key].append( event )
 
 #   events = sort_event_list(events)
-    return event_list, events_by_athlete
+    days.sort()
+    print(days)
+    return event_list, events_by_athlete, days
 
 def get_stats(event,cat,season):
     event_id = {'100':'4', '200': '5', '400':'7', '800':'9', '1500':'11', '3000':'13', '5000':'14', '10000':'15',
@@ -186,9 +195,12 @@ def write_opentrack_import(f):
     jm = 0
     full_events = {}
     for e in event_list:
-        event  = e[0]
-        evcode = e[1]
-        cat    = e[2]
+        print(e)
+        evcode = e[0]
+        event  = events.event_name(evcode)
+        cat    = e[1]
+        #day    = e[2]
+        day    = days.index(e[2]) + 1
         if events.isfield(event):
             jf +=1
             event_ref = "F%02d"%jf
@@ -200,9 +212,9 @@ def write_opentrack_import(f):
             event_ref = "T%02d"%jt
 
         #print('+',e)
-#       full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(event, cat) ))
         full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(evcode, cat) ))
-        ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], events.event_spec(e[1], cat)])
+#       full_events[ ( cat , event) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(event, cat) ))
+        ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], events.event_spec(evcode, cat)])
         ws1["B%d"%row_counter] = event_ref
         ws1["C%d"%row_counter] = evcode
         ws1["D%d"%row_counter] = cats.age_group(cat)
@@ -212,7 +224,7 @@ def write_opentrack_import(f):
 
         ws1["H%d"%row_counter] = ' '.join(( cat, events.event_spec(evcode, cat) ))
         ws1["I%d"%row_counter] = '1'
-        ws1["J%d"%row_counter] = '1'
+        ws1["J%d"%row_counter] = f'{day}'
         ws1["K%d"%row_counter] = '12:00'
         
         row_counter +=1
@@ -238,9 +250,9 @@ def write_opentrack_import(f):
         nat  = key[5]
         for e in events_by_athlete[key]:
             #print(e)
-            event     = e[0]
-            eventcode = e[1]
-            cat       = e[2]
+            eventcode = e[0]
+            event     = events.event_name(eventcode)
+            cat       = e[1]
             #e = ( event[2], event[1] )
 
             ws["A%d"%row_counter] = bib
@@ -250,7 +262,7 @@ def write_opentrack_import(f):
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = clubs.club_code(club)
-            ws["H%d"%row_counter] = full_events[ (e[2], e[1]) ]
+            ws["H%d"%row_counter] = full_events[ (e[1], e[0]) ]
 
             #event = e[1]
             """
@@ -272,11 +284,11 @@ def write_opentrack_import(f):
                 res = ''
                 """
             athlete_id = stats.get_athlete_id(fn,ln,datetime.datetime.strftime(dob,ddmmyyyyformat))
-            #print('=', athlete_id)
+            print('=', athlete_id)
             if eventcode == "60": # for Bassen sprint
                 eventcode = "100"
             athlete_bests =  stats.get_athlete_bests(athlete_id, eventcode, cat)
-            #print(athlete_bests)
+            print(athlete_bests)
             pb = athlete_bests[0]
             sb = athlete_bests[1]
 
@@ -292,9 +304,9 @@ if len(sys.argv) < 2:
    sys.exit("Usage: %s <infile>" % sys.argv[0])
    
 infile = sys.argv[1]
-print(infile)
-event_list, events_by_athlete = read_isonenxls(infile)
-print(event_list)
+#print(infile)
+event_list, events_by_athlete, days = read_isonenxls(infile)
+#print(event_list)
 write_opentrack_import(infile)
 #print(events)
 #pp = pprint.PrettyPrinter(indent=4)
