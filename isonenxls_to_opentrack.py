@@ -8,6 +8,8 @@ import requests
 from bs4 import BeautifulSoup
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
+import json
+import argparse
 
 from stevneinfo import clubs, categories as cats, events, statistics as stats
 
@@ -67,7 +69,11 @@ def read_isonenxls(f):
 
 #   events = sort_event_list(events)
     days.sort()
-    print(days)
+#   print(days)
+    for i,e in enumerate(event_list):
+#       print(i, e)
+        event_list[i] = ( e[0], e[1], days.index(e[2])+1 )
+    print(event_list)
     return event_list, events_by_athlete, days
 
 def get_stats(event,cat,season):
@@ -155,15 +161,32 @@ def get_seed_marks(name, dob, event, cat, season):
             res = res.replace(',','.')
         return res
 
-"""
-def build_event_table_from_input():
+#def build_event_table_from_input():
     #
 
 def build_event_table_from_json(url):
     #
+    print(url)
     r = requests.get(url+'json')
     j = json.loads(r.text)
-"""
+
+    event_list = []
+    print(len(j['events']))
+
+#   for i,e in enumerate(j['events']):
+    for e in j['events']:
+        cat = e['category']
+        eventcode = e['eventCode']
+        day = e['day']
+#       if 'parent' in e.keys():
+#           parent = e['parent']
+#           cat = cat + j['events']['parent'][eventCode][0]
+#           print(parent, cat)
+
+        print(eventcode, cat, day)
+        event_list.append((eventcode, cat, day))
+#   print(event_list)    
+    return event_list
 
 def write_opentrack_import(f):
 #   event_list, events_by_athlete = read_isonenxls(f)
@@ -190,17 +213,25 @@ def write_opentrack_import(f):
 #   ws1["A1"] = 'Event selection'
     row_counter = 2
 
+    multis = {}
+    jm = 0
+    for e in event_list:
+        if events.ismulti(e[0]):
+            jm +=1
+            event_ref = "M%02d"%jm
+            multis[event_ref] = ev[0]
+
+
     jf = 0
     jt = 0
-    jm = 0
     full_events = {}
     for e in event_list:
         print(e)
         evcode = e[0]
         event  = events.event_name(evcode)
         cat    = e[1]
-        #day    = e[2]
-        day    = days.index(e[2]) + 1
+        day    = e[2]
+        #day    = days.index(e[2]) + 1
         if events.isfield(event):
             jf +=1
             event_ref = "F%02d"%jf
@@ -211,7 +242,7 @@ def write_opentrack_import(f):
             jt +=1
             event_ref = "T%02d"%jt
 
-        #print('+',e)
+        print('+',e)
         full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(evcode, cat) ))
 #       full_events[ ( cat , event) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(event, cat) ))
         ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], events.event_spec(evcode, cat)])
@@ -235,7 +266,7 @@ def write_opentrack_import(f):
     bib = 0
     pp = pprint.PrettyPrinter(indent=4)
 #   pp.pprint(events_by_athlete)
-#   pp.pprint(full_events)
+    pp.pprint(full_events)
     for key in events_by_athlete.keys():
         bib+=1
         maxname = 30
@@ -248,11 +279,17 @@ def write_opentrack_import(f):
         g    = key[3]
         club = key[4]
         nat  = key[5]
+        print(fn, ln)
         for e in events_by_athlete[key]:
-            #print(e)
+            print(e)
             eventcode = e[0]
             event     = events.event_name(eventcode)
             cat       = e[1]
+            print(cat)
+            if events.ismulti(eventcode):
+                cat = cat+eventcode[0]
+            print(cat)
+
             #e = ( event[2], event[1] )
 
             ws["A%d"%row_counter] = bib
@@ -283,14 +320,17 @@ def write_opentrack_import(f):
             else:
                 res = ''
                 """
-            athlete_id = stats.get_athlete_id(fn,ln,datetime.datetime.strftime(dob,ddmmyyyyformat))
-            print('=', athlete_id)
-            if eventcode == "60": # for Bassen sprint
-                eventcode = "100"
-            athlete_bests =  stats.get_athlete_bests(athlete_id, eventcode, cat)
-            print(athlete_bests)
-            pb = athlete_bests[0]
-            sb = athlete_bests[1]
+            pb = ''
+            sb = ''
+            if args.get_stats:
+                athlete_id = stats.get_athlete_id(fn,ln,datetime.datetime.strftime(dob,ddmmyyyyformat))
+#               print('=', athlete_id)
+                if eventcode == "60": # for Bassen sprint
+                    eventcode = "100"
+                athlete_bests =  stats.get_athlete_bests(athlete_id, eventcode, cat)
+#               print(athlete_bests)
+                pb = athlete_bests[0]
+                sb = athlete_bests[1]
 
             ws["J%d"%row_counter] = pb
             ws["K%d"%row_counter] = sb
@@ -300,13 +340,21 @@ def write_opentrack_import(f):
     wb.save(xlname)
 #-----
 
-if len(sys.argv) < 2:
-   sys.exit("Usage: %s <infile>" % sys.argv[0])
+#if len(sys.argv) < 2:
+#   sys.exit("Usage: %s <infile>" % sys.argv[0])
+parser = argparse.ArgumentParser()
+parser.add_argument('infile')
+parser.add_argument('--url', help='opentrack competition url', default=None)
+parser.add_argument('--get_stats', action='store_true', default=False)
+args = parser.parse_args()
    
 infile = sys.argv[1]
 #print(infile)
 event_list, events_by_athlete, days = read_isonenxls(infile)
+if args.url:
+    event_list = build_event_table_from_json(args.url)
 #print(event_list)
+
 write_opentrack_import(infile)
 #print(events)
 #pp = pprint.PrettyPrinter(indent=4)

@@ -25,6 +25,7 @@ def read_eventfile(f):
     wb = load_workbook(filename=f)
     ws = wb.active
 
+
     event_codes= {}
     for value in ws.iter_rows(min_row=1,min_col=1, max_col=10, values_only=True):
         cat = value[4]
@@ -35,7 +36,6 @@ def read_eventfile(f):
         print(key,code)
         event_codes[key] = code
         
-    print(event_codes)
     return event_codes
 
 
@@ -67,7 +67,9 @@ def read_simplexlsx(f):
 
 
 def write_opentrack_import(ef, cf):
+    print('Before')
     event_codes = read_eventfile(ef)
+    print(event_codes)
     events_by_athlete = read_simplexlsx(cf)
 
     isodateformat = "%Y-%m-%d"
@@ -101,12 +103,12 @@ def write_opentrack_import(ef, cf):
         fn   = key[0]
         ln   = key[1]
         dob  = key[2]
-        #dob = datetime.datetime.strptime(dob,ddmmyyyyformat)
+        dob = datetime.datetime.strptime(dob,ddmmyyyyformat)
         team = key[3]
         #qp = key[4]
 #       print(key)
         for event in events_by_athlete[key]:
-            #print(event)
+            print(event)
             e = (event[0], event[1])
             qp = event[2]
             print(e)
@@ -129,8 +131,9 @@ def write_opentrack_import(ef, cf):
     xlname = 'opentrack_input.xlsx'
     wb.save(xlname)
 #-----
-event_file = 'EventTable_NordicU20.xlsx'
-competitor_file = 'testpåmedlinger-nordisku20-demo.xlsx'
+
+event_file = 'ExtraEvents_NMMangekamp.xlsx'
+#competitor_file = 'Etteranmeldinger_BassenSprint.xlsx'
 
 if len(sys.argv) < 2:
    sys.exit("Usage: %s <infile>" % sys.argv[0])

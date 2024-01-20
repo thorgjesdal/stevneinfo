@@ -138,7 +138,7 @@ row_counter = 0
 for k in multis.keys():
     #
     cat = k
-    combined_events = multis[cat]['ce_code']
+    combined_events = multis[k]['ce_code']
     day = 1
     if not multis[k]['events'][0]:
         day = 2
@@ -148,7 +148,7 @@ for k in multis.keys():
     ws["B%d"%row_counter] = combined_events
     ws["C%d"%row_counter] = get_age(cat)
     ws["D%d"%row_counter] = cats.get_gender(cat)
-    ws["E%d"%row_counter] = k
+    ws["E%d"%row_counter] = k#+multis[k]['ce_code'][0]
     ws["G%d"%row_counter] = f'{cat} {events.event_spec(combined_events, cat)}'
     ws["H%d"%row_counter] = '1'
     ws["I%d"%row_counter] = day
@@ -173,11 +173,11 @@ for k in multis.keys():
             print(event_code, event, age, gender, cat, f'{cat} {event} ({ce_name})', '1', day, '12:00', parent)
             
             row_counter +=1
-            ws["A%d"%row_counter] = event_code
+            ws["A%d"%row_counter] = f'{event_code:03d}'
             ws["B%d"%row_counter] = event
             ws["C%d"%row_counter] = age
             ws["D%d"%row_counter] = gender
-            ws["E%d"%row_counter] = cat
+            ws["E%d"%row_counter] = k#+multis[k]['ce_code'][0]
             ws["G%d"%row_counter] = f'{cat} {events.event_spec(event, cat)}'
             ws["H%d"%row_counter] = '1'
             ws["I%d"%row_counter] = day

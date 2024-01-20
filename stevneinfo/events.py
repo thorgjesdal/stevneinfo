@@ -78,11 +78,13 @@ def event_code(event):
             u'7-kamp'           : 'HEP' ,
             u'6-kamp'           : 'HEX' ,
             u'5-kamp'           : 'PEN' ,
+            u'4-kamp'           : 'QUAD' ,
             u'4x200 meter stafett' : '4x200' 
             }
     return event_codes.get(event, '')
 
 def event_name(code):
+    print(code)
     event_names = {
             '60'     : '60 meter'          , 
             '80'     : '80 meter'          , 

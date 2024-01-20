@@ -131,7 +131,7 @@ def club_code(club_name):
        club_code=u'BYN'
     elif club_name in (u'Bøler IF'):
        club_code=u'BIF'
-    elif club_name in (u'Bækkelagets SK', u'Bækkelagets Sportsklub'):
+    elif club_name in (u'Bækkelagets SK', u'Bækkelagets Sportsklub', u'Bækkelaget SK'):
        club_code=u'BSK'
     elif club_name in (u'Bærums Verk Hauger Idrettsforening'):
        club_code=u'BRVHA'
@@ -577,6 +577,8 @@ def club_code(club_name):
        club_code=u'LIF'
     elif club_name in (u'Lillesand Idrettslag'):
        club_code=u'LILLS'
+    elif club_name in (u'Lillomarka SkiKlubb'):
+       club_code=u'LILSK'
     elif club_name in (u'Lista Idrettslag'):
        club_code=u'LISTA'
     elif club_name in (u'Loddefjord IL'):
@@ -1693,6 +1695,8 @@ def club_name(club_code):
        club_name=u'Lillehammer IF'
     elif club_code == (u'LILLS'):
        club_name=u'Lillesand Idrettslag'
+    elif club_code in (u'LILSK'):
+       club_name=u'Lillomarka SkiKlubb'
     elif club_code == (u'LISTA'):
        club_name=u'Lista Idrettslag'
     elif club_code == (u'LODD'):
