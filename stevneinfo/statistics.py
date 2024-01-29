@@ -2,42 +2,44 @@ import re
 import requests
 import json
 from collections import defaultdict
+import time
 
 def event_id(event, cat):
 
-#   print('+', event, cat)
+    print('+', (event, cat))
+    print(type(event))
     event_ids = {}
 
     if event == '40':
         eid = '1'
     elif event == '60':
-        eid = 2
+        eid = '2'
     elif event == '80':
-        eid = 3
+        eid =' 3'
     elif event == '100':
-        eid = 4
+        eid = '4'
     elif event == '200':
-        eid = 5
+        eid = '5'
     elif event == '300':
-        eid = 6
+        eid = '6'
     elif event == '400':
-        eid = 7
+        eid = '7'
     elif event == '600':
-        eid = 8
+        eid = '8'
     elif event == '800':
-        eid = 9
+        eid = '9'
     elif event == '1000':
-        eid = 10
+        eid = '10'
     elif event == '1500':
-        eid = 11
+        eid = '11'
     elif event == '2000':
-        eid = 12
+        eid = '12'
     elif event == '3000':
-        eid = 13
+        eid = '13'
     elif event == '5000':
-        eid = 14
+        eid = '14'
     elif event == '10000':
-        eid = 15
+        eid = '15'
     elif event ==  '60H':
         eid = { 'J10' : '19', 'J11' : '19', 'J12' : '19', 'J13' : '20', 'J14' : '20', 'J15' : '20', 'J16' : '20', 'J17' : '20', 'J18/19' : '21','KJ' : '21','KU20' : '21', 'KU23' : '21', 'KS' : '21', 'G10' : '19', 'G11' : '19', 'G12' : '20', 'G13' : '20', 'G14' : '21', 'G15' : '21', 'G16' : '22', 'G17' : '22', 'G18/19' : '23','MU20' : '23', 'MU23' : '24', 'MS' : '24', 'default':'' }.get(cat,'')
     elif event == '80H':
@@ -63,11 +65,11 @@ def event_id(event, cat):
     elif event == 'PV':
         eid = '70' 
     elif event == 'LJ':
-        eid = {'G10': '72','G11': '72','G12': '72',  'G13': '72', 'J10': '72','J11': '72','J12': '72',  'J13': '72', 'default' : '71' }.get(cat,'')
+        eid = {'G10': '72','G11': '72','G12': '72',  'G13': '72', 'J10': '72','J11': '72','J12': '72',  'J13': '72', 'default' : '71' }.get(cat,'71')
     elif event == 'SLJ':
         eid = '74' 
     elif event == 'TJ':
-        eid = {'G10': '76','G11': '76','G12': '76',  'G13': '76', 'J10': '76','J11': '76','J12': '76',  'J13': '76', 'default' : '75' }.get(cat,'')
+        eid = {'G10': '76','G11': '76','G12': '76',  'G13': '76', 'J10': '76','J11': '76','J12': '76',  'J13': '76', 'default' : '75' }.get(cat,'75')
     elif event == 'STJ':
         eid = '78' 
 # ... throws
@@ -101,18 +103,26 @@ def get_athlete_id(fn, ln, dob):
     r = requests.post(url, data=json.dumps({'FirstName' : fn.split()[0], 'LastName' : ln.split()[-1], 'DateOfBirth' : dob}))
 
     aid = ''
-    print(r.text)
+#   print(r.text)
     ATHIDPAT = r'{"Athlete_Id":"(\d*)",.*}'
-    match = re.search(ATHIDPAT, r.text)
-    #print(match)
-    if match:
-        #print(match.groups)
-        aid = match.group(1)
+#   match = re.search(ATHIDPAT, r.text)
+
+    for i in range(3):
+        #
+        match = re.search(ATHIDPAT, r.text)
+       #print(match)
+        if match:
+            #print(match.groups)
+            aid = match.group(1)
+            continue
+        time.sleep(1.0)
     return aid
 
 
 def get_athlete_bests(athlete_id, event_code, category):
     #
+    print(athlete_id, event_code, category)
+            
     Event_Id = event_id(event_code, category)
 
     pb = ''
@@ -122,11 +132,11 @@ def get_athlete_bests(athlete_id, event_code, category):
         #
         url = 'https://www.minfriidrettsstatistikk.info/php/hentresultater.php'
         r   = requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id}))
-        print(r.text)
+#       print(r.text)
 
         PBSBPAT = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"},"SB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"}}'
         PBPAT   = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"}}'
-
+        """
         match1 = re.search(PBSBPAT,r.text)
         match2 = re.search(PBPAT  ,r.text)
 #       print(match1, match2)
@@ -135,12 +145,27 @@ def get_athlete_bests(athlete_id, event_code, category):
             pb = match1.group(1)
             sb = match1.group(2)
         elif match2:
-        #if match2:
             pb = match2.group(1)
+
+        """
+        for i in range(3):
+            #
+            match1 = re.search(PBSBPAT,r.text)
+            match2 = re.search(PBPAT  ,r.text)
+    #       print(match1, match2)
+
+            if match1:
+                pb = match1.group(1)
+                sb = match1.group(2)
+            elif match2:
+                pb = match2.group(1)
+            if not pb=='' or not sb=='':
+                continue
+            else:
+                time.sleep(1.0)
 
         pb = format_result(pb)
         sb = format_result(sb)
-
 #       print(pb,sb)
     
         """
