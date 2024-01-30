@@ -2,7 +2,6 @@
 
 # TODO: 
 #       + clean up/more modular
-#       + different sorting critera (age, cats in json, predefined cats)
 #       + PARA categories
 #       + sorting order
 #       + ties
@@ -18,6 +17,7 @@ from openpyxl.styles import Font, Color
 import requests
 import random
 from collections import defaultdict
+import argparse
 
 from stevneinfo import clubs, events
 
@@ -44,6 +44,8 @@ def get_category(birthdate, eventdate, gender):
     cat = g[gender]+a
     return cat
 
+#def sort_results_by():
+    #
 
 def get_organiser_name(key):
     organisers = { "1376e260-82f7-4bf6-9da6-064fd76c6d87" : "IL Koll", 
@@ -51,11 +53,22 @@ def get_organiser_name(key):
             }
     return organisers.get(key, key)
 #---------------------------------------
-if len(sys.argv) < 2:
-   sys.exit("Usage: %s <url>" % sys.argv[0])
+#if len(sys.argv) < 2:
+#   sys.exit("Usage: %s <url>" % sys.argv[0])
+parser = argparse.ArgumentParser()
+parser.add_argument('url')
+parser.add_argument('--sort_by', default='age')
+args = parser.parse_args()
    
-url = sys.argv[1]
+#url = sys.argv[1]
+#print(args)
+url = args.url
 print(url)
+if args.sort_by in ('age', 'cat'):
+    sort_by = args.sort_by
+else:
+    sys.exit("Wrong value for 'sort_by', must be in ('age', 'cat')")
+
 
 r=requests.get(url+'json')
 j = json.loads(r.text)
@@ -69,8 +82,8 @@ d  = j['date']
 d2 = j['finishDate']
 isodateformat = "%Y-%m-%d"
 date0 = datetime.datetime.strptime(d, isodateformat)
-#print(d, date)
 date1 = datetime.datetime.strptime(d2, isodateformat)
+#print(d, date0, date1)
 #bdate = datetime.datetime.strptime('2005-06-24', isodateformat)
 #print(get_category(bdate,date,'F'))
 dates = []
@@ -177,8 +190,9 @@ for e in j["events"]:
     day = e["day"]
     event_code = e["eventCode"]
     category = e["category"]
+#    print(category)
     event_key = (category, event_code)
-#   print(event_code, event_key)
+    #print(event_code, event_key)
     if 'x' in event_key[1]:
         continue
     series[event_key] = {}
@@ -198,7 +212,12 @@ for e in j["events"]:
                else:
                    wind = None
                #print(wind)
-
+               heatname = 'Heat'
+               if 'heatName' in u.keys():
+                   if 'Final' in u['heatName']:
+                       heatname = 'Finale'
+               heatnumber = u['heat']
+#               print(heatname, heatnumber)
                for r in u["results"]:
 #               print(r)
                    if "bib" in r.keys():
@@ -207,14 +226,23 @@ for e in j["events"]:
                    if bib not in ignore_bibs:
                         bdate = competitors[bib][2]
                         g = competitors[bib][3]
-                        cat = get_category(bdate,date0,g)
+                        if sort_by == 'cat':
+                            cat = category
+                        else:
+                            cat = get_category(bdate,date0,g)
+                        
+#                        print(category, cat)
                         if results[day][event_key].get(cat) == None:
                             results[day][event_key][cat] = {}
                         if results[day][event_key][cat].get(pool) == None:
                             #results[event_code][cat][pool] = []
-                            results[day][event_key][cat][pool] = {'marks' : []}
+                            results[day][event_key][cat][pool] = {'marks' : [], 'heatname' : heatname, 'heatnumber' : heatnumber}
                         if not wind == None:
                             results[day][event_key][cat][pool]['wind'] = wind
+                        #
+                        #results[day][event_key][cat][pool]['heatname'] = heatname
+                        #results[day][event_key][cat][pool]['heatnumber'] = heatnumber
+                    
 #                    x
 #                       print(r.keys())
                         if 'performance' in r.keys():
@@ -303,7 +331,12 @@ for e in j["events"]:
                 if bib not in ignore_bibs:
                      bdate = competitors[bib][2]
                      g = competitors[bib][3]
-                     cat = get_category(bdate,date0,g)
+#                    cat = get_category(bdate,date0,g)
+                     if sort_by == 'cat':
+                         cat = category
+                     else:
+                         cat = get_category(bdate,date0,g)
+
 #                    cat = r['category']
                      pool = 0
                      if results[day][event_key].get(cat) == None:
@@ -391,7 +424,11 @@ for day,date in enumerate(dates):
             row_counter +=1
             heats = sorted(results[day][event_key][cat].keys() )
             for h, heat in zip(range(len(heats)), heats):
-                ws["A%(row_counter)d"%vars()] = "Heat:";  ws["B%(row_counter)d"%vars()] = h+1;  
+#                print('h', h, heat)
+#                print( results[day][event_key][cat][heat] )
+                heatname = results[day][event_key][cat][heat].get('heatname','')
+                heatnumber = results[day][event_key][cat][heat].get('heatnumber','')
+                ws["A%(row_counter)d"%vars()] = heatname+':';  ws["B%(row_counter)d"%vars()] = heatnumber
                 if 'wind' in results[day][event_key][cat][heat].keys():
                     ws["C%(row_counter)d"%vars()] = "Vind:";  ws["D%(row_counter)d"%vars()] = results[day][event_key][cat][heat]['wind']
                 row_counter +=1
