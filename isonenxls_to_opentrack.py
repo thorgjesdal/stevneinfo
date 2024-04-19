@@ -347,9 +347,11 @@ parser.add_argument('infile')
 parser.add_argument('--url', help='opentrack competition url', default=None)
 parser.add_argument('--get_stats', action='store_true', default=False)
 args = parser.parse_args()
+
+infile = args.infile
    
 #infile = sys.argv[1]
-#print(infile)
+print(infile)
 event_list, events_by_athlete, days = read_isonenxls(infile)
 if args.url:
     event_list = build_event_table_from_json(args.url)

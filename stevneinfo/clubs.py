@@ -255,6 +255,8 @@ def club_code(club_name):
        club_code=u'GEI'
     elif club_name in (u'Geiranger Idrettslag'):
        club_code=u'GEIR'
+    elif club_name in (u'Gjerdrum Idrettslag'):
+       club_code=u'GJRDM'
     elif club_name in (u'Gjerpen Idrettsforening'):
        club_code=u'GJER'
     elif club_name in (u'Gjerstad Idrettslag'):
@@ -817,6 +819,8 @@ def club_code(club_name):
        club_code=u'SNDI'
     elif club_name in (u'Sandnessjøen Idrettslag', u'Sandnessjøen IL'):
        club_code=u'SNDSJ'
+    elif club_name in (u'Sankthanshaugen løpeklubb'):
+       club_code=u'STHLK'
     elif club_name in (u'Sarpsborg Allianseidrettslag', u'Sarpsborg IL'):
        club_code=u'SARP'
     elif club_name in (u'Sauda Idrettslag'):
@@ -1113,6 +1117,8 @@ def club_code(club_name):
        club_code=u'ORJIL'
     elif club_name in (u'Ørsta Idrettslag', u'Ørsta IL'):
        club_code=u'ORSTA'
+    elif club_name in (u'Øst-Bamble Løpelaug'):
+       club_code=u'OBLL'
     elif club_name in (u'Østmarka Marsjklubb'):
        club_code=u'OMARSJ'
     elif club_name in (u'Øyer/Tretten Idrettsforening'):
@@ -1377,6 +1383,8 @@ def club_name(club_code):
        club_name=u'Geilo Idrettslag'
     elif club_code == (u'GEIR'):
        club_name=u'Geiranger Idrettslag'
+    elif club_code == (u'GJRDM'):
+       club_name=u'Gjerdrum Idrettslag'
     elif club_code == (u'GJER'):
        club_name=u'Gjerpen Idrettsforening'
     elif club_code == (u'GJERS'):
@@ -1935,6 +1943,8 @@ def club_name(club_code):
        club_name=u'Sandnes Idrettslag 2'
     elif club_code == (u'SNDSJ'):
        club_name=u'Sandnessjøen Idrettslag'
+    elif club_code == u'STHLK':
+       club_name=u'Sankthanshaugen løpeklubb'
     elif club_code == (u'SARP'):
        club_name=u'Sarpsborg IL'
     elif club_code == (u'SAUD'):
@@ -2233,6 +2243,8 @@ def club_name(club_code):
        club_name=u'Ørje Idrettslag'
     elif club_code == (u'ORSTA'):
        club_name=u'Ørsta Idrettslag'
+    elif club_code == (u'OBLL'):
+       club_name=u'Øst-Bamble Løpelaug'
     elif club_code == (u'OMARSJ'):
        club_name=u'Østmarka Marsjklubb'
     elif club_code == (u'OTRET'):
