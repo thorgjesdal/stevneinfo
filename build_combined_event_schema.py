@@ -84,30 +84,34 @@ def event_name(code):
 
 #multis = { }
 #multis['G13'] =  {'ot_code' : 'M01', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]}
-"""
 multis = { 
-        'G13':  {'ot_code' : 'M01', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]},
-        'G14':  {'ot_code' : 'M02', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]},
-        'G15':  {'ot_code' : 'M03', 'ce_code' : 'ENN', 'events' : [[ '100', 'LJ', 'SP', 'HJ' ],['100H', 'DT', 'PV', 'JT', '1000']]},
-        'G16':  {'ot_code' : 'M04', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['100H', 'DT', 'PV', 'JT', '1500']]},
-        'G17':  {'ot_code' : 'M05', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
-        'J13': {'ot_code' : 'M06', 'ce_code' : 'HEX', 'events' : [[ '60','HJ', 'SP' ],['60H', 'LJ', '600']]},
-        'J14': {'ot_code' : 'M07', 'ce_code' : 'HEX', 'events' : [[ '60','HJ', 'SP' ],['60H', 'LJ', '600']]},
-        'J15': {'ot_code' : 'M08', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
-        'J16': {'ot_code' : 'M09', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
-        'J17': {'ot_code' : 'M10', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
-        'MU20': {'ot_code' : 'M11', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
-        'MS': {'ot_code' : 'M12', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
-        'KU20': {'ot_code' : 'M13', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
-        'KS': {'ot_code' : 'M14', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'G13':  {'ot_code' : 'M02', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]},
+        'G14':  {'ot_code' : 'M04', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]},
+        'G15':  {'ot_code' : 'M06', 'ce_code' : 'ENN', 'events' : [[ '100', 'LJ', 'SP', 'HJ' ],['100H', 'DT', 'PV', 'JT', '1000']]},
+        'G16':  {'ot_code' : 'M08', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['100H', 'DT', 'PV', 'JT', '1500']]},
+        'G17':  {'ot_code' : 'M10', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'J13': {'ot_code' : 'M01', 'ce_code' : 'HEX', 'events' : [[ '60','HJ', 'SP' ],['60H', 'LJ', '600']]},
+        'J14': {'ot_code' : 'M03', 'ce_code' : 'HEX', 'events' : [[ '60','HJ', 'SP' ],['60H', 'LJ', '600']]},
+        'J15': {'ot_code' : 'M05', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'J16': {'ot_code' : 'M07', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'J17': {'ot_code' : 'M09', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'MU20': {'ot_code' : 'M12', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'MS': {'ot_code' : 'M14', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'KU20': {'ot_code' : 'M11', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'KS': {'ot_code' : 'M13', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
         'MV35': {'ot_code' : 'M15', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
-        'MV40': {'ot_code' : 'M16', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
         'MV45': {'ot_code' : 'M17', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
-        'MV50': {'ot_code' : 'M18', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
-        'MV55': {'ot_code' : 'M19', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
-        'MV75': {'ot_code' : 'M20', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
-        'KV50': {'ot_code' : 'M21', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
-        'MV85': {'ot_code' : 'M22', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]}
+        'MV50': {'ot_code' : 'M19', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'MV55': {'ot_code' : 'M20', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'MV60': {'ot_code' : 'M22', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'MV70': {'ot_code' : 'M23', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'MV75': {'ot_code' : 'M24', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'MV80': {'ot_code' : 'M25', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'MV85': {'ot_code' : 'M26', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'KV40': {'ot_code' : 'M16', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'KV50': {'ot_code' : 'M18', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'KV60': {'ot_code' : 'M21', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'MV85': {'ot_code' : 'M26', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]}
             }
 """
 multis = { 
@@ -126,6 +130,7 @@ multis = {
         'KU20': {'ot_code' : 'M13', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
         'KS': {'ot_code' : 'M14', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
             }
+"""
 #print(multis)
 #print(multis.keys())
 

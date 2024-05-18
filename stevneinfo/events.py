@@ -125,6 +125,8 @@ def event_name(code):
             'OT'     : 'Liten ball'              , 
             'BT'     : 'Liten ball'              , 
             'DEC'    : '10-kamp'            , 
+            'ENN'    : '9-kamp'            , 
+            'HEX'    : '6-kamp'           ,
             'HEP'    : '7-kamp'           ,
             'PEN'    : '5-kamp'           ,
             'QUAD'   : '4-kamp'           ,

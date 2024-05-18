@@ -599,7 +599,7 @@ def club_code(club_name):
        club_code=u'LYE'
     elif club_name in (u'Lyn Ski'):
        club_code=u'LYN'
-    elif club_name in (u'Lyngdal Idrettslag', u'Lyngdal IL'):
+    elif club_name in (u'Lyngdal Idrettslag', u'Lyngdal IL', 'Lyngdal Idrettslag (Agder)'):
        club_code=u'LNGD'
     elif club_name in (u'Lyngen/ Karnes Il'):
        club_code=u'LYKA'
@@ -987,7 +987,7 @@ def club_code(club_name):
        club_code=u'SNDLA'
     elif club_name in (u'Søre Ål Idrettslag'):
        club_code=u'SAAL'
-    elif club_name in (u'Sørild Fridrettsklubb', u'Sørild FIK'):
+    elif club_name in (u'Sørild Fridrettsklubb', u'Sørild FIK', u'Sørild Friidrettsklubb'):
        club_code=u'SRILD'
     elif club_name in (u'Sørkedalens Idrettsforening'):
        club_code=u'SRKDL'
