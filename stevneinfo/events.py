@@ -39,6 +39,7 @@ def event_code(event):
             u'800 meter'         : '800', 
             u'1000 meter'        : '1000', 
             u'1500 meter'        : '1500', 
+            u'2000 meter'        : '2000', 
             u'3000 meter'        : '3000', 
             u'5000 meter'        : '5000', 
             u'10 000 meter'       : '10000', 

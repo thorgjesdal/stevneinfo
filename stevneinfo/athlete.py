@@ -5,6 +5,8 @@ class Athlete:
         self.gender      = gender
         self.dateofbirth = dob
         self.team        = team
+        self.wa_id       = None
+        self.norstat_id  = None
 
     def __str__(self):
         return f"{self.firstname} {self.lastname} {self.gender} {self.dateofbirth} {self.team} "
