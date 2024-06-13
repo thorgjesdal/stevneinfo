@@ -6,6 +6,7 @@
 #       + sorting order
 #       + ties
 #       + foreign and non-default teams
+#       + best valid attempt (wind)
 #
 import sys
 import json
@@ -316,7 +317,7 @@ for e in j["events"]:
                        s = s.replace('.',',')
                        series[event_key][bib] = s[:-1]
         else:
-            if ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO').index(event_code) > 4:
+            if ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO').index(event_code) > 3:
                 del results[day][event_key] 
                 day +=1
                 results[day][event_key] = {}
