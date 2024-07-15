@@ -207,8 +207,10 @@ def write_opentrack_import(f):
 
     jf = 0
     jt = 0
+    print(event_list)
     full_events = {}
     for e in event_list:
+        print(e)
         evcode = e[0]
         event  = events.event_name(evcode)
         cat    = e[1]
