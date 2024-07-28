@@ -29,6 +29,7 @@ def cat_code(name):
             u'Menn U20'     : u'MU20'         , 
             u'Menn u20'     : u'MU20'         , 
             u'Menn U23'     : u'MU23'         , 
+            u'Menn u23'     : u'MU23'         , 
             u'Menn senior'  : u'MS'           , 
             u'Menn Senior Para'  : u'MSPARA'           , 
             u'Menn Senior NM'  : u'MS'           , 
