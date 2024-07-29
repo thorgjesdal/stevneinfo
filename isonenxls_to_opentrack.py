@@ -275,7 +275,7 @@ def write_opentrack_import(f):
             ws["A%d"%row_counter] = bib
 #           ws["B%d"%row_counter] = ident
             ws["C%d"%row_counter] = fn[0:min(len(fn),maxname)]
-            ws["D%d"%row_counter] = ln[0:min(len(fn),maxname)]
+            ws["D%d"%row_counter] = ln[0:min(len(ln),maxname)]
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = clubs.club_code(club)
