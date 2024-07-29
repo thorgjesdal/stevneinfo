@@ -44,7 +44,10 @@ def read_isonenxls(f):
             dob = value[columns.index('Fødselsdato')]
             g = gender[value[columns.index('Kjønn')]]
             club = value[columns.index('Klubb')]
-            ev = value[columns.index('Øvelse')].strip()
+            if value[columns.index('Øvelse')]:
+                ev = value[columns.index('Øvelse')].strip()
+            else:
+                ev = ""
             cat = cats.cat_code(value[columns.index('Klasse')])
             #nat = cats.cat_code(value[columns.index('Landskode')])
             nat = value[columns.index('Landskode')]
@@ -189,8 +192,8 @@ def write_opentrack_import(f):
     ws["D1"] = 'Last name'
     ws["E1"] = 'Gender'
     ws["F1"] = 'Date of birth'
-    ws["G1"] = 'Team ID'
-    ws["H1"] = 'Event'
+    ws["H1"] = 'Team ID'
+    ws["I1"] = 'Event'
     ws["J1"] = 'Pb'
     ws["K1"] = 'Sb'
 #   ws1["A1"] = 'Event selection'
@@ -207,8 +210,10 @@ def write_opentrack_import(f):
 
     jf = 0
     jt = 0
+    print(event_list)
     full_events = {}
     for e in event_list:
+        print(e)
         evcode = e[0]
         event  = events.event_name(evcode)
         cat    = e[1]
@@ -278,8 +283,8 @@ def write_opentrack_import(f):
             ws["D%d"%row_counter] = ln[0:min(len(ln),maxname)]
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
-            ws["G%d"%row_counter] = clubs.club_code(club)
-            ws["H%d"%row_counter] = full_events[ (e[1], e[0]) ]
+            ws["H%d"%row_counter] = clubs.club_code(club)
+            ws["I%d"%row_counter] = full_events[ (e[1], e[0]) ]
 
             #event = e[1]
             """

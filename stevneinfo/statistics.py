@@ -4,10 +4,10 @@ import json
 from collections import defaultdict
 import time
 
+athlete_ids = {}
+
 def event_id(event, cat):
 
-    print('+', (event, cat))
-    print(type(event))
     event_ids = {}
 
     if event == '40':
@@ -57,6 +57,10 @@ def event_id(event, cat):
 #   event_ids['1500SC'] = {}
 #   event_ids['2000SC'] = {}
 #   event_ids['3000SC'] = {}
+    elif event == '3000SC':
+        eid = { 'J15' : '120', 'J16' : '120', 'J17' : '120', 'J18/19' : '120','KJ' : '120','KU20' : '120', 'KU23' : '120', 'KS' : '120', 'G15' : '120', 'G16' : '999', 'G17' : '999', 'G18/19' : '121','MJ' : '121','MU20' : '121', 'MU23' : '121', 'MS' : '121' }.get(cat,'')
+    elif event == '5000W':
+        eid = '124'
 # ... jumps
     elif event == 'HJ':
         eid = '68' 
@@ -100,61 +104,41 @@ def format_result(res):
 
 def get_athlete_id(fn, ln, dob):
     #
-    url = 'https://www.minfriidrettsstatistikk.info/php/sokutover.php'
-    print(f'{fn}, {ln}, {dob}')
-    r = requests.post(url, data=json.dumps({'FirstName' : fn.split()[0], 'LastName' : ln.split()[-1], 'DateOfBirth' : dob}))
+    if (fn, ln, dob) in athlete_ids.keys():
+        aid = athlete_ids[(fn,ln,dob)]
+    else:
+        url = 'https://www.minfriidrettsstatistikk.info/php/sokutover.php'
+        print(f'{fn}, {ln}, {dob}')
+        r = requests.post(url, data=json.dumps({'FirstName' : fn.split()[0], 'LastName' : ln.split()[-1], 'DateOfBirth' : dob}))
 
-    aid = ''
-#   print(r.text)
-    ATHIDPAT = r'{"Athlete_Id":"(\d*)",.*}'
-#   match = re.search(ATHIDPAT, r.text)
+        aid = ''
+        ATHIDPAT = r'{"Athlete_Id":"(\d*)",.*}'
 
-    for i in range(3):
-        #
-        match = re.search(ATHIDPAT, r.text)
-       #print(match)
-        if match:
-            #print(match.groups)
-            aid = match.group(1)
-            continue
-        time.sleep(1.0)
+        for i in range(3):
+            match = re.search(ATHIDPAT, r.text)
+            if match:
+                aid = match.group(1)
+                continue
+            time.sleep(1.0)
     return aid
 
 
 def get_athlete_bests(athlete_id, event_code, category):
     #
-    print(athlete_id, event_code, category)
-            
     Event_Id = event_id(event_code, category)
 
     pb = ''
     sb = ''
-    #print('#', athlete_id, Event_Id)
     if not athlete_id == '':
         #
         url = 'https://www.minfriidrettsstatistikk.info/php/hentresultater.php'
         r   = requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id}))
-#       print(r.text)
 
         PBSBPAT = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"},"SB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"}}'
         PBPAT   = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"}}'
-        """
-        match1 = re.search(PBSBPAT,r.text)
-        match2 = re.search(PBPAT  ,r.text)
-#       print(match1, match2)
-
-        if match1:
-            pb = match1.group(1)
-            sb = match1.group(2)
-        elif match2:
-            pb = match2.group(1)
-
-        """
         for i in range(3):
-            #
             match1 = re.search(PBSBPAT,r.text)
             match2 = re.search(PBPAT  ,r.text)
-    #       print(match1, match2)
 
             if match1:
                 pb = match1.group(1)
@@ -168,15 +152,7 @@ def get_athlete_bests(athlete_id, event_code, category):
 
         pb = format_result(pb)
         sb = format_result(sb)
-#       print(pb,sb)
     
-        """
-        if len(r) > 0:
-            if 'PB' in r.keys():
-                pb = r['PB']['Result'].replace(',', '.')
-            if 'SB' in r.keys():
-                sb = r['SB']['Result'].replace(',', '.')
-        """
 
     return (pb, sb)
     

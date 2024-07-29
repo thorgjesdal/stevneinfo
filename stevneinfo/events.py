@@ -56,6 +56,11 @@ def event_code(event):
             u'Kappgang 1000 meter' : '1000W', 
             u'Kappgang 3000 meter' : '3000W', 
             u'Kappgang 5000 meter' : '5000W', 
+            u'1000 meter kappgang' : '1000W', 
+            u'2000 meter kappgang' : '2000W', 
+            u'3000 meter kappgang' : '3000W', 
+            u'3000 meter Kappgang' : '3000W', 
+            u'5000 meter kappgang' : '5000W', 
             u'Kappgang 5 km'     : '5KW', 
             u'Kappgang'          : '1500W', 
             u'Høyde'             : 'HJ', 
@@ -82,7 +87,9 @@ def event_code(event):
             u'4-kamp'           : 'QUAD' ,
             u'4x200 meter stafett' : '4x200' 
             }
-    return event_codes.get(event, '')
+    event_code =  event_codes.get(event, '')
+    print('+',event, event_code)
+    return event_code
 
 def event_name(code):
     print(code)
@@ -112,9 +119,10 @@ def event_name(code):
             '1500SC' : '1500 meter hinder' , 
             '2000SC' : '2000 meter hinder' , 
             '3000SC' : '3000 meter hinder' , 
-            '1000W'  : 'Kappgang 1000 meter'        , 
-            '2000W'  : 'Kappgang 2000 meter'        , 
-            '3000W'  : 'Kappgang 3000 meter'        , 
+            '1000W'  : '1000 meter kappgang'        , 
+            '2000W'  : '2000 meter kappgang'        , 
+            '3000W'  : '3000 meter kappgang'        , 
+            '5000W'  : '5000 meter kappgang'        , 
             'HJ'     : 'Høyde'             , 
             'PV'     : 'Stav'              , 
             'LJ'     : 'Lengde'            , 
@@ -133,12 +141,14 @@ def event_name(code):
             'QUAD'   : '4-kamp'           ,
             'SHJ'    : 'Høyde uten tilløp' ,
             'SLJ'    : 'Lengde uten tilløp'           ,
-            'STJ'    : 'Tresteg uten tilløp'           
+            'STJ'    : 'Tresteg uten tilløp'           , 
+            ''       : ''
             }
     return event_names[code]
 
 def event_spec(event, klasse):
     # 18.05.2020 rewrite based om implements.py form athlib
+    print(event, klasse)
     gender = 'F'
     if klasse[0] in ('M', 'G'):
         gender = 'M'

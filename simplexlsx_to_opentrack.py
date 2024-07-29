@@ -154,7 +154,6 @@ def write_opentrack_import(ef, cf):
 
     xlname = 'opentrack_input.xlsx'
     wb.save(xlname)
-#-----
 
 event_file = 'boysen_events.xlsx'
 #event_file = 'ExtraEvents_NMMangekamp.xlsx'

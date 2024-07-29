@@ -61,6 +61,8 @@ def club_code(club_name):
        club_code=u'BALE'
     elif club_name in (u'Bardu Idrettslag'):
        club_code=u'BARD'
+    elif club_name in (u'Bardufoss og Omegn Idrettsforening'):
+       club_code=u'BRDOM'
     elif club_name in (u'Båtsfjord Sportsklubb'):
        club_code=u'BTSFJ'
     elif club_name in (u'Begnadalen Idrettslag'):
@@ -413,7 +415,7 @@ def club_code(club_name):
        club_code=u'GNE'
     elif club_name in (u'Idrettslaget Holeværingen'):
        club_code=u'HOLE'
-    elif club_name in (u'Idrettslaget I Bondeungdomslaget I Tromsø'):
+    elif club_name in (u'Idrettslaget I Bondeungdomslaget I Tromsø', u'IL i BUL Tromsø'):
        club_code=u'BULT'
     elif club_name in (u'Idrettslaget Ilar'):
        club_code=u'ILAR'
@@ -1542,7 +1544,7 @@ def club_name(club_code):
     elif club_code == (u'HOLE'):
        club_name=u'Idrettslaget Holeværingen'
     elif club_code == (u'BULT'):
-       club_name=u'Idrettslaget I Bondeungdomslaget I Tromsø'
+       club_name=u'IL i BUL Tromsø'
     elif club_code == (u'ILAR'):
        club_name=u'Idrettslaget Ilar'
     elif club_code == (u'IVRIG'):
