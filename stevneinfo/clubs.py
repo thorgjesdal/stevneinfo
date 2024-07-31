@@ -183,14 +183,16 @@ def club_code(club_name):
        club_code=u'ESPA'
     elif club_name in (u'Etne Idrettslag'):
        club_code=u'ETNE'
-    elif club_name in (u'Fagernes Idrettslag N'):
-       club_code=u'FAGIL'
-    elif club_name in (u'Fagernes Idrettslag O', u'Fagernes IL'):
+    elif club_name in [u'Fagernes Idrettslag O', u'Fagernes IL', u'Fagernes Idrettslag']:
        club_code=u'FAG'
+    elif club_name in [u'Fagernes Idrettslag N']:
+       club_code=u'FAGIL'
     elif club_name in (u'Falkeid idrettslag'):
        club_code=u'FALK'
     elif club_name in (u'Fana Idrettslag', u'Fana IL'):
        club_code=u'FANA'
+    elif club_name in (u'Farsund og Lista Idrettsklubb'):
+       club_code=u'FALI'
     elif club_name in (u'Feiring Idrettslag'):
        club_code=u'FEIR'
     elif club_name in (u'Fet Friidrettsklubb'):
@@ -379,6 +381,8 @@ def club_code(club_name):
        club_code=u'FJELLO'
     elif club_name in (u'I.L. Framsteg'):
        club_code=u'FRAMS'
+    elif club_name in (u'IL Løken'):
+       club_code=u'LOKEN'
     elif club_name in (u'I.L. Norna Salhus', u'Norna-Salhus IL'):
        club_code=u'NORSA'
     elif club_name in (u'I.L. Nybrott'):
@@ -491,6 +495,8 @@ def club_code(club_name):
        club_code=u'TAMBA'
     elif club_name in (u'IL Triumf'):
        club_code=u'TRIUM'
+    elif club_name in (u'Tverlandet Idrettslag'):
+       club_code=u'TVEIL'
     elif club_name in (u'Vestby IL'):
        club_code=u'VESTB'
     elif club_name in (u'Il Vindbjart'):
@@ -639,7 +645,7 @@ def club_code(club_name):
        club_code=u'MELHU'
     elif club_name in (u'Midsund Idrettslag'):
        club_code=u'MDSND'
-    elif club_name in (u'Mjøsdalen IL'):
+    elif club_name in (u'Mjøsdalen IL', u'Mjøsdalen I.l'):
        club_code=u'MJSD'
     elif club_name in (u'Modum Friidrettsklubb'):
        club_code=u'MOD'
@@ -1319,6 +1325,8 @@ def club_name(club_code):
        club_name=u'Falkeid idrettslag'
     elif club_code == (u'FANA'):
        club_name=u'Fana IL'
+    elif club_code == (u'FALI'):
+       club_name=u'Farsund og Lista Idrettsklubb'
     elif club_code == (u'FEIR'):
        club_name=u'Feiring Idrettslag'
     elif club_code == (u'FET'):
@@ -1617,6 +1625,8 @@ def club_name(club_code):
        club_name=u'IL Stålkameratene'
     elif club_code == (u'TRIUM'):
        club_name=u'IL Triumf'
+    elif club_code == (u'TVEIL'):
+       club_name=u'Tverlandet Idrettslag'
     elif club_code == (u'VIND'):
        club_name=u'Il Vindbjart'
     elif club_code == (u'VING'):
@@ -1693,6 +1703,8 @@ def club_name(club_code):
        club_name=u'Langesund Sykle- og triathlonklubb'
     elif club_code == (u'LNKEIL'):
        club_name=u'Lånke Idrettslag'
+    elif club_code == (u'LOKEN'):
+        club_name = u'IL Løken'
     elif club_code == (u'LRVK'):
        club_name=u'Larvik Turn & Idrettsforening'
     elif club_code == (u'LEINS'):

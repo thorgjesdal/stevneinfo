@@ -59,6 +59,12 @@ def event_id(event, cat):
 #   event_ids['3000SC'] = {}
     elif event == '3000SC':
         eid = { 'J15' : '120', 'J16' : '120', 'J17' : '120', 'J18/19' : '120','KJ' : '120','KU20' : '120', 'KU23' : '120', 'KS' : '120', 'G15' : '120', 'G16' : '999', 'G17' : '999', 'G18/19' : '121','MJ' : '121','MU20' : '121', 'MU23' : '121', 'MS' : '121' }.get(cat,'')
+    elif event == '1000W':
+        eid = '118'
+    elif event == '2000W':
+        eid = '148'
+    elif event == '3000W':
+        eid = '122'
     elif event == '5000W':
         eid = '124'
 # ... jumps
