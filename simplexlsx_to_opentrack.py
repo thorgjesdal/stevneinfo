@@ -47,6 +47,7 @@ def read_simplexlsx(f):
 
     events_by_athlete= {}
     for value in ws.iter_rows(min_row=2,min_col=1, max_col=46, values_only=True):
+        #print(value)
         if value[2] is not None:
             print(value)
             cat = value[0]
@@ -58,7 +59,6 @@ def read_simplexlsx(f):
             ln = value[3]
             last_name = ln[0:min(len(ln),maxname)]
             dob = value[4]
-#           print(dob)
             team = value[9]
             sb = value[10]
             pb = value[11]
@@ -73,14 +73,16 @@ def read_simplexlsx(f):
                 #pb, sb =  stats.get_athlete_bests(athlete_id, ev, cat)
                 qp = pb
 
-            event = (cat, ev, pb, sb)
+            event = (cat, ev, sb, pb)
             athlete_key = (first_name, last_name, dob, team)
+            print('++',athlete_key)
 
             if athlete_key not in events_by_athlete.keys():
                 events_by_athlete[athlete_key] = []
             if event not in events_by_athlete[athlete_key]:
                 events_by_athlete[athlete_key].append( event )
 
+    print( events_by_athlete)
     return events_by_athlete
 
 
@@ -126,12 +128,12 @@ def write_opentrack_import(ef, cf):
         #dob = datetime.datetime.strptime(dob,ddmmyyyyformat)
         team = key[3]
         #qp = key[4]
-#       print(key)
+        print('+',key)
         for event in events_by_athlete[key]:
             print(event)
             e = (event[0], event[1])
-            pb = event[2]
-            sb = event[3]
+            sb = event[2]
+            pb = event[3]
             print(e)
 #           e = ( event[2], event[1] )
 
@@ -152,9 +154,9 @@ def write_opentrack_import(ef, cf):
 
     xlname = 'opentrack_input.xlsx'
     wb.save(xlname)
-#-----
 
 event_file = 'boysen_events.xlsx'
+#event_file = 'ExtraEvents_NMMangekamp.xlsx'
 #competitor_file = 'Etteranmeldinger_BassenSprint.xlsx'
 
 if len(sys.argv) < 2:
