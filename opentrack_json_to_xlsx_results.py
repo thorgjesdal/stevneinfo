@@ -7,6 +7,7 @@
 #       + ties
 #       + foreign and non-default teams
 #       + best valid attempt (wind)
+#       + relays
 #
 import sys
 import json
