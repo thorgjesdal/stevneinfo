@@ -54,6 +54,14 @@ def get_organiser_name(key):
                    "575153d6-7f1b-4795-9276-5f8d57414944" : 'IK Tjalve'
             }
     return organisers.get(key, key)
+
+def is_relay(event_code):
+    # from athlib/codes.py
+    PAT_RELAYS = r"^(?:(\d{1,2})[xX](\d{2,5}[hH]?|[rR][eE][lL][aA][yY]|[dDsS][mM][rR]))$"  # 4x100, 4x400, 4xReLAy, 4xDMR, 4xSMR, 12x200H
+    match = re.search(PAT_RELAYS, event_code)
+    return match is not None
+
+
 #---------------------------------------
 #if len(sys.argv) < 2:
 #   sys.exit("Usage: %s <url>" % sys.argv[0])
@@ -144,7 +152,18 @@ for c in j['competitors']:
     else:
         competitors[bib] = [fn, ln, dob, g, t]
 #       print(bib, competitors[bib])
+relay_teams = {}
+for t in j['relayTeams']:
+#   print( t.keys() )
+    bib = t['bib']
+    teamname = t['name']
+    if 'runnerNames' in t.keys():
+        runners = t['runnerNames']
+    else:
+        runners = t['runners']
+    relay_teams[bib] = (teamname, runners)
 
+print(relay_teams)
 
 
 #print(type(j['events']))
@@ -183,6 +202,8 @@ for e in j['events']:
 """
 #print(competitors)
 
+multis = ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO')
+
 poolnr = 0
 results ={}
 series = {}
@@ -194,131 +215,19 @@ for e in j["events"]:
     category = e["category"]
 #    print(category)
     event_key = (category, event_code)
-    #print(event_code, event_key)
-    if 'x' in event_key[1]:
+#   print(event_code, event_key)
+    """
+    if is_relay(event_key[1]):
         continue
+    """
     series[event_key] = {}
-    #if day not in e.keys():
     if day not in results.keys():
         results[day] = {}
     if event_key not in e.keys():
         results[day][event_key] = {}
-#       for u in e["units"]:
         trials = {}
-        if event_code not in ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO'):
-           for pool, u in enumerate(e["units"]):
-#       for pool, u in zip(range(len(e["units"])),e["units"]):
-               #results[event_code] ={}
-               if "windAssistance" in u.keys():
-                   wind = u["windAssistance"]
-               else:
-                   wind = None
-               #print(wind)
-               heatname = 'Heat'
-               if 'heatName' in u.keys():
-                   if 'Final' in u['heatName']:
-                       heatname = 'Finale'
-               heatnumber = u['heat']
-#               print(heatname, heatnumber)
-               for r in u["results"]:
-#               print(r)
-                   if "bib" in r.keys():
-                       bib = r["bib"]
-                   
-                   if bib not in ignore_bibs:
-                        bdate = competitors[bib][2]
-                        g = competitors[bib][3]
-                        if sort_by == 'cat':
-                            cat = category
-                        else:
-                            cat = get_category(bdate,date0,g)
-                        
-#                        print(category, cat)
-                        if results[day][event_key].get(cat) == None:
-                            results[day][event_key][cat] = {}
-                        if results[day][event_key][cat].get(pool) == None:
-                            #results[event_code][cat][pool] = []
-                            results[day][event_key][cat][pool] = {'marks' : [], 'heatname' : heatname, 'heatnumber' : heatnumber}
-                        if not wind == None:
-                            results[day][event_key][cat][pool]['wind'] = wind
-                        #
-                        #results[day][event_key][cat][pool]['heatname'] = heatname
-                        #results[day][event_key][cat][pool]['heatnumber'] = heatnumber
-                    
-#                    x
-#                       print(r.keys())
-                        if 'performance' in r.keys():
-                            res = r['performance']
-                        else:
-                            res = ''
-
-                        if "place" in r.keys():
-                            pl = r["place"]
-                        else:
-                            pl = noplace
-                      
-#                    if "order" in r.keys():
-#                        pl = r["order"]
-                       
-#                    print (event_code, bib, res, pl, pool)
-                        #results[event_code][cat][pool].append((bib, res, pl))
-                        results[day][event_key][cat][pool]['marks'].append((bib, res, pl))
-                        #print (bib, res, pl, pool)
-                        
-#                       t = r['teamId']
-#                       competitors[bib][4] = t
-#           poolnr = poolnr + 1
-#           print (type(u['trials']))
-#           print (u['trials'])
-               if event_code in ('HJ', 'SHJ', 'PV'):
-                   for t in u['trials']:
-                       bib = t['bib']
-                       if trials.get(bib)==None:
-                           trials[bib] = {}
-                       height = t['height']
-                       if trials[bib].get(height)==None:
-                           trials[bib][height] = []
-                       trials[bib][height].append(t['result'])
-                   for bib in trials.keys():
-                       s = ''
-                       for height in sorted(trials[bib].keys() ):
-                           s += height + '(' + ''.join(trials[bib][height]) + ') ' 
-                       s = s.replace('.',',')
-#                    print(s)
-                       i0 = i1 = len(s)
-                       if 'x' in s:
-                           i0 = s.index('x')
-                       if 'o' in s:
-                           i1 = s.index('o')
-                       ij = min(i0,i1)
-                       if ij < len(s):
-                           series[event_key][bib] = s[ij-5:]
-                       else:
-                           series[event_key][bib] = ''
-               elif event_code in ('LJ', 'TJ', 'SP', 'DT', 'HT', 'JT', 'OT', 'BT'):
-                   for t in u['trials']:
-                       bib = t['bib']
-                       if trials.get(bib)==None:
-                           trials[bib] = {}
-#                   print(event_code, t)
-                       rond = t['round']
-                       if trials[bib].get(rond)==None:
-                           trials[bib][rond] = {}
-                       trials[bib][rond]['result'] = t['result']
-                       if 'wind' in t.keys():
-                           trials[bib][rond]['wind'] = t['wind']
-
-                   for bib in trials.keys():
-                       s = ''
-                       for rond in sorted(trials[bib].keys() ):
-                           s += trials[bib][rond]['result'] 
-                           if 'wind' in trials[bib][rond].keys():
-                               s += "(%3.1f)" % (trials[bib][rond]['wind'])
-                           s += '/'    
-                       s = s.replace('.',',')
-                       series[event_key][bib] = s[:-1]
-        else:
-            if ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO').index(event_code) > 3:
+        if event_code in multis:
+            if multis.index(event_code) > 3:
                 del results[day][event_key] 
                 day +=1
                 results[day][event_key] = {}
@@ -374,13 +283,123 @@ for e in j["events"]:
 
 #                    pool = 0
                      results[day][event_key][cat][pool]['marks'].append((bib, res, pl))
+        elif is_relay(event_code):
+            print('relay')
+            cat = category
+            for pool, u in enumerate(e["units"]):
+                heatname = 'Heat'
+                if 'heatName' in u.keys():
+                    if 'Final' in u['heatName']:
+                        heatname = 'Finale'
+                heatnumber = u['heat']
+                for r in u["results"]:
+                    print(r)
+
+
+        else:
+           for pool, u in enumerate(e["units"]):
+               #results[event_code] ={}
+               if "windAssistance" in u.keys():
+                   wind = u["windAssistance"]
+               else:
+                   wind = None
+               #print(wind)
+               heatname = 'Heat'
+               if 'heatName' in u.keys():
+                   if 'Final' in u['heatName']:
+                       heatname = 'Finale'
+               heatnumber = u['heat']
+#               print(heatname, heatnumber)
+               for r in u["results"]:
+#               print(r)
+                   if "bib" in r.keys():
+                       bib = r["bib"]
+                   
+                   if bib not in ignore_bibs:
+                        bdate = competitors[bib][2]
+                        g = competitors[bib][3]
+                        if sort_by == 'cat':
+                            cat = category
+                        else:
+                            cat = get_category(bdate,date0,g)
+                        
+#                        print(category, cat)
+                        if results[day][event_key].get(cat) == None:
+                            results[day][event_key][cat] = {}
+                        if results[day][event_key][cat].get(pool) == None:
+                            #results[event_code][cat][pool] = []
+                            results[day][event_key][cat][pool] = {'marks' : [], 'heatname' : heatname, 'heatnumber' : heatnumber}
+                        if not wind == None:
+                            results[day][event_key][cat][pool]['wind'] = wind
+                        #
+                    
+                        if 'performance' in r.keys():
+                            res = r['performance']
+                        else:
+                            res = ''
+
+                        if "place" in r.keys():
+                            pl = r["place"]
+                        else:
+                            pl = noplace
+                      
+#                    if "order" in r.keys():
+#                        pl = r["order"]
+                       
+                        results[day][event_key][cat][pool]['marks'].append((bib, res, pl))
+                        
+               if event_code in ('HJ', 'SHJ', 'PV'):
+                   for t in u['trials']:
+                       bib = t['bib']
+                       if trials.get(bib)==None:
+                           trials[bib] = {}
+                       height = t['height']
+                       if trials[bib].get(height)==None:
+                           trials[bib][height] = []
+                       trials[bib][height].append(t['result'])
+                   for bib in trials.keys():
+                       s = ''
+                       for height in sorted(trials[bib].keys() ):
+                           s += height + '(' + ''.join(trials[bib][height]) + ') ' 
+                       s = s.replace('.',',')
+#                    print(s)
+                       i0 = i1 = len(s)
+                       if 'x' in s:
+                           i0 = s.index('x')
+                       if 'o' in s:
+                           i1 = s.index('o')
+                       ij = min(i0,i1)
+                       if ij < len(s):
+                           series[event_key][bib] = s[ij-5:]
+                       else:
+                           series[event_key][bib] = ''
+               elif event_code in ('LJ', 'TJ', 'SP', 'DT', 'HT', 'JT', 'OT', 'BT'):
+                   for t in u['trials']:
+                       bib = t['bib']
+                       if trials.get(bib)==None:
+                           trials[bib] = {}
+#                   print(event_code, t)
+                       rond = t['round']
+                       if trials[bib].get(rond)==None:
+                           trials[bib][rond] = {}
+                       trials[bib][rond]['result'] = t['result']
+                       if 'wind' in t.keys():
+                           trials[bib][rond]['wind'] = t['wind']
+
+                   for bib in trials.keys():
+                       s = ''
+                       for rond in sorted(trials[bib].keys() ):
+                           s += trials[bib][rond]['result'] 
+                           if 'wind' in trials[bib][rond].keys():
+                               s += "(%3.1f)" % (trials[bib][rond]['wind'])
+                           s += '/'    
+                       s = s.replace('.',',')
+                       series[event_key][bib] = s[:-1]
 
                      # add code to extract event results and scores here (... use series[event_code][bib] ...)
                      #series[even_code][bib] = ""
 
 
-#       #   elif event_code in ( 'BI', 'TRI', 'QUAD', 'PEN', 'HEX', 'HEP', 'OCT', 'ENN', 'DEC', 'HEN', 'DOD', 'ICO'):
-#               print(event_code)
 
 #pp = pprint.PrettyPrinter(indent=4)
 #pp.pprint(results)
@@ -445,6 +464,7 @@ for day,date in enumerate(dates):
                         random.shuffle(sorted_results)
                 for i,r in zip(range(len(sorted_results)),sorted_results):
                     bib = r[0]
+                    print(bib)
                     perf = r[1].replace('.',',')
                     place = r[2]
     

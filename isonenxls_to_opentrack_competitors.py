@@ -242,7 +242,7 @@ def write_opentrack_import(f):
         ws1["H%d"%row_counter] = ' '.join(( cat, events.event_spec(evcode, cat) ))
         ws1["I%d"%row_counter] = '1'
         ws1["J%d"%row_counter] = f'{day}'
-        ws1["K%d"%row_counter] = '12:00'
+        ws1["K%d"%row_counter] = ''
         
         row_counter +=1
     ws1.delete_cols(1,1)

@@ -9,6 +9,9 @@ def ishurdles(event):
 def issteeple(event):
     return istrack(event) and 'hinder' in event
 
+def isrelays(event):
+    return istrack(event) and 'stafett' in event
+
 def isfield(event):
     #return event in ('HJ', 'PV', 'LJ', 'TJ', 'SHJ', 'SLJ', 'STJ',
     #                 'SP', 'DT', 'HT', 'JT', 'BT', 'OT' )
@@ -85,7 +88,14 @@ def event_code(event):
             u'6-kamp'           : 'HEX' ,
             u'5-kamp'           : 'PEN' ,
             u'4-kamp'           : 'QUAD' ,
-            u'4x200 meter stafett' : '4x200' 
+            u'4x60 meter stafett' : '4x60' ,
+            u'4x100 meter stafett' : '4x100' ,
+            u'4x200 meter stafett' : '4x200' ,
+            u'4x400 meter stafett' : '4x400' ,
+            u'4x600 meter stafett' : '4x600' ,
+            u'4x800 meter stafett' : '4x800' ,
+            u'4x1500 meter stafett' : '4x1500' ,
+            u'1000 meter stafett' : '4xSMR' 
             }
     event_code =  event_codes.get(event, '')
     print('+',event, event_code)
@@ -142,6 +152,16 @@ def event_name(code):
             'SHJ'    : 'Høyde uten tilløp' ,
             'SLJ'    : 'Lengde uten tilløp'           ,
             'STJ'    : 'Tresteg uten tilløp'           , 
+            '4x60' : u'4x60 meter stafett'     , 
+            '4x100' : u'4x100 meter stafett'   , 
+            '4x200' : u'4x200 meter stafett'   , 
+            '4x400' : u'4x400 meter stafett'   , 
+            '4x600' : u'4x600 meter stafett'   , 
+            '4x800' : u'4x800 meter stafett'   , 
+            '4x1500' : u'4x1500 meter stafett' , 
+            '4xSMR' : u'1000 meter stafett'    , 
+            '3x600' : u'3x600 meter stafett'    , 
+            '3x800' : u'3x800 meter stafett'    , 
             ''       : ''
             }
     return event_names[code]
