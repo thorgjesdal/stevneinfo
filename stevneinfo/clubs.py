@@ -687,7 +687,7 @@ def club_code(club_name):
        club_code=u'NID'
     elif club_name in (u'Nissedal Idrettslag'):
        club_code=u'NISS'
-    elif club_name in (u'Nittedal Idrettslag', u'Nittedal IL'):
+    elif club_name in (u'Nittedal Idrettslag', u'Nittedal IL', u'Nittedal Friidrett'):
        club_code=u'NITT'
     elif club_name in (u'Nordkjosbotn Idrettslag'):
        club_code=u'NRDKJ'
