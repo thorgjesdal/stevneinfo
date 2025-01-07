@@ -121,7 +121,7 @@ if j['type']=="INDOOR":
 
 
 #print(meetname, venue)
-organiser_name =  j['organiser']['name']
+#organiser_name =  j['organiser']['name']
 #organiser_name = get_organiser_name(organiser_key)
 
 
@@ -418,7 +418,7 @@ ws.title = "Resultatliste"
 ws['a1'] = 'Stevne:';         ws['b1'] = meetname
 ws['a2'] = 'Stevnested:';     ws['b2'] = venue
 ws['a3'] = 'Stevnedato:';     ws['b3'] = date0.strftime('%d.%m.%Y'); ws['c3'] = date1.strftime('%d.%m.%Y')
-ws['a4'] = 'Arrangør:';       ws['b4'] = organiser_name; #b4=ws['b4']; b4.font=greenfont
+ws['a4'] = 'Arrangør:';       #ws['b4'] = organiser_name; #b4=ws['b4']; b4.font=greenfont
 ws['a5'] = 'Kontaktperson:';  ws['b5'] = '<navn>'    ; b5=ws['b5']; b5.font=greenfont
 ws['a6'] = 'Erklæring*: ';    ws['b6'] = 'J'     #; b6=ws['b6']; b6.font=greenfont
 ws['a7'] = 'Telefon:';        ws['b7'] = '<tlf>'     ; b7=ws['b7']; b7.font=greenfont
