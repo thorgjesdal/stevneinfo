@@ -283,8 +283,8 @@ def write_opentrack_import(f):
             ws["D%d"%row_counter] = ln[0:min(len(ln),maxname)]
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
-            ws["I%d"%row_counter] = clubs.club_code(club)
-            ws["J%d"%row_counter] = full_events[ (e[1], e[0]) ]
+            ws["H%d"%row_counter] = clubs.club_code(club)
+            ws["I%d"%row_counter] = full_events[ (e[1], e[0]) ]
 
             #event = e[1]
             """
