@@ -251,7 +251,7 @@ def write_opentrack_import(f):
     bib = 0
     pp = pprint.PrettyPrinter(indent=4)
 #   pp.pprint(events_by_athlete)
-    pp.pprint(full_events)
+#   pp.pprint(full_events)
     for key in events_by_athlete.keys():
         bib+=1
         maxname = 30
@@ -270,10 +270,8 @@ def write_opentrack_import(f):
             eventcode = e[0]
             event     = events.event_name(eventcode)
             cat       = e[1]
-            print(cat)
             if events.ismulti(eventcode):
                 cat = cat+eventcode[0]
-            print(cat)
 
             #e = ( event[2], event[1] )
 
@@ -283,8 +281,9 @@ def write_opentrack_import(f):
             ws["D%d"%row_counter] = ln[0:min(len(ln),maxname)]
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
-            ws["I%d"%row_counter] = clubs.club_code(club)
-            ws["J%d"%row_counter] = full_events[ (e[1], e[0]) ]
+            ws["H%d"%row_counter] = clubs.club_code(club)
+            ws["I%d"%row_counter] = full_events[ (cat, eventcode) ]
+            #ws["J%d"%row_counter] = full_events[ (e[1], e[0]) ]
 
             #event = e[1]
             """

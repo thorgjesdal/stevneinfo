@@ -829,7 +829,7 @@ def club_code(club_name):
        club_code=u'SNDSJ'
     elif club_name in (u'Sankthanshaugen løpeklubb'):
        club_code=u'STHLK'
-    elif club_name in (u'Sarpsborg Allianseidrettslag', u'Sarpsborg IL'):
+    elif club_name in (u'Sarpsborg Allianseidrettslag', u'Sarpsborg IL', u'Sarpsborg Idrettslag'):
        club_code=u'SARP'
     elif club_name in (u'Sauda Idrettslag'):
        club_code=u'SAUD'

@@ -131,13 +131,14 @@ multis = {
         'J13':  {'ot_code' : 'M13', 'ce_code' : 'QUAD', 'events' : [[ '60H','LJ', 'SP','600' ]]},
         'J14':  {'ot_code' : 'M14', 'ce_code' : 'QUAD', 'events' : [[ '60H','LJ', 'SP','600' ]]},
         'KV50': {'ot_code' : 'M15', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
-        'KV55': {'ot_code' : 'M16', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
-        'MV50': {'ot_code' : 'M17', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
-        'MV55': {'ot_code' : 'M18', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
-        'MV60': {'ot_code' : 'M19', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
+        'KV60': {'ot_code' : 'M16', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
+        'MV35': {'ot_code' : 'M17', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
+        'MV50': {'ot_code' : 'M18', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
+        'MV55': {'ot_code' : 'M19', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
         'MV60': {'ot_code' : 'M20', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
-        'MV75': {'ot_code' : 'M21', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
-        'MV85': {'ot_code' : 'M22', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
+        'MV65': {'ot_code' : 'M21', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
+        'MV75': {'ot_code' : 'M22', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
+        'MV85': {'ot_code' : 'M23', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
             }
 #print(multis)
 #print(multis.keys())
@@ -165,7 +166,7 @@ for k in multis.keys():
     ws["G%d"%row_counter] = f'{cat} {events.event_spec(combined_events, cat)}'
     ws["H%d"%row_counter] = '1'
     ws["I%d"%row_counter] = day
-    ws["J%d"%row_counter] = '12:00'
+    #ws["J%d"%row_counter] = '12:00'
 
 
 event_code = 0
@@ -183,7 +184,7 @@ for k in multis.keys():
         day = i+1
         for event in events_by_day:
             event_code +=1
-            print(event_code, event, age, gender, cat, f'{cat} {event} ({ce_name})', '1', day, '12:00', parent)
+            print(event_code, event, age, gender, cat, f'{cat} {event} ({ce_name})', '1', day, '', parent)
             
             row_counter +=1
             ws["A%d"%row_counter] = f'{event_code:03d}'
@@ -194,7 +195,7 @@ for k in multis.keys():
             ws["G%d"%row_counter] = f'{cat} {events.event_spec(event, cat)}'
             ws["H%d"%row_counter] = '1'
             ws["I%d"%row_counter] = day
-            ws["J%d"%row_counter] = '12:00'
+            #ws["J%d"%row_counter] = '12:00'
             ws["K%d"%row_counter] = parent
 
 
