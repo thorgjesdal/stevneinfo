@@ -286,7 +286,7 @@ def event_spec(event, klasse):
     throws['OT'] = { 'J10' : '150g', 'J11' : '150g', 'J12' : '150g', 'J13' : '150g', 'J14' : '150g', 
                              'G10' : '150g', 'G11' : '150g', 'G12' : '150g', 'G13' : '150g', 'G14' : '150g' }
     hurdles = {}
-    hurdles['60H'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '76,2cm', 'J13' : '76,2cm', 'J14' : '76,2cm',
+    hurdles['60H'] = { 'J10' : '68,0cm', 'J11' : '68,0cm', 'J12' : '68,0cm', 'J13' : '68,0cm', 'J14' : '76,2cm',
                                  'J15' : '76,2cm', 'J16' : '76,2cm', 'J17' : '76,2cm',
                                  'J18/19' : '83,8cm','KU20' : '83,8cm', 'KU23' : '83,8cm', 'KS' : '83,8cm',
                                  'KV50' : '76,2cm',
@@ -327,6 +327,7 @@ def event_spec(event, klasse):
     else:
        e = event_name(event)
 
+    print(e, event, klasse)
     return e
 """
 def event_spec(event, klasse):
