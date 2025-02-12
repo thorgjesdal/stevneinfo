@@ -59,6 +59,7 @@ def event_code(event):
             u'Kappgang 1000 meter' : '1000W', 
             u'Kappgang 3000 meter' : '3000W', 
             u'Kappgang 5000 meter' : '5000W', 
+            u'5000 meter Kappgang ' : '5000W', 
             u'1000 meter kappgang' : '1000W', 
             u'2000 meter kappgang' : '2000W', 
             u'3000 meter kappgang' : '3000W', 
