@@ -31,6 +31,7 @@ def ismulti(event):
 
 def event_code(event):
     event_codes = {
+            u'40 meter'          : '40', 
             u'60 meter'          : '60', 
             u'80 meter'          : '80', 
             u'100 meter'         : '100', 
@@ -105,6 +106,7 @@ def event_code(event):
 def event_name(code):
     print(code)
     event_names = {
+            '40'     : '40 meter'          , 
             '60'     : '60 meter'          , 
             '80'     : '80 meter'          , 
             '100'    : '100 meter'         , 
