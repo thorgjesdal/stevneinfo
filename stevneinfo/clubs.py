@@ -79,6 +79,8 @@ def club_code(club_name):
        club_code=u'BERGE'
     elif club_name in (u'BFG Bergen Løpeklubb'):
        club_code=u'BFGL'
+    elif club_name in (u'Birkenes Idrettslag'):
+       club_code=u'BIRKI'
     elif club_name in (u'Bjerkreim Idrettslag'):
        club_code=u'BJERR'
     elif club_name in (u'Bjerkvik Idrettsforening'):
@@ -1225,6 +1227,8 @@ def club_name(club_code):
        club_name=u'Berger Idrettslag'
     elif club_code == (u'BFGL'):
        club_name=u'BFG Bergen Løpeklubb'
+    elif club_code == (u'BIRKI'):
+       club_name=u'Birkenes IL'
     elif club_code == (u'BJERR'):
        club_name=u'Bjerkreim Idrettslag'
     elif club_code == (u'BJERV'):

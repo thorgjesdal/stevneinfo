@@ -57,6 +57,8 @@ def read_isonenxls(f):
                 days.append(day)
             athlete_key = (first_name, last_name, dob, g, club, nat)
             event = (events.event_code(ev),  cat, day)
+            #if last_name == 'Randall':
+            #    print('#', first_name, last_name, ev, event)
 
             if event[0] is None:
                 continue
