@@ -94,6 +94,7 @@ def event_id(event, cat):
 
     elif event == 'OT':
         eid = 109
+    print(event, eid)
     return eid
 
 def format_result(res):
