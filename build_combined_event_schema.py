@@ -85,6 +85,11 @@ def event_name(code):
 #multis = { }
 #multis['G13'] =  {'ot_code' : 'M01', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]}
 multis = { 
+        'MV': {'ot_code' : 'M01', 'ce_code' : 'PEN', 'events' : [[ 'HT', 'SP', 'DT', 'JT', 'WT' ]]},
+        'KV': {'ot_code' : 'M02', 'ce_code' : 'PEN', 'events' : [[ 'HT', 'SP', 'DT', 'JT', 'WT' ]]},
+         }
+"""
+multis = { 
         'KS': {'ot_code' : 'M01', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
         'MS': {'ot_code' : 'M02', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
         'KU20': {'ot_code' : 'M03', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
@@ -113,6 +118,7 @@ multis = {
         'KV60': {'ot_code' : 'M21', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
         'MV85': {'ot_code' : 'M26', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['80H', 'DT', 'PV', 'JT', '1500']]}
             }
+"""
 """
 multis = { 
         'KS': {'ot_code' : 'M01', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
