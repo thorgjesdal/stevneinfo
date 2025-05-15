@@ -231,7 +231,7 @@ def write_opentrack_import(f):
             jt +=1
             event_ref = "T%02d"%jt
 
-        full_events[ ( cat , evcode ) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(evcode, cat) ))
+        full_events[ ( cat , evcode ) ]  = event_ref #+ ' - ' + ' '.join(( cat, events.event_spec(evcode, cat) ))
 #       full_events[ ( cat , event) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(event, cat) ))
         ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], events.event_spec(evcode, cat)])
         ws1["B%d"%row_counter] = event_ref
