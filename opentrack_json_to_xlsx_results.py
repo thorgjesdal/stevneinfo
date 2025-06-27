@@ -163,7 +163,7 @@ for t in j['relayTeams']:
         runners = t['runners']
     relay_teams[bib] = (teamname, runners)
 
-print(relay_teams)
+#print(relay_teams)
 
 
 #print(type(j['events']))
@@ -284,7 +284,7 @@ for e in j["events"]:
 #                    pool = 0
                      results[day][event_key][cat][pool]['marks'].append((bib, res, pl))
         elif is_relay(event_code):
-            print('relay')
+#           print('relay')
             cat = category
             for pool, u in enumerate(e["units"]):
                 heatname = 'Heat'
@@ -292,8 +292,8 @@ for e in j["events"]:
                     if 'Final' in u['heatName']:
                         heatname = 'Finale'
                 heatnumber = u['heat']
-                for r in u["results"]:
-                    print(r)
+#               for r in u["results"]:
+#                   print(r)
 
 
         else:
@@ -464,9 +464,13 @@ for day,date in enumerate(dates):
                         random.shuffle(sorted_results)
                 for i,r in zip(range(len(sorted_results)),sorted_results):
                     bib = r[0]
-                    print(bib)
+#                   print(bib)
+#                   print(cat, r)
                     perf = r[1].replace('.',',')
-                    place = r[2]
+                    if age < 11:
+                        place = noplace
+                    else:
+                        place = r[2]
     
                     fn  = competitors[bib][0]
                     ln  = competitors[bib][1]
