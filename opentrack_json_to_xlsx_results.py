@@ -7,7 +7,6 @@
 #       + ties
 #       + foreign and non-default teams
 #       + best valid attempt (wind)
-#       + relays
 #
 import sys
 import json
@@ -311,11 +310,12 @@ for e in j["events"]:
                heatnumber = u['heat']
 #               print(heatname, heatnumber)
                for r in u["results"]:
-#               print(r)
+                   print(r)
                    if "bib" in r.keys():
                        bib = r["bib"]
                    
                    if bib not in ignore_bibs:
+                        print(bib)
                         bdate = competitors[bib][2]
                         g = competitors[bib][3]
                         if sort_by == 'cat':
