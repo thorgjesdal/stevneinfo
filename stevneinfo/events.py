@@ -105,7 +105,7 @@ def event_code(event):
     return event_code
 
 def event_name(code):
-    print(code)
+#   print(code)
     event_names = {
             '40'     : '40 meter'          , 
             '60'     : '60 meter'          , 
@@ -173,7 +173,7 @@ def event_name(code):
 
 def event_spec(event, klasse):
     # 18.05.2020 rewrite based om implements.py form athlib
-    print(event, klasse)
+#   print(event, klasse)
     gender = 'F'
     if klasse[0] in ('M', 'G'):
         gender = 'M'
@@ -332,7 +332,7 @@ def event_spec(event, klasse):
     else:
        e = event_name(event)
 
-    print(e, event, klasse)
+#   print(e, event, klasse)
     return e
 """
 def event_spec(event, klasse):
