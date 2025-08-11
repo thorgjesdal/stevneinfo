@@ -737,6 +737,8 @@ def club_code(club_name):
        club_code=u'NYSK'
     elif club_name in (u'Nykirke Idrettsforening'):
        club_code=u'NYKIR'
+    elif club_name in (u'Nærsnes Løpeklubb'):
+       club_code=u'NRSNS'
     elif club_name in (u'Nøtterøy Idrettsforening'):
        club_code=u'NTTRY'
     elif club_name in (u'Odda Idrettslag'):
@@ -1893,6 +1895,8 @@ def club_name(club_code):
        club_name=u'Nydalens Skiklub'
     elif club_code == (u'NYKIR'):
        club_name=u'Nykirke Idrettsforening'
+    elif club_code == (u'NRSNS'):
+       club_name=u'Nærsnes Løpeklubb'
     elif club_code == (u'NTTRY'):
        club_name=u'Nøtterøy Idrettsforening'
     elif club_code == (u'ODDA'):
