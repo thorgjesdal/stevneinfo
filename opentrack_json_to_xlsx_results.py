@@ -7,6 +7,8 @@
 #       + ties
 #       + foreign and non-default teams
 #       + best valid attempt (wind)
+#       + rounds on different days
+#       + series in multi round field events
 #
 import sys
 import json
@@ -456,9 +458,12 @@ for day,date in enumerate(dates):
 #               print( results[day][event_key][cat][heat]['marks'] )
                 sorted_results = sorted(results[day][event_key][cat][heat]['marks'], key=lambda tup: tup[2])
                 pat = "[GJ](\d?\d)"
+                print(pat,event_key)
                 match = re.search(pat,event_key[0])
+                has_age = False
                 if match: 
                     age = int(match.group(1))
+                    has_age = True
                     if age < 11:
                         sorted_results = results[day][event_key][cat][heat]['marks']
                         random.shuffle(sorted_results)
@@ -467,7 +472,7 @@ for day,date in enumerate(dates):
 #                   print(bib)
 #                   print(cat, r)
                     perf = r[1].replace('.',',')
-                    if age < 11:
+                    if has_age and age < 11:
                         place = noplace
                     else:
                         place = r[2]
@@ -484,7 +489,12 @@ for day,date in enumerate(dates):
                     ws["A%(row_counter)d"%vars()] = pl
                     #ws["B%(row_counter)d"%vars()] = bib
                     ws["C%(row_counter)d"%vars()] = ' '.join((fn,ln))
-                    ws["D%(row_counter)d"%vars()] = dob.strftime('%Y')
+                    print(type(dob))
+                    if isinstance(dob, str):
+                        d = dob
+                    else:
+                        d = dob.strftime('%Y')
+                    ws["D%(row_counter)d"%vars()] = d
                     ws["E%(row_counter)d"%vars()] = clubs.club_name(club)
 #                   ws["E%(row_counter)d"%vars()] = club
                     ws["F%(row_counter)d"%vars()] = perf
