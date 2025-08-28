@@ -590,7 +590,7 @@ def club_code(club_name):
     elif club_name in (u'Langesund Sykle- og triathlonklubb'):
        club_code=u'LANGS'
     elif club_name in (u'Lånke Idrettslag'):
-       club_code=u'LNKEIL'
+       club_code=u'LANKE'
     elif club_name in (u'Larvik Turn & Idrettsforening', u'Larvik Turn & IF',u'Larvik Turn og Idrettsforening'):
        club_code=u'LRVK'
     elif club_name in (u'Leinstrand Idrettslag'):
@@ -1753,7 +1753,7 @@ def club_name(club_code):
        club_name=u'Lambertseter IF'
     elif club_code == (u'LANGS'):
        club_name=u'Langesund Sykle- og triathlonklubb'
-    elif club_code == (u'LNKEIL'):
+    elif club_code == (u'LANKE'):
        club_name=u'Lånke Idrettslag'
     elif club_code == (u'LOKEN'):
         club_name = u'IL Løken'

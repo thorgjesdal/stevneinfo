@@ -44,6 +44,8 @@ def read_isonenxls(f):
             dob = value[columns.index('Fødselsdato')]
             g = gender[value[columns.index('Kjønn')]]
             club = value[columns.index('Klubb')]
+            email = f"{value[columns.index('E-post')]};{value[columns.index('E-post påmelder')]}"
+
             if value[columns.index('Øvelse')]:
                 ev = value[columns.index('Øvelse')].strip()
             else:
@@ -55,7 +57,7 @@ def read_isonenxls(f):
             day = datetime.datetime.strptime(day,ddmmyyyyformat)
             if day not in days:
                 days.append(day)
-            athlete_key = (first_name, last_name, dob, g, club, nat)
+            athlete_key = (first_name, last_name, dob, g, club, nat, email)
             event = (events.event_code(ev),  cat, day)
             #if last_name == 'Randall':
             #    print('#', first_name, last_name, ev, event)
@@ -194,10 +196,11 @@ def write_opentrack_import(f):
     ws["D1"] = 'Last name'
     ws["E1"] = 'Gender'
     ws["F1"] = 'Date of birth'
+    ws["G1"] = 'E-mail'
     ws["H1"] = 'Team ID'
-    ws["I1"] = 'Event'
-    ws["J1"] = 'Pb'
-    ws["K1"] = 'Sb'
+    ws["J1"] = 'Event'
+    ws["K1"] = 'Pb'
+    ws["L1"] = 'Sb'
 #   ws1["A1"] = 'Event selection'
     row_counter = 2
 
@@ -266,6 +269,7 @@ def write_opentrack_import(f):
         g    = key[3]
         club = key[4]
         nat  = key[5]
+        email  = key[6]
         print(fn, ln)
         for e in events_by_athlete[key]:
             print(e)
@@ -283,8 +287,10 @@ def write_opentrack_import(f):
             ws["D%d"%row_counter] = ln[0:min(len(ln),maxname)]
             ws["E%d"%row_counter] = g
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
+            ws["G%d"%row_counter] = email
             ws["H%d"%row_counter] = clubs.club_code(club)
-            ws["I%d"%row_counter] = full_events[ (cat, eventcode) ]
+            ws["I%d"%row_counter] = ''
+            ws["J%d"%row_counter] = full_events[ (cat, eventcode) ]
             #ws["J%d"%row_counter] = full_events[ (e[1], e[0]) ]
 
             #event = e[1]
@@ -319,8 +325,8 @@ def write_opentrack_import(f):
                 pb = athlete_bests[0]
                 sb = athlete_bests[1]
 
-            ws["J%d"%row_counter] = pb
-            ws["K%d"%row_counter] = sb
+            ws["K%d"%row_counter] = pb
+            ws["L%d"%row_counter] = sb
             row_counter +=1
 
     xlname = 'opentrack_input.xlsx'
