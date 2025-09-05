@@ -458,7 +458,6 @@ for day,date in enumerate(dates):
 #               print( results[day][event_key][cat][heat]['marks'] )
                 sorted_results = sorted(results[day][event_key][cat][heat]['marks'], key=lambda tup: tup[2])
                 pat = "[GJ](\d?\d)"
-                print(pat,event_key)
                 match = re.search(pat,event_key[0])
                 has_age = False
                 if match: 

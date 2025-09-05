@@ -101,7 +101,7 @@ def event_code(event):
             u'1000 meter stafett' : '4xSMR' 
             }
     event_code =  event_codes.get(event, '')
-    print('+',event, event_code)
+    #print('+',event, event_code)
     return event_code
 
 def event_name(code):
@@ -428,7 +428,7 @@ def sort_event_list(events):
                 'HJ', 'PV', 'LJ', 'TJ', 'SP', 'DT', 'JT', 'HT', 'OT', 'PEN', 'HEX', 'HEP', 'ENN', 'DEC']
         return 100*catsort.index(e[2]) + evsort.index(e[1])
 
-    print(events)
+    #print(events)
     events.sort(key=sort_fcn)
     return events
 
