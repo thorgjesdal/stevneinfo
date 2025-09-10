@@ -6,6 +6,7 @@
 #       + clean up/more modular
 #
 import sys
+import os
 import json
 import datetime
 import re
@@ -249,6 +250,40 @@ def event_spec(event, klasse):
        e = event_name(event)
 
     return e
+
+def fetch_json(url):
+    #
+    url = url.strip('/') + '/json'
+    idx = url.index('opentrack.run/')+14
+    #print(idx)
+    BASE_URL = url[0:idx]
+    #print('x', url, BASE_URL)
+
+    username = os.environ["OTUSER"]
+    password = os.environ["OTPASSWD"]
+    #print(username, password)
+
+    r = requests.post(BASE_URL + "api/get-auth-token/", data=dict(username=username, password=password))
+    #print(f"Authenticating.  Response: {r.status_code}")
+    j2 = r.json()
+    #pprint(j2)
+    token = j2["token"]
+
+    """
+    # check authentication works
+    r = requests.get(BASE_URL + "api/hello/", headers={
+                 "Authorization": "Token " + token
+                 })
+    #print(r.json())
+    """
+
+# now use the token in a header to request the json for the competition
+    #print(url)
+    r  = requests.get(url, headers={ "Authorization": "Token " + token})
+    j = r.json()
+
+    return j
+
 #---------------------------------------
 if len(sys.argv) < 2:
    sys.exit("Usage: %s <url>" % sys.argv[0])
@@ -256,15 +291,16 @@ if len(sys.argv) < 2:
 url = sys.argv[1]
 print(url)
 
-r=requests.get(url+'json')
+#r=requests.get(url+'json')
 #if len(sys.argv) < 2:
 #   sys.exit("Usage: %s <infile>" % sys.argv[0])
 #   
-url = sys.argv[1]+'json'
+url = sys.argv[1] #+'json'
 print(url)
 
-r=requests.get(url)
-j = json.loads(r.text)
+#r=requests.get(url)
+#j = json.loads(r.text)
+j = fetch_json(url)
 
 slug = j['slug']
    
