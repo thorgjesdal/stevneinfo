@@ -11,6 +11,7 @@
 #       + series in multi round field events
 #
 import sys
+import os
 import json
 import datetime
 import re
@@ -24,7 +25,7 @@ import argparse
 
 from stevneinfo import clubs, events
 
-import pprint
+from pprint import pformat, pprint
 
 noplace = int(1.e10)-1
 def get_category(birthdate, eventdate, gender):
@@ -58,10 +59,42 @@ def get_organiser_name(key):
 
 def is_relay(event_code):
     # from athlib/codes.py
-    PAT_RELAYS = r"^(?:(\d{1,2})[xX](\d{2,5}[hH]?|[rR][eE][lL][aA][yY]|[dDsS][mM][rR]))$"  # 4x100, 4x400, 4xReLAy, 4xDMR, 4xSMR, 12x200H
+    PAT_RELAYS = re.compile(r"^(?:(\d{1,2})[xX]((\d+(\.\d+)?)[hHMK]?|[rR][eE][lL][aA][yY]|[sS]?[dDsS][mM][rR]|[sS][wW][rR]))$") # 4x100, 4x400, 4xReLAy, 4xDMR, 4xSMR, 12x200H
     match = re.search(PAT_RELAYS, event_code)
     return match is not None
 
+def fetch_json(url):
+    #
+    url = url.strip('/') + '/json'
+    idx = url.index('opentrack.run/')+14
+    #print(idx)
+    BASE_URL = url[0:idx]
+    #print('x', url, BASE_URL)
+
+    username = os.environ["OTUSER"]
+    password = os.environ["OTPASSWD"]
+    #print(username, password)
+
+    r = requests.post(BASE_URL + "api/get-auth-token/", data=dict(username=username, password=password))
+    #print(f"Authenticating.  Response: {r.status_code}")
+    j2 = r.json()
+    #pprint(j2)
+    token = j2["token"]
+
+    """
+    # check authentication works
+    r = requests.get(BASE_URL + "api/hello/", headers={
+                 "Authorization": "Token " + token
+                 })
+    #print(r.json())
+    """
+
+# now use the token in a header to request the json for the competition
+    #print(url)
+    r  = requests.get(url, headers={ "Authorization": "Token " + token})
+    j = r.json()
+
+    return j
 
 #---------------------------------------
 #if len(sys.argv) < 2:
@@ -71,24 +104,16 @@ parser.add_argument('url')
 parser.add_argument('--sort_by', default='age')
 args = parser.parse_args()
    
-#url = sys.argv[1]
-#print(args)
 url = args.url
 print(url)
+
 if args.sort_by in ('age', 'cat'):
     sort_by = args.sort_by
 else:
     sys.exit("Wrong value for 'sort_by', must be in ('age', 'cat')")
 
+j = fetch_json(url)
 
-r=requests.get(url+'json')
-j = json.loads(r.text)
-#with open('downloads.json', 'r') as f: 
-#    j = json.load(f)
-
-#print(type(j))
-#print(j.keys())
-#print(j['date'])
 d  = j['date']
 d2 = j['finishDate']
 isodateformat = "%Y-%m-%d"
@@ -128,7 +153,6 @@ if j['type']=="INDOOR":
 
 ignore_bibs = []
 competitors = {}
-#print(j['competitors'][0])
 for c in j['competitors']:
 #   print(c.keys())
     fn = ''; ln = ''; dob= ''; t=''
