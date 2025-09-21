@@ -17,6 +17,7 @@ import requests
 import random
 from collections import defaultdict
 from athlib import tyrving_score 
+from stevneinfo import opentrack as ot
 
 import pprint
 
@@ -251,39 +252,6 @@ def event_spec(event, klasse):
 
     return e
 
-def fetch_json(url):
-    #
-    url = url.strip('/') + '/json'
-    idx = url.index('opentrack.run/')+14
-    #print(idx)
-    BASE_URL = url[0:idx]
-    #print('x', url, BASE_URL)
-
-    username = os.environ["OTUSER"]
-    password = os.environ["OTPASSWD"]
-    #print(username, password)
-
-    r = requests.post(BASE_URL + "api/get-auth-token/", data=dict(username=username, password=password))
-    #print(f"Authenticating.  Response: {r.status_code}")
-    j2 = r.json()
-    #pprint(j2)
-    token = j2["token"]
-
-    """
-    # check authentication works
-    r = requests.get(BASE_URL + "api/hello/", headers={
-                 "Authorization": "Token " + token
-                 })
-    #print(r.json())
-    """
-
-# now use the token in a header to request the json for the competition
-    #print(url)
-    r  = requests.get(url, headers={ "Authorization": "Token " + token})
-    j = r.json()
-
-    return j
-
 #---------------------------------------
 if len(sys.argv) < 2:
    sys.exit("Usage: %s <url>" % sys.argv[0])
@@ -300,7 +268,8 @@ print(url)
 
 #r=requests.get(url)
 #j = json.loads(r.text)
-j = fetch_json(url)
+j = ot.fetch_json(url)
+#j = fetch_json(url)
 
 slug = j['slug']
    
@@ -381,11 +350,11 @@ for e in j["events"]:
                 tyrving = tyrving_score(gender,age,event_code,res)
 
 
-            if event_code in track_events:
+            if event_code in track_events and not res == 'DNS':
                 results[category][bib]['runs'].append((event_code, res, tyrving))
-            elif event_code in jump_events:
+            elif event_code in jump_events and not res == 'DNS':
                 results[category][bib]['jumps'].append((event_code, res, tyrving))
-            elif event_code in throw_events:
+            elif event_code in throw_events and not res == 'DNS':
                 results[category][bib]['throws'].append((event_code, res, tyrving))
 
 for cat in results.keys():
