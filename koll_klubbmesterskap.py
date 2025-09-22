@@ -6,6 +6,7 @@
 #       + clean up/more modular
 #
 import sys
+import os
 import json
 import datetime
 import re
@@ -16,6 +17,7 @@ import requests
 import random
 from collections import defaultdict
 from athlib import tyrving_score 
+from stevneinfo import opentrack as ot
 
 import pprint
 
@@ -249,6 +251,7 @@ def event_spec(event, klasse):
        e = event_name(event)
 
     return e
+
 #---------------------------------------
 if len(sys.argv) < 2:
    sys.exit("Usage: %s <url>" % sys.argv[0])
@@ -256,15 +259,17 @@ if len(sys.argv) < 2:
 url = sys.argv[1]
 print(url)
 
-r=requests.get(url+'json')
+#r=requests.get(url+'json')
 #if len(sys.argv) < 2:
 #   sys.exit("Usage: %s <infile>" % sys.argv[0])
 #   
-url = sys.argv[1]+'json'
+url = sys.argv[1] #+'json'
 print(url)
 
-r=requests.get(url)
-j = json.loads(r.text)
+#r=requests.get(url)
+#j = json.loads(r.text)
+j = ot.fetch_json(url)
+#j = fetch_json(url)
 
 slug = j['slug']
    
@@ -345,11 +350,11 @@ for e in j["events"]:
                 tyrving = tyrving_score(gender,age,event_code,res)
 
 
-            if event_code in track_events:
+            if event_code in track_events and not res == 'DNS':
                 results[category][bib]['runs'].append((event_code, res, tyrving))
-            elif event_code in jump_events:
+            elif event_code in jump_events and not res == 'DNS':
                 results[category][bib]['jumps'].append((event_code, res, tyrving))
-            elif event_code in throw_events:
+            elif event_code in throw_events and not res == 'DNS':
                 results[category][bib]['throws'].append((event_code, res, tyrving))
 
 for cat in results.keys():
