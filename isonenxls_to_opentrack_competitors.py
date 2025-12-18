@@ -289,8 +289,8 @@ def write_opentrack_import(f):
             ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
             ws["G%d"%row_counter] = email
             ws["H%d"%row_counter] = clubs.club_code(club)
-            ws["I%d"%row_counter] = ''
-            ws["J%d"%row_counter] = full_events[ (cat, eventcode) ]
+#           ws["I%d"%row_counter] = ''
+            ws["I%d"%row_counter] = full_events[ (cat, eventcode) ]
             #ws["J%d"%row_counter] = full_events[ (e[1], e[0]) ]
 
             #event = e[1]
@@ -325,8 +325,8 @@ def write_opentrack_import(f):
                 pb = athlete_bests[0]
                 sb = athlete_bests[1]
 
-            ws["K%d"%row_counter] = pb
-            ws["L%d"%row_counter] = sb
+            ws["J%d"%row_counter] = pb
+            ws["K%d"%row_counter] = sb
             row_counter +=1
 
     xlname = 'opentrack_input.xlsx'
