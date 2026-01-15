@@ -59,9 +59,9 @@ def read_simplexlsx(f):
             ln = value[3]
             last_name = ln[0:min(len(ln),maxname)]
             dob = value[4]
-            team = value[9]
-            sb = value[10]
-            pb = value[11]
+            team = value[5]
+            sb = value[6]
+            pb = value[7]
             if get_stats:
                 #athlete_id = stats.get_athlete_id(first_name,last_name,datetime.datetime.strftime(dob,ddmmyyyyformat))
                 athlete_id = stats.get_athlete_id(first_name,last_name,dob)
