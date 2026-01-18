@@ -59,9 +59,9 @@ def read_simplexlsx(f):
             ln = value[3]
             last_name = ln[0:min(len(ln),maxname)]
             dob = value[4]
-            team = value[9]
-            sb = value[10]
-            pb = value[11]
+            team = value[5]
+            sb = value[6]
+            pb = value[7]
             if get_stats:
                 #athlete_id = stats.get_athlete_id(first_name,last_name,datetime.datetime.strftime(dob,ddmmyyyyformat))
                 athlete_id = stats.get_athlete_id(first_name,last_name,dob)
@@ -144,7 +144,12 @@ def write_opentrack_import(ef, cf):
             #ws["E%d"%row_counter] = gender[event[0][0]]
             ws["E%d"%row_counter] = get_gender(event[0])
             print(dob)
-            ws["F%d"%row_counter] = datetime.datetime.strftime(dob,isodateformat)
+            try:
+                d = datetime.datetime.strftime(dob,isodateformat)
+            except: 
+                d = int(dob)
+            print(d)
+            ws["F%d"%row_counter] = d
             ws["G%d"%row_counter] = team
             ws["H%d"%row_counter] = event_codes[e]
             ws["I%d"%row_counter] = pb
@@ -155,7 +160,8 @@ def write_opentrack_import(ef, cf):
     xlname = 'opentrack_input.xlsx'
     wb.save(xlname)
 
-event_file = 'boysen_events.xlsx'
+event_file = 'fana_pv_events.xlsx'
+#event_file = 'boysen_events.xlsx'
 #event_file = 'ExtraEvents_NMMangekamp.xlsx'
 #competitor_file = 'Etteranmeldinger_BassenSprint.xlsx'
 
