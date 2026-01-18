@@ -215,10 +215,10 @@ def write_opentrack_import(f):
 
     jf = 0
     jt = 0
-    print(event_list)
+    #print(event_list)
     full_events = {}
     for e in event_list:
-        print(e)
+        #print(e)
         evcode = e[0]
         event  = events.event_name(evcode)
         cat    = e[1]
@@ -236,6 +236,7 @@ def write_opentrack_import(f):
 
         full_events[ ( cat , evcode ) ]  = event_ref #+ ' - ' + ' '.join(( cat, events.event_spec(evcode, cat) ))
 #       full_events[ ( cat , event) ]  = event_ref + ' - ' + ' '.join(( cat, events.event_spec(event, cat) ))
+        print (evcode,cat)
         ws1["A%d"%row_counter] = event_ref + ' - '  + ' '.join([e[0], events.event_spec(evcode, cat)])
         ws1["B%d"%row_counter] = event_ref
         ws1["C%d"%row_counter] = evcode
