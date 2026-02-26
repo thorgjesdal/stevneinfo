@@ -213,6 +213,8 @@ def club_code(club_name):
        club_code=u'FJVE'
     elif club_name in (u'Flatås Idrettslag'):
        club_code=u'FLATS'
+    elif club_name in (u'Flekkerøy Løpeklubb'):
+       club_code=u'FLKOY'
     elif club_name in (u'Florø Turn og Idrettsforening', u'Florø T og IF', u'Florø T&IF'):
        club_code=u'FLOR'
     elif club_name in (u'Follafoss Idrettslag'):
@@ -1047,7 +1049,7 @@ def club_code(club_name):
        club_code=u'TAMSAN'
     elif club_name in (u'Tistedalen FL', u'Tistedalen Friluftslag'):
        club_code=u'TIST'
-    elif club_name in (u'Tingvoll Friidrettsklubb', u'Tingvoll Friidrettskl.'):
+    elif club_name in (u'Tingvoll Idrettslag'):
        club_code=u'TING'
     elif club_name in ( 'IK Tjalve', 'Idrettsklubben Tjalve', 'Tjalve, IK', 'Tjalve, Idrettsklubben', 'Tjalve Idrettsklubben' ):
        club_code=u'TJALV'
@@ -1393,6 +1395,8 @@ def club_name(club_code):
        club_name=u'Fjellhug/Vereide IL'
     elif club_code == (u'FLATS'):
        club_name=u'Flatås Idrettslag'
+    elif club_code == (u'FLKOY'):
+       club_name=u'Flekkerøy Løpeklubb'
     elif club_code == (u'FLOR'):
        club_name=u'Florø T & IF'
     elif club_code == (u'FOLFO'):
@@ -2194,7 +2198,7 @@ def club_name(club_code):
     elif club_code == (u'TAMSAN'):
        club_name=u'Tamil Sangam IL'
     elif club_code == (u'TING'):
-       club_name=u'Tingvoll Friidrettsklubb'
+       club_name=u'Tingvoll Idrettslag'
     elif club_code == (u'TIST'):
         club_name = u'Tistedalen FL'
     elif club_code == (u'TJALV'):

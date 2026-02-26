@@ -141,21 +141,24 @@ def get_athlete_bests(athlete_id, event_code, category):
         url = 'https://www.minfriidrettsstatistikk.info/php/hentresultater.php'
         r   = requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id}))
 
-        PBSBPAT = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"},"SB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"}}'
-        PBPAT   = r'{"Athlete_Id":.*"PB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"}}'
+        PBSBPAT = re.compile(r'{"Athlete_Id":.*"PB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"},"SB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"}}')
+        PBPAT   = re.compile(r'{"Athlete_Id":.*"PB":{"Result":"(.*?)","Date":"\d{2}.\d{2}.\d{4}"}}')
         for i in range(3):
-            match1 = re.search(PBSBPAT,r.text)
-            match2 = re.search(PBPAT  ,r.text)
+            r   = requests.post(url, data=json.dumps({'Athlete_Id' : athlete_id, 'Event_Id' : Event_Id}))
 
-            if match1:
-                pb = match1.group(1)
-                sb = match1.group(2)
-            elif match2:
-                pb = match2.group(1)
-            if not pb=='' or not sb=='':
-                continue
-            else:
-                time.sleep(1.0)
+            m = PBSBPAT.search(r.text)
+
+            if m:
+                pb = m.group(1)
+                sb = m.group(2)
+                break
+
+            m = PBPAT.search(r.text)
+            if m:
+                m = m.group(1)
+                break
+
+            time.sleep(1.0)
 
         pb = format_result(pb)
         sb = format_result(sb)
