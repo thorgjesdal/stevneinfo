@@ -434,7 +434,7 @@ def club_code(club_name):
     elif club_name in (u'Idrettslaget Holeværingen'):
        club_code=u'HOLE'
     elif club_name in (u'Idrettslaget I Bondeungdomslaget I Tromsø', u'IL i BUL Tromsø'):
-       club_code=u'BULT'
+       club_code=u'BULTF'
     elif club_name in (u'Idrettslaget Ilar'):
        club_code=u'ILAR'
     elif club_name in (u'Idrettslaget Ivrig'):
@@ -1606,6 +1606,8 @@ def club_name(club_code):
     elif club_code == (u'HOLE'):
        club_name=u'Idrettslaget Holeværingen'
     elif club_code == (u'BULT'):
+       club_name=u'IL i BUL Tromsø'
+    elif club_code == (u'BULTF'):
        club_name=u'IL i BUL Tromsø'
     elif club_code == (u'ILAR'):
        club_name=u'Idrettslaget Ilar'
