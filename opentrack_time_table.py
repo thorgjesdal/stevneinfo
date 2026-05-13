@@ -43,7 +43,10 @@ for e in events:
     #print(e)
     line = f'{e[1]}\t{e[2]}'
     i = e[3]
-    if i>1:
+    if i==1:
+        if len(rounds[e[2]])>1:
+            line +=' Forsøk'
+    elif i>1:
         if i==2 and len(rounds[e[2]])> 2:
             line +=' Semifinale'
         else:

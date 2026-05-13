@@ -9,6 +9,12 @@ def get_gender(cat):
 def get_age(cat):
     if cat[1] == 'S':
         age = 'SEN'
+    elif cat[0:3] == 'SEN':
+        age = 'SEN'
+    elif cat[0:3] == 'U20':
+        age = 'U20'
+    elif cat[0:3] == 'U18':
+        age = 'U18'
     elif cat[1] in ['U', 'V']:
         age = cat[1:]
     elif cat[0] in ['G', 'J']:
@@ -84,13 +90,35 @@ def event_name(code):
 
 #multis = { }
 #multis['G13'] =  {'ot_code' : 'M01', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]}
-#"""
+"""
+# Vestfold
+multis = { 
+        'G10': {'ot_code' : 'T01', 'ce_code' : 'QUAD', 'events' : [[ '60', 'LJ', 'SP', '600' ],[]]},
+        'G12': {'ot_code' : 'T02', 'ce_code' : 'QUAD', 'events' : [[ '60', 'LJ', 'SP', '600' ],[]]},
+        'G13':  {'ot_code' : 'T03', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]},
+        'G14':  {'ot_code' : 'T04', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['80H', 'HJ', '600']]},
+        'G16':  {'ot_code' : 'T05', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['100H', 'DT', 'PV', 'JT', '1500']]},
+        'G17':  {'ot_code' : 'T06', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'G18-19': {'ot_code' : 'T07', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'J10': {'ot_code' : 'T08', 'ce_code' : 'QUAD', 'events' : [[ '60', 'LJ', 'SP', '600' ],[]]},
+        'J11': {'ot_code' : 'T09', 'ce_code' : 'QUAD', 'events' : [[ '60', 'LJ', 'SP', '600' ],[]]},
+        'J12': {'ot_code' : 'T10', 'ce_code' : 'QUAD', 'events' : [[ '60', 'LJ', 'SP', '600' ],[]]},
+        'J13': {'ot_code' : 'T11', 'ce_code' : 'HEX', 'events' : [[ '60','HJ', 'SP' ],['60H', 'LJ', '600']]},
+        'J14': {'ot_code' : 'T12', 'ce_code' : 'HEX', 'events' : [[ '60','HJ', 'SP' ],['60H', 'LJ', '600']]},
+        'J15': {'ot_code' : 'T13', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'J16': {'ot_code' : 'T14', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'J17': {'ot_code' : 'T15', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        }
+"""
+"""
+# Kastfemkamp
 multis = { 
         'MV': {'ot_code' : 'M01', 'ce_code' : 'PEN', 'events' : [[ 'HT', 'SP', 'DT', 'JT', 'WT' ]]},
         'KV': {'ot_code' : 'M02', 'ce_code' : 'PEN', 'events' : [[ 'HT', 'SP', 'DT', 'JT', 'WT' ]]},
          }
 """
 
+# NM mangekamp
 multis = { 
         'KS': {'ot_code' : 'M01', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
         'MS': {'ot_code' : 'M02', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
@@ -102,6 +130,11 @@ multis = {
         'G16':  {'ot_code' : 'M08', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['100H', 'DT', 'PV', 'JT', '1500']]},
         'J15': {'ot_code' : 'M09', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
         'G15':  {'ot_code' : 'M10', 'ce_code' : 'ENN', 'events' : [[ '100', 'LJ', 'SP', 'HJ' ],['100H', 'DT', 'PV', 'JT', '1000']]},
+            }
+
+"""
+
+
         'J14': {'ot_code' : 'M11', 'ce_code' : 'HEX', 'events' : [[ '60','HJ', 'SP' ],['60H', 'LJ', '600']]},
         'G14':  {'ot_code' : 'M12', 'ce_code' : 'HEX', 'events' : [[ '60','LJ', 'SP' ],['60H', 'HJ', '600']]},
         'J13': {'ot_code' : 'M13', 'ce_code' : 'HEX', 'events' : [[ '60','HJ', 'SP' ],['60H', 'LJ', '600']]},
@@ -116,16 +149,13 @@ multis = {
         'KV40': {'ot_code' : 'M16', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
         'KV50': {'ot_code' : 'M18', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
         'MV85': {'ot_code' : 'M24', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['80H', 'DT', 'PV', 'JT', '1500']]}
-            }
-
-"""
-"""
         'MV45': {'ot_code' : 'M17', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
         'MV70': {'ot_code' : 'M23', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
         'MV75': {'ot_code' : 'M24', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['80H', 'DT', 'PV', 'JT', '1500']]},
         'KV60': {'ot_code' : 'M21', 'ce_code' : 'HEP', 'events' : [[ '80H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
 """
 """
+# NM mangekamp innendørs
 multis = { 
         'KS': {'ot_code' : 'M01', 'ce_code' : 'PEN', 'events' : [[],['60H', 'HJ', 'SP', 'LJ','800']]},
         'MS':  {'ot_code' : 'M02', 'ce_code' : 'HEP', 'events' : [[ '60', 'LJ', 'SP', 'HJ' ],['60H', 'PV','1000']]},
@@ -152,10 +182,23 @@ multis = {
         'MV85': {'ot_code' : 'M23', 'ce_code' : 'PEN', 'events' : [[],['60H', 'LJ', 'SP', 'HJ','1000']]},
             }
 """
+"""
+# Nordisk mangekamp
+multis = { 
+        'SENW': {'ot_code' : 'C01', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'SENM': {'ot_code' : 'C02', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'U20W': {'ot_code' : 'C03', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'U20M': {'ot_code' : 'C04', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+        'U18W': {'ot_code' : 'C05', 'ce_code' : 'HEP', 'events' : [[ '100H', 'HJ', 'SP', '200' ],['LJ', 'JT', '800']]},
+        'U18M':  {'ot_code' : 'C06', 'ce_code' : 'DEC', 'events' : [[ '100', 'LJ', 'SP', 'HJ', '400' ],['110H', 'DT', 'PV', 'JT', '1500']]},
+            }
+"""
+
 #print(multis)
 #print(multis.keys())
 
 #... write to xlsx workbook
+
 wb = Workbook()
 ws = wb.active
 ws.title = 'Events'
@@ -164,6 +207,7 @@ row_counter = 0
 for k in multis.keys():
     #
     cat = k
+    print(cat)
     combined_events = multis[k]['ce_code']
     day = 1
     if not multis[k]['events'][0]:
