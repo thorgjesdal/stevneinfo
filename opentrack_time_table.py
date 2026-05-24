@@ -1,9 +1,19 @@
 import json
+import argparse
+from stevneinfo import opentrack as ot 
 
-fname = 'tt.json'
+# https://norway.opentrack.run/nb/x/2026/NOR/nm-mangekamp/tt/json/
+#fname = 'tt.json'
+parser = argparse.ArgumentParser()
+parser.add_argument('url')
+args = parser.parse_args()
 
-with open(fname, 'r') as f:
-    j = json.load(f)
+url = args.url.strip('/') + '/tt/'
+print(url)
+
+j = ot.fetch_json(url)
+#with open(fname, 'r') as f:
+#    j = json.load(f)
 
 #print ( j.keys() )
 
@@ -30,7 +40,7 @@ for e in events:
 
 
 
-days = ['Fredag', 'Lørdag', 'Søndag']
+days = ['Søndag', 'Mandag']
 d = 0
 for e in events:
     #print(e)
