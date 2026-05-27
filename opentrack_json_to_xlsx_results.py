@@ -81,7 +81,7 @@ else:
     sys.exit("Wrong value for 'sort_by', must be in ('age', 'cat')")
 
 j = ot.fetch_json(url)
-
+print( j.keys() )
 d  = j['date']
 d2 = j['finishDate']
 isodateformat = "%Y-%m-%d"

@@ -44,7 +44,10 @@ def read_isonenxls(f):
             dob = value[columns.index('Fødselsdato')]
             g = gender[value[columns.index('Kjønn')]]
             club = value[columns.index('Klubb')]
-            email = f"{value[columns.index('E-post')]};{value[columns.index('E-post påmelder')]}"
+            emails = []
+            emails.append(value[columns.index('E-post')])
+            emails.append(value[columns.index('E-post påmelder')])
+            email= ';'.join(set(emails))
 
             if value[columns.index('Øvelse')]:
                 ev = value[columns.index('Øvelse')].strip()

@@ -6,16 +6,16 @@ def fetch_json(url):
     #
     url = url.strip('/') + '/json'
     idx = url.index('opentrack.run/')+14
-    #print(idx)
+    print(idx)
     BASE_URL = url[0:idx]
-    #print('x', url, BASE_URL)
+    print('x', url, BASE_URL)
 
     username = os.environ["OTUSER"]
     password = os.environ["OTPASSWD"]
-    #print(username, password)
+    print(username, password)
 
     r = requests.post(BASE_URL + "api/get-auth-token/", data=dict(username=username, password=password))
-    #print(f"Authenticating.  Response: {r.status_code}")
+    print(f"Authenticating.  Response: {r.status_code}")
     j2 = r.json()
     #pprint(j2)
     token = j2["token"]
