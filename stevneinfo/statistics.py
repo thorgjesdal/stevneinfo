@@ -126,7 +126,7 @@ def get_athlete_id(fn, ln, dob):
             if match:
                 aid = match.group(1)
                 continue
-            time.sleep(1.0)
+            time.sleep(i+1)
     return aid
 
 
@@ -158,7 +158,7 @@ def get_athlete_bests(athlete_id, event_code, category):
                 m = m.group(1)
                 break
 
-            time.sleep(1.0)
+            time.sleep(i+1)
 
         pb = format_result(pb)
         sb = format_result(sb)

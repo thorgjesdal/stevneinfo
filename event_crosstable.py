@@ -30,6 +30,17 @@ def build_matrix(athlete_events):
     # all events
     events = sorted({ev for evs in athlete_events.values() for ev in evs})
 
+    def sort_events(e):
+        #print(e)
+        sort_order=('100', '150', '200', '300', '400', '600', '800', '1000', '1500', 'MILE', '2000', '3000', '5000', '10000',
+                    '60H', '80H', '100H', '110H', '200H', '300H', '400H', '1500SC', '2000SC', '3000SC', '3000W', '5000W',
+                    'HJ', 'PV', 'LJ', 'TJ', 'SP', 'DT', 'JT', 'HT','WT')
+        return sort_order.index(e)
+
+
+    events.sort(key=sort_events)
+    #print(events)
+
     # empty matrix
     df = pd.DataFrame(0, index=events, columns=events)
 
