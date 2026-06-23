@@ -9,6 +9,7 @@
 #       + best valid attempt (wind)
 #       + rounds on different days
 #       + series in multi round field events
+#       + check sorting in vertical jumps??
 #
 import sys
 import os
