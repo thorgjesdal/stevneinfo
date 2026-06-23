@@ -111,8 +111,8 @@ else:
     venue = j['venue']['formalName']
     if j['venue']['indoor'] == 'true':
         outdoors = 'N'
-if j['type']=="INDOOR":
-    outdoors='N'
+#if j['type']=="INDOOR":
+#    outdoors='N'
 
 
 #print(meetname, venue)
@@ -164,9 +164,9 @@ for t in j['relayTeams']:
 #print(type(j['events'][0]))
 #print(j['events'][0].keys())
 #print(j['events'][0]['units'][0])
-outdoor = 'J'
-if j['type'] == "INDOOR":
-    outdoor = 'N'
+#outdoor = 'J'
+#if j['type'] == "INDOOR":
+#    outdoor = 'N'
 """
 results = {}
 for e in j['events']:
