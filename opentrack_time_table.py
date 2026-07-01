@@ -25,7 +25,7 @@ for t in j['timetable']:
     runde = t['round']
     heat  = t['heat']
     
-    events.append( (day, etime, event, runde, heat ) )
+    events.append( (day, etime, event, runde, heat) )
 
 events = sorted(events, key = lambda k: ( k[0], k[1] ) )
 #print(events)
@@ -40,7 +40,7 @@ for e in events:
 
 
 
-days = ['Søndag', 'Mandag']
+days = ['Friday', 'Saturday', 'Sunday']
 d = 0
 for e in events:
     #print(e)
@@ -55,12 +55,12 @@ for e in events:
     i = e[3]
     if i==1:
         if len(rounds[e[2]])>1:
-            line +=' Forsøk'
+            line +='\tHeats'
     elif i>1:
         if i==2 and len(rounds[e[2]])> 2:
-            line +=' Semifinale'
+            line +='\tSemi final'
         else:
-            line +=' Finale'
+            line +='\tFinal'
     print(line)
 
 
