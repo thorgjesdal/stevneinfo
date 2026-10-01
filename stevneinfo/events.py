@@ -196,7 +196,7 @@ def event_spec(event, klasse):
                weight = '3,0kg'
         elif gender == 'M':
            if klasse in ('G10', 'G11' ):
-              weight = '2,0kg'
+               weight = '2,0kg'
            elif klasse in ('G12', 'G13' ):
                weight = '3,0kg'
            elif klasse in ('G14', 'G15', 'MV70', 'MV75' ):
@@ -209,6 +209,9 @@ def event_spec(event, klasse):
                weight = '7,26kg'
            elif klasse >= 'MV80':
                weight = '3,0kg'
+           if klasse == 'G12' and event=='HT':
+               weight = '2,0kg'
+
     elif event == 'DT' :
         if gender == 'F':
            if klasse in ('J10', 'J11', 'J12', 'J13'):
@@ -284,7 +287,7 @@ def event_spec(event, klasse):
     throws['HT'] = { 'J10' : '2,0kg', 'J11' : '2,0kg', 'J12' : '2,0kg', 'J13' : '2,0kg', 
                        'J14' : '3,0kg', 'J15' : '3,0kg', 'J16' : '3,0kg', 'J17' : '3,0kg',
                        'J18/19' : '4,0kg', 'KU20' : '4,0kg', 'KU23' : '4,0kg', 'KS' : '4,0kg', 
-                       'G10' : '2,0kg', 'G11' : '2,0kg', 'G12' : '3,0kg', 'G13' : '3,0kg', 
+                       'G10' : '2,0kg', 'G11' : '2,0kg', 'G12' : '2,0kg', 'G13' : '3,0kg', 
                        'G14' : '4,0kg', 'G15' : '4,0kg', 'G16' : '5,0kg', 'G17' : '5,0kg',
                        'G18/19' : '6,0kg', 'MU20' : '6,0kg', 'MU23' : '7,26kg', 'MS' : '7,26kg'} 
     throws['JT'] = { 'J10' : '400g', 'J11' : '400g', 'J12' : '400g', 'J13' : '400g', 
