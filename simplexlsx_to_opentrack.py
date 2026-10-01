@@ -58,6 +58,8 @@ def read_simplexlsx(f):
             fn = value[2]
             first_name   = fn[0:min(len(fn),maxname)]
             ln = value[3]
+            if ln == None:
+                ln = 'XX'
             last_name = ln[0:min(len(ln),maxname)]
             dob = value[4]
             team = value[5]
@@ -109,11 +111,12 @@ def write_opentrack_import(ef, cf):
     ws["D1"] = 'Last name'
     ws["E1"] = 'Gender'
     ws["F1"] = 'Date of birth'
-    ws["G1"] = 'Team ID'
+    ws["G1"] = 'Email'
+    ws["H1"] = 'Team ID'
 #   ws["H1"] = 'Nationality'
-    ws["H1"] = 'Event'
-    ws["I1"] = 'Pb'
-    ws["J1"] = 'Sb'
+    ws["I1"] = 'Event'
+    ws["J1"] = 'Pb'
+    ws["K1"] = 'Sb'
     row_counter = 2
 
     row_counter = 2    
@@ -150,19 +153,26 @@ def write_opentrack_import(ef, cf):
             except: 
                 d = dob
 #               d = int(dob)
+
             print(d)
+            email = ''
             ws["F%d"%row_counter] = d
-            ws["G%d"%row_counter] = team
-            ws["H%d"%row_counter] = event_codes[e]
-            ws["I%d"%row_counter] = pb
-            ws["J%d"%row_counter] = sb
+            ws["G%d"%row_counter] = email
+            ws["H%d"%row_counter] = team
+            ws["I%d"%row_counter] = event_codes[e]
+            ws["J%d"%row_counter] = pb
+            ws["K%d"%row_counter] = sb
 
             row_counter +=1
 
     xlname = 'opentrack_input.xlsx'
     wb.save(xlname)
 
+<<<<<<< HEAD
 event_file = 'NorMK_events.xlsx'
+=======
+event_file = 'skulecup_events.xlsx'
+>>>>>>> 52e94d2c08697d62c49e50e4cc0e673822b6583c
 #event_file = 'fana_pv_events.xlsx'
 #event_file = 'boysen_events.xlsx'
 #event_file = 'ExtraEvents_NMMangekamp.xlsx'

@@ -201,6 +201,8 @@ def club_code(club_name):
        club_code=u'FET'
     elif club_name in (u'FIL AKS-77'):
        club_code=u'FA77'
+    elif club_name in (u'Fiksdal Idrettslag'):
+       club_code=u'FIKSD'
     elif club_name in (u'Finnøy Idrettslag'):
        club_code=u'FINNY'
     elif club_name in (u'Fiskå Idrettsforening'):
@@ -377,6 +379,8 @@ def club_code(club_name):
        club_code=u'HUG'
     elif club_name in (u'Hurdal Idrettslag'):
        club_code=u'HURD'
+    elif club_name in (u'Hurum friidrettsklubb'):
+       club_code=u'HURUM'
     elif club_name in (u'Hvam Idrettslag', u'Hvam IL'):
        club_code=u'HVAM'
     elif club_name in (u'Hvittingfoss Idrettslag'):
@@ -559,6 +563,8 @@ def club_code(club_name):
        club_code=u'KNGSB'
     elif club_name in (u'Kongsvinger IL Friidrett'):
        club_code=u'KNGSV'
+    elif club_name in (u'Konsvik Idrettslag'):
+       club_code=u'KOSIL'
     elif club_name in (u'Konnerud IL Friidrett'):
        club_code=u'KONN'
     elif club_name in (u'Kopervik Idrettslag'):
@@ -725,6 +731,8 @@ def club_code(club_name):
        club_code=u'NLAND'
     elif club_name in (u'Nordre Trysil IL'):
        club_code=u'NTRY'
+    elif club_name in (u'Nord og Rødtvedt Sport Klubb'):
+       club_code=u'NRSKU'
     elif club_name in (u'Nordøy Idrettslag'):
        club_code=u'NORIL'
     elif club_name in (u'Norrøna IL'):
@@ -1033,6 +1041,8 @@ def club_code(club_name):
        club_code=u'SGNE'
     elif club_name in (u'Sømna Idrettslag', u'Sømna IL'):
        club_code=u'SMNA'
+    elif club_name in (u'Søndre Meløy Idrettslag Engavågen'):
+       club_code=u'SOMIL'
     elif club_name in (u'Søndre Land IL Friidrett', u'Friidrett Søndre Land IL'):
        club_code=u'SNDLA'
     elif club_name in (u'Søre Ål Idrettslag'):
@@ -1383,6 +1393,8 @@ def club_name(club_code):
        club_name=u'Fet Friidrettsklubb'
     elif club_code == (u'FA77'):
        club_name=u'FIL AKS-77'
+    elif club_code == (u'FIKSD'):
+       club_name=u'Fiksdal Idrettslag'
     elif club_code == (u'FINNY'):
        club_name=u'Finnøy Idrettslag'
     elif club_code == (u'FISIF'):
@@ -1551,6 +1563,8 @@ def club_name(club_code):
        club_name=u'Horten Friidrettsklubb'
     elif club_code == (u'HUG'):
        club_name=u'Huglo Idrettslag'
+    elif club_code == (u'HURUM'):
+       club_name=u'Hurum friidrettsklubb'
     elif club_code == (u'HURD'):
        club_name=u'Hurdal Idrettslag'
     elif club_code == (u'HVAM'):
@@ -1733,6 +1747,8 @@ def club_name(club_code):
        club_name=u'Kopervik Idrettslag'
     elif club_code == (u'KORG'):
        club_name=u'Korgen Idrettslag'
+    elif club_code == (u'KOSIL'):
+       club_name=u'Konsvik Idrettslag'
     elif club_code == (u'KRAG'):
        club_name=u'Kragerø IF Friidrett'
     elif club_code == (u'KRAAK'):
@@ -1881,7 +1897,9 @@ def club_name(club_code):
        club_name=u'Nittedal Idrettslag'
     elif club_code == (u'NRDKJ'):
        club_name=u'Nordkjosbotn Idrettslag'
-    elif club_code == (u'NEIDS'):
+    elif club_code == (u'NRSKU'):
+       club_name=u'Nord og Rødtvedt Sport Klubb'
+    elif club_code == (u'NFJEL'):
        club_name=u'Nordre Eidsvoll Idrettslag'
     elif club_code == (u'NFJEL'):
        club_name=u'Nordre Fjell Friidrett'
