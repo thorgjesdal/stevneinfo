@@ -13,6 +13,7 @@ from stevneinfo import statistics as stats
 import pprint
 
 def get_gender(cat):
+    print (cat)
     gender_nor = {'M':'M', 'K':'F', 'G':'M', 'J':'F'}
     gender_eng = {'M':'M', 'W':'F', 'B':'M', 'G':'F'}
     if cat[0] in ('M', 'K', 'G', 'J'):
@@ -147,7 +148,8 @@ def write_opentrack_import(ef, cf):
             try:
                 d = datetime.datetime.strftime(dob,isodateformat)
             except: 
-                d = int(dob)
+                d = dob
+#               d = int(dob)
             print(d)
             ws["F%d"%row_counter] = d
             ws["G%d"%row_counter] = team
@@ -160,7 +162,8 @@ def write_opentrack_import(ef, cf):
     xlname = 'opentrack_input.xlsx'
     wb.save(xlname)
 
-event_file = 'fana_pv_events.xlsx'
+event_file = 'NorMK_events.xlsx'
+#event_file = 'fana_pv_events.xlsx'
 #event_file = 'boysen_events.xlsx'
 #event_file = 'ExtraEvents_NMMangekamp.xlsx'
 #competitor_file = 'Etteranmeldinger_BassenSprint.xlsx'
