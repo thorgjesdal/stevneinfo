@@ -4,15 +4,18 @@ import requests
 
 def fetch_json(url):
     #
-    url = url.strip('/') + '/json'
-    idx = url.index('opentrack.run/')+14
+    url = url.strip('/') + '/json/'
+#   idx = url.index('opentrack.run/')+17
+    idx = url.index('/x/')+1
     print(idx)
-    BASE_URL = url[0:idx]
-    print('x', url, BASE_URL)
+    BASE_URL = 'https://data.opentrack.run/'
+#   print('x', url, BASE_URL)
+    url = BASE_URL + url[idx:]
+#   print('z', url, BASE_URL)
 
     username = os.environ["OTUSER"]
     password = os.environ["OTPASSWD"]
-    print(username, password)
+#   print(username, password)
 
     r = requests.post(BASE_URL + "api/get-auth-token/", data=dict(username=username, password=password))
     print(f"Authenticating.  Response: {r.status_code}")
@@ -31,6 +34,7 @@ def fetch_json(url):
 # now use the token in a header to request the json for the competition
     #print(url)
     r  = requests.get(url, headers={ "Authorization": "Token " + token})
+#   print(r.text)
     j = r.json()
 
     return j
